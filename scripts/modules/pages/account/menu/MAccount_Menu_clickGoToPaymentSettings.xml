@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Go to payment settings on account menu.</description>
-  <command name="clickAndWait" target="css=.account-options li:nth-of-type(5) a">
+  <command name="clickAndWait" target="css=.secondary-navigation div.content-asset ul:first-of-type li:nth-of-type(3) a">
     <comment>Goto personal data</comment>
   </command>
 </scriptmodule>
