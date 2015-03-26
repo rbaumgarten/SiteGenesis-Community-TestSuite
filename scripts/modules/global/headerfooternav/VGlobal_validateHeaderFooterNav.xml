@@ -2,17 +2,19 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate header, footer and navigation.</description>
   <codecomment>Validate header</codecomment>
-  <command name="waitForElementPresent" target="css=#header header .primary-logo"/>
-  <command name="assertElementPresent" target="css=#header header #mini-cart"/>
-  <command name="assertElementPresent" target="css=#header header .menu-utility-user li:first-of-type a"/>
-  <command name="assertElementPresent" target="css=#header header .menu-utility-user li:last-of-type a"/>
-  <command name="assertElementPresent" target="css=#header header .menu-utility li:first-of-type a"/>
-  <command name="assertElementPresent" target="css=#header header .menu-utility li:last-of-type a"/>
-  <command name="assertElementPresent" target="css=#header header .header-banner"/>
+  <command name="waitForElementPresent" target="css=h1.primary-logo a img"/>
+  <command name="assertElementPresent" target="css=#mini-cart"/>
+  <codecomment>Validate header menu (e.g. user, wishlist, gift registry, store locator)</codecomment>
+  <command name="assertElementPresent" target="css=.menu-utility-user li:first-of-type a"/>
+  <command name="assertElementPresent" target="css= .menu-utility-user li:last-of-type a"/>
+  <command name="assertElementPresent" target="css=#navigation ul.menu-utility-user li:nth-of-type(2) a"/>
+  <command name="assertElementPresent" target="css=#navigation ul.menu-utility-user li:nth-of-type(3) a"/>
+  <command name="assertElementPresent" target="css=#navigation ul.menu-utility-user li:nth-of-type(4) a"/>
+  <command name="assertElementPresent" target="css=#navigation .header-banner"/>
   <codecomment>Validate navigation</codecomment>
-  <command name="assertElementPresent" target="css=#navigation nav ul.menu-category.level-1.clearfix li.first"/>
-  <command name="assertElementPresent" target="css=#navigation nav ul.menu-category.level-1.clearfix li.last"/>
-  <command name="assertElementPresent" target="css=#navigation nav .header-search"/>
+  <command name="assertElementPresent" target="css=#navigation ul.menu-category li:first-of-type"/>
+  <command name="assertElementPresent" target="css=#navigation ul.menu-category li:last-of-type"/>
+  <command name="assertElementPresent" target="css=#navigation .header-search"/>
   <codecomment>Validate main content</codecomment>
   <command name="assertElementPresent" target="css=#main"/>
   <codecomment>Validate footer</codecomment>

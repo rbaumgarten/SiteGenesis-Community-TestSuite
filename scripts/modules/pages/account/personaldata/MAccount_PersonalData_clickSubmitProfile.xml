@@ -2,5 +2,8 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click submit profile data.</description>
   <command name="waitForElementPresent" target="css=button[name=dwfrm_profile_confirm][type=submit]"/>
+  <command name="pause" value="500">
+    <comment>We have seen that we need a moment here otherweise a login later on fails for some strange reasons.</comment>
+  </command>
   <command name="clickAndWait" target="css=button[name=dwfrm_profile_confirm][type=submit]"/>
 </scriptmodule>

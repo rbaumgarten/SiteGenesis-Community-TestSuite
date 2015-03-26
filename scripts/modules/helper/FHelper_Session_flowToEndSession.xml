@@ -14,8 +14,8 @@
 - Goto homepage
 - Delete cookies
 - Close homepage</codecomment>
-  <command name="waitForElementPresent" target="css=#header h1.primary-logo img"/>
-  <command name="clickAndWait" target="css=#header h1.primary-logo img"/>
+  <command name="waitForElementPresent" target="css=h1.primary-logo a img"/>
+  <command name="clickAndWait" target="css=h1.primary-logo a img"/>
   <command name="waitForElementPresent" target="id=q">
     <comment>Simple/short validation to make sure that the homepage is loaded</comment>
   </command>

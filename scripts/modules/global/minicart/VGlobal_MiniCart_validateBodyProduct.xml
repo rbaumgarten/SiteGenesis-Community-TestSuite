@@ -5,7 +5,7 @@
   <parameter name="productName" desc="product name"/>
   <parameter name="productQuantity" desc="product quantity"/>
   <parameter name="productPriceTotal" desc="product price total"/>
-  <command name="store" target="css=#header header #mini-cart .mini-cart-content .mini-cart-product:nth-of-type" value="css_minicart_product"/>
+  <command name="store" target="css=#mini-cart .mini-cart-content .mini-cart-product:nth-of-type" value="css_minicart_product"/>
   <command name="assertElementPresent" target="${css_minicart_product}(@{row}) .mini-cart-image"/>
   <command name="assertText" target="${css_minicart_product}(@{row}) .mini-cart-name a" value="@{productName}">
     <comment>Validate that the product name exists in css path.</comment>
@@ -17,5 +17,5 @@
   <command name="assertText" target="${css_minicart_product}(@{row}) .mini-cart-pricing span.mini-cart-price" value="@{productPriceTotal}">
     <comment>Validate that the product price exists in css path.</comment>
   </command>
-  <command name="assertElementPresent" target="${css_minicart_product}(@{row}) .mini-cart-toggler"/>
+  <command name="assertElementPresent" disabled="true" target="${css_minicart_product}(@{row}) .mini-cart-toggler"/>
 </scriptmodule>
