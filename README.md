@@ -25,7 +25,7 @@ The following prerequisites and installation steps are needed to run the test su
 
 - XLT&reg; Script Developer 4.5.0 (or higher)
 - Firefox 31.0 (or higher)
-- A [Demandware](http://www.demandware.com/) SiteGenesis v15.2 or higher reference shop installation
+- A [Demandware](http://www.demandware.com/) SiteGenesis v15.3 or higher reference shop installation
 
 #### Installation
 
@@ -115,8 +115,8 @@ __Test Data__ or short __Data__ can be placed on global, package, module or test
 ## Test Suite Metadata
 
 - Name: SiteGenesis-Community-TestSuite
-- Version: v15.2.1 (matching SiteGenesis)
-- Release: February 2015
+- Version: v15.3.1 (matching SiteGenesis)
+- Release: March 2015
 - License: MIT License
 - License URI: http://opensource.org/licenses/MIT
 - Tags: xlt, testing, best practises, test automation, funtional testing, regression test, selenium
