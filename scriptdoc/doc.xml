@@ -2634,7 +2634,7 @@
         </step>
         <step disabled="false">
           <name>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</name>
-          <description>Enter, click and go to returning customer on account login page.</description>
+          <description>Log on with the provided credentials.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -3554,8 +3554,9 @@
           <moduleCall>false</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</name>
-          <description>Enter email only, leave password empty.</description>
+          <name>modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword</name>
+          <description>Enter only login, leave password empty
+</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -3577,7 +3578,6 @@
         </step>
       </steps>
       <calls>
-        <string>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</string>
         <string>modules.helper.MHelper_Random_generateEmail</string>
         <string>modules.helper.FHelper_Session_flowToEndSession</string>
         <string>modules.pages.account.login.VAccount_Login_validatePage</string>
@@ -3586,15 +3586,12 @@
         <string>modules.helper.MHelper_Random_generatePassword</string>
         <string>modules.global.headerfooternav.MGlobal_Header_clickLogin</string>
         <string>modules.pages.homepage.FHomepage_flowToCreateNewAccount</string>
+        <string>modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword</string>
       </calls>
       <test-data>
         <entry>
           <string>lastname</string>
           <string>${billingAddress_lastname}</string>
-        </entry>
-        <entry>
-          <string>passwordEmpty</string>
-          <string></string>
         </entry>
         <entry>
           <string>firstname</string>
@@ -3682,7 +3679,7 @@
       <baseUrl></baseUrl>
     </testcase>
     <testcase disabled="false">
-      <description>Test refresh products and calculate sums with update quantity and resort rows in cart.
+      <description>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&apos;t display the total and the test will fail.
 
 # 1. Setup and preparation
 
@@ -7306,7 +7303,7 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <used>true</used>
     </module>
     <module>
-      <description>Enter, click and go to returning customer on account login page.</description>
+      <description>Log on with the provided credentials.</description>
       <name>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</name>
       <external-parameters/>
       <steps/>
@@ -7946,6 +7943,17 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <used>true</used>
     </module>
     <module>
+      <description>Try to login without password</description>
+      <tags>fail</tags>
+      <name>modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="email" description="email"/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Validate address.</description>
       <name>modules.pages.account.addressbook.VAccount_AddressBook_validateAddress</name>
       <external-parameters/>
@@ -7987,8 +7995,16 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <description>Click add credit card on payment settings page.</description>
       <name>modules.pages.account.paymentsettings.MAccount_PaymentSettings_clickAddCreditCard</name>
       <external-parameters/>
-      <steps/>
-      <calls/>
+      <steps>
+        <step disabled="false">
+          <name>modules.helper.MHelper_WaitFor_DOMState</name>
+          <description>This helper waits for the DOM state hence we know of the site is still loading and the ready state is fired. This can be useful for click only commands, where we want to wait till the dust has settled.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+      </steps>
+      <calls>
+        <string>modules.helper.MHelper_WaitFor_DOMState</string>
+      </calls>
       <test-data/>
       <used>true</used>
     </module>
@@ -8265,6 +8281,7 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <calls/>
       <test-data/>
       <parameter name="position" description="position"/>
+      <parameter name="ownerName" description="The name of the order for precise removal of the card."/>
       <used>true</used>
     </module>
     <module>
@@ -8339,29 +8356,6 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <used>true</used>
     </module>
     <module>
-      <description>Go to payment settings on account menu.</description>
-      <name>modules.pages.account.menu.MAccount_Menu_clickGoToPaymentSettings</name>
-      <external-parameters/>
-      <steps/>
-      <calls/>
-      <test-data/>
-      <used>true</used>
-    </module>
-    <module>
-      <description>Validate product basic details in wishlist.</description>
-      <name>modules.pages.account.wishlist.VAccount_WishList_Row_validateProductBasicDetails</name>
-      <external-parameters/>
-      <steps/>
-      <calls/>
-      <test-data/>
-      <parameter name="row" description="row"/>
-      <parameter name="productName" description="product name"/>
-      <parameter name="productNumber" description="product number"/>
-      <parameter name="productQuantity" description="product quantity"/>
-      <parameter name="productPriceSales" description="product price sales"/>
-      <used>true</used>
-    </module>
-    <module>
       <description>Flow to start session.
 
 - Start with open browser tab
@@ -8384,6 +8378,29 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       </steps>
       <calls/>
       <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Go to payment settings on account menu.</description>
+      <name>modules.pages.account.menu.MAccount_Menu_clickGoToPaymentSettings</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Validate product basic details in wishlist.</description>
+      <name>modules.pages.account.wishlist.VAccount_WishList_Row_validateProductBasicDetails</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="row" description="row"/>
+      <parameter name="productName" description="product name"/>
+      <parameter name="productNumber" description="product number"/>
+      <parameter name="productQuantity" description="product quantity"/>
+      <parameter name="productPriceSales" description="product price sales"/>
       <used>true</used>
     </module>
     <module>
@@ -8781,6 +8798,16 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
       <calls/>
       <test-data/>
       <parameter name="row" description="row"/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>This helper waits for the DOM state hence we know of the site is still loading and the ready state is fired. This can be useful for click only commands, where we want to wait till the dust has settled.</description>
+      <tags>DOM,helper,waitfor</tags>
+      <name>modules.helper.MHelper_WaitFor_DOMState</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
       <used>true</used>
     </module>
     <module>
@@ -9594,7 +9621,7 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
         </step>
         <step disabled="false">
           <name>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</name>
-          <description>Enter, click and go to returning customer on account login page.</description>
+          <description>Log on with the provided credentials.</description>
           <moduleCall>true</moduleCall>
         </step>
       </steps>
