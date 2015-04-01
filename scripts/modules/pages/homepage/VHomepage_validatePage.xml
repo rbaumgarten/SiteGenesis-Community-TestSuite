@@ -5,6 +5,6 @@
   <command name="assertElementPresent" target="css=#main"/>
   <command name="assertElementPresent" target="css=#main #homepage-slider ul#homepage-slides li.slide"/>
   <command name="assertElementPresent" target="css=#main .home-bottom-slots"/>
-  <command name="assertElementPresent" target="css=#main .home-bottom form#email-alert-signup input[alt=Submit]"/>
+  <command name="assertElementPresent" target="css=#email-alert-signup"/>
   <command name="assertElementPresent" target="css=#main #browser-check"/>
 </scriptmodule>

@@ -3,5 +3,5 @@
   <description>Validate cart is empty.</description>
   <codecomment>Validate cart structure if empty</codecomment>
   <command name="assertText" disabled="true" target="css=#primary h1" value="Your Shopping Cart"/>
-  <command name="assertText" target="css=#primary div" value="Your Shopping Cart is Empty"/>
+  <command name="assertText" target="css=#primary div h1" value="Your Shopping Cart is Empty"/>
 </scriptmodule>

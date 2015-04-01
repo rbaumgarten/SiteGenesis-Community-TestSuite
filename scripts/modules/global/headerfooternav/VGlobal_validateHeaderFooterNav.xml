@@ -18,7 +18,7 @@
   <codecomment>Validate main content</codecomment>
   <command name="assertElementPresent" target="css=#main"/>
   <codecomment>Validate footer</codecomment>
-  <command name="assertElementPresent" target="css=#footer footer .content-asset ul.menu-footer.menu.pipe li:first-of-type a"/>
-  <command name="assertElementPresent" target="css=#footer footer .content-asset ul.menu-footer.menu.pipe li:last-of-type a"/>
-  <command name="assertElementPresent" target="css=#footer footer .content-asset .copyright"/>
+  <command name="assertElementPresent" target="css=footer div.footer-container div:first-of-type"/>
+  <command name="assertElementPresent" target="css=footer div.footer-container div:last-of-type"/>
+  <command name="assertElementPresent" target="css=.content-asset div.copyright"/>
 </scriptmodule>

@@ -11,7 +11,7 @@
   <command name="assertElementPresent" target="css=#primary .cart-actions"/>
   <command name="assertElementPresent" target="css=#primary .cart-footer"/>
   <command name="assertElementPresent" target="css=.cart-coupon-code #add-coupon"/>
-  <command name="assertElementPresent" target="css=.cart-order-totals #update-cart"/>
+  <command name="assertElementPresent" target="css=#update-cart"/>
   <command name="assertElementPresent" target="css=.cart-order-totals table.order-totals-table thead"/>
   <command name="assertElementPresent" target="css=.cart-order-totals table.order-totals-table .order-subtotal"/>
   <command name="assertElementPresent" target="css=.cart-order-totals table.order-totals-table .order-shipping"/>
