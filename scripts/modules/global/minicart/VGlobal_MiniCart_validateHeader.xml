@@ -3,7 +3,6 @@
   <description>Validate minicart on homepage header.</description>
   <command name="store" target="css=#mini-cart .mini-cart-total" value="minicartTotal"/>
   <command name="assertElementPresent" target="${minicartTotal} a.mini-cart-link"/>
-  <command name="assertElementPresent" target="${minicartTotal} span.mini-cart-label"/>
-  <command name="assertElementPresent" disabled="true" target="${minicartTotal} span.mini-cart-item-word"/>
-  <command name="assertText" target="${minicartTotal} span.mini-cart-label" value="*CART*"/>
+  <command name="assertElementPresent" target="${minicartTotal} a.mini-cart-link i"/>
+  <command name="assertElementPresent" target="${minicartTotal} a.mini-cart-link span"/>
 </scriptmodule>

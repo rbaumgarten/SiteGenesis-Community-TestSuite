@@ -18,5 +18,5 @@
   <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(3)" value="regexpi:Quantity"/>
   <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(4)" value="regexpi:Price"/>
   <codecomment>Validate primary actions</codecomment>
-  <command name="assertText" target="css=#main #primary .actions a.continue.button" value="Return to Shopping"/>
+  <command name="assertText" target="css=#main #primary .actions a.continue" value="Return to Shopping"/>
 </scriptmodule>
