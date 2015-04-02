@@ -7,5 +7,8 @@
   <command name="waitForElementPresent" target="css= #dwfrm_login.clearfix fieldset div:first-of-type input"/>
   <command name="type" target="css= #dwfrm_login.clearfix fieldset div:first-of-type input" value="@{email}"/>
   <command name="type" target="id=dwfrm_login_password" value="@{password}"/>
+  <command name="pause" value="200">
+    <comment>Needed because Analytics is delayed by 100ms. If we are faster than that, we miss the call and get problems with the cookies that are changed during login/logout.</comment>
+  </command>
   <command name="clickAndWait" target="css=button[name=&quot;dwfrm_login_login&quot;][type=&quot;submit&quot;]"/>
 </scriptmodule>
