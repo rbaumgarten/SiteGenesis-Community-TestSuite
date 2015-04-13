@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate minicart on homepage header details as item count and total price.</description>
-  <command name="assertText" target="css=#mini-cart .mini-cart-total .mini-cart-label" value="regexpi:CART"/>
+  <command name="assertElementPresent" target="css=#mini-cart .mini-cart-total .mini-cart-link.mini-cart-empty"/>
   <command name="assertText" disabled="true" target="css=#mini-cart .mini-cart-total .mini-cart-empty" value="*(0)*"/>
 </scriptmodule>

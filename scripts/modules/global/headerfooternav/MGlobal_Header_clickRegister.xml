@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click register in header.</description>
   <command name="waitForElementPresent" target="css=#navigation .menu-utility-user "/>
-  <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info .user-register"/>
+  <command name="clickAndWait" target="css=#navigation .menu-utility-user li.user-info #menuLink1"/>
 </scriptmodule>

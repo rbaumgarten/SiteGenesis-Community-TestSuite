@@ -41,7 +41,7 @@
   <parameter name="shippingMethodName" desc="shipping method name"/>
   <parameter name="shippingStatus" desc="shipping status"/>
   <action name="GoToLogin"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogin"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
   <module name="modules.pages.account.login.VAccount_Login_validatePage"/>
   <action name="GoToCheckOrderStatus"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickGoToCheckOrderStatus">

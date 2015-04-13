@@ -8,7 +8,7 @@
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-details"/>
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-quantity-details .item-user-actions button"/>
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-quantity-details .item-user-actions a.add-to-wishlist"/>
-  <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-quantity-details .item-user-actions a.add-to-registry"/>
+  <command name="assertElementPresent" disabled="true" target="css=.cart-row:nth-of-type(@{row}) .item-quantity-details .item-user-actions a.add-to-registry"/>
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-quantity"/>
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-quantity-details"/>
   <command name="assertElementPresent" target="css=.cart-row:nth-of-type(@{row}) .item-price"/>

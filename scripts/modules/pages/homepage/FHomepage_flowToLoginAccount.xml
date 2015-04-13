@@ -12,7 +12,7 @@
 
 - Click login in header</codecomment>
   <action name="Login"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogin"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
   <codecomment># Account
 
 - Validate page

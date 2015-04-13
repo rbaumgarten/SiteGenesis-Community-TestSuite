@@ -93,7 +93,8 @@
     <parameter name="year" value="${year}"/>
   </module>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber_01}"/>
@@ -399,7 +400,8 @@
 - Logout
 - Validate order via check order status</codecomment>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
   <module name="modules.pages.homepage.FHomepage_flowToCheckOrderStatus">
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
     <parameter name="orderDate" value="${orderDate_varDynamic}"/>
