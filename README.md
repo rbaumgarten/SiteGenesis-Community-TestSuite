@@ -118,8 +118,8 @@ __Test Data__ or short __Data__ can be placed on global, package, module or test
 
 ## Test Suite Metadata
 
-- Name: SiteGenesis-Community-TestSuite
-- Version: v15.3.1 (matching SiteGenesis)
+- Name: Demandware SiteGenesis Community TestSuite
+- Version: v15.1 or higher (matching SiteGenesis)
 - Release: March 2015
 - License: MIT License
 - License URI: http://opensource.org/licenses/MIT
@@ -128,3 +128,4 @@ __Test Data__ or short __Data__ can be placed on global, package, module or test
 ## Test Suite Contributors
 
 - Various people at Xceptance Software Technologies GmbH
+- Demandware, Inc.
