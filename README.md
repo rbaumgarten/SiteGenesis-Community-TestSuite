@@ -25,7 +25,7 @@ The following prerequisites and installation steps are needed to run the test su
 
 - XLT&reg; Script Developer 4.5.0 (or higher)
 - Firefox 31.0 (or higher)
-- A [Demandware](http://www.demandware.com/) SiteGenesis v15.3 or higher reference shop installation
+- A [Demandware](http://www.demandware.com/) SiteGenesis v15.1 or higher reference shop installation
 
 #### Installation
 
@@ -55,6 +55,10 @@ The following prerequisites and installation steps are needed to run the test su
 ## Test Suite Structure
 
 This section gives a small introduction to the test suite structure. Please visit the generated [ScriptDoc](http://xceptance.github.io/SiteGenesis-Community-TestSuite/scriptdoc/index.html) for extended information on test data, packages, test cases and modules. The provided [Guide](https://github.com/dataduke/xlt-testsuite-documentation/blob/gh-pages/GUIDE.md) delivers conventions for test suite namings, instructions for test suite development, examples of test suite commands and links to additional resources. All planned features are publicly tracked as [GitHub issues](https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues). Feel free to add feature requests!
+
+### Branches
+
+This test suite features several SiteGenesis version branches. The __master__ is always the latest available version. Older versions can be found under their respective tag name such as __v15.3.2__ or in the branch of the version such as __15.3.X__.
 
 ### General
 
