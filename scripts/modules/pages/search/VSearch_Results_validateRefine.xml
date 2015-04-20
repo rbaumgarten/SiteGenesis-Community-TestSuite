@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Checks that the refine section in the left side is there. Does not check for the content of the refine.</description>
+  <command name="assertText" target="css=#secondary .refinement-header" value="regexpi:REFINE SEARCH">
+    <comment>Pay attention that this is sometimes an h2, sometimes a span!</comment>
+  </command>
+</scriptmodule>

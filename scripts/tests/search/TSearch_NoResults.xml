@@ -33,6 +33,7 @@
   <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
     <parameter name="searchText" value="${searchText}"/>
   </module>
+  <module name="modules.pages.search.VSearch_Results_validateRefine"/>
   <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
     <parameter name="searchText" value="${searchText}"/>
   </module>

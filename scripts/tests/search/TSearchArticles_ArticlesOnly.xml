@@ -35,6 +35,7 @@
   <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
     <parameter name="searchText" value="${searchText}"/>
   </module>
+  <module name="modules.pages.search.VSearch_Results_validateRefine"/>
   <module name="modules.pages.search.VSearch_Results_validateArticlesFound"/>
   <action name="ViewArticles"/>
   <module name="modules.pages.search.MSearch_Results_clickArticleResults"/>
