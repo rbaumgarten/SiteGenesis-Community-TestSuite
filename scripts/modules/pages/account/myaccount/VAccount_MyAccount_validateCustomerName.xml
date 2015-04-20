@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validate customer name on account page.</description>
+  <description>Validate customer name on MyAccount page.</description>
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
   <command name="waitForElementPresent" target="css=#primary h1"/>

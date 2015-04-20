@@ -27,7 +27,7 @@
     <parameter name="password" value="@{password}"/>
   </module>
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile"/>
-  <module name="modules.pages.account.menu.VAccount_Menu_validateCustomerName">
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="@{firstname}"/>
     <parameter name="lastname" value="@{lastname}"/>
   </module>
@@ -36,7 +36,7 @@
 - Logout
 - Go to homepage</codecomment>
   <action name="Logout"/>
-  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName" disabled="true"/>
   <action name="GoToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>

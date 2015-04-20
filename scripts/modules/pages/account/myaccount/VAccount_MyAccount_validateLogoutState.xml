@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validates the logged out state.</description>
+  <description>Validates the logged out state using MyAccount page.</description>
   <codecomment>Verify Logout</codecomment>
   <command name="waitForText" target="css=#primary h1" value="*My Account Login*"/>
   <command name="waitForText" disabled="true" target="css=#navigation ul.menu-utility-user li.user-info a.user-login" value="*LOGIN*"/>
