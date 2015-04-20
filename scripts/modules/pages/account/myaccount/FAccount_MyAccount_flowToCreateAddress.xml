@@ -30,7 +30,7 @@
 - Validate address in address book
 - Go to account menu</codecomment>
   <action name="GoToAddressBook"/>
-  <module name="modules.pages.account.myaccount.MAccount_Menu_clickGoToAddressBook"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
   <module name="modules.pages.account.VAccount_validateNav"/>
   <action name="CreateNewAddress"/>

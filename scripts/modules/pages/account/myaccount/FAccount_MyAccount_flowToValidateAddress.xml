@@ -24,7 +24,7 @@
 - Validate address data
 - Go to account</codecomment>
   <action name="GoToAddressBook"/>
-  <module name="modules.pages.account.myaccount.MAccount_Menu_clickGoToAddressBook"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddress">
     <parameter name="position" value="@{position}"/>

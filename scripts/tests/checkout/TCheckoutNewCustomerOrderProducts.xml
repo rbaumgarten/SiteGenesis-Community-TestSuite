@@ -394,16 +394,16 @@
 - Logout</codecomment>
   <action name="GoToAccount"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
-  <module name="modules.pages.account.myaccount.VAccount_Menu_validateCustomerName">
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
   </module>
-  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateProfile">
+  <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
-  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateAddress">
+  <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress">
     <parameter name="position" value="1"/>
     <parameter name="title" value="${shippingAddress_title}"/>
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
@@ -416,7 +416,7 @@
     <parameter name="postalCode" value="${shippingAddress_postalCode}"/>
     <parameter name="phone" value="${shippingAddress_phone}"/>
   </module>
-  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateAddress">
+  <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress">
     <parameter name="position" value="2"/>
     <parameter name="title" value="${billingAddress_title}"/>
     <parameter name="firstname" value="${billingAddress_firstname}"/>
@@ -429,7 +429,7 @@
     <parameter name="postalCode" value="${billingAddress_postalCode}"/>
     <parameter name="phone" value="${billingAddress_phone}"/>
   </module>
-  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateCreditCard">
+  <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateCreditCard">
     <parameter name="position" value="1"/>
     <parameter name="owner" value="${owner}"/>
     <parameter name="typeShort" value="${type}"/>
@@ -437,7 +437,7 @@
     <parameter name="month" value="${month}"/>
     <parameter name="year" value="${year}"/>
   </module>
-  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateOrderViaOrderHistory">
+  <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">
     <parameter name="position" value="1"/>
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
     <parameter name="orderDate" value="${orderDate_varDynamic}"/>
@@ -451,6 +451,6 @@
 - End session</codecomment>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_Menu_clickLogout"/>
-  <module name="modules.pages.account.myaccount.VAccount_Menu_validateLogoutState"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
 </testcase>
