@@ -26,7 +26,7 @@
 - Search false string
 - Validate not found page with suggestion</codecomment>
   <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterSubmitText">
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
   <module name="modules.pages.search.VSearch_validatePage">

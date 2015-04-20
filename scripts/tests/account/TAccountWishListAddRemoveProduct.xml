@@ -49,7 +49,7 @@
 - Store product details
 - Add to wishlist</codecomment>
   <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterSubmitText">
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
   <action name="AddToWishList"/>
