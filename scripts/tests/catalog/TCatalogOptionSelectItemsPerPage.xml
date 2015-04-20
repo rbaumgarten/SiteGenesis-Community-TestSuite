@@ -107,5 +107,4 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
   <codecomment># Teardown
 
 - End session</codecomment>
-  <module name="modules.helper.FHelper_Session_flowToEndSession"/>
 </testcase>
