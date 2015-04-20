@@ -1,10 +1,10 @@
 # Guide
 
-This document describes the defined test suite naming conventions, gives a short introduction to test suite development and shows some test suite examples. The last part contains some pointers to various helpful resources on other websites. 
+This document describes the defined test suite naming conventions, gives a short introduction to test suite development and shows some test suite examples. The last part contains some pointers to various helpful resources on other websites.
 
 ## Test Suite Conventions
 
-The following styling rules were quite consequently applied to form a solid structure and define consistent descriptions and comments as well as establish a naming scheme for packages, tests and modules. The elaborately discussed style guidelines may serve as a loose pointer to build your uniform test suite or be completely adapted to your needs. (Names written in `{}` are required. Names written in `[]` are optional.) 
+The following styling rules were quite consequently applied to form a solid structure and define consistent descriptions and comments as well as establish a naming scheme for packages, tests and modules. The elaborately discussed style guidelines may serve as a loose pointer to build your uniform test suite or be completely adapted to your needs. (Names written in `{}` are required. Names written in `[]` are optional.)
 
 ### Naming of Packages
 
@@ -15,7 +15,10 @@ The following styling rules were quite consequently applied to form a solid stru
 
 ### Naming of Tests
 
-- Tests: `T{Area}{TestScope}_{interaction}{Name}`
+- Tests: `T{Area}[TestScope]_{Details}`
+
+The `Area` defines the high-level test topic, such as search or catalog. The `TestScope` is an area within the test topic, such as guest order in checkout. The `Details` give a more precise idea of the test case itself and should describe the goal or task in a few words. They might be composed of `{interaction}{what}`, but this is just a suggestion.
+
 
 ### Naming of Modules
 
@@ -27,7 +30,7 @@ The following styling rules were quite consequently applied to form a solid stru
 
 Variable names are written in `camelCase` notation starting with a lowercase letter.
 
-- Test Data: `{name}` 
+- Test Data: `{name}`
 - Dynamic Variables: `{name}_varDynamic`
 - Module Parameters: `{name}`
 - Module Parameters (which need assignment as variable name): `{name}_varName`
@@ -82,7 +85,7 @@ By following these development steps you may implement your own test case in **X
 
 - **Create** a new `test case` and write an informal list of short steps describing the simulated process.
 - **Insert** `comment` lines in the `test case` with step descriptions aggregated by their interacted `pages`.
-- **Drag and drop** the needed `modules` from the `pages` packages in the project tree into the `test`. 
+- **Drag and drop** the needed `modules` from the `pages` packages in the project tree into the `test`.
 - **Configure** specific `test data` at the `test case` and dynamic variables for used `modules`.
 
 Congratulations, you may **run your first own test now**. For advanced development you might have to build your own modules. Therefore please refer to the official XLT documentation.
@@ -93,25 +96,25 @@ Following are some examples (ex.) of module commands used for text matching, tex
 
 #### Text Matching
 
-_ex. Order date pattern matching_ 
+_ex. Order date pattern matching_
 
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
 | `assertText`  | `css=#main .order-date .value`                      | `regexp:[A-Z][a-z]{2} [0-9]{2}, [0-9]{4}` |
 
-_ex. Order number pattern matching_ 
+_ex. Order number pattern matching_
 
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
 | `assertText`  | `css=#main .order-number .value`                    | `regexp:00[0-9]{6}`                       |
 
-_ex. Case insensitive pattern matching_ 
+_ex. Case insensitive pattern matching_
 
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
 | `assertText`  | `css=#main .label .capitalized`                     | `regexpi:LOWERCASE uppercase Ignored `    |
 
-_ex. Match inner substring_ 
+_ex. Match inner substring_
 
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
@@ -119,15 +122,15 @@ _ex. Match inner substring_
 
 #### Text Operation
 
-_ex. Remove trailing whitespace_ 
+_ex. Remove trailing whitespace_
 
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
 | `storeEval`   | `"${blockTotalsShipping}".trim()`                   | `totalsShipping`                          |
 
 
-_ex. Substring inclusive until last character_ 
- 
+_ex. Substring inclusive until last character_
+
 | Command       | Target                                              | Value                                     |
 | :------------ | :-------------------------------------------------- | :---------------------------------------- |
 | `storeEval`   | `"${creditCardNumber}".substring(12,16)`            | `creditCardLastFourDigits`                |

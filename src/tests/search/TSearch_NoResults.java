@@ -24,7 +24,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.search.TSearchResultsValidateEmpty")
-public class TSearchResultsValidateEmpty extends AbstractScriptTestCase
+("tests.search.TSearch_NoResults")
+public class TSearch_NoResults extends AbstractScriptTestCase
 {
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test search for multiple product results.
+  <description>Test search for a single product result and hence for an intermediate display of that product.
 
 # 1. Setup and preparation
 
@@ -10,9 +10,7 @@
 # 2. Scope of test
 
 - Search for text
-- Leads to multiple product results
-- Validate result page (similar to catalog page)
-- Select a product
+- Product detail page comes up
 - Validate product detail page
 
 # 3. Clean up
@@ -23,25 +21,19 @@
 - Start session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Many Results
+  <codecomment>## One Result
 
-- Search product color
-- Valdiate results page (similar to catalog page)
-- Validate search string
-- Go to random product
+- Search product number
 - Valdiate PDP
 - Valdiate PDP product number</codecomment>
   <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterSubmitText">
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.search.VSearch_validatePage">
-    <parameter name="searchText" value="${searchText}"/>
-  </module>
-  <module name="modules.pages.search.VSearch_Results_validateProductCatalog"/>
-  <action name="PDP"/>
-  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandom"/>
   <module name="modules.pages.productdetailpage.VProductDetailPage_validatePage"/>
+  <module name="modules.pages.productdetailpage.VProductDetailPage_validateProductNumber">
+    <parameter name="productNumber" value="${searchText}"/>
+  </module>
   <codecomment># Teardown
 
 - End session</codecomment>

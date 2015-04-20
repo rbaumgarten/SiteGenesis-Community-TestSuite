@@ -26,14 +26,19 @@
 - Search false string
 - Validate not found page with suggestion</codecomment>
   <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterSubmitText">
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.search.VSearch_validatePage">
+  <module name="modules.pages.search.VSearch_Results_validateSearchResultPage"/>
+  <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.search.VSearch_Results_validateEmptyProductList">
+  <module name="modules.pages.search.VSearch_Results_validateRefine"/>
+  <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
     <parameter name="searchText" value="${searchText}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateDidYouMean">
+    <parameter name="suggestedText" value="${searchText_noContentDidYouMean}"/>
   </module>
   <codecomment># Teardown
 

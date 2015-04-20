@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Check the search result basics without details of the search itself such as phrases and did you mean. This is a not the page that comes up when only products are found!</description>
+  <codecomment>The header of the page</codecomment>
+  <command name="assertText" target="css=#primary h1" value="Search Results"/>
+  <codecomment>The message box without content validation</codecomment>
+  <command name="assertElementPresent" target="css=#primary .section-header">
+    <comment>The grey box with the messages.</comment>
+  </command>
+  <codecomment>The second search box</codecomment>
+  <command name="assertElementPresent" target="css=#primary .no-hits-search form"/>
+  <command name="assertValue" target="css=#primary .no-hits-search form input[name=&quot;q&quot;]" value="">
+    <comment>Check that nothing is prefilled. This checks existence and state.</comment>
+  </command>
+  <command name="assertElementPresent" target="css=#primary .no-hits-search form button[name=&quot;simplesearch&quot;]"/>
+</scriptmodule>

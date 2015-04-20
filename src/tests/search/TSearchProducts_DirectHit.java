@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test search for multiple product results.</p>
+ * <p>Test search for a single product result and hence for an intermediate display of that product.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
@@ -15,9 +15,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
  * <li>Search for text</li>
- * <li>Leads to multiple product results</li>
- * <li>Validate result page (similar to catalog page)</li>
- * <li>Select a product</li>
+ * <li>Product detail page comes up</li>
  * <li>Validate product detail page</li>
  * </ul>
  * <h1 id="3-clean-up">3. Clean up</h1>
@@ -26,7 +24,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.search.TSearchResultsValidateProductCatalogPage")
-public class TSearchResultsValidateProductCatalogPage extends AbstractScriptTestCase
+("tests.search.TSearchProducts_DirectHit")
+public class TSearchProducts_DirectHit extends AbstractScriptTestCase
 {
 }
