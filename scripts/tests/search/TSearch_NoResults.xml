@@ -32,8 +32,11 @@
   <module name="modules.pages.search.VSearch_validatePage">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.search.VSearch_Results_validateEmptyProductList">
+  <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
     <parameter name="searchText" value="${searchText}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateDidYouMean">
+    <parameter name="suggestedText" value="${searchText_noContentDidYouMean}"/>
   </module>
   <codecomment># Teardown
 
