@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate search string on results page.</description>
   <parameter name="searchText" desc="search text"/>
-  <command name="waitForText" target="css=#main .breadcrumb-element.breadcrumb-result-text" value="Your search results for &quot;@{searchText}&quot;"/>
+  <command name="assertText" target="css=#main .breadcrumb-element.breadcrumb-result-text" value="Your search results for &quot;@{searchText}&quot;"/>
 </scriptmodule>

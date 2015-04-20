@@ -34,6 +34,7 @@
   <module name="modules.pages.search.VSearch_validatePage">
     <parameter name="searchText" value="${searchText}"/>
   </module>
+  <module name="modules.pages.search.VSearch_Results_validateArticlesFound"/>
   <action name="ViewArticles"/>
   <module name="modules.pages.search.MSearch_Results_clickArticleResults"/>
   <module name="modules.pages.search.VSearch_Results_validateArticleCatalog"/>
