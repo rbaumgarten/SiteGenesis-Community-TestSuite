@@ -54,7 +54,7 @@
 - Validate page
 - Validate empty list</codecomment>
   <action name="GoToPaymentSettings"/>
-  <module name="modules.pages.account.menu.MAccount_Menu_clickGoToPaymentSettings"/>
+  <module name="modules.pages.account.myaccount.MAccount_Menu_clickGoToPaymentSettings"/>
   <module name="modules.pages.account.VAccount_validateNav"/>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validatePage"/>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateEmptyCreditCardList"/>
@@ -155,6 +155,6 @@
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
-  <module name="modules.pages.account.menu.VAccount_Menu_validateLogoutState"/>
+  <module name="modules.pages.account.myaccount.MAccount_Menu_clickLogout"/>
+  <module name="modules.pages.account.myaccount.VAccount_Menu_validateLogoutState"/>
 </testcase>

@@ -96,6 +96,6 @@
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
-  <module name="modules.pages.account.menu.VAccount_Menu_validateLogoutState"/>
+  <module name="modules.pages.account.myaccount.MAccount_Menu_clickLogout"/>
+  <module name="modules.pages.account.myaccount.VAccount_Menu_validateLogoutState"/>
 </testcase>

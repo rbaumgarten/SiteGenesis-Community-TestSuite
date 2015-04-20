@@ -315,16 +315,16 @@
 - Validate profile in personal data
 - Validate order in order history
 - Logout</codecomment>
-  <module name="modules.pages.account.menu.VAccount_Menu_validateCustomerName">
+  <module name="modules.pages.account.myaccount.VAccount_Menu_validateCustomerName">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
   </module>
-  <module name="modules.pages.account.menu.FAccount_Menu_flowToValidateProfile">
+  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateProfile">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
-  <module name="modules.pages.account.menu.FAccount_Menu_flowToValidateOrderViaOrderHistory">
+  <module name="modules.pages.account.myaccount.FAccount_Menu_flowToValidateOrderViaOrderHistory">
     <parameter name="position" value="1"/>
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
     <parameter name="orderDate" value="${orderDate_varDynamic}"/>
@@ -338,6 +338,6 @@
 - End session</codecomment>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
-  <module name="modules.pages.account.menu.VAccount_Menu_validateLogoutState"/>
+  <module name="modules.pages.account.myaccount.MAccount_Menu_clickLogout"/>
+  <module name="modules.pages.account.myaccount.VAccount_Menu_validateLogoutState"/>
 </testcase>
