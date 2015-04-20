@@ -2,10 +2,10 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Flow to validate credit card data in payment settings.
 
-- Start on account menu
+- Start on MyAccount page
 - Go to payment settings
 - Validate credit card data
-- End on account menu</description>
+- End on MyAccount page</description>
   <parameter name="position" desc="position"/>
   <parameter name="owner" desc="owner"/>
   <parameter name="typeShort" desc="type short"/>

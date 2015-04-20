@@ -2,11 +2,11 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Flow to create new address in address book.
 
-- Start on account menu
+- Start on MyAccount page
 - Go to address book
 - Create, enter and submit address
 - Validate credit card data
-- End on account menu</description>
+- End on MyAccount page</description>
   <parameter name="position" desc="position"/>
   <parameter name="title" desc="title"/>
   <parameter name="firstname" desc="firstname"/>

@@ -2,11 +2,11 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Flow to edit personal data (profile).
 
-- Start on account menu
+- Start on MyAccount page
 - Go to personal data
 - Enter and submit profile
 - Valdiate customer name
-- End on account menu</description>
+- End on MyAccount page</description>
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
   <parameter name="email" desc="email"/>
