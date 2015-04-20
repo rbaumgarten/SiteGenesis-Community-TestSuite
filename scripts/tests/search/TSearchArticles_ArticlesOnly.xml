@@ -40,7 +40,6 @@
   <action name="ViewArticles"/>
   <module name="modules.pages.search.MSearch_Results_clickArticleResults"/>
   <module name="modules.pages.search.VSearch_Results_validateArticleCatalog"/>
-  <module name="modules.helper.FHelper_Session_flowToEndSession"/>
   <codecomment># Teardown
 
 - End session</codecomment>

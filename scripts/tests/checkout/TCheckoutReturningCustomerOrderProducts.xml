@@ -441,5 +441,4 @@
   <codecomment># Teardown
 
 - End session</codecomment>
-  <module name="modules.helper.FHelper_Session_flowToEndSession"/>
 </testcase>

@@ -452,5 +452,4 @@
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
   <module name="modules.pages.account.menu.MAccount_Menu_clickLogout"/>
-  <module name="modules.helper.FHelper_Session_flowToEndSession"/>
 </testcase>
