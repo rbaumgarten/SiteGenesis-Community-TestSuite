@@ -25,7 +25,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.search.TSearchResultsValidateArticles")
-public class TSearchResultsValidateArticles extends AbstractScriptTestCase
+("tests.search.TSearchArticles_ArticlesOnly")
+public class TSearchArticles_ArticlesOnly extends AbstractScriptTestCase
 {
 }
