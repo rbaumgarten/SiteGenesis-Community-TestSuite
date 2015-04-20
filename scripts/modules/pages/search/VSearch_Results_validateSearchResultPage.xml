@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Check the search result basics without details of the search itself such as phrases and did you mean.</description>
+  <description>Check the search result basics without details of the search itself such as phrases and did you mean. This is a not the page that comes up when only products are found!</description>
   <command name="assertText" target="css=#primary h1" value="Search Results"/>
 </scriptmodule>
