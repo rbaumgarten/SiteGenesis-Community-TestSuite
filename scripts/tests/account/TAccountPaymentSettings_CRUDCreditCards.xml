@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test add, edit and remove credit card data in account payment settings.
+  <description>Test add, edit, and remove credit card data in account payment settings.
 
 # 1. Setup and preparation 
 

@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountPersonalDataRegisterProfile")
-public class TAccountPersonalDataRegisterProfile extends AbstractScriptTestCase
+("tests.account.TAccount_CreateAccount")
+public class TAccount_CreateAccount extends AbstractScriptTestCase
 {
 }
