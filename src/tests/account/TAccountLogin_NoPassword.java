@@ -26,7 +26,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountLoginEmptyPassword")
-public class TAccountLoginEmptyPassword extends AbstractScriptTestCase
+("tests.account.TAccountLogin_NoPassword")
+public class TAccountLogin_NoPassword extends AbstractScriptTestCase
 {
 }
