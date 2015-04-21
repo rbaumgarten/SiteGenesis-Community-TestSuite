@@ -46,7 +46,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.cart.TCartRefreshProductsCalculateTotals")
-public class TCartRefreshProductsCalculateTotals extends AbstractScriptTestCase
+("tests.cart.TCart_ChangeQuantities")
+public class TCart_ChangeQuantities extends AbstractScriptTestCase
 {
 }
