@@ -30,7 +30,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountPaymentSettingsAddEditRemoveCreditCards")
-public class TAccountPaymentSettingsAddEditRemoveCreditCards extends AbstractScriptTestCase
+("tests.account.TAccountPaymentSettings_CRUDCreditCards")
+public class TAccountPaymentSettings_CRUDCreditCards extends AbstractScriptTestCase
 {
 }
