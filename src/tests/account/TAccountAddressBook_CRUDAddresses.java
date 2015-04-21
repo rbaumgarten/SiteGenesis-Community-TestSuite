@@ -33,7 +33,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountAddressBookAddEditRemoveAddresses")
-public class TAccountAddressBookAddEditRemoveAddresses extends AbstractScriptTestCase
+("tests.account.TAccountAddressBook_CRUDAddresses")
+public class TAccountAddressBook_CRUDAddresses extends AbstractScriptTestCase
 {
 }
