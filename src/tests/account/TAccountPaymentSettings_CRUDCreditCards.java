@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test add, edit and remove credit card data in account payment settings.</p>
+ * <p>Test add, edit, and remove credit card data in account payment settings.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
@@ -30,7 +30,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountPaymentSettingsAddEditRemoveCreditCards")
-public class TAccountPaymentSettingsAddEditRemoveCreditCards extends AbstractScriptTestCase
+("tests.account.TAccountPaymentSettings_CRUDCreditCards")
+public class TAccountPaymentSettings_CRUDCreditCards extends AbstractScriptTestCase
 {
 }

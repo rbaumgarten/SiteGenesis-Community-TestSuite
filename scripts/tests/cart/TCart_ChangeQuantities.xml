@@ -28,14 +28,6 @@
 - Validate calculated values in mini cart header.
 - Validate both products and subtotal on cart page.
 
-## Product 01 and 02 - Remove and rearrange rows
-
-- Remove product 01.
-- Validate product 02 is still in cart.
-- Validate subtotal.
-- Remove product 02.
-- Validate emty cart.
-
 # 3. Clean up
 
 - End session and clean up created cookies.</description>
@@ -44,9 +36,6 @@
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 01 - Change quantity via update cart</codecomment>
-  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>### Search
 
 - Add product 01 to cart</codecomment>
@@ -61,6 +50,9 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="unused"/>
   </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Product 01 - Change quantity via update cart</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>### Cart
 
 - Validate cart page 
@@ -109,9 +101,6 @@
     <parameter name="row" value="1"/>
     <parameter name="productPriceTotal" value="${productPriceTotal_01_varDynamic}"/>
   </module>
-  <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 02 - Change quantity via edit dialog</codecomment>
-  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>### Search
 
 - Add product 02 to cart (quantity 2)</codecomment>
@@ -126,6 +115,9 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="unused"/>
   </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Product 02 - Change quantity via edit dialog</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>### Helper
 
 - Calculate product price total 02
@@ -263,46 +255,6 @@
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 01 and 02 - Remove and resort rows</codecomment>
-  <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>### Cart
-
-- Remove first product
-- Validate mini cart header items updated
-- Validate second item is still in cart
-- Validate totals subtotal is updated</codecomment>
-  <action name="RemoveProduct"/>
-  <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
-  </module>
-  <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
-    <parameter name="totalsQuantity" value="${productQuantity_02_varDynamic}"/>
-    <parameter name="totalsSubtotal" value="${productPriceTotal_02_varDynamic}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName_02_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
-    <parameter name="row" value="1"/>
-    <parameter name="productPriceTotal" value="${productPriceTotal_02_varDynamic}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceTotal_02_varDynamic}"/>
-  </module>
-  <codecomment>### Cart
-
-- Remove second product
-- Validate empty cart</codecomment>
-  <action name="RemoveProduct"/>
-  <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
-  </module>
-  <module name="modules.pages.cart.VCart_validateEmptyProductList"/>
   <codecomment># Teardown
 
 - End session</codecomment>

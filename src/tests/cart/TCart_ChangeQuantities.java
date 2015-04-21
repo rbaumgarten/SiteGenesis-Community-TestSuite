@@ -32,21 +32,13 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Validate calculated values in mini cart header.</li>
  * <li>Validate both products and subtotal on cart page.</li>
  * </ul>
- * <h2 id="product-01-and-02-remove-and-rearrange-rows">Product 01 and 02 - Remove and rearrange rows</h2>
- * <ul>
- * <li>Remove product 01.</li>
- * <li>Validate product 02 is still in cart.</li>
- * <li>Validate subtotal.</li>
- * <li>Remove product 02.</li>
- * <li>Validate emty cart.</li>
- * </ul>
  * <h1 id="3-clean-up">3. Clean up</h1>
  * <ul>
  * <li>End session and clean up created cookies.</li>
  * </ul>
  */
 @ScriptName
-("tests.cart.TCartRefreshProductsCalculateTotals")
-public class TCartRefreshProductsCalculateTotals extends AbstractScriptTestCase
+("tests.cart.TCart_ChangeQuantities")
+public class TCart_ChangeQuantities extends AbstractScriptTestCase
 {
 }
