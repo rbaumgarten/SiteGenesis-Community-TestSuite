@@ -29,7 +29,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.cart.TCartAddRemoveProduct")
-public class TCartAddRemoveProduct extends AbstractScriptTestCase
+("tests.cart.TCart_AddRemoveProduct")
+public class TCart_AddRemoveProduct extends AbstractScriptTestCase
 {
 }
