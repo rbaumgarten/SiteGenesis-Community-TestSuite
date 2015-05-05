@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <command name="waitForElementPresent" target="id=pdpMain"/>
+  <command name="assertText" target="css=#ui-id-1.ui-dialog-title" value="regexpi:Product Quickview"/>
+  <command name="assertElementPresent" target="css=button.ui-button"/>
+  <codecomment>----------</codecomment>
+  <command name="assertElementPresent" target="css=.quickview-nav button.quickview-prev"/>
+  <command name="assertElementPresent" target="css=.quickview-nav button.quickview-next"/>
+  <module name="modules.pages.product.VProduct_verifyPDPMain"/>
+</scriptmodule>

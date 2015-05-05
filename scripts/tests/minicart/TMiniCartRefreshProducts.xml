@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="false">
   <tags>smoke</tags>
   <description>Test refresh products with update quantity and resort rows in mini cart.
 **Caution:** Browser window needs to be 1200 pixels wide to show totals subtotal in header.
@@ -88,6 +88,7 @@
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
   <module name="modules.global.minicart.MGlobal_MiniCart_hoverBody"/>
+  <command name="waitForVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodyProduct">
     <parameter name="row" value="2"/>
