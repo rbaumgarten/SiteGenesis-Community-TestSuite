@@ -17,6 +17,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>go from QV to PDP</li>
  * <li>verify stucture of PDP</li>
  * <li>check if product name procuct price and product number are the same on pdp as on qv</li>
+ * <li>search for product name and verify pdp again</li>
  * </ul>
  */
 @ScriptName
