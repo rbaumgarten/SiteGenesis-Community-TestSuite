@@ -11,7 +11,8 @@ verify both methods of showing products
 - first verify structure of the QV
 - go from QV to PDP
 - verify stucture of PDP
-- check if product name procuct price and product number are the same on pdp as on qv</description>
+- check if product name procuct price and product number are the same on pdp as on qv
+- search for product name and verify pdp again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
@@ -25,12 +26,13 @@ verify both methods of showing products
   <command name="clickAndWait" target="css=#navigation ul li:nth-of-type(4) div.level-2 ul.menu-vertical li:nth-of-type(5) a"/>
   <action name="OpenProductQV"/>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <command name="mouseOver" target="css=#search-result-items li:nth-of-type(2) a"/>
-  <command name="click" target="id=quickviewbutton"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">
+    <parameter name="position" value="2"/>
+  </module>
   <codecomment>Verify quick view page</codecomment>
   <action name="ViewProductQV"/>
   <module name="modules.pages.productQuickView.MProductQV_verifyPlainQV"/>
-  <codecomment>----------</codecomment>
+  <codecomment>Store product informations to check them later</codecomment>
   <command name="storeText" target="css=#product-content .product-number" value="productNumber"/>
   <command name="storeText" target="css=#pdpMain .product-name" value="productName"/>
   <command name="storeText" target="css=#product-content .product-price" value="productPrice"/>
@@ -50,4 +52,13 @@ verify both methods of showing products
   <command name="assertText" target="css=#product-content .product-number" value="${productNumber}"/>
   <command name="assertText" target="css=#pdpMain .product-name" value="${productName}"/>
   <command name="assertText" target="css=#product-content .product-price" value="${productPrice}"/>
+  <codecomment>Go back to Homepage and search for product name</codecomment>
+  <action name="GoBackToHompae"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
+  <action name="SearchProductandVerifyPDP"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productName}"/>
+  </module>
+  <command name="assertText" target="css=#pdpMain .product-name" value="${productName}"/>
+  <module name="modules.pages.product.VProduct_verifyPDPMain"/>
 </testcase>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Verifys pdpMain this is the same form on qv and pdp</description>
   <command name="assertElementPresent" target="css=#pdpMain .product-name"/>
   <codecomment>----------</codecomment>
   <command name="assertElementPresent" target="css=#pdpMain.pdp-main .product-image-container .product-primary-image"/>

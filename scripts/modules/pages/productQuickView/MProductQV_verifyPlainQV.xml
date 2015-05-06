@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Verifies the quick view for a plain product</description>
   <command name="waitForElementPresent" target="id=pdpMain"/>
+  <codecomment>----------</codecomment>
   <command name="assertText" target="css=#ui-id-1.ui-dialog-title" value="regexpi:Product Quickview"/>
   <command name="assertElementPresent" target="css=button.ui-button"/>
   <codecomment>----------</codecomment>
