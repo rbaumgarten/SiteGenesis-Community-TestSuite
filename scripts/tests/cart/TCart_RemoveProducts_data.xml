@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <productNumber_01>${productNumber_typeProduct}</productNumber_01>
-  <productQuantity_01>4</productQuantity_01>
+  <productQuantity_01>1</productQuantity_01>
   <productNumber_02>${productNumber_typeOptionProduct}</productNumber_02>
-  <productQuantity_02>9</productQuantity_02>
+  <productQuantity_02>2</productQuantity_02>
+  <productNumber_03>lucasarts-lego-indiana-jones-original-adventure-wii</productNumber_03>
+  <productQuantity_03>3</productQuantity_03>
+  <productNumber_04>atari-pipe-mania-psp</productNumber_04>
+  <productQuantity_04>4</productQuantity_04>
 </data>

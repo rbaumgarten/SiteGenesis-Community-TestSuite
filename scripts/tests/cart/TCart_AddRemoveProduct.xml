@@ -70,7 +70,7 @@
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
-  <module name="modules.pages.cart.VCart_validateEmptyProductList"/>
+  <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
   <codecomment># Teardown
 
 - End session</codecomment>
