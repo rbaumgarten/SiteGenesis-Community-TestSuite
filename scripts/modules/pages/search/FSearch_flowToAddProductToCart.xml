@@ -35,7 +35,7 @@
   <module name="modules.pages.productdetailpage.MProductDetailPage_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails">
+  <module name="modules.pages.product.MProduct_storeBasicDetails">
     <parameter name="productName_varName" value="@{productName_varName}"/>
     <parameter name="productNumber_varName" value="@{productNumber_varName}"/>
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
