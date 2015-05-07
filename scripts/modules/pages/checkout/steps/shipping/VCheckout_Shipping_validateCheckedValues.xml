@@ -8,7 +8,7 @@
   <command name="assertElementPresent" target="css=#main #primary #dwfrm_singleshipping_shippingAddress_useAsBillingAddress[value=&quot;@{shippingAddress_useAsBillingAddress}&quot;]">
     <comment>Please note checkbox is true but not visibly shown as checked by default</comment>
   </command>
-  <command name="assertElementPresent" target="css=#main #primary #is-gift-@{shippingAddress_isGift}[checked=&quot;checked&quot;]"/>
+  <command name="assertChecked" target="css=#dwfrm_singleshipping_shippingAddress_isGift[value=false]"/>
   <command name="assertElementPresent" target="css=#main #primary #shipping-method-00@{shippingMethod_position}[checked=&quot;checked&quot;][name=&quot;dwfrm_singleshipping_shippingAddress_shippingMethodID&quot;]"/>
   <codecomment>Please note checkbox is true but not visibly shown as checked by default</codecomment>
 </scriptmodule>

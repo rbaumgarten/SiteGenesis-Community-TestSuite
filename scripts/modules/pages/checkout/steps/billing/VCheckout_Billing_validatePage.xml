@@ -24,7 +24,7 @@
   <command name="store" target="css=#main #primary [class=&quot;checkout-billing address&quot;] fieldset:nth-of-type(3) " value="css_payment_method"/>
   <command name="assertElementPresent" target="${css_payment_method} legend"/>
   <command name="assertElementPresent" target="${css_payment_method} .payment-method-options"/>
-  <command name="assertElementPresent" target="${css_payment_method} .cvn-tip"/>
+  <command name="assertElementPresent" disabled="true" target="${css_payment_method} .cvn-tip"/>
   <codecomment>Validate secondary fieldset order summary</codecomment>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .section-header .section-header-note"/>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .checkout-mini-cart"/>

@@ -11,7 +11,7 @@
   <command name="store" target="css=#main #primary [class=&quot;checkout-shipping address&quot;] fieldset:nth-of-type(1) " value="fieldsetShippingAddress"/>
   <command name="assertElementPresent" target="${fieldsetShippingAddress} legend"/>
   <command name="assertElementPresent" target="${fieldsetShippingAddress} .form-field-tooltip:not(.with-helper-text) .tooltip"/>
-  <command name="assertElementPresent" target="${fieldsetShippingAddress} .form-field-tooltip.with-helper-text .tooltip"/>
+  <command name="assertElementPresent" disabled="true" target="${fieldsetShippingAddress} .form-field-tooltip.with-helper-text .tooltip"/>
   <codecomment>Validate primary fieldset shipping method</codecomment>
   <command name="store" target="css=#main #primary #shipping-method-list fieldset:nth-of-type(1) " value="fieldsetShippingMethod"/>
   <command name="assertElementPresent" target="${fieldsetShippingMethod} legend"/>
