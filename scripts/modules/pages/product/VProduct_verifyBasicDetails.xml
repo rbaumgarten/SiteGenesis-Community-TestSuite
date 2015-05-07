@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Verify basic product details.</description>
+  <parameter name="productName"/>
+  <parameter name="productNumber"/>
+  <parameter name="productPrice"/>
+  <parameter name="productQuantity"/>
+  <command name="assertText" target="css=#pdpMain .product-name" value="@{productName}"/>
+  <command name="assertText" target="css=#product-content .product-number span" value="@{productNumber}"/>
+  <command name="assertText" target="css=#product-content .product-price" value="@{productPrice}"/>
+  <command name="assertText" target="css=#Quantity" value="@{productQuantity}"/>
+</scriptmodule>

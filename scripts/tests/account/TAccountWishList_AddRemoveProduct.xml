@@ -53,7 +53,7 @@
     <parameter name="searchText" value="${productNumber}"/>
   </module>
   <action name="AddToWishList"/>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails">
+  <module name="modules.pages.product.MProduct_storeBasicDetails">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
