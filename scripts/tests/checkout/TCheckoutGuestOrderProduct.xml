@@ -337,7 +337,5 @@
 - Logout
 - End session</codecomment>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

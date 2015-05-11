@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click on UserButton
+Choose Logout
+Verify Logout
+*Caution* this only works if nobody is logged in</description>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
+</scriptmodule>

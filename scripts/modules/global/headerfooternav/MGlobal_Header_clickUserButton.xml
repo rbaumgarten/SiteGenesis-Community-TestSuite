@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click on user button in header.</description>
   <command name="waitForElementPresent" target="css=#navigation .menu-utility-user"/>
-  <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info a"/>
+  <command name="click" target="css=#navigation .menu-utility-user .user-info a"/>
 </scriptmodule>

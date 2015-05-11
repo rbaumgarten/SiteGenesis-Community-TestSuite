@@ -41,8 +41,7 @@
 - Validate customer name
 - Logout</codecomment>
   <action name="GoToRegister"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.login.MAccount_Login_clickGoToNewCustomer"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToRegister"/>
   <action name="Register"/>
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_enterProfile">
     <parameter name="firstname" value="${firstname}"/>
@@ -84,7 +83,7 @@
   </module>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
+  <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName" disabled="true"/>
   <codecomment># Teardown
 

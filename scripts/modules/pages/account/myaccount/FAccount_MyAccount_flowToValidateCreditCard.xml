@@ -30,5 +30,4 @@
     <parameter name="year" value="@{year}"/>
   </module>
   <action name="GoToAccount"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
 </scriptmodule>

@@ -22,6 +22,4 @@
     <parameter name="lastname" value="@{lastname}"/>
     <parameter name="email" value="@{email}"/>
   </module>
-  <action name="GoToAccount"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
 </scriptmodule>

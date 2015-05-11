@@ -69,6 +69,7 @@
     <parameter name="postalCode" value="${shippingAddress_postalCode}"/>
     <parameter name="phone" value="${shippingAddress_phone}"/>
   </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateAddress">
     <parameter name="position" value="2"/>
     <parameter name="title" value="${billingAddress_title}"/>
@@ -92,9 +93,9 @@
     <parameter name="month" value="${month}"/>
     <parameter name="year" value="${year}"/>
   </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber_01}"/>
@@ -400,9 +401,7 @@
 - Logout
 - Validate order via check order status</codecomment>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <module name="modules.pages.homepage.FHomepage_flowToCheckOrderStatus">
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
     <parameter name="orderDate" value="${orderDate_varDynamic}"/>

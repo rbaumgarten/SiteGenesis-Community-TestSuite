@@ -29,6 +29,4 @@
     <parameter name="shippingLastname" value="@{shippingAddress_lastname}"/>
     <parameter name="totalsTotal" value="@{totalsTotal}"/>
   </module>
-  <action name="GoToAccount"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
 </scriptmodule>

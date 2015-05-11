@@ -393,7 +393,7 @@
 - Validate order history
 - Logout</codecomment>
   <action name="GoToAccount"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
@@ -416,6 +416,7 @@
     <parameter name="postalCode" value="${shippingAddress_postalCode}"/>
     <parameter name="phone" value="${shippingAddress_phone}"/>
   </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress">
     <parameter name="position" value="2"/>
     <parameter name="title" value="${billingAddress_title}"/>
@@ -437,6 +438,7 @@
     <parameter name="month" value="${month}"/>
     <parameter name="year" value="${year}"/>
   </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">
     <parameter name="position" value="1"/>
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
@@ -450,7 +452,5 @@
 - Logout
 - End session</codecomment>
   <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

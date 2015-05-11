@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Clicks on Logout Button in User Menu</description>
+  <command name="waitForElementPresent" target="css=.menu-utility-user .user-info .user-panel .user-links .user-logout"/>
+  <command name="clickAndWait" target="css=.menu-utility-user .user-info .user-panel .user-links .user-logout"/>
+</scriptmodule>

@@ -63,5 +63,4 @@
     <parameter name="phone" value="@{phone}"/>
   </module>
   <action name="GoToAccount"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
 </scriptmodule>
