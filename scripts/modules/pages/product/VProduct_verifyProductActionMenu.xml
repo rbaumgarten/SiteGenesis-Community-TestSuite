@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Verifiy the Product Action Menu, e.g. Send To Friend, Add to Wishlist and add to gift bottons</description>
-  <command name="assertElementPresent" target="css=#product-content .product-actions ul li:nth-of-type(1) a"/>
-  <command name="assertElementPresent" target="css=#product-content .product-actions ul li:nth-of-type(2) a"/>
-  <command name="assertElementPresent" target="css=#product-content .product-actions ul li:nth-of-type(3) a"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(1)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(2)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(3)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(4)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(5)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(6)"/>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a:nth-of-type(7)"/>
 </scriptmodule>
