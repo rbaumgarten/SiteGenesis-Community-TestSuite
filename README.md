@@ -52,6 +52,27 @@ The following prerequisites and installation steps are needed to run the test su
 - Run test as JUnit test (default configuration: Firefox WebDriver).
 - Adapt WebDriver configurations in `project.properties` if needed.
 
+### XLT Framework for Grunt or Gulp based Execution
+
+#### Prerequisites
+
+- XLT&reg; Framework v4.5 (or higher)
+- Apache Ant
+- Node
+- Grunt or Gulp
+
+#### Installation
+
+- [Download the XLT Framework](https://www.xceptance.com/en/xlt/download.html) and unzip it into a directory of your choice.
+- Configure ant build.properties by setting the base path of your local XLT installation as "xlt.home.dir" property (This can be done relative to your ant base directory).
+- Navigate into the grunt or gulp directory with your console.
+- Install the node dependencies by calling "npm install".
+- Make sure that your test suite is running in the script developer (e.g. configure "storefront_url" via Manage Global Test Data ).
+
+#### Usage
+- Navigate into the grunt or gulp directory with your console.
+- Start the test suite by calling "grunt" or "gulp".
+
 ## Test Suite Structure
 
 This section gives a small introduction to the test suite structure. Please visit the generated [ScriptDoc](http://xceptance.github.io/SiteGenesis-Community-TestSuite/scriptdoc/index.html) for extended information on test data, packages, test cases and modules. The provided [Guide](https://github.com/dataduke/xlt-testsuite-documentation/blob/gh-pages/GUIDE.md) delivers conventions for test suite namings, instructions for test suite development, examples of test suite commands and links to additional resources. All planned features are publicly tracked as [GitHub issues](https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues). Feel free to add feature requests!
