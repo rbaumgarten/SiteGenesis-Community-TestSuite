@@ -78,4 +78,7 @@ verify both methods of showing products
     <parameter name="productPrice" value="${productPrice}"/>
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
+  <codecomment># Teardown
+
+- End session</codecomment>
 </testcase>
