@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Verifies the quick view for a plain product</description>
-  <command name="assertText" target="css=#ui-id-1.ui-dialog-title" value="regexpi:Product Quickview"/>
-  <command name="assertElementPresent" target="css=.ui-dialog button.ui-dialog-titlebar-close">
-    <comment>Close butto there?</comment>
+  <codecomment>Title</codecomment>
+  <command name="assertText" target="css=.ui-dialog #ui-id-1.ui-dialog-title" value="regexpi:Product Quickview">
+    <comment>Check the title of the QV dialog. </comment>
   </command>
-  <codecomment>----------</codecomment>
-  <command name="assertElementPresent" target="css=.quickview-nav button.quickview-prev"/>
-  <command name="assertElementPresent" target="css=.quickview-nav button.quickview-next"/>
+  <command name="assertElementPresent" target="css=.ui-dialog button.ui-dialog-titlebar-close">
+    <comment>Close button there?</comment>
+  </command>
+  <codecomment>Navigation Buttons</codecomment>
+  <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-prev"/>
+  <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-next"/>
 </scriptmodule>
