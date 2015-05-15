@@ -39,7 +39,10 @@ Verify both ways of displaying product details.
     <parameter name="position" value="1"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
-  <module name="modules.pages.productquickview.VProductQV_validateQVHeader"/>
+  <module name="modules.pages.productquickview.VProductQV_validateQVHeader">
+    <parameter name="prevButtonState" value="[disabled='disabled']"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
   <module name="modules.pages.product.VProduct_verifyPDPMainForm"/>
   <module name="modules.pages.product.VProduct_verifyProductActionMenu"/>
   <codecomment>Store product informations to check them later</codecomment>
