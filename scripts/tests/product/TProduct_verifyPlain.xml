@@ -16,7 +16,7 @@ Verify both ways of displaying product details.
 - search for product name and verify PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Electronics/Gaming</codecomment>
+  <codecomment># Navigate to Electronics/Gaming</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="Electronics"/>
@@ -26,19 +26,20 @@ Verify both ways of displaying product details.
     <parameter name="nameLevel2" value="Gaming"/>
   </module>
   <codecomment># Scope</codecomment>
+  <codecomment>--------------------------------</codecomment>
   <codecomment>## Plain Product
 
 - Validate Quickview for plain product
 - Validate PDP for plain product
 - Check if product name, price, and product number are the same</codecomment>
-  <codecomment>----------</codecomment>
-  <action name="OpenProductQVandVerifyStructure"/>
+  <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
+  <action name="PlainProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">
     <parameter name="position" value="1"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
-  <module name="modules.pages.productQuickView.VProductQV_verifyQVHead"/>
+  <module name="modules.pages.productQuickView.VProductQV_validateQVHeader"/>
   <module name="modules.pages.product.VProduct_verifyPDPMainForm"/>
   <module name="modules.pages.product.VProduct_verifyProductActionMenu"/>
   <codecomment>Store product informations to check them later</codecomment>
