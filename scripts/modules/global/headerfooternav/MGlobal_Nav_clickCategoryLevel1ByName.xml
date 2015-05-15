@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Navigates to a first level category by name</description>
+  <parameter name="nameLevel1" desc="Link name for level 1"/>
+  <command name="clickAndWait" target="xpath=id('navigation')//ul[@class='menu-category level-1']/li/a[contains(., '@{nameLevel1}')]"/>
+</scriptmodule>

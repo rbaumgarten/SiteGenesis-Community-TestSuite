@@ -7,17 +7,17 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the structure of the QV and the PDP for a plain product</p>
+ * <p>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products</p>
  * <h1 id="setup">Setup</h1>
- * <p>open a clean site with deleted cookies</p>
+ * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
- * <p>verify both methods of showing products</p>
+ * <p>Verify both ways of displaying product details.</p>
  * <ul>
- * <li>first verify structure of the QV</li>
+ * <li>verify structure of the QV</li>
  * <li>go from QV to PDP</li>
  * <li>verify stucture of PDP</li>
- * <li>check if product name procuct price and product number are the same on pdp as on qv</li>
- * <li>search for product name and verify pdp again</li>
+ * <li>check if product name, price, and product number are the same on both </li>
+ * <li>search for product name and verify PDP again</li>
  * </ul>
  */
 @ScriptName

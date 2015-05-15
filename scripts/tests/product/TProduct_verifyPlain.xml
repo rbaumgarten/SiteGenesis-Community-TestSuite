@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies the structure of the QV and the PDP for a plain product
+  <tags>product,pdp,qv</tags>
+  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products
 
 # Setup
-open a clean site with deleted cookies
+Open the site and remove cookies
 
 #  Scope
-verify both methods of showing products
+Verify both ways of displaying product details.
 
-- first verify structure of the QV
+- verify structure of the QV
 - go from QV to PDP
 - verify stucture of PDP
-- check if product name procuct price and product number are the same on pdp as on qv
-- search for product name and verify pdp again</description>
+- check if product name, price, and product number are the same on both 
+- search for product name and verify PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Navigate to Electronics/Gaming</codecomment>
+  <action name="CategoryLevel1"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
+    <parameter name="nameLevel1" value="Electronics"/>
+  </module>
+  <action name="CategoryLevel2"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
+    <parameter name="nameLevel2" value="Gaming"/>
+  </module>
   <codecomment># Scope</codecomment>
   <codecomment>## Plain Product
 
-- Validate Quickview for plain Product
-- Validate PDP for plain Product
-- Check if product name ,product price and product number are the same</codecomment>
+- Validate Quickview for plain product
+- Validate PDP for plain product
+- Check if product name, price, and product number are the same</codecomment>
   <codecomment>----------</codecomment>
-  <codecomment>Click on Electronics -Gaming</codecomment>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
-    <parameter name="positionLevel1" value="4"/>
-    <parameter name="positionLevel2" value="5"/>
-  </module>
   <action name="OpenProductQVandVerifyStructure"/>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">
