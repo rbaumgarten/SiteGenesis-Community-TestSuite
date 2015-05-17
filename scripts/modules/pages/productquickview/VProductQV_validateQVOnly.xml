@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifys pdpMain form , wich is used for qv and pdp</description>
+  <description>Validates elements that are specific to QV and not shared with PDP.</description>
   <codecomment>Extra validations for QV</codecomment>
   <command name="assertElementPresent" target="css=#pdpMain #product-content .product-number + a">
-    <comment>This elements does not have a nice name, so we identify it by sibling selector</comment>
+    <comment>The link to the PDP from QV. This elements does not have a nice name, so we identify it by sibling selector.</comment>
   </command>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-price"/>
-  <codecomment>Add2Cart</codecomment>
-  <command name="assertElementPresent" target="css=#pdpMain #add-to-cart"/>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .inventory .quantity input[name='Quantity']"/>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .product-price"/>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .availability .availability-msg"/>
 </scriptmodule>
