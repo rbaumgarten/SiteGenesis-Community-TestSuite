@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
-  <description>Verifiy the Product Actions, e.g. Send To Friend, Add to Wishlist and add to gift button</description>
+  <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
   <codecomment>Social Sharing</codecomment>
   <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
     <comment>Facebook</comment>

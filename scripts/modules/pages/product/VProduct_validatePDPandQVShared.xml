@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifys pdpMain form , wich is used for qv and pdp</description>
+  <description>Validates the functionality and elements that are shared between product detail page and quickview.</description>
   <codecomment>Name</codecomment>
   <command name="assertElementPresent" target="css=#pdpMain h1.product-name"/>
   <codecomment>Image</codecomment>

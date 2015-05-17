@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Store basic product data. Takes them from PDP or QV.</description>
+  <description>Stores basic product data. Takes them from PDP or QV.</description>
   <parameter name="productName_varName" desc="product name as var name"/>
   <parameter name="productNumber_varName" desc="product numbe as var name"/>
   <parameter name="productPriceSales_varName" desc="product sales price as var name"/>
