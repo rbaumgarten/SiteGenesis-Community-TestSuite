@@ -49,7 +49,7 @@ Verify both ways of displaying product details.
   <module name="modules.pages.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>
   <codecomment>Store product informations to check them later</codecomment>
-  <module name="modules.pages.product.MProduct_storeBasicDetails">
+  <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
@@ -66,7 +66,7 @@ Verify both ways of displaying product details.
   <module name="modules.pages.product.VProduct_validateProductActions"/>
   <module name="modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
-  <module name="modules.pages.product.VProduct_validateBasicDetails">
+  <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
@@ -84,7 +84,7 @@ Verify both ways of displaying product details.
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
-  <module name="modules.pages.product.VProduct_validateBasicDetails">
+  <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
