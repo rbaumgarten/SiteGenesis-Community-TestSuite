@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies the quick view for a plain product</description>
+  <tags>qv</tags>
+  <description>Verifies the quick view header with headline and buttons</description>
   <parameter name="prevButtonState" desc="State of the previous button, full CSS piece here"/>
   <parameter name="nextButtonState" desc="State of the next button, full CSS piece here"/>
   <codecomment>Title</codecomment>

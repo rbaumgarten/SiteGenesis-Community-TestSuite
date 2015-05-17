@@ -11,13 +11,13 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
- * <p>Verify both ways of displaying product details.</p>
+ * <p>Validate displaying product data either via quick view or via product detail page.</p>
  * <ul>
- * <li>verify structure of the QV</li>
+ * <li>validate structure of the QV</li>
  * <li>go from QV to PDP</li>
- * <li>verify stucture of PDP</li>
+ * <li>validate stucture of PDP</li>
  * <li>check if product name, price, and product number are the same on both </li>
- * <li>search for product name and verify PDP again</li>
+ * <li>search for product name and validate PDP again</li>
  * </ul>
  */
 @ScriptName
