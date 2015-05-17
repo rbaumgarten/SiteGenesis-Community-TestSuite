@@ -43,7 +43,7 @@ Verify both ways of displaying product details.
     <parameter name="prevButtonState" value="[disabled='disabled']"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
-  <module name="modules.pages.product.VProduct_verifyPDPMainForm"/>
+  <module name="modules.pages.product.VProduct_verifyPDPMain"/>
   <module name="modules.pages.product.VProduct_verifyProductActionMenu"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicDetails">
@@ -59,7 +59,7 @@ Verify both ways of displaying product details.
   <module name="modules.global.headerfooternav.VNavigation_verifyBreadcrumb">
     <parameter name="productName" value="${productName}"/>
   </module>
-  <module name="modules.pages.product.VProduct_verifyPDPMainForm"/>
+  <module name="modules.pages.product.VProduct_verifyPDPMain"/>
   <module name="modules.pages.product.VProduct_verifyProductActionMenu"/>
   <module name="modules.pages.productdetailpage.VProduct_verifyPDPonlyObjects"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
@@ -79,7 +79,7 @@ Verify both ways of displaying product details.
   <module name="modules.global.headerfooternav.VNavigation_verifyBreadcrumb">
     <parameter name="productName" value="${productName}"/>
   </module>
-  <module name="modules.pages.product.VProduct_verifyPDPMainForm"/>
+  <module name="modules.pages.product.VProduct_verifyPDPMain"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_verifyBasicDetails">
     <parameter name="productName" value="${productName}"/>
