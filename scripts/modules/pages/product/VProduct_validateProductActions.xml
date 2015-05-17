@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
+  <description>Verifiy the Product Actions, e.g. Send To Friend, Add to Wishlist and add to gift button</description>
+  <codecomment>Social Sharing</codecomment>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-pinterest">
+    <comment>Pinterest</comment>
+  </command>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-envelope">
+    <comment>Email</comment>
+  </command>
+  <codecomment>Wishlist</codecomment>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='wishlist']">
+    <comment>Add to Wishlist</comment>
+  </command>
+  <codecomment>Gift Registry</codecomment>
+  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='gift-registry']">
+    <comment>Add to Gift Registry</comment>
+  </command>
+</scriptmodule>

@@ -47,7 +47,7 @@ Verify both ways of displaying product details.
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
   <module name="modules.pages.productquickview.VProductQV_validateQVOnlyElements"/>
-  <module name="modules.pages.product.VProduct_validateProductActionMenu"/>
+  <module name="modules.pages.product.VProduct_validateProductActions"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicDetails">
     <parameter name="productName_varName" value="productName"/>
@@ -55,7 +55,7 @@ Verify both ways of displaying product details.
     <parameter name="productPriceSales_varName" value="productPrice"/>
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
-  <action name="OpenPDPandVerifyStructure"/>
+  <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP</codecomment>
   <module name="modules.pages.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
@@ -63,7 +63,7 @@ Verify both ways of displaying product details.
     <parameter name="productName" value="${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
-  <module name="modules.pages.product.VProduct_validateProductActionMenu"/>
+  <module name="modules.pages.product.VProduct_validateProductActions"/>
   <module name="modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicDetails">
