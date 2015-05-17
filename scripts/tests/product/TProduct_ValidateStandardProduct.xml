@@ -73,9 +73,10 @@ Verify both ways of displaying product details.
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <codecomment>Go back to Homepage and search for product name</codecomment>
-  <action name="GoBackToHompae"/>
+  <action name="BackToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
-  <action name="SearchProductandVerifyPDP"/>
+  <action name="SearchProductByName"/>
+  <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
   </module>
@@ -83,7 +84,9 @@ Verify both ways of displaying product details.
     <parameter name="productName" value="${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
-  <codecomment>Check are the stored values form QV the same on PDP</codecomment>
+  <module name="modules.pages.product.VProduct_validateProductActions"/>
+  <module name="modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
+  <codecomment>Validate the stored values form QV on the PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
