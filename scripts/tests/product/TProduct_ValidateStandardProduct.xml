@@ -46,7 +46,7 @@ Verify both ways of displaying product details.
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
-  <module name="modules.pages.productquickview.VProductQV_validateQVOnly"/>
+  <module name="modules.pages.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateProductActionMenu"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicDetails">
