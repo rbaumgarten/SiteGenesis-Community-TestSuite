@@ -64,7 +64,7 @@ Verify both ways of displaying product details.
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_verifyProductActionMenu"/>
-  <module name="modules.pages.productdetailpage.VProduct_verifyPDPonlyObjects"/>
+  <module name="modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_verifyBasicDetails">
     <parameter name="productName" value="${productName}"/>
