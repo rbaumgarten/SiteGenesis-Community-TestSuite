@@ -54,7 +54,7 @@ Verify both ways of displaying product details.
   </module>
   <action name="OpenPDPandVerifyStructure"/>
   <codecomment>Goto PDP</codecomment>
-  <module name="modules.pages.productquickview.MProductQV_gotoPDPfromQV"/>
+  <module name="modules.pages.productquickview.MProductQV_gotoPDP"/>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_verifyBreadcrumb">
     <parameter name="productName" value="${productName}"/>
