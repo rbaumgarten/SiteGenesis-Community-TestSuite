@@ -36,7 +36,7 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment># Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">
-    <parameter name="position" value="1"/>
+    <parameter name="position" value="4"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
   <module name="modules.pages.productquickview.VProductQV_validateHeader">

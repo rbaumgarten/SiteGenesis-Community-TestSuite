@@ -12,6 +12,6 @@
     <comment>Close button there?</comment>
   </command>
   <codecomment>Navigation Buttons</codecomment>
-  <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-prev@{prevButtonState}"/>
+  <command name="assertElementPresent" disabled="true" target="css=#QuickViewDialog .quickview-nav button.quickview-prev@{prevButtonState}"/>
   <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-next@{nextButtonState}"/>
 </scriptmodule>

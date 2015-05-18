@@ -6,10 +6,10 @@
   <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
     <comment>Facebook</comment>
   </command>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-twitter">
     <comment>Facebook</comment>
   </command>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
+  <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-google-plus">
     <comment>Facebook</comment>
   </command>
   <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-pinterest">
