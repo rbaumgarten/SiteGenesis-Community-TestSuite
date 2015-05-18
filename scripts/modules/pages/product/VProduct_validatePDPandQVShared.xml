@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates the functionality and elements that are shared between product detail page and quickview.</description>
+  <codecomment>Name</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain h1.product-name"/>
+  <codecomment>Image</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain.pdp-main .product-image-container .product-primary-image"/>
+  <codecomment>Details</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-number"/>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-price"/>
+  <codecomment>Add2Cart</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain #add-to-cart"/>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .inventory .quantity input[name='Quantity']"/>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .product-price"/>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .availability .availability-msg"/>
+</scriptmodule>

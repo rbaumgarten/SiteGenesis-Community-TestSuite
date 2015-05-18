@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click on view more details at the QV to go to the PDP</description>
+  <command name="clickAndWait" target="css=#product-content a"/>
+  <codecomment>Verify if QV form is gone</codecomment>
+  <command name="waitForNotElementPresent" target="css=#ui-id-1.ui-dialog-title"/>
+</scriptmodule>
