@@ -71,7 +71,9 @@ The following prerequisites and installation steps are needed to run the test su
 
 #### Usage
 - Navigate into the grunt or gulp directory with your console.
-- Start the test suite by calling "grunt" or "gulp".
+- Start the test suite by calling "grunt" or "gulp". This calls the default target and will execute all test cases.
+- Call a single test case with grunt: "grunt single:[TTestcaseName]"
+- Call a single test case with gulp: "name=[TTestcaseName] gulp single"
 
 ## Test Suite Structure
 
