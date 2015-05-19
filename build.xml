@@ -43,7 +43,7 @@
     -->
 	<target name="compile">
 		<mkdir dir="${test.classes.dir}" />
-		<javac srcdir="${test.src.dir}" destdir="${test.classes.dir}" debug="on" optimize="off" deprecation="on">
+		<javac srcdir="${test.src.dir}" destdir="${test.classes.dir}" debug="on" optimize="off" deprecation="on" includeantruntime="false">
 			<classpath refid="test.suite.class.path" />
 		</javac>
 		<copy todir="${test.classes.dir}">
@@ -60,10 +60,41 @@
 		<mkdir dir="${test.results.dir}" />
 	</target>
 
+	<condition property="isSingleCall">
+		<isset property="testname"/>
+	</condition>
+ 
+	<target name="test.java"
+		depends="test.java.single, test.java.all">
+	</target>
+
 	<!-- 
         Performs a functional test by running the configured Java test cases. 
     -->
-	<target name="test.java" depends="test.init">
+	<target name="test.java.single" if="isSingleCall" depends="test.init">
+		<!-- 
+            Run the junit tests. 
+        -->
+		<junit forkmode="once" printsummary="on" dir="${basedir}">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
+
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}" >
+				<fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}" excludes="**/regression/**" />
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="test.java.all" unless="isSingleCall" depends="test.init">
 		<!-- 
             Run the junit tests. 
         -->
@@ -86,10 +117,58 @@
 		</junit>
 	</target>
 
+
+	<target name="test.script"
+		depends="test.script.single, test.script.all">
+	</target>
 	<!-- 
         Performs a functional test by running the configured script test cases. 
     -->
-	<target name="test.script" depends="test.init">
+	<target name="test.script.single" if="isSingleCall" depends="test.init">
+		<!-- 
+			Determine the test scripts to run from the configuration. 
+		-->
+		<fileset id="scripts"
+		         dir="${test.scripts.dir}"
+		         includes="${test.cases.singlescript}"
+		         excludes="**/*_data.xml **/*_datasets.xml"
+		/>
+		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
+		</pathconvert>
+		
+		<echo message="Found the following file: ${scripts}"/>
+		<!-- 
+            Run the generic script test case suite. 
+        -->
+		<junit forkmode="once" printsummary="on">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
+
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- configure the tests to run -->
+			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}">
+				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+				              classpathref="xlt.class.path"
+				/>
+			</batchtest>
+		</junit>
+	</target>
+
+	<!-- 
+        Performs a functional test by running the configured script test cases. 
+    -->
+	<target name="test.script.all" unless="isSingleCall" depends="test.init">
 		<!-- 
 			Determine the test scripts to run from the configuration. 
 		-->
@@ -168,8 +247,12 @@
 	</target>
 
 	<!-- 
+        Executes clean and only the java functional testing target.  
+    -->
+	<target name="basic" depends="clean, test.java"/>
+
+	<!-- 
         Executes all targets one after the other.  
     -->
 	<target name="all" depends="clean, test, loadtest" />
-
 </project>

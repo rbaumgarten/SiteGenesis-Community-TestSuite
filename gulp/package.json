@@ -1,0 +1,11 @@
+{
+  "name": "XLT-TestRunner",
+  "version": "1.0.0",
+  "description": "This is a litte gulp script to help you starting the tests via gulp.",
+  "author": "Xceptance GmbH",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-shell": "^0.4.1"
+  }
+}

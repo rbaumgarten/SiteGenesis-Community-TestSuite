@@ -4,14 +4,14 @@ This is a functional test suite for Demandware SiteGenesis, the best practice ec
 
 Because test suites sometimes tend to become complex and hard to maintain, we realized it is time to build a clearly structured test suite with a well-defined set of tests.
 
-The project idea is to collect experiences, consolidate knowledge and share ideas of testing practises. Although this test suite is based on testing the storefront of the demo shop __Demandware__ __SiteGenesis__ the underlying concepts and the communicated know-how are valid for building test suites of other web applications as well. Everybody is invited to use it, learn from it, improve it and adapt it to their needs.
+The project idea is to collect experiences, consolidate knowledge and share ideas of testing practices. Although this test suite is based on testing the storefront of the demo shop __Demandware__ __SiteGenesis__ the underlying concepts and the communicated know-how are valid for building test suites of other web applications as well. Everybody is invited to use it, learn from it, improve it and adapt it to their needs.
 
 Possible use cases are:
 
 - Test suite to automate new store based on Demandware SiteGenesis
 - Starting point for test development with fast learning curve
 - Demonstration of test automation and test suite structuring
-- Reuseable best practises in other (existing) projects
+- Reusable best practices in other (existing) projects
 
 This test suite has been built for and with __XLT__
 
@@ -51,6 +51,48 @@ The following prerequisites and installation steps are needed to run the test su
 - Import XLT libraries.
 - Run test as JUnit test (default configuration: Firefox WebDriver).
 - Adapt WebDriver configurations in `project.properties` if needed.
+
+### XLT Framework for Apache Ant based Execution
+
+The following steps explain what needs to be done to execute the test suite via the command line using Apache Ant.
+
+#### Prerequisites
+
+- XLT&reg; Framework v4.5 (or higher)
+- Apache Ant
+
+#### Installation
+
+- [Download the XLT Framework](https://www.xceptance.com/en/xlt/download.html) and unzip it into a directory of your choice.
+- Configure ant build.properties by setting the base path of your local XLT installation as "xlt.home.dir" property (This can be done relative to your ant base directory).
+- Make sure that your test suite is running in the script developer (e.g. configure "storefront_url" via Manage Global Test Data ).
+
+#### Usage
+- Navigate into the base directory of this test suite with your console.
+- Start the test suite by calling "ant basic". This calls the basic target and will execute all java based test cases.
+- Start a single test case by calling "ant basic -Dtestname=[TTestcaseName]"
+
+### XLT Framework for Grunt or Gulp based Execution
+
+The following steps explain how you can execute the test suite using grunt or gulp. 
+
+#### Prerequisites
+
+- same as for Apache Ant (see above)
+- Node
+- Grunt or Gulp
+
+#### Installation
+
+- same as for Apache Ant (see above)
+- Navigate into the grunt or gulp directory of this test suite with your console.
+- Install the node dependencies by calling "npm install".
+
+#### Usage
+- Navigate into the grunt or gulp directory of this test suite with your console.
+- Start the test suite by calling "grunt" or "gulp". This calls the default target and will execute all test cases.
+- Call a single test case with grunt: "grunt single:[TTestcaseName]"
+- Call a single test case with gulp: "name=[TTestcaseName] gulp single"
 
 ## Test Suite Structure
 
@@ -96,7 +138,7 @@ We have already build a __foundation__ of over __200 modules__ structured in ove
 
 ### Packages
 
-__Packages__ form the main structure of the test suite (project tree). Each package may consist of other subpackages (layers) and contains test cases (named `tests.subpackage`), script modules (named `modules.subpackage`) or optional Java modules. The file system implements them as folders.
+__Packages__ form the main structure of the test suite (project tree). Each package may consist of other sub packages (layers) and contains test cases (named `tests.subpackage`), script modules (named `modules.subpackage`) or optional Java modules. The file system implements them as folders.
 
 ### Tests
 
@@ -104,17 +146,17 @@ A __Test Case__ or short __Test__ (named `T...`) simulates a shop visit of a cus
 
 ### Modules
 
-A __Script Module__ or short __Module__ (named `M...`), contains actions, commands and comments. Most modules interact with elements of a specifc webpage. Thus it makes sense to structured them by their according pages. Each module can be reused by different tests.
+A __Script Module__ or short __Module__ (named `M...`), contains actions, commands and comments. Most modules interact with elements of a specific webpage. Thus it makes sense to structured them by their according pages. Each module can be reused by different tests.
 
-__Validation Modules__ (named `V...`): Validation of webpage elements and dynamic data is a very essential part of testing. Hence these special modules evalute that a needed fit criterion is met (mostly via assertions).
+__Validation Modules__ (named `V...`): Validation of webpage elements and dynamic data is a very essential part of testing. Hence these special modules evaluate that a needed fit criterion is met (mostly via assertions).
 
-__Flow Modules__ (named `F...`): Some modules mimic more sophisticated shopping behaviours by interacting with several pages in a flow. The achieved specific goal at the end of the process is of most importance (in contrast to the taken singular steps). Flows often reuse other modules and allow a compact test structure. Examples: Add a basic product to cart; Create a new customer; Add an address to a customer; Check order status in order history.
+__Flow Modules__ (named `F...`): Some modules mimic more sophisticated shopping behaviors by interacting with several pages in a flow. The achieved specific goal at the end of the process is of most importance (in contrast to the taken singular steps). Flows often reuse other modules and allow a compact test structure. Examples: Add a basic product to cart; Create a new customer; Add an address to a customer; Check order status in order history.
 
 There are also several __global modules__ for interactions with elements in header, footer or nav (placed in `modules.global`) and some __helper modules__ for converting text, generating random values and other auxiliaries (placed in `modules.helper`).
 
 ### Test Data
 
-__Test Data__ or short __Data__ can be placed on global, package, module or test layer. Test data defined at a lower layer overwrites test data defined at a higher level (antihierarchical handling).
+__Test Data__ or short __Data__ can be placed on global, package, module or test layer. Test data defined at a lower layer overwrites test data defined at a higher level (anti hierarchical handling).
 
 ## Test Suite Metadata
 
@@ -123,7 +165,7 @@ __Test Data__ or short __Data__ can be placed on global, package, module or test
 - Release: March 2015
 - License: MIT License
 - License URI: http://opensource.org/licenses/MIT
-- Tags: xlt, testing, best practises, test automation, funtional testing, regression test, selenium
+- Tags: xlt, testing, best practices, test automation, functional testing, regression test, selenium
 
 ## Test Suite Contributors
 
