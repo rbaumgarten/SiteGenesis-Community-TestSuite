@@ -53,15 +53,16 @@
                   <div class="sidebar-wrapper">
                       <h3>Index</h3>
 <ul class="sidebar">
-<li><a href="#test_tests.account.TAccountAddressBookAddEditRemoveAddresses" title="tests.account.TAccountAddressBookAddEditRemoveAddresses">TAccountAddressBookAddEditRemoveAddresses</a></li>
-<li><a href="#test_tests.account.TAccountLoginEmptyPassword" title="tests.account.TAccountLoginEmptyPassword">TAccountLoginEmptyPassword</a></li>
-<li><a href="#test_tests.account.TAccountLoginInvalidPassword" title="tests.account.TAccountLoginInvalidPassword">TAccountLoginInvalidPassword</a></li>
-<li><a href="#test_tests.account.TAccountPaymentSettingsAddEditRemoveCreditCards" title="tests.account.TAccountPaymentSettingsAddEditRemoveCreditCards">TAccountPaymentSettingsAddEditRemoveCreditCards</a></li>
-<li><a href="#test_tests.account.TAccountPersonalDataRegisterProfile" title="tests.account.TAccountPersonalDataRegisterProfile">TAccountPersonalDataRegisterProfile</a></li>
-<li><a href="#test_tests.account.TAccountPersonalDataUpdateProfile" title="tests.account.TAccountPersonalDataUpdateProfile">TAccountPersonalDataUpdateProfile</a></li>
-<li><a href="#test_tests.account.TAccountWishListAddRemoveProduct" title="tests.account.TAccountWishListAddRemoveProduct">TAccountWishListAddRemoveProduct</a></li>
-<li><a href="#test_tests.cart.TCartAddRemoveProduct" title="tests.cart.TCartAddRemoveProduct">TCartAddRemoveProduct</a></li>
-<li><a href="#test_tests.cart.TCartRefreshProductsCalculateTotals" title="tests.cart.TCartRefreshProductsCalculateTotals">TCartRefreshProductsCalculateTotals</a></li>
+<li><a href="#test_tests.account.TAccount_CreateAccount" title="tests.account.TAccount_CreateAccount">TAccount_CreateAccount</a></li>
+<li><a href="#test_tests.account.TAccountAddressBook_CRUDAddresses" title="tests.account.TAccountAddressBook_CRUDAddresses">TAccountAddressBook_CRUDAddresses</a></li>
+<li><a href="#test_tests.account.TAccountLogin_InvalidPassword" title="tests.account.TAccountLogin_InvalidPassword">TAccountLogin_InvalidPassword</a></li>
+<li><a href="#test_tests.account.TAccountLogin_NoPassword" title="tests.account.TAccountLogin_NoPassword">TAccountLogin_NoPassword</a></li>
+<li><a href="#test_tests.account.TAccountPaymentSettings_CRUDCreditCards" title="tests.account.TAccountPaymentSettings_CRUDCreditCards">TAccountPaymentSettings_CRUDCreditCards</a></li>
+<li><a href="#test_tests.account.TAccountPersonalData_UpdateProfile" title="tests.account.TAccountPersonalData_UpdateProfile">TAccountPersonalData_UpdateProfile</a></li>
+<li><a href="#test_tests.account.TAccountWishList_AddRemoveProduct" title="tests.account.TAccountWishList_AddRemoveProduct">TAccountWishList_AddRemoveProduct</a></li>
+<li><a href="#test_tests.cart.TCart_AddRemoveProduct" title="tests.cart.TCart_AddRemoveProduct">TCart_AddRemoveProduct</a></li>
+<li><a href="#test_tests.cart.TCart_ChangeQuantities" title="tests.cart.TCart_ChangeQuantities">TCart_ChangeQuantities</a></li>
+<li><a href="#test_tests.cart.TCart_RemoveProducts" title="tests.cart.TCart_RemoveProducts">TCart_RemoveProducts</a></li>
 <li><a href="#test_tests.catalog.TCatalogOptionSelectItemsPerPage" title="tests.catalog.TCatalogOptionSelectItemsPerPage">TCatalogOptionSelectItemsPerPage</a></li>
 <li><a href="#test_tests.catalog.TCatalogOptionSelectSortBy" title="tests.catalog.TCatalogOptionSelectSortBy">TCatalogOptionSelectSortBy</a></li>
 <li><a href="#test_tests.catalog.TCatalogRefinementSelectRemoveColors" title="tests.catalog.TCatalogRefinementSelectRemoveColors">TCatalogRefinementSelectRemoveColors</a></li>
@@ -74,10 +75,10 @@
 <li><a href="#test_tests.homepage.THomepageValidateStructure" title="tests.homepage.THomepageValidateStructure">THomepageValidateStructure</a></li>
 <li><a href="#test_tests.minicart.TMiniCartRefreshProducts" title="tests.minicart.TMiniCartRefreshProducts">TMiniCartRefreshProducts</a></li>
 <li><a href="#test_tests.minicart.TMiniCartValidateStructure" title="tests.minicart.TMiniCartValidateStructure">TMiniCartValidateStructure</a></li>
-<li><a href="#test_tests.search.TSearchResultsValidateArticles" title="tests.search.TSearchResultsValidateArticles">TSearchResultsValidateArticles</a></li>
-<li><a href="#test_tests.search.TSearchResultsValidateEmpty" title="tests.search.TSearchResultsValidateEmpty">TSearchResultsValidateEmpty</a></li>
-<li><a href="#test_tests.search.TSearchResultsValidateProductCatalogPage" title="tests.search.TSearchResultsValidateProductCatalogPage">TSearchResultsValidateProductCatalogPage</a></li>
-<li><a href="#test_tests.search.TSearchResultsValidateProductDetailPage" title="tests.search.TSearchResultsValidateProductDetailPage">TSearchResultsValidateProductDetailPage</a></li>
+<li><a href="#test_tests.search.TSearch_NoResults" title="tests.search.TSearch_NoResults">TSearch_NoResults</a></li>
+<li><a href="#test_tests.search.TSearchArticles_ArticlesOnly" title="tests.search.TSearchArticles_ArticlesOnly">TSearchArticles_ArticlesOnly</a></li>
+<li><a href="#test_tests.search.TSearchProducts_DirectHit" title="tests.search.TSearchProducts_DirectHit">TSearchProducts_DirectHit</a></li>
+<li><a href="#test_tests.search.TSearchProducts_ProductsOnly" title="tests.search.TSearchProducts_ProductsOnly">TSearchProducts_ProductsOnly</a></li>
 </ul>
 
                   </div>
@@ -86,9 +87,9 @@
 
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountAddressBookAddEditRemoveAddresses" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.account.TAccount_CreateAccount" class="light-blue darken-4 white-text">
       <span class="smaller">tests.account</span>
-    TAccountAddressBookAddEditRemoveAddresses
+    TAccount_CreateAccount
 </h2>
 
 
@@ -98,7 +99,351 @@
   </div><!-- /.tags -->
     
   <div class="description light-blue lighten-5">
-    <p>Test add, remove, edit, make default address data in account addressbook.</p>
+    <p>Test register profile with create account via link in header.</p>
+<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+<ul>
+<li>Start session, open homepage and delete all visible cookies</li>
+</ul>
+<h1 id="2-scope-of-test">2. Scope of test</h1>
+<ul>
+<li>Click register link in the header and goto the create account page</li>
+<li>Enter profile data and submit the form</li>
+<li>Logout using the link in the account area</li>
+<li>Login again to validate login data</li>
+<li>Validate personal profile data</li>
+<li>Logout using the global link in the header</li>
+</ul>
+<h1 id="3-clean-up">3. Clean up</h1>
+<ul>
+<li>End session and clean up created cookies</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generateEmail">modules.helper.MHelper_Random_generateEmail</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random email.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generatePassword">modules.helper.MHelper_Random_generatePassword</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random password.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            GoToRegister
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToRegister">modules.global.headerfooternav.FGlobal_flowToRegister</a>
+        </div>
+        <div class="step-description">
+          <p>Click on User Button
+Choose Register in drop down menu</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            Register
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.personaldata.MAccount_PersonalData_enterProfile">modules.pages.account.personaldata.MAccount_PersonalData_enterProfile</a>
+        </div>
+        <div class="step-description">
+          <p>Enter profile data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile">modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile</a>
+        </div>
+        <div class="step-description">
+          <p>Click submit profile data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validatePage">modules.pages.account.myaccount.VAccount_MyAccount_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
+        </div>
+        <div class="step-description">
+          <p>Validate account navigation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
+        </div>
+        <div class="step-description">
+          <p>Validate customer name on MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            Logout
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickLogout">modules.pages.account.myaccount.MAccount_MyAccount_clickLogout</a>
+        </div>
+        <div class="step-description">
+          <p>Click logout on MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.homepage.FHomepage_flowToLoginAccount">modules.pages.homepage.FHomepage_flowToLoginAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to login as returning customer.</p>
+<ul>
+<li>Start on homepage</li>
+<li>Click login in header</li>
+<li>Login as returning customer</li>
+<li>End on account menu</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validatePage">modules.pages.account.myaccount.VAccount_MyAccount_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
+        </div>
+        <div class="step-description">
+          <p>Validate account navigation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            GoToPersonalData
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPersonalData">modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPersonalData</a>
+        </div>
+        <div class="step-description">
+          <p>Go to personal data (profile) from MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.personaldata.VAccount_PersonalData_validatePage">modules.pages.account.personaldata.VAccount_PersonalData_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate personal data page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
+        </div>
+        <div class="step-description">
+          <p>Validate account navigation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.personaldata.VAccount_PersonalData_validateProfile">modules.pages.account.personaldata.VAccount_PersonalData_validateProfile</a>
+        </div>
+        <div class="step-description">
+          <p>Validate profile data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            Logout
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickUserButton">modules.global.headerfooternav.MGlobal_Header_clickUserButton</a>
+        </div>
+        <div class="step-description">
+          <p>Click on user button in header.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_UserMenu_clickLogout">modules.global.headerfooternav.MGlobal_UserMenu_clickLogout</a>
+        </div>
+        <div class="step-description">
+          <p>Clicks on Logout Button in User Menu</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="true" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+        </div>
+        <div class="step-description">
+          <p>Click logout via customer name in header.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">firstname</td>
+        <td class="value">${billingAddress_firstname}</td>
+      </tr>
+      <tr>
+        <td class="key">lastname</td>
+        <td class="value">${billingAddress_lastname}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">email_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">password_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.account.TAccountAddressBook_CRUDAddresses" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.account</span>
+    TAccountAddressBook_CRUDAddresses
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">smoke</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Test add, remove, edit, make default address in addressbook of my account.</p>
 <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
 <ul>
 <li>Start session, open homepage and delete all visible cookies</li>
@@ -208,10 +553,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickGoToAddressBook">modules.pages.account.menu.MAccount_Menu_clickGoToAddressBook</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook">modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook</a>
         </div>
         <div class="step-description">
-          <p>Go to address book on account menu.</p>
+          <p>Go to address book from MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -598,22 +943,6 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-action">
         <div class="step-name">
-            GoToAccount
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName">modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName</a>
-        </div>
-        <div class="step-description">
-          <p>Click and go to account via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
             Logout
         </div>
         <div class="step-description">
@@ -621,27 +950,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -834,240 +1149,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountLoginEmptyPassword" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.account.TAccountLogin_InvalidPassword" class="light-blue darken-4 white-text">
       <span class="smaller">tests.account</span>
-    TAccountLoginEmptyPassword
-</h2>
-
-
-  <div class="tags">
-    <span class="tag-label">Tags:</span>
-      <span class="tag">negative</span>
-  </div><!-- /.tags -->
-    
-  <div class="description light-blue lighten-5">
-    <p>Test login without password.</p>
-<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
-<ul>
-<li>Start session, open homepage and delete all visible cookies</li>
-<li>Create new account with profile data</li>
-</ul>
-<h1 id="2-scope-of-test">2. Scope of test</h1>
-<ul>
-<li>Click login link in the header and go to the login page</li>
-<li>Validate login page</li>
-<li>Enter username, leave password empty and try to login</li>
-<li>Validate present error message element</li>
-</ul>
-<h1 id="3-clean-up">3. Clean up</h1>
-<ul>
-<li>End session and clean up created cookies</li>
-</ul>
-
-  </div><!-- /.description -->
-    
-  <div class="collapsible">
-    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
-    <div class="collapsible-body">
-
-      <div class="steps">
-        <h3 class="light-blue-text darken-3">
-Steps</h3>
-
-  <ol class="step-list">
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.MHelper_Random_generateEmail">modules.helper.MHelper_Random_generateEmail</a>
-        </div>
-        <div class="step-description">
-          <p>Generate random email.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.MHelper_Random_generatePassword">modules.helper.MHelper_Random_generatePassword</a>
-        </div>
-        <div class="step-description">
-          <p>Generate random password.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to start session.</p>
-<ul>
-<li>Start with open browser tab</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Open homepage</li>
-<li>End on homepage</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.homepage.FHomepage_flowToCreateNewAccount">modules.pages.homepage.FHomepage_flowToCreateNewAccount</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to create a new customer with profile data.</p>
-<ul>
-<li>Start on homepagee</li>
-<li>Create account via global register in header</li>
-<li>Validate profile data</li>
-<li>Logout via global header link</li>
-<li>End on homepage</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            GoToLogin
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogin">modules.global.headerfooternav.MGlobal_Header_clickLogin</a>
-        </div>
-        <div class="step-description">
-          <p>Click login in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.login.VAccount_Login_validatePage">modules.pages.account.login.VAccount_Login_validatePage</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account login page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            LoginCustomerEmptyPassword
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword">modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword</a>
-        </div>
-        <div class="step-description">
-          <p>Enter only login, leave password empty</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.login.VAccount_Login_validiateErrorEmptyPassword">modules.pages.account.login.VAccount_Login_validiateErrorEmptyPassword</a>
-        </div>
-        <div class="step-description">
-          <p>Valdiate error message after login with false profile data.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-  </ol><!-- /.step-list -->
-      </div><!-- /.steps -->
-
-    
-      <div class="data">
-        <h3 class="light-blue-text darken-3">
-Test Data</h3>
-
-
-  <h4 >
-Defined Inside</h4>
-
-  <div class="data-table">
-  <table>
-    <thead class="light-blue darken-2 white-text">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="key">firstname</td>
-        <td class="value">${billingAddress_firstname}</td>
-      </tr>
-      <tr>
-        <td class="key">lastname</td>
-        <td class="value">${billingAddress_lastname}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div><!-- ./data-table -->
-
-  <h4 >
-Defined Outside</h4>
-
-  <div class="data-table">
-  <table>
-    <thead class="light-blue darken-2 white-text">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="key">email_varDynamic</td>
-        <td class="value na">N/A</td>
-      </tr>
-      <tr>
-        <td class="key">password_varDynamic</td>
-        <td class="value na">N/A</td>
-      </tr>
-    </tbody>
-  </table>
-  </div><!-- /.data-table -->
-
-      </div><!-- /.data -->
-
-      <div class="vars">
-        <h3 class="light-blue-text darken-3">
-Dynamic Variables</h3>
-
-  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
-      </div><!-- /.vars -->
-              
-    </div><!-- /.collapsible-body -->
-    
-
-  </div><!-- /.collapsible -->
-</div><!-- /.row -->
-
-<div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountLoginInvalidPassword" class="light-blue darken-4 white-text">
-      <span class="smaller">tests.account</span>
-    TAccountLoginInvalidPassword
+    TAccountLogin_InvalidPassword
 </h2>
 
 
@@ -1158,17 +1242,18 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-action">
         <div class="step-name">
-            GoToLogin
+            GoToLoginAndValidatePage
         </div>
         <div class="step-description">
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogin">modules.global.headerfooternav.MGlobal_Header_clickLogin</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogin">modules.global.headerfooternav.FGlobal_flowToLogin</a>
         </div>
         <div class="step-description">
-          <p>Click login in header.</p>
+          <p>Click on UserButton
+Choose Login from dropdown menu</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -1203,23 +1288,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Valdiate error message after login with false profile data.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -1300,9 +1368,224 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountPaymentSettingsAddEditRemoveCreditCards" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.account.TAccountLogin_NoPassword" class="light-blue darken-4 white-text">
       <span class="smaller">tests.account</span>
-    TAccountPaymentSettingsAddEditRemoveCreditCards
+    TAccountLogin_NoPassword
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">negative</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Test login without password.</p>
+<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+<ul>
+<li>Start session, open homepage and delete all visible cookies</li>
+<li>Create new account with profile data</li>
+</ul>
+<h1 id="2-scope-of-test">2. Scope of test</h1>
+<ul>
+<li>Click login link in the header and go to the login page</li>
+<li>Validate login page</li>
+<li>Enter username, leave password empty and try to login</li>
+<li>Validate present error message element</li>
+</ul>
+<h1 id="3-clean-up">3. Clean up</h1>
+<ul>
+<li>End session and clean up created cookies</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generateEmail">modules.helper.MHelper_Random_generateEmail</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random email.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generatePassword">modules.helper.MHelper_Random_generatePassword</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random password.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.homepage.FHomepage_flowToCreateNewAccount">modules.pages.homepage.FHomepage_flowToCreateNewAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to create a new customer with profile data.</p>
+<ul>
+<li>Start on homepagee</li>
+<li>Create account via global register in header</li>
+<li>Validate profile data</li>
+<li>Logout via global header link</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            GoToLoginAndValidatePage
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogin">modules.global.headerfooternav.FGlobal_flowToLogin</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose Login from dropdown menu</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.login.VAccount_Login_validatePage">modules.pages.account.login.VAccount_Login_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate account login page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            LoginCustomerEmptyPassword
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword">modules.pages.account.login.MAccount_Login_enterCredentialsMissingPassword</a>
+        </div>
+        <div class="step-description">
+          <p>Enter only login, leave password empty</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.login.VAccount_Login_validiateErrorEmptyPassword">modules.pages.account.login.VAccount_Login_validiateErrorEmptyPassword</a>
+        </div>
+        <div class="step-description">
+          <p>Valdiate error message after login with false profile data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">firstname</td>
+        <td class="value">${billingAddress_firstname}</td>
+      </tr>
+      <tr>
+        <td class="key">lastname</td>
+        <td class="value">${billingAddress_lastname}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">email_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">password_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.account.TAccountPaymentSettings_CRUDCreditCards" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.account</span>
+    TAccountPaymentSettings_CRUDCreditCards
 </h2>
 
 
@@ -1312,7 +1595,7 @@ Dynamic Variables</h3>
   </div><!-- /.tags -->
     
   <div class="description light-blue lighten-5">
-    <p>Test add, edit and remove credit card data in account payment settings.</p>
+    <p>Test add, edit, and remove credit card data in account payment settings.</p>
 <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
 <ul>
 <li>Start session, open homepage and delete all visible cookies</li>
@@ -1419,10 +1702,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickGoToPaymentSettings">modules.pages.account.menu.MAccount_Menu_clickGoToPaymentSettings</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPaymentSettings">modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPaymentSettings</a>
         </div>
         <div class="step-description">
-          <p>Go to payment settings on account menu.</p>
+          <p>Go to payment settings from MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -1696,27 +1979,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -1841,351 +2110,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountPersonalDataRegisterProfile" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.account.TAccountPersonalData_UpdateProfile" class="light-blue darken-4 white-text">
       <span class="smaller">tests.account</span>
-    TAccountPersonalDataRegisterProfile
-</h2>
-
-
-  <div class="tags">
-    <span class="tag-label">Tags:</span>
-      <span class="tag">smoke</span>
-  </div><!-- /.tags -->
-    
-  <div class="description light-blue lighten-5">
-    <p>Test register profile with create account via link in header.</p>
-<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
-<ul>
-<li>Start session, open homepage and delete all visible cookies</li>
-</ul>
-<h1 id="2-scope-of-test">2. Scope of test</h1>
-<ul>
-<li>Click register link in the header and goto the create account page</li>
-<li>Enter profile data and submit the form</li>
-<li>Logout using the link in the account area</li>
-<li>Login again to validate login data</li>
-<li>Validate personal profile data</li>
-<li>Logout using the global link in the header</li>
-</ul>
-<h1 id="3-clean-up">3. Clean up</h1>
-<ul>
-<li>End session and clean up created cookies</li>
-</ul>
-
-  </div><!-- /.description -->
-    
-  <div class="collapsible">
-    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
-    <div class="collapsible-body">
-
-      <div class="steps">
-        <h3 class="light-blue-text darken-3">
-Steps</h3>
-
-  <ol class="step-list">
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.MHelper_Random_generateEmail">modules.helper.MHelper_Random_generateEmail</a>
-        </div>
-        <div class="step-description">
-          <p>Generate random email.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.MHelper_Random_generatePassword">modules.helper.MHelper_Random_generatePassword</a>
-        </div>
-        <div class="step-description">
-          <p>Generate random password.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to start session.</p>
-<ul>
-<li>Start with open browser tab</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Open homepage</li>
-<li>End on homepage</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            GoToRegister
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickRegister">modules.global.headerfooternav.MGlobal_Header_clickRegister</a>
-        </div>
-        <div class="step-description">
-          <p>Click register in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            Register
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.personaldata.MAccount_PersonalData_enterProfile">modules.pages.account.personaldata.MAccount_PersonalData_enterProfile</a>
-        </div>
-        <div class="step-description">
-          <p>Enter profile data.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile">modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile</a>
-        </div>
-        <div class="step-description">
-          <p>Click submit profile data.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validatePage">modules.pages.account.menu.VAccount_Menu_validatePage</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account navigation.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validateCustomerName">modules.pages.account.menu.VAccount_Menu_validateCustomerName</a>
-        </div>
-        <div class="step-description">
-          <p>Validate customer name on account page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            Logout
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickLogout">modules.pages.account.menu.MAccount_Menu_clickLogout</a>
-        </div>
-        <div class="step-description">
-          <p>Click logout on account page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.homepage.FHomepage_flowToLoginAccount">modules.pages.homepage.FHomepage_flowToLoginAccount</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to login as returning customer.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Click login in header</li>
-<li>Login as returning customer</li>
-<li>End on account menu</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validatePage">modules.pages.account.menu.VAccount_Menu_validatePage</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account navigation.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            GoToPersonalData
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickGoToPersonalData">modules.pages.account.menu.MAccount_Menu_clickGoToPersonalData</a>
-        </div>
-        <div class="step-description">
-          <p>Go to personal data (profile) on account menu.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.personaldata.VAccount_PersonalData_validatePage">modules.pages.account.personaldata.VAccount_PersonalData_validatePage</a>
-        </div>
-        <div class="step-description">
-          <p>Validate personal data page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.VAccount_validateNav">modules.pages.account.VAccount_validateNav</a>
-        </div>
-        <div class="step-description">
-          <p>Validate account navigation.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.personaldata.VAccount_PersonalData_validateProfile">modules.pages.account.personaldata.VAccount_PersonalData_validateProfile</a>
-        </div>
-        <div class="step-description">
-          <p>Validate profile data.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            Logout
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
-        </div>
-        <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-  </ol><!-- /.step-list -->
-      </div><!-- /.steps -->
-
-    
-      <div class="data">
-        <h3 class="light-blue-text darken-3">
-Test Data</h3>
-
-
-  <h4 >
-Defined Inside</h4>
-
-  <div class="data-table">
-  <table>
-    <thead class="light-blue darken-2 white-text">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="key">firstname</td>
-        <td class="value">${billingAddress_firstname}</td>
-      </tr>
-      <tr>
-        <td class="key">lastname</td>
-        <td class="value">${billingAddress_lastname}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div><!-- ./data-table -->
-
-  <h4 >
-Defined Outside</h4>
-
-  <div class="data-table">
-  <table>
-    <thead class="light-blue darken-2 white-text">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="key">email_varDynamic</td>
-        <td class="value na">N/A</td>
-      </tr>
-      <tr>
-        <td class="key">password_varDynamic</td>
-        <td class="value na">N/A</td>
-      </tr>
-    </tbody>
-  </table>
-  </div><!-- /.data-table -->
-
-      </div><!-- /.data -->
-
-      <div class="vars">
-        <h3 class="light-blue-text darken-3">
-Dynamic Variables</h3>
-
-  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
-      </div><!-- /.vars -->
-              
-    </div><!-- /.collapsible-body -->
-    
-
-  </div><!-- /.collapsible -->
-</div><!-- /.row -->
-
-<div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountPersonalDataUpdateProfile" class="light-blue darken-4 white-text">
-      <span class="smaller">tests.account</span>
-    TAccountPersonalDataUpdateProfile
+    TAccountPersonalData_UpdateProfile
 </h2>
 
 
@@ -2309,10 +2236,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validatePage">modules.pages.account.menu.VAccount_Menu_validatePage</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validatePage">modules.pages.account.myaccount.VAccount_MyAccount_validatePage</a>
         </div>
         <div class="step-description">
-          <p>Validate account page.</p>
+          <p>Validate MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2327,25 +2254,25 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validateCustomerName">modules.pages.account.menu.VAccount_Menu_validateCustomerName</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
         </div>
         <div class="step-description">
-          <p>Validate customer name on account page.</p>
+          <p>Validate customer name on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToEditProfile">modules.pages.account.menu.FAccount_Menu_flowToEditProfile</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToEditProfile">modules.pages.account.myaccount.FAccount_MyAccount_flowToEditProfile</a>
         </div>
         <div class="step-description">
           <p>Flow to edit personal data (profile).</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to personal data</li>
 <li>Enter and submit profile</li>
 <li>Valdiate customer name</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
@@ -2359,10 +2286,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickLogout">modules.pages.account.menu.MAccount_Menu_clickLogout</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickLogout">modules.pages.account.myaccount.MAccount_MyAccount_clickLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout on account page.</p>
+          <p>Click logout on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2383,10 +2310,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validatePage">modules.pages.account.menu.VAccount_Menu_validatePage</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validatePage">modules.pages.account.myaccount.VAccount_MyAccount_validatePage</a>
         </div>
         <div class="step-description">
-          <p>Validate account page.</p>
+          <p>Validate MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2401,10 +2328,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validateCustomerName">modules.pages.account.menu.VAccount_Menu_validateCustomerName</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
         </div>
         <div class="step-description">
-          <p>Validate customer name on account page.</p>
+          <p>Validate customer name on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2417,27 +2344,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.MAccount_Menu_clickLogout">modules.pages.account.menu.MAccount_Menu_clickLogout</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.MAccount_MyAccount_clickLogout">modules.pages.account.myaccount.MAccount_MyAccount_clickLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout on account page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click logout on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2526,9 +2436,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.account.TAccountWishListAddRemoveProduct" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.account.TAccountWishList_AddRemoveProduct" class="light-blue darken-4 white-text">
       <span class="smaller">tests.account</span>
-    TAccountWishListAddRemoveProduct
+    TAccountWishList_AddRemoveProduct
 </h2>
 
 
@@ -2631,10 +2541,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.MSearch_enterSubmitText">modules.pages.search.MSearch_enterSubmitText</a>
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
         </div>
         <div class="step-description">
-          <p>Enter and submit text in search.</p>
+          <p>Enter a text in the search field and submit the search.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2740,22 +2650,6 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-action">
         <div class="step-name">
-            GoToAccount
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName">modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName</a>
-        </div>
-        <div class="step-description">
-          <p>Click and go to account via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
             Logout
         </div>
         <div class="step-description">
@@ -2763,27 +2657,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2880,9 +2760,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.cart.TCartAddRemoveProduct" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.cart.TCart_AddRemoveProduct" class="light-blue darken-4 white-text">
       <span class="smaller">tests.cart</span>
-    TCartAddRemoveProduct
+    TCart_AddRemoveProduct
 </h2>
 
 
@@ -3037,23 +2917,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -3139,9 +3002,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.cart.TCartRefreshProductsCalculateTotals" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.cart.TCart_ChangeQuantities" class="light-blue darken-4 white-text">
       <span class="smaller">tests.cart</span>
-    TCartRefreshProductsCalculateTotals
+    TCart_ChangeQuantities
 </h2>
 
 
@@ -3175,14 +3038,6 @@ Dynamic Variables</h3>
 <li>Calculate new subtotal and number of items for both products.</li>
 <li>Validate calculated values in mini cart header.</li>
 <li>Validate both products and subtotal on cart page.</li>
-</ul>
-<h2 id="product-01-and-02-remove-and-rearrange-rows">Product 01 and 02 - Remove and rearrange rows</h2>
-<ul>
-<li>Remove product 01.</li>
-<li>Validate product 02 is still in cart.</li>
-<li>Validate subtotal.</li>
-<li>Remove product 02.</li>
-<li>Validate emty cart.</li>
 </ul>
 <h1 id="3-clean-up">3. Clean up</h1>
 <ul>
@@ -3487,100 +3342,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            RemoveProduct
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
-        </div>
-        <div class="step-description">
-          <p>Click remove product from cart.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
-        </div>
-        <div class="step-description">
-          <p>Validate minicart on homepage with item count and total price in header details .</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
-        </div>
-        <div class="step-description">
-          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
-        </div>
-        <div class="step-description">
-          <p>Validate row with product price total.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validatePageTotalsSubtotal">modules.pages.cart.VCart_validatePageTotalsSubtotal</a>
-        </div>
-        <div class="step-description">
-          <p>Validate totals subtotal.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            RemoveProduct
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
-        </div>
-        <div class="step-description">
-          <p>Click remove product from cart.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
-        </div>
-        <div class="step-description">
-          <p>Validate cart is empty.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -3701,9 +3462,292 @@ Defined Outside</h4>
 Dynamic Variables</h3>
 
           <ul class="square">
-              <li>productQuantity_02_varDynamic</li>
               <li>productQuantity_01_varDynamic</li>
+              <li>productQuantity_02_varDynamic</li>
           </ul>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.cart.TCart_RemoveProducts" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.cart</span>
+    TCart_RemoveProducts
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">smoke</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&#39;t display the total and the test will fail.</p>
+<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+<ul>
+<li>Start session, open homepage and delete all visible cookies.</li>
+</ul>
+<h1 id="2-scope-of-test">2. Scope of test</h1>
+<h2 id="product-01-change-quantity-via-update-cart">Product 01 - Change quantity via update cart</h2>
+<ul>
+<li>Add product 01 to cart (quantity 1).</li>
+<li>Validate product and subtotal.</li>
+<li>Increase quantity to random value via update cart function.</li>
+<li>Calculate formatted total product price based on updated quantity.</li>
+<li>Validate product price and subtotal.</li>
+</ul>
+<h2 id="product-02-change-quantity-via-edit-dialog">Product 02 - Change quantity via edit dialog</h2>
+<ul>
+<li>Add product 02 to cart (quantity 2).</li>
+<li>Calculate formatted total product price.</li>
+<li>Calculate subtotal and number of items for both products.</li>
+<li>Validate both products and subtotal.</li>
+<li>Increase product 02 quantity to random value via edit details dialog.</li>
+<li>Calculate new subtotal and number of items for both products.</li>
+<li>Validate calculated values in mini cart header.</li>
+<li>Validate both products and subtotal on cart page.</li>
+</ul>
+<h2 id="product-01-and-02-remove-and-rearrange-rows">Product 01 and 02 - Remove and rearrange rows</h2>
+<ul>
+<li>Remove product 01.</li>
+<li>Validate product 02 is still in cart.</li>
+<li>Validate subtotal.</li>
+<li>Remove product 02.</li>
+<li>Validate emty cart.</li>
+</ul>
+<h1 id="3-clean-up">3. Clean up</h1>
+<ul>
+<li>End session and clean up created cookies.</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductToCart">modules.pages.search.FSearch_flowToAddProductToCart</a>
+        </div>
+        <div class="step-description">
+          <p>Add the first product with quantity 1 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductToCart">modules.pages.search.FSearch_flowToAddProductToCart</a>
+        </div>
+        <div class="step-description">
+          <p>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            RemoveProduct
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
+        </div>
+        <div class="step-description">
+          <p>Click remove product from cart.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Validate minicart on homepage with item count and total price in header details .</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_validatePageTotalsSubtotal">modules.pages.cart.VCart_validatePageTotalsSubtotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate totals subtotal.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            RemoveProduct
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
+        </div>
+        <div class="step-description">
+          <p>Click remove product from cart.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
+        </div>
+        <div class="step-description">
+          <p>Validate cart is empty.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">productNumber_01</td>
+        <td class="value">${productNumber_typeProduct}</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_02</td>
+        <td class="value">${productNumber_typeOptionProduct}</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_01</td>
+        <td class="value">4</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_02</td>
+        <td class="value">9</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">productName_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceSales_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceTotal_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
       </div><!-- /.vars -->
               
     </div><!-- /.collapsible-body -->
@@ -3972,23 +4016,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validate items per page option is view all.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -4414,23 +4441,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -4800,23 +4810,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -5103,23 +5096,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validiate catalog page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -5413,23 +5389,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validiate catalog page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -5773,23 +5732,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validiate catalog page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -6406,40 +6348,40 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validateCustomerName">modules.pages.account.menu.VAccount_Menu_validateCustomerName</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
         </div>
         <div class="step-description">
-          <p>Validate customer name on account page.</p>
+          <p>Validate customer name on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateProfile">modules.pages.account.menu.FAccount_Menu_flowToValidateProfile</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile</a>
         </div>
         <div class="step-description">
           <p>Flow to validate personal data (profile).</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to personal data</li>
 <li>Enter and submit profile</li>
 <li>Validate customer name</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateOrderViaOrderHistory">modules.pages.account.menu.FAccount_Menu_flowToValidateOrderViaOrderHistory</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory</a>
         </div>
         <div class="step-description">
           <p>Flow to validate order data in order history.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to order history</li>
 <li>Validate order data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
@@ -6453,27 +6395,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -7393,94 +7321,115 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName">modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToMyAccount">modules.global.headerfooternav.FGlobal_flowToMyAccount</a>
         </div>
         <div class="step-description">
-          <p>Click and go to account via customer name in header.</p>
+          <p>Click on UserButton
+Choose My Account</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.VAccount_Menu_validateCustomerName">modules.pages.account.menu.VAccount_Menu_validateCustomerName</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
         </div>
         <div class="step-description">
-          <p>Validate customer name on account page.</p>
+          <p>Validate customer name on MyAccount page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateProfile">modules.pages.account.menu.FAccount_Menu_flowToValidateProfile</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile</a>
         </div>
         <div class="step-description">
           <p>Flow to validate personal data (profile).</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to personal data</li>
 <li>Enter and submit profile</li>
 <li>Validate customer name</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateAddress">modules.pages.account.menu.FAccount_Menu_flowToValidateAddress</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress</a>
         </div>
         <div class="step-description">
           <p>Flow to validate address in address book.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to address book</li>
 <li>Validate address</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateAddress">modules.pages.account.menu.FAccount_Menu_flowToValidateAddress</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToMyAccount">modules.global.headerfooternav.FGlobal_flowToMyAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose My Account</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateAddress</a>
         </div>
         <div class="step-description">
           <p>Flow to validate address in address book.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to address book</li>
 <li>Validate address</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateCreditCard">modules.pages.account.menu.FAccount_Menu_flowToValidateCreditCard</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateCreditCard">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateCreditCard</a>
         </div>
         <div class="step-description">
           <p>Flow to validate credit card data in payment settings.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to payment settings</li>
 <li>Validate credit card data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToValidateOrderViaOrderHistory">modules.pages.account.menu.FAccount_Menu_flowToValidateOrderViaOrderHistory</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToMyAccount">modules.global.headerfooternav.FGlobal_flowToMyAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose My Account</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory</a>
         </div>
         <div class="step-description">
           <p>Flow to validate order data in order history.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to order history</li>
 <li>Validate order data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
@@ -7494,27 +7443,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -7930,49 +7865,69 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToCreateAddress">modules.pages.account.menu.FAccount_Menu_flowToCreateAddress</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateAddress">modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateAddress</a>
         </div>
         <div class="step-description">
           <p>Flow to create new address in address book.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to address book</li>
 <li>Create, enter and submit address</li>
 <li>Validate credit card data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToCreateAddress">modules.pages.account.menu.FAccount_Menu_flowToCreateAddress</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToMyAccount">modules.global.headerfooternav.FGlobal_flowToMyAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose My Account</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateAddress">modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateAddress</a>
         </div>
         <div class="step-description">
           <p>Flow to create new address in address book.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to address book</li>
 <li>Create, enter and submit address</li>
 <li>Validate credit card data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.account.menu.FAccount_Menu_flowToCreateCreditCard">modules.pages.account.menu.FAccount_Menu_flowToCreateCreditCard</a>
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateCreditCard">modules.pages.account.myaccount.FAccount_MyAccount_flowToCreateCreditCard</a>
         </div>
         <div class="step-description">
           <p>Flow to create new credit card in payment settings.</p>
 <ul>
-<li>Start on account menu</li>
+<li>Start on MyAccount page</li>
 <li>Go to payments settings</li>
 <li>Create, enter and submit credit card data</li>
 <li>Validate credit card data</li>
-<li>End on account menu</li>
+<li>End on MyAccount page</li>
 </ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToMyAccount">modules.global.headerfooternav.FGlobal_flowToMyAccount</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose My Account</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -7985,10 +7940,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -8513,10 +8471,13 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName">modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName</a>
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
         </div>
         <div class="step-description">
-          <p>Click logout via customer name in header.</p>
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -8531,23 +8492,6 @@ Steps</h3>
 <li>Enter and submit check order on account login page</li>
 <li>Validate order data in order summmary</li>
 <li>End on homepage</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
 </ul>
 
         </div><!-- /.step-description -->
@@ -8921,23 +8865,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validate hompage main content.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -9390,23 +9317,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -9685,23 +9595,6 @@ Steps</h3>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
   </ol><!-- /.step-list -->
       </div><!-- /.steps -->
 
@@ -9779,9 +9672,190 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.search.TSearchResultsValidateArticles" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.search.TSearch_NoResults" class="light-blue darken-4 white-text">
       <span class="smaller">tests.search</span>
-    TSearchResultsValidateArticles
+    TSearch_NoResults
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">smoke</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Test search for no products found.</p>
+<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+<ul>
+<li>Start session, open homepage and delete all visible cookies</li>
+</ul>
+<h1 id="2-scope-of-test">2. Scope of test</h1>
+<ul>
+<li>Search for text</li>
+<li>Leads to an empty search result page with suggestion</li>
+<li>Validate empty search result</li>
+</ul>
+<h1 id="3-clean-up">3. Clean up</h1>
+<ul>
+<li>End session and clean up created cookies</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            Search
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
+        </div>
+        <div class="step-description">
+          <p>Enter a text in the search field and submit the search.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateSearchResultPage">modules.pages.search.VSearch_Results_validateSearchResultPage</a>
+        </div>
+        <div class="step-description">
+          <p>Check the search result basics without details of the search itself such as phrases and did you mean. This is a not the page that comes up when only products are found!</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateBreadcrumb">modules.pages.search.VSearch_Results_validateBreadcrumb</a>
+        </div>
+        <div class="step-description">
+          <p>Validate search string on results page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateRefine">modules.pages.search.VSearch_Results_validateRefine</a>
+        </div>
+        <div class="step-description">
+          <p>Checks that the refine section in the left side is there. Does not check for the content of the refine.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateNoProductsFound">modules.pages.search.VSearch_Results_validateNoProductsFound</a>
+        </div>
+        <div class="step-description">
+          <p>Validate product not found page with shop suggestion</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateDidYouMean">modules.pages.search.VSearch_Results_validateDidYouMean</a>
+        </div>
+        <div class="step-description">
+          <p>Check that a did you mean suggestion come up.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">searchText</td>
+        <td class="value">${searchText_noContent}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">searchText_noContentDidYouMean</td>
+        <td class="value">microsoft</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.search.TSearchArticles_ArticlesOnly" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.search</span>
+    TSearchArticles_ArticlesOnly
 </h2>
 
 
@@ -9844,19 +9918,46 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.MSearch_enterSubmitText">modules.pages.search.MSearch_enterSubmitText</a>
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
         </div>
         <div class="step-description">
-          <p>Enter and submit text in search.</p>
+          <p>Enter a text in the search field and submit the search.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.VSearch_validatePage">modules.pages.search.VSearch_validatePage</a>
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateSearchResultPage">modules.pages.search.VSearch_Results_validateSearchResultPage</a>
+        </div>
+        <div class="step-description">
+          <p>Check the search result basics without details of the search itself such as phrases and did you mean. This is a not the page that comes up when only products are found!</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateBreadcrumb">modules.pages.search.VSearch_Results_validateBreadcrumb</a>
         </div>
         <div class="step-description">
           <p>Validate search string on results page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateRefine">modules.pages.search.VSearch_Results_validateRefine</a>
+        </div>
+        <div class="step-description">
+          <p>Checks that the refine section in the left side is there. Does not check for the content of the refine.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateArticlesFound">modules.pages.search.VSearch_Results_validateArticlesFound</a>
+        </div>
+        <div class="step-description">
+          <p>Click articles link in search results page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -9882,23 +9983,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validate articles catalog page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -9954,9 +10038,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.search.TSearchResultsValidateEmpty" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.search.TSearchProducts_DirectHit" class="light-blue darken-4 white-text">
       <span class="smaller">tests.search</span>
-    TSearchResultsValidateEmpty
+    TSearchProducts_DirectHit
 </h2>
 
 
@@ -9966,7 +10050,7 @@ Dynamic Variables</h3>
   </div><!-- /.tags -->
     
   <div class="description light-blue lighten-5">
-    <p>Test search for no products found.</p>
+    <p>Test search for a single product result and hence for an intermediate display of that product.</p>
 <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
 <ul>
 <li>Start session, open homepage and delete all visible cookies</li>
@@ -9974,8 +10058,8 @@ Dynamic Variables</h3>
 <h1 id="2-scope-of-test">2. Scope of test</h1>
 <ul>
 <li>Search for text</li>
-<li>Leads to an empty search result page with suggestion</li>
-<li>Validate empty search result</li>
+<li>Product detail page comes up</li>
+<li>Validate product detail page</li>
 </ul>
 <h1 id="3-clean-up">3. Clean up</h1>
 <ul>
@@ -10018,45 +10102,28 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.MSearch_enterSubmitText">modules.pages.search.MSearch_enterSubmitText</a>
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
         </div>
         <div class="step-description">
-          <p>Enter and submit text in search.</p>
+          <p>Enter a text in the search field and submit the search.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.VSearch_validatePage">modules.pages.search.VSearch_validatePage</a>
+            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validatePage">modules.pages.productdetailpage.VProductDetailPage_validatePage</a>
         </div>
         <div class="step-description">
-          <p>Validate search string on results page.</p>
+          <p>Validate product detail page.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateEmptyProductList">modules.pages.search.VSearch_Results_validateEmptyProductList</a>
+            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validateProductNumber">modules.pages.productdetailpage.VProductDetailPage_validateProductNumber</a>
         </div>
         <div class="step-description">
-          <p>Validate product not found page with shop suggestion</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
+          <p>Validate product number.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -10083,7 +10150,7 @@ Defined Inside</h4>
     <tbody>
       <tr>
         <td class="key">searchText</td>
-        <td class="value">${searchText_noContent}</td>
+        <td class="value">${searchText_productNumber}</td>
       </tr>
     </tbody>
   </table>
@@ -10112,9 +10179,9 @@ Dynamic Variables</h3>
 </div><!-- /.row -->
 
 <div class="row">
-<h2 data-disabled="false" id="test_tests.search.TSearchResultsValidateProductCatalogPage" class="light-blue darken-4 white-text">
+<h2 data-disabled="false" id="test_tests.search.TSearchProducts_ProductsOnly" class="light-blue darken-4 white-text">
       <span class="smaller">tests.search</span>
-    TSearchResultsValidateProductCatalogPage
+    TSearchProducts_ProductsOnly
 </h2>
 
 
@@ -10178,16 +10245,16 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.MSearch_enterSubmitText">modules.pages.search.MSearch_enterSubmitText</a>
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
         </div>
         <div class="step-description">
-          <p>Enter and submit text in search.</p>
+          <p>Enter a text in the search field and submit the search.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.VSearch_validatePage">modules.pages.search.VSearch_validatePage</a>
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateBreadcrumb">modules.pages.search.VSearch_Results_validateBreadcrumb</a>
         </div>
         <div class="step-description">
           <p>Validate search string on results page.</p>
@@ -10196,7 +10263,16 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateProductCatalog">modules.pages.search.VSearch_Results_validateProductCatalog</a>
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateRefine">modules.pages.search.VSearch_Results_validateRefine</a>
+        </div>
+        <div class="step-description">
+          <p>Checks that the refine section in the left side is there. Does not check for the content of the refine.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.VSearch_Results_validateProductListing">modules.pages.search.VSearch_Results_validateProductListing</a>
         </div>
         <div class="step-description">
           <p>Validate results page if products found.</p>
@@ -10225,23 +10301,6 @@ Steps</h3>
         </div>
         <div class="step-description">
           <p>Validate product detail page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -10296,164 +10355,6 @@ Dynamic Variables</h3>
   </div><!-- /.collapsible -->
 </div><!-- /.row -->
 
-<div class="row">
-<h2 data-disabled="false" id="test_tests.search.TSearchResultsValidateProductDetailPage" class="light-blue darken-4 white-text">
-      <span class="smaller">tests.search</span>
-    TSearchResultsValidateProductDetailPage
-</h2>
-
-
-  <div class="tags">
-    <span class="tag-label">Tags:</span>
-      <span class="tag">smoke</span>
-  </div><!-- /.tags -->
-    
-  <div class="description light-blue lighten-5">
-    <p>Test search for single product result.</p>
-<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
-<ul>
-<li>Start session, open homepage and delete all visible cookies</li>
-</ul>
-<h1 id="2-scope-of-test">2. Scope of test</h1>
-<ul>
-<li>Search for text</li>
-<li>Leads to single product result (product detail page)</li>
-<li>Validate product detail page</li>
-</ul>
-<h1 id="3-clean-up">3. Clean up</h1>
-<ul>
-<li>End session and clean up created cookies</li>
-</ul>
-
-  </div><!-- /.description -->
-    
-  <div class="collapsible">
-    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
-    <div class="collapsible-body">
-
-      <div class="steps">
-        <h3 class="light-blue-text darken-3">
-Steps</h3>
-
-  <ol class="step-list">
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to start session.</p>
-<ul>
-<li>Start with open browser tab</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Open homepage</li>
-<li>End on homepage</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-action">
-        <div class="step-name">
-            Search
-        </div>
-        <div class="step-description">
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.search.MSearch_enterSubmitText">modules.pages.search.MSearch_enterSubmitText</a>
-        </div>
-        <div class="step-description">
-          <p>Enter and submit text in search.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validatePage">modules.pages.productdetailpage.VProductDetailPage_validatePage</a>
-        </div>
-        <div class="step-description">
-          <p>Validate product detail page.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validateProductNumber">modules.pages.productdetailpage.VProductDetailPage_validateProductNumber</a>
-        </div>
-        <div class="step-description">
-          <p>Validate product number.</p>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-      <li data-disabled="false" class="step step-module">
-        <div class="step-name">
-            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToEndSession">modules.helper.FHelper_Session_flowToEndSession</a>
-        </div>
-        <div class="step-description">
-          <p>Flow to end session.</p>
-<ul>
-<li>Start on homepage</li>
-<li>Open homepage</li>
-<li>Delete cookies</li>
-<li>Close homepage</li>
-<li>End on homepage </li>
-<li>Close browser tab (optional)</li>
-</ul>
-
-        </div><!-- /.step-description -->
-      </li><!-- /.step -->
-  </ol><!-- /.step-list -->
-      </div><!-- /.steps -->
-
-    
-      <div class="data">
-        <h3 class="light-blue-text darken-3">
-Test Data</h3>
-
-
-  <h4 >
-Defined Inside</h4>
-
-  <div class="data-table">
-  <table>
-    <thead class="light-blue darken-2 white-text">
-      <tr>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="key">searchText</td>
-        <td class="value">${searchText_productNumber}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div><!-- ./data-table -->
-
-  <h4 >
-Defined Outside</h4>
-
-  <div class="data-table">
-  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
-  </div><!-- /.data-table -->
-
-      </div><!-- /.data -->
-
-      <div class="vars">
-        <h3 class="light-blue-text darken-3">
-Dynamic Variables</h3>
-
-  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
-      </div><!-- /.vars -->
-              
-    </div><!-- /.collapsible-body -->
-    
-
-  </div><!-- /.collapsible -->
-</div><!-- /.row -->
-
               </div>
       </div><!-- /#main -->
     </div><!-- /.container -->
@@ -10463,7 +10364,7 @@ Dynamic Variables</h3>
     <div id="footer">
       <div class="container">
         <div class="row red darken-4 z-depth-1">
-          <div class="footer-copy white-text">Generated with Xceptance LoadTest<sup>&reg;</sup>&nbsp;<span class="product-version">4.5.2</span></div>
+          <div class="footer-copy white-text">Generated with Xceptance LoadTest<sup>&reg;</sup>&nbsp;<span class="product-version">4.5.3</span></div>
         </div><!-- /.row -->
       </div><!-- /.container -->
     </div><!-- /#footer -->

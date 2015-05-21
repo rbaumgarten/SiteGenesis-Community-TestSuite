@@ -244,6 +244,16 @@ p.empty {
   padding-top: 0;
 }
 
+/* Disabled steps. */
+.step[data-disabled=true] {
+  color: #c9c9c9;
+}
+
+.step[data-disabled=true] .step-name a {
+  color: inherit;
+  text-decoration: line-through;
+}
+
 .description h1, .step-description h1 { color:inherit; font-size: 2.0rem; line-height: 1.2;  letter-spacing: 0; }
 .description h2, .step-description h2 { color:inherit; font-size: 1.6rem; line-height: 1.25; letter-spacing: 0; }
 .description h3, .step-description h3 { color:inherit; font-size: 1.4rem; line-height: 1.6;  letter-spacing: 0; }
