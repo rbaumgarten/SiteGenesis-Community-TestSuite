@@ -32,10 +32,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Validate calculated values in mini cart header.</li>
  * <li>Validate both products and subtotal on cart page.</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies.</li>
- * </ul>
  */
 @ScriptName
 ("tests.cart.TCart_ChangeQuantities")

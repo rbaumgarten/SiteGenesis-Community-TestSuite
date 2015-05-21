@@ -28,9 +28,7 @@
 - Validate calculated values in mini cart header.
 - Validate both products and subtotal on cart page.
 
-# 3. Clean up
-
-- End session and clean up created cookies.</description>
+</description>
   <codecomment># Setup
 
 - Start Session</codecomment>

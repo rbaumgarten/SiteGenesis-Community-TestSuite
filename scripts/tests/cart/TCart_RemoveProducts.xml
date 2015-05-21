@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
-  <description>Test remove products and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won't display the total and the test will fail.
+  <tags>smoke,cart,quantity</tags>
+  <description>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won't display the total and the test will fail.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies.
-- Add product 01 to cart (quantity 1).
-- Add product 02 to cart (quantity 2).
 
 # 2. Scope of test
 
-## Remove first product and rearrange rows
+* Add four products to the cart (1, 2, 3, 4)
+* Remove last item in cart (4)
+* Remove middle item (2)
+* Remove first item (1)
+* Remove the last item (3)
+* Validate quantity total of minitcart and the item position and content every time
+* Does not validate the cart totals right now, except when the cart is filled for the first time
 
-- Remove product 01.
-- Validate product 02 is still in cart.
-- Validate subtotal.
-
-## Remove second product
-
-- Remove product 02.
-- Validate emty cart.
-
-# 3. Clean up</description>
+</description>
   <codecomment># Setup
 
 - Start Session</codecomment>
@@ -37,7 +32,7 @@
     <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
     <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
-    <parameter name="productPriceTotal_varName" value="unused"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_01_varDynamic"/>
   </module>
   <codecomment>## Add product 02 to cart</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
@@ -51,11 +46,52 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
-  <codecomment>## Helper
-
-- Calculate product price total 02
-- Calculate product totals quantity
-- Calculate product totals subtotal</codecomment>
+  <codecomment>## Add product 03 to cart</codecomment>
+  <module name="modules.pages.search.FSearch_flowToAddProductToCart">
+    <comment>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is "unused" because it will be calculated in the test and validated against the storefront presentation.</comment>
+    <parameter name="cartRow" value="3"/>
+    <parameter name="productNumber" value="${productNumber_03}"/>
+    <parameter name="productQuantity" value="${productQuantity_03}"/>
+    <parameter name="productName_varName" value="productName_03_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_03_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_03_varDynamic"/>
+  </module>
+  <codecomment>## Add product 04 to cart</codecomment>
+  <module name="modules.pages.search.FSearch_flowToAddProductToCart">
+    <comment>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is "unused" because it will be calculated in the test and validated against the storefront presentation.</comment>
+    <parameter name="cartRow" value="4"/>
+    <parameter name="productNumber" value="${productNumber_04}"/>
+    <parameter name="productQuantity" value="${productQuantity_04}"/>
+    <parameter name="productName_varName" value="productName_04_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_04_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_04_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_04_varDynamic"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_04_varDynamic"/>
+  </module>
+  <codecomment>Validate correctness of the cart before we remove anything.</codecomment>
+  <command name="storeEval" target="${productQuantity_01} + ${productQuantity_02} + ${productQuantity_03} + ${productQuantity_04} " value="totalProductQuantity">
+    <comment>Just sum up what quantities we have.</comment>
+  </command>
+  <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
+    <comment>The subtotal is not longer verified.</comment>
+    <parameter name="totalsQuantity" value="${totalProductQuantity}"/>
+    <parameter name="totalsSubtotal" value=""/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="1"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_01_varDynamic}"/>
+  </module>
+  <codecomment>---</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="2"/>
     <parameter name="productName" value="${productName_02_varDynamic}"/>
@@ -67,47 +103,156 @@
     <parameter name="row" value="2"/>
     <parameter name="productPriceTotal" value="${productPriceTotal_02_varDynamic}"/>
   </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="3"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="3"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_03_varDynamic}"/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="4"/>
+    <parameter name="productName" value="${productName_04_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_04_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_04_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_04_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="4"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_04_varDynamic}"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment># Scope</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 01 and 02 - Remove first item</codecomment>
-  <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>### Cart
-
-- Remove first item
-- Validate mini cart header items updated
-- Validate second item is still in cart
-- Validate totals subtotal is updated</codecomment>
+  <codecomment>## Remove last in list</codecomment>
   <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
+    <parameter name="row" value="4"/>
   </module>
+  <command name="storeEval" target="${productQuantity_01} + ${productQuantity_02} + ${productQuantity_03}" value="totalProductQuantity">
+    <comment>Just sum up what quantities we have.</comment>
+  </command>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
-    <parameter name="totalsQuantity" value="${productQuantity_02}"/>
-    <parameter name="totalsSubtotal" value="${productPriceTotal_02_varDynamic}"/>
+    <comment>The subtotal is not longer verified.</comment>
+    <parameter name="totalsQuantity" value="${totalProductQuantity}"/>
+    <parameter name="totalsSubtotal" value=""/>
   </module>
+  <codecomment>---</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="1"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_01_varDynamic}"/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="2"/>
     <parameter name="productName" value="${productName_02_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
-    <parameter name="row" value="1"/>
+    <parameter name="row" value="2"/>
     <parameter name="productPriceTotal" value="${productPriceTotal_02_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceTotal_02_varDynamic}"/>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="3"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <codecomment>### Cart
-
-- Remove second product
-- Validate empty cart</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="3"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_03_varDynamic}"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Remove middle item</codecomment>
+  <action name="RemoveProduct"/>
+  <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
+    <parameter name="row" value="2"/>
+  </module>
+  <command name="storeEval" target="${productQuantity_01} + ${productQuantity_03}" value="totalProductQuantity">
+    <comment>Just sum up what quantities we have.</comment>
+  </command>
+  <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
+    <comment>The subtotal is not longer verified.</comment>
+    <parameter name="totalsQuantity" value="${totalProductQuantity}"/>
+    <parameter name="totalsSubtotal" value=""/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="1"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_01_varDynamic}"/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="2"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_03_varDynamic}"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Remove first item</codecomment>
   <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
-  <module name="modules.pages.cart.VCart_validateEmptyProductList"/>
+  <command name="storeEval" target="${productQuantity_03}" value="totalProductQuantity">
+    <comment>Just sum up what quantities we have.</comment>
+  </command>
+  <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
+    <comment>The subtotal is not longer verified.</comment>
+    <parameter name="totalsQuantity" value="${totalProductQuantity}"/>
+    <parameter name="totalsSubtotal" value=""/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductPriceTotal">
+    <parameter name="row" value="1"/>
+    <parameter name="productPriceTotal" value="${productPriceTotal_03_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${productPriceTotal_03_varDynamic}"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Remove last item in cart</codecomment>
+  <action name="RemoveProduct"/>
+  <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
   <codecomment># Teardown
 
 - End session</codecomment>
