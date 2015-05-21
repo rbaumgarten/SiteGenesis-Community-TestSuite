@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Navigates to a second level category by using name on the left secondary navigation.</description>
+  <parameter name="nameLevel2" desc="Link name for level 2"/>
+  <command name="clickAndWait" target="xpath=id('secondary')//ul[@id='category-level-1']/li/a[contains(., '@{nameLevel2}')]"/>
+</scriptmodule>
