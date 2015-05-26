@@ -3,9 +3,10 @@
   <description>Validate minicart on homepage with item count and total price in header details .</description>
   <parameter name="totalsQuantity" desc="totals quantity (item count)"/>
   <parameter name="totalsSubtotal" desc="totals subtotal"/>
-  <command name="waitForText" target="css=#mini-cart .mini-cart-total a.mini-cart-link" value="*@{totalsQuantity}*"/>
-  <command name="assertText" target="css=#mini-cart .mini-cart-total a.mini-cart-link" value="*@{totalsQuantity}*"/>
+  <command name="waitForText" target="css=#mini-cart .mini-cart-total a.mini-cart-link" value="*@{totalsQuantity}*">
+    <comment>We need to wait only and can save the extra assert that was behind.</comment>
+  </command>
   <command name="assertText" disabled="true" target="css=#mini-cart .mini-cart-total a.mini-cart-link span.mini-cart-total-label" value="*@{totalsSubtotal}">
-    <comment>**Caution:** Browser window needs to be 1200 pixels wide to show totals subtotal in header.</comment>
+    <comment>**Caution:** Browser window needs to be 1200 pixels wide to show totals subtotal in header. Feature was removed in newer SG versions.</comment>
   </command>
 </scriptmodule>
