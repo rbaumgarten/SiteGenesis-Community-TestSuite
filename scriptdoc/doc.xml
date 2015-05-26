@@ -9195,7 +9195,7 @@ Choose Login from dropdown menu</description>
       <external-parameters>
         <entry>
           <string>storefront_url</string>
-          <string>http://dev01.lab04b.dw.demandware.net/s/SiteGenesis/home</string>
+          <string>---</string>
         </entry>
       </external-parameters>
       <steps>
@@ -10736,7 +10736,7 @@ Choose My Account</description>
     </entry>
     <entry>
       <string>storefront_url</string>
-      <string>http://dev01.lab04b.dw.demandware.net/s/SiteGenesis/home</string>
+      <string>---</string>
     </entry>
   </global-testdata>
 </testsuite>
