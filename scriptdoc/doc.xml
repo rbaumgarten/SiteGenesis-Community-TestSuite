@@ -1388,44 +1388,28 @@ Choose Login from dropdown menu</description>
       <baseUrl></baseUrl>
     </testcase>
     <testcase disabled="false">
-      <description>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&apos;t display the total and the test will fail.
+      <description>Test remove products and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&apos;t display the total and the test will fail.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies.
+- Add product 01 to cart (quantity 1).
+- Add product 02 to cart (quantity 2).
 
 # 2. Scope of test
 
-## Product 01 - Change quantity via update cart
-
-- Add product 01 to cart (quantity 1).
-- Validate product and subtotal.
-- Increase quantity to random value via update cart function.
-- Calculate formatted total product price based on updated quantity.
-- Validate product price and subtotal.
-
-## Product 02 - Change quantity via edit dialog
-
-- Add product 02 to cart (quantity 2).
-- Calculate formatted total product price.
-- Calculate subtotal and number of items for both products.
-- Validate both products and subtotal.
-- Increase product 02 quantity to random value via edit details dialog.
-- Calculate new subtotal and number of items for both products.
-- Validate calculated values in mini cart header.
-- Validate both products and subtotal on cart page.
-
-## Product 01 and 02 - Remove and rearrange rows
+## Remove first product and rearrange rows
 
 - Remove product 01.
 - Validate product 02 is still in cart.
 - Validate subtotal.
+
+## Remove second product
+
 - Remove product 02.
 - Validate emty cart.
 
-# 3. Clean up
-
-- End session and clean up created cookies.</description>
+# 3. Clean up</description>
       <tags>smoke</tags>
       <name>tests.cart.TCart_RemoveProducts</name>
       <external-parameters>
@@ -1821,11 +1805,12 @@ Choose Login from dropdown menu</description>
 - Go to account
 - Validate customer name and profile
 - Validate order via order history
-- Logout
 
 # 3. Clean up
 
-- End session and clean up created cookies</description>
+- Logout and end session
+
+Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</description>
       <tags>smoke</tags>
       <name>tests.checkout.TCheckoutGuestOrderProduct</name>
       <external-parameters>
@@ -9210,7 +9195,7 @@ Choose Login from dropdown menu</description>
       <external-parameters>
         <entry>
           <string>storefront_url</string>
-          <string>---</string>
+          <string>http://dev01.lab04b.dw.demandware.net/s/SiteGenesis/home</string>
         </entry>
       </external-parameters>
       <steps>
@@ -10751,7 +10736,7 @@ Choose My Account</description>
     </entry>
     <entry>
       <string>storefront_url</string>
-      <string>---</string>
+      <string>http://dev01.lab04b.dw.demandware.net/s/SiteGenesis/home</string>
     </entry>
   </global-testdata>
 </testsuite>
