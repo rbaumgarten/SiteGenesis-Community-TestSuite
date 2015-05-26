@@ -14,9 +14,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 
-public class TestRunnerRemoteInternetExporer extends AbstractScriptTestCase {
+public class TestRunnerRemoteInternetExplorer extends AbstractScriptTestCase {
 	WebDriver driver; 
-	protected TestRunnerRemoteInternetExporer() {
+	protected TestRunnerRemoteInternetExplorer() {
 		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		caps.setCapability("version", "11.0");
 		caps.setCapability("platform", Platform.WIN8_1);
