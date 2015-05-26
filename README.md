@@ -130,12 +130,15 @@ We have already build a __foundation__ of over __200 modules__ structured in ove
     |       |-- minicart                   # tests for minicart area
     |       \-- search                     # tests for search area
     |-- src
-    |   \-- tests                          # XLT java wrapper classes
+    |   |-- tests                          # XLT java wrapper classes
+	|       \-- others                     # other sample tests
     |-- build.properties                   # XLT ant build properties
     |-- build.xml                          # XLT ant build configuration
     |-- xlt-scriptdeveloper.properties     # XLT Script Developer settings
     \-- global_testdata.properties         # global testdata properties
 
+Please note that there is a special folder src/others to collect java based test examples e.g. testing via RemoteWebDriver against [Sauce Labs](https://saucelabs.com/).
+	
 ### Packages
 
 __Packages__ form the main structure of the test suite (project tree). Each package may consist of other sub packages (layers) and contains test cases (named `tests.subpackage`), script modules (named `modules.subpackage`) or optional Java modules. The file system implements them as folders.
