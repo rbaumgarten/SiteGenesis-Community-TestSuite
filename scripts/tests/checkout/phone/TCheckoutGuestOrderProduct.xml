@@ -256,7 +256,7 @@
 - Validate page
 - Validate all specific order data</codecomment>
   <action name="COConfirmation"/>
-  <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize"/>
+  <module name="modules.pages.checkout.steps.confirmation.phone.VCheckout_Confirmation_validatePage_Phone"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation">
     <parameter name="orderDatePattern" value="${storefront_orderDatePattern}"/>
     <parameter name="orderNumberPattern" value="${storefront_orderNumberPattern}"/>
