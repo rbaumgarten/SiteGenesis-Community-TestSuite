@@ -1,7 +1,7 @@
 /*
  * NOTE: This file is generated. Do not edit! Your changes will be lost.
  */
-package tests.checkout;
+package tests.checkout.phone;
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
@@ -31,7 +31,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize")
-public class TCheckoutGuestOrderProduct_MobilePhoneSize extends AbstractScriptTestCase
+("tests.checkout.phone.TCheckoutGuestOrderProduct")
+public class TCheckoutGuestOrderProduct extends AbstractScriptTestCase
 {
 }

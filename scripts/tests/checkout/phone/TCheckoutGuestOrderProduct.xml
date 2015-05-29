@@ -24,7 +24,7 @@
 
 - End session and clean up created cookies</description>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>ATTENTION - Change browser window size to 320x480 before replay with script developer!</codecomment>
+  <codecomment>ATTENTION - Change browser window size to 360x640 before replay with script developer!</codecomment>
   <codecomment>Note: Execute test as junit test will use values from config/default.properties file:</codecomment>
   <codecomment>tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize.xlt.webDriver.window.width = 320</codecomment>
   <codecomment>tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize.xlt.webDriver.window.height = 480</codecomment>
