@@ -194,7 +194,7 @@
 - Store data
 - Submit data</codecomment>
   <action name="COPlaceOrder"/>
-  <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize"/>
+  <module name="modules.pages.checkout.steps.placeorder.phone.VCheckout_PlaceOrder_validatePage_Phone"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
