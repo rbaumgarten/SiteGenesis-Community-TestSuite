@@ -27,7 +27,7 @@
 
 - Submit search string</codecomment>
   <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit_MobilePhoneSize">
+  <module name="modules.pages.search.phone.MSearch_enterTextAndSubmit_Phone">
     <parameter name="searchText" value="@{productNumber}"/>
   </module>
   <codecomment># PDP

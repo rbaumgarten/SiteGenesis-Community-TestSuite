@@ -44,7 +44,7 @@
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <module name="modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize">
+  <module name="modules.pages.search.phone.FSearch_flowToAddProductWithColorSizeToCart_Phone">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productQuantity" value="${productQuantity}"/>
