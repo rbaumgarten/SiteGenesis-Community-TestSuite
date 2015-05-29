@@ -70,11 +70,13 @@
 <li><a href="#test_tests.catalog.TCatalogValidatePagesCategoryLevel2" title="tests.catalog.TCatalogValidatePagesCategoryLevel2">TCatalogValidatePagesCategoryLevel2</a></li>
 <li><a href="#test_tests.catalog.TCatalogValidatePagesCategoryLevel3" title="tests.catalog.TCatalogValidatePagesCategoryLevel3">TCatalogValidatePagesCategoryLevel3</a></li>
 <li><a href="#test_tests.checkout.TCheckoutGuestOrderProduct" title="tests.checkout.TCheckoutGuestOrderProduct">TCheckoutGuestOrderProduct</a></li>
+<li><a href="#test_tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize" title="tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize">TCheckoutGuestOrderProduct_MobilePhoneSize</a></li>
 <li><a href="#test_tests.checkout.TCheckoutNewCustomerOrderProducts" title="tests.checkout.TCheckoutNewCustomerOrderProducts">TCheckoutNewCustomerOrderProducts</a></li>
 <li><a href="#test_tests.checkout.TCheckoutReturningCustomerOrderProducts" title="tests.checkout.TCheckoutReturningCustomerOrderProducts">TCheckoutReturningCustomerOrderProducts</a></li>
 <li><a href="#test_tests.homepage.THomepageValidateStructure" title="tests.homepage.THomepageValidateStructure">THomepageValidateStructure</a></li>
 <li><a href="#test_tests.minicart.TMiniCartRefreshProducts" title="tests.minicart.TMiniCartRefreshProducts">TMiniCartRefreshProducts</a></li>
 <li><a href="#test_tests.minicart.TMiniCartValidateStructure" title="tests.minicart.TMiniCartValidateStructure">TMiniCartValidateStructure</a></li>
+<li><a href="#test_tests.product.TProduct_ValidateStandardProduct" title="tests.product.TProduct_ValidateStandardProduct">TProduct_ValidateStandardProduct</a></li>
 <li><a href="#test_tests.search.TSearch_NoResults" title="tests.search.TSearch_NoResults">TSearch_NoResults</a></li>
 <li><a href="#test_tests.search.TSearchArticles_ArticlesOnly" title="tests.search.TSearchArticles_ArticlesOnly">TSearchArticles_ArticlesOnly</a></li>
 <li><a href="#test_tests.search.TSearchProducts_DirectHit" title="tests.search.TSearchProducts_DirectHit">TSearchProducts_DirectHit</a></li>
@@ -2557,10 +2559,10 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails">modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</a>
+            <a href="modules.html#mod_modules.pages.product.MProduct_storeBasicData">modules.pages.product.MProduct_storeBasicData</a>
         </div>
         <div class="step-description">
-          <p>Store basic product details.</p>
+          <p>Stores basic product data. Takes them from PDP or QV.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -2910,7 +2912,7 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
+            <a href="modules.html#mod_modules.pages.cart.VCart_validateCartIsEmpty">modules.pages.cart.VCart_validateCartIsEmpty</a>
         </div>
         <div class="step-description">
           <p>Validate cart is empty.</p>
@@ -3038,10 +3040,6 @@ Dynamic Variables</h3>
 <li>Calculate new subtotal and number of items for both products.</li>
 <li>Validate calculated values in mini cart header.</li>
 <li>Validate both products and subtotal on cart page.</li>
-</ul>
-<h1 id="3-clean-up">3. Clean up</h1>
-<ul>
-<li>End session and clean up created cookies.</li>
 </ul>
 
   </div><!-- /.description -->
@@ -3483,29 +3481,26 @@ Dynamic Variables</h3>
   <div class="tags">
     <span class="tag-label">Tags:</span>
       <span class="tag">smoke</span>
+      <span class="tag">cart</span>
+      <span class="tag">quantity</span>
   </div><!-- /.tags -->
     
   <div class="description light-blue lighten-5">
-    <p>Test remove products and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&#39;t display the total and the test will fail.</p>
+    <p>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&#39;t display the total and the test will fail.</p>
 <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
 <ul>
 <li>Start session, open homepage and delete all visible cookies.</li>
-<li>Add product 01 to cart (quantity 1).</li>
-<li>Add product 02 to cart (quantity 2).</li>
 </ul>
 <h1 id="2-scope-of-test">2. Scope of test</h1>
-<h2 id="remove-first-product-and-rearrange-rows">Remove first product and rearrange rows</h2>
 <ul>
-<li>Remove product 01.</li>
-<li>Validate product 02 is still in cart.</li>
-<li>Validate subtotal.</li>
+<li>Add four products to the cart (1, 2, 3, 4)</li>
+<li>Remove last item in cart (4)</li>
+<li>Remove middle item (2)</li>
+<li>Remove first item (1)</li>
+<li>Remove the last item (3)</li>
+<li>Validate quantity total of minitcart and the item position and content every time</li>
+<li>Does not validate the cart totals right now, except when the cart is filled for the first time</li>
 </ul>
-<h2 id="remove-second-product">Remove second product</h2>
-<ul>
-<li>Remove product 02.</li>
-<li>Validate emty cart.</li>
-</ul>
-<h1 id="3-clean-up">3. Clean up</h1>
 
   </div><!-- /.description -->
     
@@ -3554,6 +3549,87 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductToCart">modules.pages.search.FSearch_flowToAddProductToCart</a>
+        </div>
+        <div class="step-description">
+          <p>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductToCart">modules.pages.search.FSearch_flowToAddProductToCart</a>
+        </div>
+        <div class="step-description">
+          <p>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
+        </div>
+        <div class="step-description">
+          <p>The subtotal is not longer verified.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
             <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
         </div>
         <div class="step-description">
@@ -3591,7 +3667,147 @@ Steps</h3>
             <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
         </div>
         <div class="step-description">
-          <p>Validate minicart on homepage with item count and total price in header details .</p>
+          <p>The subtotal is not longer verified.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            RemoveProduct
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
+        </div>
+        <div class="step-description">
+          <p>Click remove product from cart.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
+        </div>
+        <div class="step-description">
+          <p>The subtotal is not longer verified.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductBasicDetails">modules.pages.cart.VCart_Row_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.VCart_Row_validateProductPriceTotal">modules.pages.cart.VCart_Row_validateProductPriceTotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate row with product price total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            RemoveProduct
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_Row_clickRemoveProduct">modules.pages.cart.MCart_Row_clickRemoveProduct</a>
+        </div>
+        <div class="step-description">
+          <p>Click remove product from cart.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</a>
+        </div>
+        <div class="step-description">
+          <p>The subtotal is not longer verified.</p>
 
         </div><!-- /.step-description -->
       </li><!-- /.step -->
@@ -3640,7 +3856,7 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
+            <a href="modules.html#mod_modules.pages.cart.VCart_validateCartIsEmpty">modules.pages.cart.VCart_validateCartIsEmpty</a>
         </div>
         <div class="step-description">
           <p>Validate cart is empty.</p>
@@ -3677,12 +3893,28 @@ Defined Inside</h4>
         <td class="value">${productNumber_typeOptionProduct}</td>
       </tr>
       <tr>
+        <td class="key">productNumber_03</td>
+        <td class="value">lucasarts-lego-indiana-jones-original-adventure-wii</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_04</td>
+        <td class="value">atari-pipe-mania-psp</td>
+      </tr>
+      <tr>
         <td class="key">productQuantity_01</td>
-        <td class="value">4</td>
+        <td class="value">1</td>
       </tr>
       <tr>
         <td class="key">productQuantity_02</td>
-        <td class="value">9</td>
+        <td class="value">2</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_03</td>
+        <td class="value">3</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_04</td>
+        <td class="value">4</td>
       </tr>
     </tbody>
   </table>
@@ -3701,7 +3933,23 @@ Defined Outside</h4>
     </thead>
     <tbody>
       <tr>
+        <td class="key">productName_01_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
         <td class="key">productName_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productName_03_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productName_04_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_01_varDynamic</td>
         <td class="value na">N/A</td>
       </tr>
       <tr>
@@ -3709,7 +3957,31 @@ Defined Outside</h4>
         <td class="value na">N/A</td>
       </tr>
       <tr>
+        <td class="key">productNumber_03_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_04_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceSales_01_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
         <td class="key">productPriceSales_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceSales_03_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceSales_04_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceTotal_01_varDynamic</td>
         <td class="value na">N/A</td>
       </tr>
       <tr>
@@ -3717,7 +3989,27 @@ Defined Outside</h4>
         <td class="value na">N/A</td>
       </tr>
       <tr>
+        <td class="key">productPriceTotal_03_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceTotal_04_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_01_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
         <td class="key">productQuantity_02_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_03_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_04_varDynamic</td>
         <td class="value na">N/A</td>
       </tr>
     </tbody>
@@ -3730,7 +4022,9 @@ Defined Outside</h4>
         <h3 class="light-blue-text darken-3">
 Dynamic Variables</h3>
 
-  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+          <ul class="square">
+              <li>totalProductQuantity</li>
+          </ul>
       </div><!-- /.vars -->
               
     </div><!-- /.collapsible-body -->
@@ -6217,6 +6511,884 @@ Steps</h3>
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
             <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation</a>
+        </div>
+        <div class="step-description">
+          <p>Validate order information.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateBillingAddress">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateBillingAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Validate billing address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateCreditCard">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateCreditCard</a>
+        </div>
+        <div class="step-description">
+          <p>Validate payment credit card.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateTotals">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Validate order totals.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingAddress">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Validate shipping address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductBasicDetails">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate products basic details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductColorSize">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductColorSize</a>
+        </div>
+        <div class="step-description">
+          <p>Valdiate product color and size attribute details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation">modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation</a>
+        </div>
+        <div class="step-description">
+          <p>Store order data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateBox">modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateBox</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box new customer.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile">modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box new customer profile data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COConfirmationNewCustomer
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.MCheckout_BoxNewCustomer_enterClickSubmit">modules.pages.checkout.steps.boxes.MCheckout_BoxNewCustomer_enterClickSubmit</a>
+        </div>
+        <div class="step-description">
+          <p>Enter, click and submit profile data in box new customer.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</a>
+        </div>
+        <div class="step-description">
+          <p>Validate customer name on MyAccount page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to validate personal data (profile).</p>
+<ul>
+<li>Start on MyAccount page</li>
+<li>Go to personal data</li>
+<li>Enter and submit profile</li>
+<li>Validate customer name</li>
+<li>End on MyAccount page</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to validate order data in order history.</p>
+<ul>
+<li>Start on MyAccount page</li>
+<li>Go to order history</li>
+<li>Validate order data</li>
+<li>End on MyAccount page</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            Logout
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.FGlobal_flowToLogout">modules.global.headerfooternav.FGlobal_flowToLogout</a>
+        </div>
+        <div class="step-description">
+          <p>Click on UserButton
+Choose Logout
+Verify Logout
+<em>Caution</em> this only works if nobody is logged in</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">address1</td>
+        <td class="value">${billingAddress_address1}</td>
+      </tr>
+      <tr>
+        <td class="key">address2</td>
+        <td class="value">${billingAddress_address2}</td>
+      </tr>
+      <tr>
+        <td class="key">city</td>
+        <td class="value">${billingAddress_city}</td>
+      </tr>
+      <tr>
+        <td class="key">country</td>
+        <td class="value">${billingAddress_country}</td>
+      </tr>
+      <tr>
+        <td class="key">cvn</td>
+        <td class="value">${visaCreditCard_cvn}</td>
+      </tr>
+      <tr>
+        <td class="key">firstname</td>
+        <td class="value">${billingAddress_firstname}</td>
+      </tr>
+      <tr>
+        <td class="key">lastname</td>
+        <td class="value">${billingAddress_lastname}</td>
+      </tr>
+      <tr>
+        <td class="key">month</td>
+        <td class="value">${visaCreditCard_month}</td>
+      </tr>
+      <tr>
+        <td class="key">number</td>
+        <td class="value">${visaCreditCard_number}</td>
+      </tr>
+      <tr>
+        <td class="key">owner</td>
+        <td class="value">${visaCreditCard_owner}</td>
+      </tr>
+      <tr>
+        <td class="key">paymentName</td>
+        <td class="value">${storefront_creditCard_paymentName}</td>
+      </tr>
+      <tr>
+        <td class="key">phone</td>
+        <td class="value">${billingAddress_phone}</td>
+      </tr>
+      <tr>
+        <td class="key">postalCode</td>
+        <td class="value">${billingAddress_postalCode}</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber</td>
+        <td class="value">${productNumber_typeVariationProductColorSizeListPriceOnly}</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity</td>
+        <td class="value">1</td>
+      </tr>
+      <tr>
+        <td class="key">statesState</td>
+        <td class="value">${billingAddress_statesState}</td>
+      </tr>
+      <tr>
+        <td class="key">statesStateShort</td>
+        <td class="value">${billingAddress_statesStateShort}</td>
+      </tr>
+      <tr>
+        <td class="key">type</td>
+        <td class="value">${visaCreditCard_type}</td>
+      </tr>
+      <tr>
+        <td class="key">typeShort</td>
+        <td class="value">${visaCreditCard_typeShort}</td>
+      </tr>
+      <tr>
+        <td class="key">year</td>
+        <td class="value">${visaCreditCard_year}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">email_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">orderDate_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">orderNumber_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">password_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productColor_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productName_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPriceTotal_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productSize_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">shippingMethod_name</td>
+        <td class="value">Ground</td>
+      </tr>
+      <tr>
+        <td class="key">shippingMethod_position</td>
+        <td class="value">1</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_orderDatePattern</td>
+        <td class="value">[A-Z][a-z]{2} [0-9]{1,2}, [0-9]{4}</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_orderNumberPattern</td>
+        <td class="value">00[0-9]{6}</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_shippingAddress_isGift</td>
+        <td class="value">no</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_shippingAddress_useAsBillingAddress</td>
+        <td class="value">true</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_shippingMethod_position</td>
+        <td class="value">1</td>
+      </tr>
+      <tr>
+        <td class="key">storefront_shippingStatus</td>
+        <td class="value">Not Shipped</td>
+      </tr>
+      <tr>
+        <td class="key">totalsSalesTax_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">totalsShipping_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">totalsTotal_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">totalSubtotal_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.checkout</span>
+    TCheckoutGuestOrderProduct_MobilePhoneSize
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">smoke</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Functional responsive design test guest checkout with one variation product with color and size, one address and visa. </p>
+<h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+<ul>
+<li>Start session, open homepage and delete all visible cookies</li>
+<li>Add variation product having color and size to cart (quantity 1)</li>
+</ul>
+<h1 id="2-scope-of-test">2. Scope of test</h1>
+<ul>
+<li>Start guest checkout</li>
+<li>Enter new address and use preselected  default shipping method</li>
+<li>Use same as shipping address for billing and use payment method credit card (visa)</li>
+<li>Validate place order page</li>
+<li>Validate order confirmation page</li>
+<li>Go to account</li>
+<li>Validate customer name and profile</li>
+<li>Validate order via order history</li>
+<li>Logout</li>
+</ul>
+<h1 id="3-clean-up">3. Clean up</h1>
+<ul>
+<li>End session and clean up created cookies</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generateEmail">modules.helper.MHelper_Random_generateEmail</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random email.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.MHelper_Random_generatePassword">modules.helper.MHelper_Random_generatePassword</a>
+        </div>
+        <div class="step-description">
+          <p>Generate random password.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize">modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to add variation product with color, size and quantity to cart.</p>
+<ul>
+<li>Start on search</li>
+<li>Search product via number</li>
+<li>Set quantity on PDP</li>
+<li>Store basic details on PDP</li>
+<li>Store color and size on PDP</li>
+<li>Add to cart on PDP</li>
+<li>Go to Cart via global header link</li>
+<li>Validate product row basic details</li>
+<li>Validate product row color and size</li>
+<li>Store product price total</li>
+<li>End on cart</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="true" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart">modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to add variation product with color, size and quantity to cart.</p>
+<ul>
+<li>Start on search</li>
+<li>Search product via number</li>
+<li>Set quantity on PDP</li>
+<li>Store basic details on PDP</li>
+<li>Store color and size on PDP</li>
+<li>Add to cart on PDP</li>
+<li>Go to Cart via global header link</li>
+<li>Validate product row basic details</li>
+<li>Validate product row color and size</li>
+<li>Store product price total</li>
+<li>End on cart</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            ViewCart
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_storeTotalsSubtotal">modules.pages.cart.MCart_storeTotalsSubtotal</a>
+        </div>
+        <div class="step-description">
+          <p>Store totals subtotal.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            GoToCOLogin
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.cart.MCart_clickGoToCheckoutLogin">modules.pages.cart.MCart_clickGoToCheckoutLogin</a>
+        </div>
+        <div class="step-description">
+          <p>Click and go to checkout from cart page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.login.VCheckout_Login_validatePage">modules.pages.checkout.login.VCheckout_Login_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate checkout start page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COLoginGoToGuest
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.login.MCheckout_Login_clickGoToGuest">modules.pages.checkout.login.MCheckout_Login_clickGoToGuest</a>
+        </div>
+        <div class="step-description">
+          <p>Click go to guest on checkout login page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.VCheckout_Shipping_validatePage">modules.pages.checkout.steps.shipping.VCheckout_Shipping_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate shipping page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.VCheckout_Shipping_validateCheckedValues">modules.pages.checkout.steps.shipping.VCheckout_Shipping_validateCheckedValues</a>
+        </div>
+        <div class="step-description">
+          <p>Validate checked shipping values.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary product basic details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary product color and size attribute details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsSubtotal">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsSubtotal</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary order subtotal.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COShipping
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress">modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Enter address data on shipping page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress">modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Check use as billing address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition</a>
+        </div>
+        <div class="step-description">
+          <p>Check shipping method via position.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals">modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Store box order summary totals shipping, sales tax and total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.VCheckout_ShippingMethod_validatePrice">modules.pages.checkout.steps.shipping.VCheckout_ShippingMethod_validatePrice</a>
+        </div>
+        <div class="step-description">
+          <p>Valdiate shipping method price.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue">modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue</a>
+        </div>
+        <div class="step-description">
+          <p>Save shipping data and continue checkout</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.billing.VCheckout_Billing_validatePage">modules.pages.checkout.steps.billing.VCheckout_Billing_validatePage</a>
+        </div>
+        <div class="step-description">
+          <p>Validate billing page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary product basic details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary product color and size attribute details.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary totals.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box shipping address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COBilling
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail">modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail</a>
+        </div>
+        <div class="step-description">
+          <p>Enter email on billing page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCard">modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCard</a>
+        </div>
+        <div class="step-description">
+          <p>Enter credit card data in payment on billing page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue">modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue</a>
+        </div>
+        <div class="step-description">
+          <p>Click continue to next step.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COPlaceOrder
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize">modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize</a>
+        </div>
+        <div class="step-description">
+          <p>Validate place order page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails">modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Validate product in cart row on place order page</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductColorSize">modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductColorSize</a>
+        </div>
+        <div class="step-description">
+          <p>Validate product in cart row on place order page</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateTotals">modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Validate order totals subtotal, shipping, sales tax and total.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals">modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box order summary totals.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box shipping address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxBillingAddress_validateAddress">modules.pages.checkout.steps.boxes.VCheckout_BoxBillingAddress_validateAddress</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box billing address.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.boxes.VCheckout_BoxPayment_validateCreditCard">modules.pages.checkout.steps.boxes.VCheckout_BoxPayment_validateCreditCard</a>
+        </div>
+        <div class="step-description">
+          <p>Validate box payment credit card</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit">modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit</a>
+        </div>
+        <div class="step-description">
+          <p>Click submit on place order page.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            COConfirmation
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize">modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize</a>
         </div>
         <div class="step-description">
           <p>Validate page.</p>
@@ -9284,7 +10456,7 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
+            <a href="modules.html#mod_modules.pages.cart.VCart_validateCartIsEmpty">modules.pages.cart.VCart_validateCartIsEmpty</a>
         </div>
         <div class="step-description">
           <p>Validate cart is empty.</p>
@@ -9562,7 +10734,7 @@ Steps</h3>
       </li><!-- /.step -->
       <li data-disabled="false" class="step step-module">
         <div class="step-name">
-            <a href="modules.html#mod_modules.pages.cart.VCart_validateEmptyProductList">modules.pages.cart.VCart_validateEmptyProductList</a>
+            <a href="modules.html#mod_modules.pages.cart.VCart_validateCartIsEmpty">modules.pages.cart.VCart_validateCartIsEmpty</a>
         </div>
         <div class="step-description">
           <p>Validate cart is empty.</p>
@@ -9633,6 +10805,357 @@ Defined Outside</h4>
       </tr>
       <tr>
         <td class="key">productQuantity_varDynamic</td>
+        <td class="value na">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  </div><!-- /.data-table -->
+
+      </div><!-- /.data -->
+
+      <div class="vars">
+        <h3 class="light-blue-text darken-3">
+Dynamic Variables</h3>
+
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+      </div><!-- /.vars -->
+              
+    </div><!-- /.collapsible-body -->
+    
+
+  </div><!-- /.collapsible -->
+</div><!-- /.row -->
+
+<div class="row">
+<h2 data-disabled="false" id="test_tests.product.TProduct_ValidateStandardProduct" class="light-blue darken-4 white-text">
+      <span class="smaller">tests.product</span>
+    TProduct_ValidateStandardProduct
+</h2>
+
+
+  <div class="tags">
+    <span class="tag-label">Tags:</span>
+      <span class="tag">product</span>
+      <span class="tag">pdp</span>
+      <span class="tag">qv</span>
+  </div><!-- /.tags -->
+    
+  <div class="description light-blue lighten-5">
+    <p>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products</p>
+<h1 id="setup">Setup</h1>
+<p>Open the site and remove cookies</p>
+<h1 id="scope">Scope</h1>
+<p>Validate displaying product data either via quick view or via product detail page.</p>
+<ul>
+<li>validate structure of the QV</li>
+<li>go from QV to PDP</li>
+<li>validate stucture of PDP</li>
+<li>check if product name, price, and product number are the same on both </li>
+<li>search for product name and validate PDP again</li>
+</ul>
+
+  </div><!-- /.description -->
+    
+  <div class="collapsible">
+    <div class="collapsible-header button"><i class="mdi-navigation-expand-more"></i>More</div>
+    <div class="collapsible-body">
+
+      <div class="steps">
+        <h3 class="light-blue-text darken-3">
+Steps</h3>
+
+  <ol class="step-list">
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.helper.FHelper_Session_flowToStartSession">modules.helper.FHelper_Session_flowToStartSession</a>
+        </div>
+        <div class="step-description">
+          <p>Flow to start session.</p>
+<ul>
+<li>Start with open browser tab</li>
+<li>Open homepage</li>
+<li>Delete cookies</li>
+<li>Open homepage</li>
+<li>End on homepage</li>
+</ul>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            CategoryLevel1
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName</a>
+        </div>
+        <div class="step-description">
+          <p>Navigates to a first level category by name</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            CategoryLevel2
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName</a>
+        </div>
+        <div class="step-description">
+          <p>Navigates to a second level category by using name on the left secondary navigation.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            PlainProductQuickview
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">modules.pages.catalog.MCatalog_clickOnQVviaProductPosition</a>
+        </div>
+        <div class="step-description">
+          <p>Click on the QV button of a product via product position</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.productquickview.VProductQV_validateHeader">modules.pages.productquickview.VProductQV_validateHeader</a>
+        </div>
+        <div class="step-description">
+          <p>Verifies the quick view header with headline and buttons</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validatePDPandQVShared">modules.pages.product.VProduct_validatePDPandQVShared</a>
+        </div>
+        <div class="step-description">
+          <p>Currently PDP and QV share a lot, hence we validate that here</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.productquickview.VProductQV_validateQVOnlyElements">modules.pages.productquickview.VProductQV_validateQVOnlyElements</a>
+        </div>
+        <div class="step-description">
+          <p>Validates elements that are specific to QV and not shared with PDP.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validateProductActions">modules.pages.product.VProduct_validateProductActions</a>
+        </div>
+        <div class="step-description">
+          <p>Validates product actions such as social sharing buttons, gift registry, and wish list links.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.MProduct_storeBasicData">modules.pages.product.MProduct_storeBasicData</a>
+        </div>
+        <div class="step-description">
+          <p>Stores basic product data. Takes them from PDP or QV.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            ProductDetailPageFromQV
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.productquickview.MProductQV_clickViewFullDetails">modules.pages.productquickview.MProductQV_clickViewFullDetails</a>
+        </div>
+        <div class="step-description">
+          <p>Click on view more details at the QV to go to the PDP</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.VNavigation_verifyBreadcrumb">modules.global.headerfooternav.VNavigation_verifyBreadcrumb</a>
+        </div>
+        <div class="step-description">
+          <p>verify the last element of the breadcrumb check if product name is shown</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validatePDPandQVShared">modules.pages.product.VProduct_validatePDPandQVShared</a>
+        </div>
+        <div class="step-description">
+          <p>Validates the functionality and elements that are shared between product detail page and quickview.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validateProductActions">modules.pages.product.VProduct_validateProductActions</a>
+        </div>
+        <div class="step-description">
+          <p>Validates product actions such as social sharing buttons, gift registry, and wish list links.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements">modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</a>
+        </div>
+        <div class="step-description">
+          <p>Verify Objects that are only shon on the PDP and not on the QV
+like product rating and describtion</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validateBasicData">modules.pages.product.VProduct_validateBasicData</a>
+        </div>
+        <div class="step-description">
+          <p>Validates basic product data. Compares against PDP or QV data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            BackToHomepage
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo">modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo</a>
+        </div>
+        <div class="step-description">
+          <p>Click and go to homepage via logo in header.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-action">
+        <div class="step-name">
+            SearchProductByName
+        </div>
+        <div class="step-description">
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.search.MSearch_enterTextAndSubmit">modules.pages.search.MSearch_enterTextAndSubmit</a>
+        </div>
+        <div class="step-description">
+          <p>Enter a text in the search field and submit the search.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.global.headerfooternav.VNavigation_verifyBreadcrumb">modules.global.headerfooternav.VNavigation_verifyBreadcrumb</a>
+        </div>
+        <div class="step-description">
+          <p>verify the last element of the breadcrumb check if product name is shown</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validatePDPandQVShared">modules.pages.product.VProduct_validatePDPandQVShared</a>
+        </div>
+        <div class="step-description">
+          <p>Validates the functionality and elements that are shared between product detail page and quickview.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validateProductActions">modules.pages.product.VProduct_validateProductActions</a>
+        </div>
+        <div class="step-description">
+          <p>Validates product actions such as social sharing buttons, gift registry, and wish list links.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements">modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</a>
+        </div>
+        <div class="step-description">
+          <p>Verify Objects that are only shon on the PDP and not on the QV
+like product rating and describtion</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+      <li data-disabled="false" class="step step-module">
+        <div class="step-name">
+            <a href="modules.html#mod_modules.pages.product.VProduct_validateBasicData">modules.pages.product.VProduct_validateBasicData</a>
+        </div>
+        <div class="step-description">
+          <p>Validates basic product data. Compares against PDP or QV data.</p>
+
+        </div><!-- /.step-description -->
+      </li><!-- /.step -->
+  </ol><!-- /.step-list -->
+      </div><!-- /.steps -->
+
+    
+      <div class="data">
+        <h3 class="light-blue-text darken-3">
+Test Data</h3>
+
+
+  <h4 >
+Defined Inside</h4>
+
+  <div class="data-table">
+  <p class="empty">&mdash;&nbsp;none&nbsp;&mdash;</p>
+  </div><!-- ./data-table -->
+
+  <h4 >
+Defined Outside</h4>
+
+  <div class="data-table">
+  <table>
+    <thead class="light-blue darken-2 white-text">
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key">productName</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productNumber</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productPrice</td>
+        <td class="value na">N/A</td>
+      </tr>
+      <tr>
+        <td class="key">productQuantity</td>
         <td class="value na">N/A</td>
       </tr>
     </tbody>
