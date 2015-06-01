@@ -269,7 +269,7 @@
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.cart.VCart_validateEmptyProductList</name>
+          <name>modules.pages.cart.VCart_validateCartIsEmpty</name>
           <description>Validate cart is empty.</description>
           <moduleCall>true</moduleCall>
         </step>
@@ -288,9 +288,9 @@
         <string>modules.global.minicart.VGlobal_MiniCart_validateBodyProduct</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateHeader</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateEmpty</string>
+        <string>modules.pages.cart.VCart_validateCartIsEmpty</string>
         <string>modules.helper.FHelper_Session_flowToStartSession</string>
         <string>modules.pages.cart.MCart_Row_enterUpdateProductQuantity</string>
-        <string>modules.pages.cart.VCart_validateEmptyProductList</string>
         <string>modules.pages.cart.MCart_storeTotalsSubtotal</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</string>
         <string>modules.pages.cart.MCart_Row_storeProductPriceTotal</string>
@@ -343,9 +343,7 @@
 - Validate calculated values in mini cart header.
 - Validate both products and subtotal on cart page.
 
-# 3. Clean up
-
-- End session and clean up created cookies.</description>
+</description>
       <tags>smoke</tags>
       <name>tests.cart.TCart_ChangeQuantities</name>
       <external-parameters>
@@ -1388,31 +1386,34 @@ Choose Login from dropdown menu</description>
       <baseUrl></baseUrl>
     </testcase>
     <testcase disabled="false">
-      <description>Test remove products and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&apos;t display the total and the test will fail.
+      <description>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&apos;t display the total and the test will fail.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies.
-- Add product 01 to cart (quantity 1).
-- Add product 02 to cart (quantity 2).
 
 # 2. Scope of test
 
-## Remove first product and rearrange rows
+* Add four products to the cart (1, 2, 3, 4)
+* Remove last item in cart (4)
+* Remove middle item (2)
+* Remove first item (1)
+* Remove the last item (3)
+* Validate quantity total of minitcart and the item position and content every time
+* Does not validate the cart totals right now, except when the cart is filled for the first time
 
-- Remove product 01.
-- Validate product 02 is still in cart.
-- Validate subtotal.
-
-## Remove second product
-
-- Remove product 02.
-- Validate emty cart.
-
-# 3. Clean up</description>
-      <tags>smoke</tags>
+</description>
+      <tags>smoke,cart,quantity</tags>
       <name>tests.cart.TCart_RemoveProducts</name>
       <external-parameters>
+        <entry>
+          <string>productPriceSales_03_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productQuantity_04_varDynamic</string>
+          <null/>
+        </entry>
         <entry>
           <string>productNumber_02_varDynamic</string>
           <null/>
@@ -1422,7 +1423,11 @@ Choose Login from dropdown menu</description>
           <null/>
         </entry>
         <entry>
-          <string>productQuantity_02_varDynamic</string>
+          <string>productName_03_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productQuantity_01_varDynamic</string>
           <null/>
         </entry>
         <entry>
@@ -1430,7 +1435,55 @@ Choose Login from dropdown menu</description>
           <null/>
         </entry>
         <entry>
+          <string>productPriceTotal_03_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPriceSales_01_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPriceTotal_01_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productName_04_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productQuantity_03_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productNumber_03_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productNumber_01_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productName_01_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productQuantity_02_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPriceTotal_04_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productNumber_04_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
           <string>productPriceSales_02_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPriceSales_04_varDynamic</string>
           <null/>
         </entry>
       </external-parameters>
@@ -1457,6 +1510,51 @@ Choose Login from dropdown menu</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
+          <name>modules.pages.search.FSearch_flowToAddProductToCart</name>
+          <description>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.search.FSearch_flowToAddProductToCart</name>
+          <description>Add the second product with quantity 2 to the cart. The output value of productPriceTotal is &quot;unused&quot; because it will be calculated in the test and validated against the storefront presentation.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</name>
+          <description>The subtotal is not longer verified.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
           <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
           <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
           <moduleCall>true</moduleCall>
@@ -1477,7 +1575,85 @@ Choose Login from dropdown menu</description>
         </step>
         <step disabled="false">
           <name>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</name>
-          <description>Validate minicart on homepage with item count and total price in header details .</description>
+          <description>The subtotal is not longer verified.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>RemoveProduct</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.MCart_Row_clickRemoveProduct</name>
+          <description>Click remove product from cart.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</name>
+          <description>The subtotal is not longer verified.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductPriceTotal</name>
+          <description>Validate row with product price total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>RemoveProduct</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.MCart_Row_clickRemoveProduct</name>
+          <description>Click remove product from cart.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</name>
+          <description>The subtotal is not longer verified.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -1505,22 +1681,38 @@ Choose Login from dropdown menu</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.cart.VCart_validateEmptyProductList</name>
+          <name>modules.pages.cart.VCart_validateCartIsEmpty</name>
           <description>Validate cart is empty.</description>
           <moduleCall>true</moduleCall>
         </step>
       </steps>
       <calls>
         <string>modules.pages.cart.VCart_Row_validateProductPriceTotal</string>
+        <string>modules.pages.cart.VCart_validateCartIsEmpty</string>
         <string>modules.helper.FHelper_Session_flowToStartSession</string>
         <string>modules.pages.search.FSearch_flowToAddProductToCart</string>
-        <string>modules.pages.cart.VCart_validateEmptyProductList</string>
         <string>modules.pages.cart.VCart_validatePageTotalsSubtotal</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</string>
         <string>modules.pages.cart.VCart_Row_validateProductBasicDetails</string>
         <string>modules.pages.cart.MCart_Row_clickRemoveProduct</string>
       </calls>
       <test-data>
+        <entry>
+          <string>productQuantity_04</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>productQuantity_03</string>
+          <string>3</string>
+        </entry>
+        <entry>
+          <string>productNumber_03</string>
+          <string>lucasarts-lego-indiana-jones-original-adventure-wii</string>
+        </entry>
+        <entry>
+          <string>productNumber_04</string>
+          <string>atari-pipe-mania-psp</string>
+        </entry>
         <entry>
           <string>productNumber_01</string>
           <string>${productNumber_typeProduct}</string>
@@ -1531,11 +1723,11 @@ Choose Login from dropdown menu</description>
         </entry>
         <entry>
           <string>productQuantity_02</string>
-          <string>9</string>
+          <string>2</string>
         </entry>
         <entry>
           <string>productQuantity_01</string>
-          <string>4</string>
+          <string>1</string>
         </entry>
       </test-data>
       <baseUrl></baseUrl>
@@ -2488,7 +2680,7 @@ Verify Logout
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.cart.VCart_validateEmptyProductList</name>
+          <name>modules.pages.cart.VCart_validateCartIsEmpty</name>
           <description>Validate cart is empty.</description>
           <moduleCall>true</moduleCall>
         </step>
@@ -2502,9 +2694,9 @@ Verify Logout
         <string>modules.global.minicart.VGlobal_MiniCart_validateBody</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateHeader</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateEmpty</string>
+        <string>modules.pages.cart.VCart_validateCartIsEmpty</string>
         <string>modules.helper.FHelper_Session_flowToStartSession</string>
         <string>modules.pages.search.FSearch_flowToAddProductToCart</string>
-        <string>modules.pages.cart.VCart_validateEmptyProductList</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal</string>
         <string>modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals</string>
         <string>modules.global.minicart.MGlobal_MiniCart_hoverBody</string>
@@ -3367,8 +3559,8 @@ Verify Logout
           <moduleCall>false</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</name>
-          <description>Store basic product details.</description>
+          <name>modules.pages.product.MProduct_storeBasicData</name>
+          <description>Stores basic product data. Takes them from PDP or QV.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -3438,12 +3630,12 @@ Verify Logout
         <string>modules.pages.homepage.FHomepage_flowToCreateNewAccount</string>
         <string>modules.global.headerfooternav.FGlobal_flowToLogout</string>
         <string>modules.pages.account.VAccount_validateNav</string>
+        <string>modules.pages.product.MProduct_storeBasicData</string>
         <string>modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct</string>
         <string>modules.pages.productdetailpage.MProductDetailPage_clickAddtoWishlist</string>
         <string>modules.pages.account.login.MAccount_Login_enterClickReturningCustomer</string>
         <string>modules.helper.MHelper_Random_generateEmail</string>
         <string>modules.helper.FHelper_Session_flowToStartSession</string>
-        <string>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</string>
         <string>modules.helper.MHelper_Random_generatePassword</string>
         <string>modules.pages.search.MSearch_enterTextAndSubmit</string>
       </calls>
@@ -4475,6 +4667,613 @@ Verify Logout
       <baseUrl></baseUrl>
     </testcase>
     <testcase disabled="false">
+      <description>Functional responsive design test guest checkout with one variation product with color and size, one address and visa. 
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Add variation product having color and size to cart (quantity 1)
+
+# 2. Scope of test
+
+- Start guest checkout
+- Enter new address and use preselected  default shipping method
+- Use same as shipping address for billing and use payment method credit card (visa)
+- Validate place order page
+- Validate order confirmation page
+- Go to account
+- Validate customer name and profile
+- Validate order via order history
+- Logout
+
+# 3. Clean up
+
+- End session and clean up created cookies</description>
+      <tags>smoke</tags>
+      <name>tests.checkout.TCheckoutGuestOrderProduct_MobilePhoneSize</name>
+      <external-parameters>
+        <entry>
+          <string>productName_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productColor_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>email_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>storefront_orderNumberPattern</string>
+          <string>00[0-9]{6}</string>
+        </entry>
+        <entry>
+          <string>storefront_shippingAddress_useAsBillingAddress</string>
+          <string>true</string>
+        </entry>
+        <entry>
+          <string>totalsTotal_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>orderDate_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>storefront_shippingStatus</string>
+          <string>Not Shipped</string>
+        </entry>
+        <entry>
+          <string>password_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>storefront_orderDatePattern</string>
+          <string>[A-Z][a-z]{2} [0-9]{1,2}, [0-9]{4}</string>
+        </entry>
+        <entry>
+          <string>totalsShipping_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>storefront_shippingMethod_position</string>
+          <string>1</string>
+        </entry>
+        <entry>
+          <string>productNumber_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>shippingMethod_position</string>
+          <string>1</string>
+        </entry>
+        <entry>
+          <string>shippingMethod_name</string>
+          <string>Ground</string>
+        </entry>
+        <entry>
+          <string>storefront_shippingAddress_isGift</string>
+          <string>no</string>
+        </entry>
+        <entry>
+          <string>orderNumber_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>totalSubtotal_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productSize_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPriceTotal_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productQuantity_varDynamic</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>totalsSalesTax_varDynamic</string>
+          <null/>
+        </entry>
+      </external-parameters>
+      <steps>
+        <step disabled="false">
+          <name>modules.helper.MHelper_Random_generateEmail</name>
+          <description>Generate random email.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.helper.MHelper_Random_generatePassword</name>
+          <description>Generate random password.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.helper.FHelper_Session_flowToStartSession</name>
+          <description>Flow to start session.
+
+- Start with open browser tab
+- Open homepage
+- Delete cookies
+- Open homepage
+- End on homepage</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize</name>
+          <description>Flow to add variation product with color, size and quantity to cart.
+
+- Start on search
+- Search product via number
+- Set quantity on PDP
+- Store basic details on PDP
+- Store color and size on PDP
+- Add to cart on PDP
+- Go to Cart via global header link
+- Validate product row basic details
+- Validate product row color and size
+- Store product price total
+- End on cart</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="true">
+          <name>modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart</name>
+          <description>Flow to add variation product with color, size and quantity to cart.
+
+- Start on search
+- Search product via number
+- Set quantity on PDP
+- Store basic details on PDP
+- Store color and size on PDP
+- Add to cart on PDP
+- Go to Cart via global header link
+- Validate product row basic details
+- Validate product row color and size
+- Store product price total
+- End on cart</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>ViewCart</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.MCart_storeTotalsSubtotal</name>
+          <description>Store totals subtotal.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>GoToCOLogin</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.MCart_clickGoToCheckoutLogin</name>
+          <description>Click and go to checkout from cart page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.login.VCheckout_Login_validatePage</name>
+          <description>Validate checkout start page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COLoginGoToGuest</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.login.MCheckout_Login_clickGoToGuest</name>
+          <description>Click go to guest on checkout login page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.VCheckout_Shipping_validatePage</name>
+          <description>Validate shipping page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.VCheckout_Shipping_validateCheckedValues</name>
+          <description>Validate checked shipping values.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox</name>
+          <description>Validate box order summary.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails</name>
+          <description>Validate box order summary product basic details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize</name>
+          <description>Validate box order summary product color and size attribute details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsSubtotal</name>
+          <description>Validate box order summary order subtotal.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COShipping</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress</name>
+          <description>Enter address data on shipping page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress</name>
+          <description>Check use as billing address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition</name>
+          <description>Check shipping method via position.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals</name>
+          <description>Store box order summary totals shipping, sales tax and total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.VCheckout_ShippingMethod_validatePrice</name>
+          <description>Valdiate shipping method price.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue</name>
+          <description>Save shipping data and continue checkout</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.billing.VCheckout_Billing_validatePage</name>
+          <description>Validate billing page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox</name>
+          <description>Validate box order summary.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails</name>
+          <description>Validate box order summary product basic details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize</name>
+          <description>Validate box order summary product color and size attribute details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals</name>
+          <description>Validate box order summary totals.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress</name>
+          <description>Validate box shipping address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COBilling</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail</name>
+          <description>Enter email on billing page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCard</name>
+          <description>Enter credit card data in payment on billing page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue</name>
+          <description>Click continue to next step.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COPlaceOrder</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize</name>
+          <description>Validate place order page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails</name>
+          <description>Validate product in cart row on place order page</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductColorSize</name>
+          <description>Validate product in cart row on place order page</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateTotals</name>
+          <description>Validate order totals subtotal, shipping, sales tax and total.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals</name>
+          <description>Validate box order summary totals.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress</name>
+          <description>Validate box shipping address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxBillingAddress_validateAddress</name>
+          <description>Validate box billing address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxPayment_validateCreditCard</name>
+          <description>Validate box payment credit card</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit</name>
+          <description>Click submit on place order page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COConfirmation</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize</name>
+          <description>Validate page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation</name>
+          <description>Validate order information.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateBillingAddress</name>
+          <description>Validate billing address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateCreditCard</name>
+          <description>Validate payment credit card.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateTotals</name>
+          <description>Validate order totals.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingAddress</name>
+          <description>Validate shipping address.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductBasicDetails</name>
+          <description>Validate products basic details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductColorSize</name>
+          <description>Valdiate product color and size attribute details.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation</name>
+          <description>Store order data.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateBox</name>
+          <description>Validate box new customer.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile</name>
+          <description>Validate box new customer profile data.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>COConfirmationNewCustomer</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.checkout.steps.boxes.MCheckout_BoxNewCustomer_enterClickSubmit</name>
+          <description>Enter, click and submit profile data in box new customer.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</name>
+          <description>Validate customer name on MyAccount page.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile</name>
+          <description>Flow to validate personal data (profile).
+
+- Start on MyAccount page
+- Go to personal data
+- Enter and submit profile
+- Validate customer name
+- End on MyAccount page</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory</name>
+          <description>Flow to validate order data in order history.
+
+- Start on MyAccount page
+- Go to order history
+- Validate order data
+- End on MyAccount page</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>Logout</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.FGlobal_flowToLogout</name>
+          <description>Click on UserButton
+Choose Logout
+Verify Logout
+*Caution* this only works if nobody is logged in</description>
+          <moduleCall>true</moduleCall>
+        </step>
+      </steps>
+      <calls>
+        <string>modules.pages.checkout.steps.boxes.MCheckout_BoxNewCustomer_enterClickSubmit</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateBillingAddress</string>
+        <string>modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue</string>
+        <string>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateTotals</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateTotals</string>
+        <string>modules.pages.cart.MCart_storeTotalsSubtotal</string>
+        <string>modules.helper.MHelper_Random_generatePassword</string>
+        <string>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductColorSize</string>
+        <string>modules.pages.checkout.login.MCheckout_Login_clickGoToGuest</string>
+        <string>modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotals</string>
+        <string>modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail</string>
+        <string>modules.pages.checkout.steps.shipping.VCheckout_Shipping_validateCheckedValues</string>
+        <string>modules.pages.checkout.steps.billing.VCheckout_Billing_validatePage</string>
+        <string>modules.pages.checkout.steps.shipping.VCheckout_ShippingMethod_validatePrice</string>
+        <string>modules.global.headerfooternav.FGlobal_flowToLogout</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation</string>
+        <string>modules.pages.checkout.steps.shipping.VCheckout_Shipping_validatePage</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductColorSize</string>
+        <string>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails</string>
+        <string>modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateCreditCard</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingProductBasicDetails</string>
+        <string>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress</string>
+        <string>modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory</string>
+        <string>modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName</string>
+        <string>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress</string>
+        <string>modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCard</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxBillingAddress_validateAddress</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateBox</string>
+        <string>modules.helper.MHelper_Random_generateEmail</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress</string>
+        <string>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingAddress</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxPayment_validateCreditCard</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails</string>
+        <string>modules.pages.checkout.login.VCheckout_Login_validatePage</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsSubtotal</string>
+        <string>modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue</string>
+        <string>modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit</string>
+        <string>modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals</string>
+        <string>modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition</string>
+        <string>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize</string>
+        <string>modules.helper.FHelper_Session_flowToStartSession</string>
+        <string>modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation</string>
+        <string>modules.pages.cart.MCart_clickGoToCheckoutLogin</string>
+        <string>modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize</string>
+      </calls>
+      <test-data>
+        <entry>
+          <string>owner</string>
+          <string>${visaCreditCard_owner}</string>
+        </entry>
+        <entry>
+          <string>country</string>
+          <string>${billingAddress_country}</string>
+        </entry>
+        <entry>
+          <string>firstname</string>
+          <string>${billingAddress_firstname}</string>
+        </entry>
+        <entry>
+          <string>typeShort</string>
+          <string>${visaCreditCard_typeShort}</string>
+        </entry>
+        <entry>
+          <string>address2</string>
+          <string>${billingAddress_address2}</string>
+        </entry>
+        <entry>
+          <string>city</string>
+          <string>${billingAddress_city}</string>
+        </entry>
+        <entry>
+          <string>year</string>
+          <string>${visaCreditCard_year}</string>
+        </entry>
+        <entry>
+          <string>address1</string>
+          <string>${billingAddress_address1}</string>
+        </entry>
+        <entry>
+          <string>postalCode</string>
+          <string>${billingAddress_postalCode}</string>
+        </entry>
+        <entry>
+          <string>productNumber</string>
+          <string>${productNumber_typeVariationProductColorSizeListPriceOnly}</string>
+        </entry>
+        <entry>
+          <string>type</string>
+          <string>${visaCreditCard_type}</string>
+        </entry>
+        <entry>
+          <string>statesStateShort</string>
+          <string>${billingAddress_statesStateShort}</string>
+        </entry>
+        <entry>
+          <string>lastname</string>
+          <string>${billingAddress_lastname}</string>
+        </entry>
+        <entry>
+          <string>number</string>
+          <string>${visaCreditCard_number}</string>
+        </entry>
+        <entry>
+          <string>productQuantity</string>
+          <string>1</string>
+        </entry>
+        <entry>
+          <string>month</string>
+          <string>${visaCreditCard_month}</string>
+        </entry>
+        <entry>
+          <string>phone</string>
+          <string>${billingAddress_phone}</string>
+        </entry>
+        <entry>
+          <string>cvn</string>
+          <string>${visaCreditCard_cvn}</string>
+        </entry>
+        <entry>
+          <string>statesState</string>
+          <string>${billingAddress_statesState}</string>
+        </entry>
+        <entry>
+          <string>paymentName</string>
+          <string>${storefront_creditCard_paymentName}</string>
+        </entry>
+      </test-data>
+      <baseUrl></baseUrl>
+    </testcase>
+    <testcase disabled="false">
       <description>Test validate pages of category level 1.
 
 # 1. Setup and preparation
@@ -4859,7 +5658,7 @@ Verify Logout
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.cart.VCart_validateEmptyProductList</name>
+          <name>modules.pages.cart.VCart_validateCartIsEmpty</name>
           <description>Validate cart is empty.</description>
           <moduleCall>true</moduleCall>
         </step>
@@ -4867,10 +5666,10 @@ Verify Logout
       <calls>
         <string>modules.pages.cart.VCart_validatePage</string>
         <string>modules.pages.cart.VCart_Row_validateProductPriceTotal</string>
+        <string>modules.pages.cart.VCart_validateCartIsEmpty</string>
         <string>modules.pages.cart.VCart_Row_validateRow</string>
         <string>modules.helper.FHelper_Session_flowToStartSession</string>
         <string>modules.pages.search.FSearch_flowToAddProductToCart</string>
-        <string>modules.pages.cart.VCart_validateEmptyProductList</string>
         <string>modules.pages.cart.VCart_validatePageTotalsSubtotal</string>
         <string>modules.pages.cart.VCart_Row_validateProductBasicDetails</string>
         <string>modules.pages.cart.MCart_Row_clickRemoveProduct</string>
@@ -5740,6 +6539,204 @@ Verify Logout
       <baseUrl></baseUrl>
     </testcase>
     <testcase disabled="false">
+      <description>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products
+
+# Setup
+Open the site and remove cookies
+
+#  Scope
+Validate displaying product data either via quick view or via product detail page.
+
+- validate structure of the QV
+- go from QV to PDP
+- validate stucture of PDP
+- check if product name, price, and product number are the same on both 
+- search for product name and validate PDP again</description>
+      <tags>product,pdp,qv</tags>
+      <name>tests.product.TProduct_ValidateStandardProduct</name>
+      <external-parameters>
+        <entry>
+          <string>productQuantity</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productNumber</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productName</string>
+          <null/>
+        </entry>
+        <entry>
+          <string>productPrice</string>
+          <null/>
+        </entry>
+      </external-parameters>
+      <steps>
+        <step disabled="false">
+          <name>modules.helper.FHelper_Session_flowToStartSession</name>
+          <description>Flow to start session.
+
+- Start with open browser tab
+- Open homepage
+- Delete cookies
+- Open homepage
+- End on homepage</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>CategoryLevel1</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName</name>
+          <description>Navigates to a first level category by name</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>CategoryLevel2</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName</name>
+          <description>Navigates to a second level category by using name on the left secondary navigation.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>PlainProductQuickview</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.catalog.MCatalog_clickOnQVviaProductPosition</name>
+          <description>Click on the QV button of a product via product position</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productquickview.VProductQV_validateHeader</name>
+          <description>Verifies the quick view header with headline and buttons</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validatePDPandQVShared</name>
+          <description>Currently PDP and QV share a lot, hence we validate that here</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productquickview.VProductQV_validateQVOnlyElements</name>
+          <description>Validates elements that are specific to QV and not shared with PDP.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validateProductActions</name>
+          <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.MProduct_storeBasicData</name>
+          <description>Stores basic product data. Takes them from PDP or QV.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>ProductDetailPageFromQV</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productquickview.MProductQV_clickViewFullDetails</name>
+          <description>Click on view more details at the QV to go to the PDP</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.VNavigation_verifyBreadcrumb</name>
+          <description>verify the last element of the breadcrumb check if product name is shown</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validatePDPandQVShared</name>
+          <description>Validates the functionality and elements that are shared between product detail page and quickview.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validateProductActions</name>
+          <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</name>
+          <description>Verify Objects that are only shon on the PDP and not on the QV
+like product rating and describtion</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validateBasicData</name>
+          <description>Validates basic product data. Compares against PDP or QV data.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>BackToHomepage</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo</name>
+          <description>Click and go to homepage via logo in header.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>SearchProductByName</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.search.MSearch_enterTextAndSubmit</name>
+          <description>Enter a text in the search field and submit the search.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.headerfooternav.VNavigation_verifyBreadcrumb</name>
+          <description>verify the last element of the breadcrumb check if product name is shown</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validatePDPandQVShared</name>
+          <description>Validates the functionality and elements that are shared between product detail page and quickview.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validateProductActions</name>
+          <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</name>
+          <description>Verify Objects that are only shon on the PDP and not on the QV
+like product rating and describtion</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.VProduct_validateBasicData</name>
+          <description>Validates basic product data. Compares against PDP or QV data.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+      </steps>
+      <calls>
+        <string>modules.pages.product.VProduct_validatePDPandQVShared</string>
+        <string>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName</string>
+        <string>modules.pages.productquickview.MProductQV_clickViewFullDetails</string>
+        <string>modules.pages.catalog.MCatalog_clickOnQVviaProductPosition</string>
+        <string>modules.pages.productquickview.VProductQV_validateQVOnlyElements</string>
+        <string>modules.pages.product.VProduct_validateProductActions</string>
+        <string>modules.pages.product.MProduct_storeBasicData</string>
+        <string>modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</string>
+        <string>modules.helper.FHelper_Session_flowToStartSession</string>
+        <string>modules.global.headerfooternav.VNavigation_verifyBreadcrumb</string>
+        <string>modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo</string>
+        <string>modules.pages.product.VProduct_validateBasicData</string>
+        <string>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName</string>
+        <string>modules.pages.productquickview.VProductQV_validateHeader</string>
+        <string>modules.pages.search.MSearch_enterTextAndSubmit</string>
+      </calls>
+      <test-data/>
+      <baseUrl></baseUrl>
+    </testcase>
+    <testcase disabled="false">
       <description>Test add, edit, and remove credit card data in account payment settings.
 
 # 1. Setup and preparation 
@@ -6363,6 +7360,26 @@ Choose Register in drop down menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>verify the last element of the breadcrumb check if product name is shown</description>
+      <name>modules.global.headerfooternav.VNavigation_verifyBreadcrumb</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="productName" description=""/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Navigates to a first level category by name</description>
+      <name>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="nameLevel1" description="Link name for level 1"/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Enter data in credit card details dialog.</description>
       <name>modules.pages.account.paymentsettings.MAccount_PaymentSettings_Dialog_enterCreditCard</name>
       <external-parameters/>
@@ -6564,13 +7581,13 @@ Verify Logout
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</name>
-          <description>Store basic product details.</description>
+          <name>modules.pages.product.MProduct_storeBasicData</name>
+          <description>Stores basic product data. Takes them from PDP or QV.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.productdetailpage.MProductDetailPage_storeColorSize</name>
-          <description>Store product color and product size attributes of variation products.</description>
+          <name>modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize</name>
+          <description>Stores product color and product size attribute of variation products.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -6609,8 +7626,8 @@ Verify Logout
       </steps>
       <calls>
         <string>modules.pages.cart.VCart_Row_validateProductColorSize</string>
-        <string>modules.pages.productdetailpage.MProductDetailPage_storeColorSize</string>
-        <string>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</string>
+        <string>modules.pages.product.MProduct_storeBasicData</string>
+        <string>modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize</string>
         <string>modules.pages.productdetailpage.MProductDetailPage_enterQuantity</string>
         <string>modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink</string>
         <string>modules.pages.search.MSearch_enterTextAndSubmit</string>
@@ -6643,6 +7660,15 @@ Verify Logout
     <module>
       <description>Click clear color list.</description>
       <name>modules.pages.catalog.MCatalog_Refinement_clickClearColorList</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Validates the functionality and elements that are shared between product detail page and quickview.</description>
+      <name>modules.pages.product.VProduct_validatePDPandQVShared</name>
       <external-parameters/>
       <steps/>
       <calls/>
@@ -6954,17 +7980,6 @@ Verify Logout
       <used>true</used>
     </module>
     <module>
-      <description>Store product color and product size attributes of variation products.</description>
-      <name>modules.pages.productdetailpage.MProductDetailPage_storeColorSize</name>
-      <external-parameters/>
-      <steps/>
-      <calls/>
-      <test-data/>
-      <parameter name="productColor_varName" description="product color as var name"/>
-      <parameter name="productSize_varName" description="product size as var name"/>
-      <used>true</used>
-    </module>
-    <module>
       <description>Generate random email.</description>
       <name>modules.helper.MHelper_Random_generateEmail</name>
       <external-parameters/>
@@ -7210,6 +8225,18 @@ Verify Logout
       <parameter name="row" description="row"/>
       <parameter name="productColor" description="product color"/>
       <parameter name="productSize" description="product size"/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Verifies the quick view header with headline and buttons</description>
+      <tags>qv</tags>
+      <name>modules.pages.productquickview.VProductQV_validateHeader</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="prevButtonState" description="State of the previous button, full CSS piece here"/>
+      <parameter name="nextButtonState" description="State of the next button, full CSS piece here"/>
       <used>true</used>
     </module>
     <module>
@@ -7593,6 +8620,15 @@ Choose Register in drop down menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>Click on view more details at the QV to go to the PDP</description>
+      <name>modules.pages.productquickview.MProductQV_clickViewFullDetails</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Clicks on MyAccount in User Menu</description>
       <name>modules.global.headerfooternav.MGlobal_UserMenu_clickMyAccount</name>
       <external-parameters/>
@@ -7704,6 +8740,26 @@ Choose Register in drop down menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>Validates elements that are specific to QV and not shared with PDP.</description>
+      <tags>qv</tags>
+      <name>modules.pages.productquickview.VProductQV_validateQVOnlyElements</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
+      <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
+      <name>modules.pages.product.VProduct_validateProductActions</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Click submit profile data.</description>
       <name>modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile</name>
       <external-parameters/>
@@ -7726,6 +8782,16 @@ Choose Register in drop down menu</description>
     <module>
       <description>Click articles link in search results page.</description>
       <name>modules.pages.search.VSearch_Results_validateArticlesFound</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Verify Objects that are only shon on the PDP and not on the QV
+like product rating and describtion</description>
+      <name>modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements</name>
       <external-parameters/>
       <steps/>
       <calls/>
@@ -8106,6 +9172,21 @@ Choose Register in drop down menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>Enter a text in the search field and submit the search.</description>
+      <name>modules.pages.search.MSearch_enterTextAndSubmit_MobilePhoneSize</name>
+      <external-parameters/>
+      <steps>
+        <step disabled="false">
+          <name>MSearch_enterTextAndSubmit_MobilePhoneSize-0</name>
+          <moduleCall>false</moduleCall>
+        </step>
+      </steps>
+      <calls/>
+      <test-data/>
+      <parameter name="searchText" description="The search phrase to enter."/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Convert month name into month number (__Caution:__Works for english locale only).</description>
       <name>modules.helper.MHelper_Date_convertIntoMonthNumberShort</name>
       <external-parameters/>
@@ -8145,6 +9226,15 @@ Choose Register in drop down menu</description>
       <parameter name="giftYesNo" description="yes or no"/>
       <parameter name="giftOptionalMessage" description="message with max. 250 characters"/>
       <used>false</used>
+    </module>
+    <module>
+      <description>Validate page.</description>
+      <name>modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage_MobilePhoneSize</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
     </module>
     <module>
       <description>Validate product number.</description>
@@ -8403,8 +9493,8 @@ Choose Register in drop down menu</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
-          <name>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</name>
-          <description>Store basic product details.</description>
+          <name>modules.pages.product.MProduct_storeBasicData</name>
+          <description>Stores basic product data. Takes them from PDP or QV.</description>
           <moduleCall>true</moduleCall>
         </step>
         <step disabled="false">
@@ -8433,7 +9523,7 @@ Choose Register in drop down menu</description>
         </step>
       </steps>
       <calls>
-        <string>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</string>
+        <string>modules.pages.product.MProduct_storeBasicData</string>
         <string>modules.pages.productdetailpage.MProductDetailPage_enterQuantity</string>
         <string>modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink</string>
         <string>modules.pages.search.MSearch_enterTextAndSubmit</string>
@@ -8482,6 +9572,19 @@ Choose Register in drop down menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>Stores basic product data. Takes them from PDP or QV.</description>
+      <name>modules.pages.product.MProduct_storeBasicData</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="productName_varName" description="product name as var name"/>
+      <parameter name="productNumber_varName" description="product numbe as var name"/>
+      <parameter name="productPriceSales_varName" description="product sales price as var name"/>
+      <parameter name="productQuantity_varName" description="product quantity as var name"/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Validate box new customer profile data.</description>
       <name>modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile</name>
       <external-parameters/>
@@ -8506,24 +9609,11 @@ Choose Register in drop down menu</description>
     </module>
     <module>
       <description>Validate cart is empty.</description>
-      <name>modules.pages.cart.VCart_validateEmptyProductList</name>
+      <name>modules.pages.cart.VCart_validateCartIsEmpty</name>
       <external-parameters/>
       <steps/>
       <calls/>
       <test-data/>
-      <used>true</used>
-    </module>
-    <module>
-      <description>Store basic product details.</description>
-      <name>modules.pages.productdetailpage.MProductDetailPage_storeBasicDetails</name>
-      <external-parameters/>
-      <steps/>
-      <calls/>
-      <test-data/>
-      <parameter name="productName_varName" description="product name as var name"/>
-      <parameter name="productNumber_varName" description="product numbe as var name"/>
-      <parameter name="productPriceSales_varName" description="product sales price as var name"/>
-      <parameter name="productQuantity_varName" description="product quantity as var name"/>
       <used>true</used>
     </module>
     <module>
@@ -9044,6 +10134,15 @@ Choose Login from dropdown menu</description>
       <used>true</used>
     </module>
     <module>
+      <description>Validate place order page.</description>
+      <name>modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage_MobilePhoneSize</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Go to gift registry from MyAccount page.</description>
       <name>modules.pages.account.myaccount.MAccount_MyAccount_clickGoToGiftRegistry</name>
       <external-parameters/>
@@ -9096,6 +10195,17 @@ Choose Login from dropdown menu</description>
       <steps/>
       <calls/>
       <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Stores product color and product size attribute of variation products.</description>
+      <name>modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="productColor_varName" description="product color as var name"/>
+      <parameter name="productSize_varName" description="product size as var name"/>
       <used>true</used>
     </module>
     <module>
@@ -9460,6 +10570,109 @@ Choose My Account</description>
       <used>true</used>
     </module>
     <module>
+      <description>Flow to add variation product with color, size and quantity to cart.
+
+- Start on search
+- Search product via number
+- Set quantity on PDP
+- Store basic details on PDP
+- Store color and size on PDP
+- Add to cart on PDP
+- Go to Cart via global header link
+- Validate product row basic details
+- Validate product row color and size
+- Store product price total
+- End on cart</description>
+      <name>modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart_MobilePhoneSize</name>
+      <external-parameters/>
+      <steps>
+        <step disabled="false">
+          <name>Search</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.search.MSearch_enterTextAndSubmit_MobilePhoneSize</name>
+          <description>Enter a text in the search field and submit the search.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>PDPSetDetails</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productdetailpage.MProductDetailPage_enterQuantity</name>
+          <description>Enter product quantity.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.product.MProduct_storeBasicData</name>
+          <description>Stores basic product data. Takes them from PDP or QV.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize</name>
+          <description>Stores product color and product size attribute of variation products.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>AddToCart</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.productdetailpage.MProductDetailPage_clickAddToCart</name>
+          <description>Click add product to cart.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>GoToCart</name>
+          <moduleCall>false</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink</name>
+          <description>Click go to cart from minicart via header link.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductBasicDetails</name>
+          <description>Validate row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.VCart_Row_validateProductColorSize</name>
+          <description>Validate row with product color and size.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+        <step disabled="false">
+          <name>modules.pages.cart.MCart_Row_storeProductPriceTotal</name>
+          <description>Store product price total via cart row.</description>
+          <moduleCall>true</moduleCall>
+        </step>
+      </steps>
+      <calls>
+        <string>modules.pages.cart.VCart_Row_validateProductColorSize</string>
+        <string>modules.pages.product.MProduct_storeBasicData</string>
+        <string>modules.pages.search.MSearch_enterTextAndSubmit_MobilePhoneSize</string>
+        <string>modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize</string>
+        <string>modules.pages.productdetailpage.MProductDetailPage_enterQuantity</string>
+        <string>modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink</string>
+        <string>modules.pages.cart.VCart_Row_validateProductBasicDetails</string>
+        <string>modules.pages.cart.MCart_Row_storeProductPriceTotal</string>
+        <string>modules.pages.productdetailpage.MProductDetailPage_clickAddToCart</string>
+      </calls>
+      <test-data/>
+      <parameter name="cartRow" description="cart row"/>
+      <parameter name="productNumber" description="product number"/>
+      <parameter name="productQuantity" description="product quantity"/>
+      <parameter name="productName_varName" description="product name as var name"/>
+      <parameter name="productNumber_varName" description="product number as var name"/>
+      <parameter name="productColor_varName" description="product color as var name"/>
+      <parameter name="productSize_varName" description="product size as var name"/>
+      <parameter name="productQuantity_varName" description="product quantity as var name"/>
+      <parameter name="productPriceSales_varName" description="product price sales as var name"/>
+      <parameter name="productPriceTotal_varName" description="product price total as var name"/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Select shipping address from saved address list.</description>
       <name>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_selectSavedAddress</name>
       <external-parameters/>
@@ -9573,6 +10786,17 @@ Choose My Account</description>
       <used>false</used>
     </module>
     <module>
+      <description>Click on the QV button of a product via product position</description>
+      <tags>QV,Quickview</tags>
+      <name>modules.pages.catalog.MCatalog_clickOnQVviaProductPosition</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="position" description="positon of the product in catalog"/>
+      <used>true</used>
+    </module>
+    <module>
       <description>Enter address data on shipping page.</description>
       <name>modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress</name>
       <external-parameters/>
@@ -9643,6 +10867,19 @@ Choose My Account</description>
       <steps/>
       <calls/>
       <test-data/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Validates basic product data. Compares against PDP or QV data.</description>
+      <name>modules.pages.product.VProduct_validateBasicData</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="productName" description="product name to validate"/>
+      <parameter name="productNumber" description="product number to validate"/>
+      <parameter name="productPrice" description="product price to validate"/>
+      <parameter name="productQuantity" description="product quantity to validate"/>
       <used>true</used>
     </module>
     <module>
@@ -9852,6 +11089,16 @@ Choose My Account</description>
       <parameter name="month" description="month"/>
       <parameter name="year" description="year"/>
       <parameter name="paymentAmount" description="payment amount"/>
+      <used>true</used>
+    </module>
+    <module>
+      <description>Navigates to a second level category by using name on the left secondary navigation.</description>
+      <name>modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName</name>
+      <external-parameters/>
+      <steps/>
+      <calls/>
+      <test-data/>
+      <parameter name="nameLevel2" description="Link name for level 2"/>
       <used>true</used>
     </module>
     <module>
@@ -10087,7 +11334,15 @@ Choose My Account</description>
       <used>false</used>
     </module>
   </modules>
-  <java-modules/>
+  <java-modules>
+    <javamodule>
+      <name>modules.helper.MHelper_Window_setSize</name>
+      <parameter name="width" description=""/>
+      <parameter name="height" description=""/>
+      <java-class>modules.helper.MHelper_Window_setSize</java-class>
+      <used>false</used>
+    </javamodule>
+  </java-modules>
   <packages>
     <entry>
       <string></string>
@@ -10128,6 +11383,13 @@ Choose My Account</description>
       <string>modules.pages.homepage</string>
       <package>
         <name>modules.pages.homepage</name>
+        <test-data class="tree-map"/>
+      </package>
+    </entry>
+    <entry>
+      <string>modules.pages.productquickview</string>
+      <package>
+        <name>modules.pages.productquickview</name>
         <test-data class="tree-map"/>
       </package>
     </entry>
@@ -10212,6 +11474,20 @@ Choose My Account</description>
       <string>modules.pages.checkout</string>
       <package>
         <name>modules.pages.checkout</name>
+        <test-data class="tree-map"/>
+      </package>
+    </entry>
+    <entry>
+      <string>modules.pages.product</string>
+      <package>
+        <name>modules.pages.product</name>
+        <test-data class="tree-map"/>
+      </package>
+    </entry>
+    <entry>
+      <string>tests.product</string>
+      <package>
+        <name>tests.product</name>
         <test-data class="tree-map"/>
       </package>
     </entry>
