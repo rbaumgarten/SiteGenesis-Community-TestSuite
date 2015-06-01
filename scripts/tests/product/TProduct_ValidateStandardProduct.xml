@@ -35,6 +35,10 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment>--------------------------------</codecomment>
   <codecomment># Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
+  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByLabel">
+    <parameter name="sortByLabel" value="Product Name A - Z"/>
+  </module>
   <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductTitle">
     <parameter name="title" value="Grand Theft Auto 4 (for X-Box 360)"/>
   </module>
