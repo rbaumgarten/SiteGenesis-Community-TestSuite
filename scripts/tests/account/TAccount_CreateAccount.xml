@@ -50,6 +50,13 @@
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile"/>
+  <codecomment>Account breadcrumb</codecomment>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="My Account"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="My Account"/>
+  </module>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validatePage"/>
   <module name="modules.pages.account.VAccount_validateNav"/>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
@@ -74,6 +81,9 @@
   <module name="modules.pages.account.VAccount_validateNav"/>
   <action name="GoToPersonalData"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPersonalData"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Edit Account"/>
+  </module>
   <module name="modules.pages.account.personaldata.VAccount_PersonalData_validatePage"/>
   <module name="modules.pages.account.VAccount_validateNav"/>
   <module name="modules.pages.account.personaldata.VAccount_PersonalData_validateProfile">
