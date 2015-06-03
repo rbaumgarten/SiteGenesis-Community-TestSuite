@@ -64,6 +64,12 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment># Goto PDP from QV</codecomment>
   <module name="modules.pages.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel1}"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel2}"/>
+  </module>
   <module name="modules.global.headerfooternav.VNavigation_verifyLastBreadcrumbOnPDP">
     <parameter name="productName" value="${productName}"/>
   </module>
@@ -84,6 +90,12 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment># Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel1}"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel2}"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_verifyLastBreadcrumbOnPDP">
     <parameter name="productName" value="${productName}"/>
