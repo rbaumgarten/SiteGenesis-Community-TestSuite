@@ -59,7 +59,7 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment># Goto PDP from QV</codecomment>
   <module name="modules.pages.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
-  <module name="modules.pages.productdetailpage.VNavigation_verifyLastBreadcrumbOnPDP">
+  <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
     <parameter name="productName" value="${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
@@ -80,7 +80,7 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
   </module>
-  <module name="modules.pages.productdetailpage.VNavigation_verifyLastBreadcrumbOnPDP">
+  <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
     <parameter name="productName" value="${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
