@@ -46,7 +46,7 @@
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
     <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
   </module>
-  <module name="modules.pages.product.productdetailpage.MProductDetailPage_storeColorAndSize">
+  <module name="modules.pages.product.MProduct_storeColorAndSize">
     <parameter name="productColor_varName" value="@{productColor_varName}"/>
     <parameter name="productSize_varName" value="@{productSize_varName}"/>
   </module>
