@@ -18,11 +18,12 @@
 - Go to account
 - Validate customer name and profile
 - Validate order via order history
-- Logout
 
 # 3. Clean up
 
-- End session and clean up created cookies</description>
+- Logout and end session
+
+Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</description>
   <codecomment># Setup
 
 - Generate mail

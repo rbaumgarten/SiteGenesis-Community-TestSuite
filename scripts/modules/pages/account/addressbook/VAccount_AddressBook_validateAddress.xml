@@ -12,7 +12,6 @@
   <parameter name="city" desc="city"/>
   <parameter name="postalCode" desc="postal code"/>
   <parameter name="phone" desc="phone"/>
-  <command name="waitForElementPresent" target="css=#main .breadcrumb a.breadcrumb-element:nth-of-type(3)[title=&quot;Addresses&quot;]"/>
   <codecomment>Validate address data</codecomment>
   <command name="store" target="css=#primary #addresses .address-list li:nth-of-type(@{position})" value="css_address"/>
   <command name="waitForText" target="${css_address} .mini-address-title" value="@{title}"/>
