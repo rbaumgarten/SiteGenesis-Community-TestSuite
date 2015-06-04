@@ -91,6 +91,10 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${totalSubtotal_varDynamic}"/>
   </module>
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsPricePattern">
+    <comment>Initial price pattern validation.</comment>
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
   <action name="COShipping"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress">
     <parameter name="firstname" value="${firstname}"/>
@@ -106,6 +110,10 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">
     <parameter name="positon" value="${shippingMethod_position}"/>
+  </module>
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsPricePattern">
+    <comment>Price pattern validation before store values, because tax was recalculated based on shipping address.</comment>
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals">
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>

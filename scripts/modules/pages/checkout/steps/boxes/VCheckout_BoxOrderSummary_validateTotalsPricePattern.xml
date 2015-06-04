@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate order totals price pattern.</description>
+  <parameter name="pricePattern"/>
+  <command name="assertText" target="css=#main #secondary .checkout-order-totals .order-totals-table .order-subtotal td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+  <command name="assertText" target="css=#main #secondary .checkout-order-totals .order-totals-table .order-shipping td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+  <command name="assertText" target="css=#main #secondary .checkout-order-totals .order-totals-table .order-sales-tax td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+  <command name="assertText" target="css=#main #secondary .checkout-order-totals .order-totals-table .order-total td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+</scriptmodule>

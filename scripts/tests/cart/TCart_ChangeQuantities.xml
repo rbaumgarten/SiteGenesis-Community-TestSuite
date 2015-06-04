@@ -252,6 +252,9 @@
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
+  <module name="modules.pages.cart.VCart_validateOrderTotalsPricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
   <codecomment># Teardown
 
 - End session</codecomment>
