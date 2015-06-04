@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validates if Add2Cart-Button is activ and not disabled </description>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .availability .availability-msg"/>
+  <description>Validates the active state of the add to cart button</description>
+  <command name="assertElementPresent" target="css=#pdpMain #product-content #add-to-cart:not([disabled])">
+    <comment>Check that the disabled attribute is not set and hence the button must be active.</comment>
+  </command>
 </scriptmodule>
