@@ -7,13 +7,12 @@
 - Delete cookies
 - Open homepage
 - End on homepage</description>
-  <action name="StartSession"/>
-  <codecomment># Start
-
-- Open homepage
-- Delete cookies
-- Open homepage</codecomment>
+  <action name="Homepage"/>
+  <codecomment>Open homepage</codecomment>
   <command name="open" value="${storefront_url}"/>
+  <codecomment>Delete cookies in the current context</codecomment>
   <command name="deleteAllVisibleCookies"/>
+  <codecomment>Open homepage again to get a fresh set of cookies</codecomment>
+  <action name="HomepageAgain"/>
   <command name="open" value="${storefront_url}"/>
 </scriptmodule>
