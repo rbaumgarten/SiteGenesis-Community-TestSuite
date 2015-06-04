@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validate recoomendations on product detail page.</description>
+  <description>Validate that recommendations are on the product detail page.</description>
   <command name="assertElementPresent" target="css=.recommendations.cross-sell"/>
 </scriptmodule>
