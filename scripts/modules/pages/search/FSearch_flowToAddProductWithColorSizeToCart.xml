@@ -51,7 +51,7 @@
     <parameter name="productSize_varName" value="@{productSize_varName}"/>
   </module>
   <action name="AddToCart"/>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickAddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <codecomment># Cart 
 
 - Go to cart

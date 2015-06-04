@@ -41,7 +41,7 @@
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
     <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
   </module>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickAddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <codecomment># Cart 
 
 - Go to cart
