@@ -60,18 +60,6 @@
 - Store product price total</codecomment>
   <action name="GoToCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink"/>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
-    <parameter name="row" value="@{cartRow}"/>
-    <parameter name="productName" value="${@{productName_varName}}"/>
-    <parameter name="productNumber" value="@{productNumber}"/>
-    <parameter name="productQuantity" value="${@{productQuantity_varName}}"/>
-    <parameter name="productPriceSales" value="${@{productPriceSales_varName}}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductColorSize">
-    <parameter name="row" value="@{cartRow}"/>
-    <parameter name="productColor" value="${@{productColor_varName}}"/>
-    <parameter name="productSize" value="${@{productSize_varName}}"/>
-  </module>
   <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
     <parameter name="row" value="@{cartRow}"/>
     <parameter name="productPriceTotal_varName" value="@{productPriceTotal_varName}"/>
