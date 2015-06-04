@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verify Objects that are only shon on the PDP and not on the QV
-like product rating and describtion</description>
+  <description>Verify objects that are only shown on the PDP and not on the QV like product rating and descriptions.</description>
   <command name="assertElementPresent" target="css=#product-content .product-review"/>
   <command name="assertElementPresent" target="css=#pdpMain div .product-tabs"/>
 </scriptmodule>

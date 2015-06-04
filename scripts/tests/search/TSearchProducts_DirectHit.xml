@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test search for a single product result and hence for an intermediate display of that product.
+  <description>Test search for a single product result and hence for an immediate display of that product.
 
 # 1. Setup and preparation
 
@@ -30,8 +30,10 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.productdetailpage.VProductDetailPage_validatePage"/>
-  <module name="modules.pages.productdetailpage.VProductDetailPage_validateProductNumber">
+  <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
+  <module name="modules.pages.product.VProduct_waitForProductNumber">
     <parameter name="productNumber" value="${searchText}"/>
   </module>
   <codecomment># Teardown

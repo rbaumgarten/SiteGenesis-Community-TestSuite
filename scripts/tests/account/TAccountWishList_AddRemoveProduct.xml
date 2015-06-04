@@ -59,7 +59,7 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickAddtoWishlist"/>
+  <module name="modules.pages.product.MProduct_clickAddtoWishlist"/>
   <codecomment>## Wishlist
 
 - Login
