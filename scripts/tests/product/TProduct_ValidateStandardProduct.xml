@@ -16,14 +16,19 @@ Validate displaying product data either via quick view or via product detail pag
 - search for product name and validate PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment># Navigate to Electronics/Gaming</codecomment>
+  <codecomment>Navigate to Electronics/Gaming</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
-    <parameter name="nameLevel1" value="Electronics"/>
+    <parameter name="nameLevel1" value="${plainProductCategoryLevel1}"/>
   </module>
   <action name="CategoryLevel2"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
-    <parameter name="nameLevel2" value="Gaming"/>
+    <parameter name="nameLevel2" value="${plainProductCategoryLevel2}"/>
+  </module>
+  <action name="SortByName"/>
+  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByLabel">
+    <parameter name="sortByLabel" value="Product Name A - Z"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
@@ -33,10 +38,10 @@ Validate displaying product data either via quick view or via product detail pag
 - Validate PDP for plain product
 - Check if product name, price, and product number are the same</codecomment>
   <codecomment>--------------------------------</codecomment>
-  <codecomment># Hover over Product and click on quick view buttom</codecomment>
+  <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
-  <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductPosition">
-    <parameter name="position" value="4"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductTitle">
+    <parameter name="title" value="${plainProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
   <module name="modules.pages.productquickview.VProductQV_validateHeader">
@@ -59,11 +64,11 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="ProductDetailPageFromQV"/>
-  <codecomment># Goto PDP from QV</codecomment>
+  <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
-  <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
-    <parameter name="productName" value="${productName}"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
+    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
@@ -78,16 +83,16 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productPrice" value="${productPrice}"/>
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
-  <codecomment># Go back to Homepage</codecomment>
+  <codecomment>Go back to Homepage</codecomment>
   <action name="BackToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
   <action name="SearchProductByName"/>
-  <codecomment># Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
+  <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
   </module>
-  <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
-    <parameter name="productName" value="${productName}"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
+    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
@@ -102,7 +107,4 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productPrice" value="${productPrice}"/>
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>
