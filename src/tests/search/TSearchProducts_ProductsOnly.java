@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test search for multiple product results.</p>
+ * <p>Test search and expect a search result with multiple products.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
@@ -15,7 +15,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
  * <li>Search for text</li>
- * <li>Leads to multiple product results</li>
+ * <li>Returns multiple products aka a product listing page</li>
  * <li>Validate result page (similar to catalog page)</li>
  * <li>Select a product</li>
  * <li>Validate product detail page</li>
