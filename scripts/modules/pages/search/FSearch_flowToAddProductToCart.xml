@@ -32,7 +32,7 @@
 - Store product basics
 - Add product to cart</codecomment>
   <action name="PDPSetDetails"/>
-  <module name="modules.pages.product.productdetailpage.MProductDetailPage_enterQuantity">
+  <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeBasicData">
