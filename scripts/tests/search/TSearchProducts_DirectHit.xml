@@ -31,7 +31,7 @@
     <parameter name="searchText" value="${searchText}"/>
   </module>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePage"/>
-  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateProductNumber">
+  <module name="modules.pages.product.VProduct_validateProductNumber">
     <parameter name="productNumber" value="${searchText}"/>
   </module>
   <codecomment># Teardown
