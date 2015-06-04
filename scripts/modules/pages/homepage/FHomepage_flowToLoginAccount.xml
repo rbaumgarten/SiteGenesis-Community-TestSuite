@@ -17,6 +17,9 @@
 
 - Validate page
 - Login as returning customer</codecomment>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="My Account"/>
+  </module>
   <module name="modules.pages.account.login.VAccount_Login_validatePage"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
     <parameter name="email" value="@{email}"/>

@@ -73,6 +73,9 @@
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <action name="ViewWishList"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Wish List"/>
+  </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validatePage"/>
   <module name="modules.pages.account.VAccount_validateNav"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductBasicDetails">
