@@ -3,5 +3,5 @@
   <description>verify the last element of the breadcrumb on the pdp, check if product name is shown
 This will only work on pdp</description>
   <parameter name="productName"/>
-  <command name="assertText" target="css=.breadcrumb span" value="@{productName}"/>
+  <command name="assertText" target="css=#main .breadcrumb span" value="@{productName}"/>
 </scriptmodule>
