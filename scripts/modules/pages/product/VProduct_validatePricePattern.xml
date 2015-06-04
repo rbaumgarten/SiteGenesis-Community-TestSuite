@@ -3,6 +3,5 @@
   <tags>pdp,qv</tags>
   <description>Validate product price pattern.</description>
   <parameter name="pricePattern"/>
-  <command name="waitForElementPresent" target="css=#product-content  .product-price span.price-sales"/>
   <command name="assertText" target="css=#product-content  .product-price span.price-sales" value="regexp:@{pricePattern}"/>
 </scriptmodule>
