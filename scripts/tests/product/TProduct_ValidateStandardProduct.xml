@@ -67,9 +67,6 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
     <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
-  <module name="modules.global.headerfooternav.VNavigation_verifyLastBreadcrumbOnPDP">
-    <parameter name="productName" value="${productName}"/>
-  </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>
   <module name="modules.pages.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
@@ -88,14 +85,8 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
   </module>
-  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
-    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel1}"/>
-  </module>
-  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
-    <parameter name="breadcrumbTitle" value="${plainProductCategoryLevel2}"/>
-  </module>
-  <module name="modules.global.headerfooternav.VNavigation_verifyLastBreadcrumbOnPDP">
-    <parameter name="productName" value="${productName}"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
+    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>
