@@ -30,6 +30,9 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="@{productNumber}"/>
   </module>
+  <module name="modules.pages.product.VProduct_validatePricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
   <codecomment># PDP
 
 - Set quantity
