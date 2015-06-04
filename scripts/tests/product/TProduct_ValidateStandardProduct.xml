@@ -39,14 +39,14 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="position" value="4"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
-  <module name="modules.pages.productquickview.VProductQV_validateHeader">
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
-  <module name="modules.pages.productquickview.VProductQV_validateQVOnlyElements"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicData">
@@ -57,7 +57,7 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <action name="ProductDetailPageFromQV"/>
   <codecomment># Goto PDP from QV</codecomment>
-  <module name="modules.pages.productquickview.MProductQV_clickViewFullDetails"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
     <parameter name="productName" value="${productName}"/>
