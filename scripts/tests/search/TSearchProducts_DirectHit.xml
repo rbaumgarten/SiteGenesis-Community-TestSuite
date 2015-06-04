@@ -30,8 +30,8 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
-  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePage"/>
-  <module name="modules.pages.product.VProduct_validateProductNumber">
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
+  <module name="modules.pages.product.VProduct_waitForProductNumber">
     <parameter name="productNumber" value="${searchText}"/>
   </module>
   <codecomment># Teardown

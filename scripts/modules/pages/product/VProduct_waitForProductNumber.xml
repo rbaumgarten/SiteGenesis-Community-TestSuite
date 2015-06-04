@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validate product number.</description>
+  <description>Wait for a specific product number to be shown.</description>
   <parameter name="productNumber" desc="product number"/>
   <command name="waitForText" target="css=#product-content .product-number" value="Item# @{productNumber}"/>
 </scriptmodule>
