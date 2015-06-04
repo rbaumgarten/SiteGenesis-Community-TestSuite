@@ -56,7 +56,6 @@
 - Validate cart page 
 - Validate product 01 row structure
 - Validate product 01 price total</codecomment>
-  <action name="ViewCart"/>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <module name="modules.pages.cart.VCart_Row_validateRow">
     <parameter name="row" value="1"/>

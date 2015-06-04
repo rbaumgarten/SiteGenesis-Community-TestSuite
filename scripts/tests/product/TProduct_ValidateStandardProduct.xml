@@ -43,6 +43,9 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
+  <module name="modules.pages.product.VProduct_validatePricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
@@ -61,6 +64,9 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
     <parameter name="productName" value="${productName}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatePricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>
@@ -82,6 +88,9 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <module name="modules.pages.productdetailpage.VProductDetailPage_verifyLastBreadcrumb">
     <parameter name="productName" value="${productName}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatePricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductActions"/>

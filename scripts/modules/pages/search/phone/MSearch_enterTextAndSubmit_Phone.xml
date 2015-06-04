@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Enter a text in the search field and submit the search.</description>
+  <parameter name="searchText" desc="The search phrase to enter."/>
+  <command name="click" target="css=#wrapper .top-banner .menu-toggle"/>
+  <command name="waitForElementPresent" target="id=q"/>
+  <command name="type" target="id=q" value="@{searchText}"/>
+  <command name="submitAndWait" target="name=simpleSearch"/>
+  <action name="MSearch_enterTextAndSubmit_MobilePhoneSize-0"/>
+</scriptmodule>

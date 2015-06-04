@@ -53,25 +53,83 @@
 		</copy>
 	</target>
 
+
+
+	<condition property="isSingleAndWebdriver">
+  	<and>
+      <isset property="testname"/>
+      <isset property="webdriver"/>
+    </and>
+	</condition>
+
+	<condition property="isSingleAndNotWebdriver">
+  	<and>
+      <isset property="testname"/>
+      <not>
+        <isset property="webdriver"/>
+      </not>
+    </and>
+	</condition>
+
+	<condition property="isNotSingleAndWebdriver">
+  	<and>
+      <not>
+        <isset property="testname"/>
+      </not>
+      <isset property="webdriver"/>
+    </and>
+	</condition>
+
+	<condition property="isNotSingleAndNotWebdriver">
+  	<and>
+      <not>
+        <isset property="testname"/>
+      </not>
+      <not>
+        <isset property="webdriver"/>
+      </not>
+    </and>
+	</condition>
+
 	<!-- 
         Prepares everything for testing. 
     -->
 	<target name="test.init" depends="compile">
 		<mkdir dir="${test.results.dir}" />
 	</target>
-
-	<condition property="isSingleCall">
-		<isset property="testname"/>
-	</condition>
  
 	<target name="test.java"
-		depends="test.java.single, test.java.all">
+		depends="test.java.isSingleAndWebdriver, test.java.isSingleAndNotWebdriver, test.java.isNotSingleAndWebdriver, test.java.isNotSingleAndNotWebdriver">
 	</target>
 
 	<!-- 
         Performs a functional test by running the configured Java test cases. 
     -->
-	<target name="test.java.single" if="isSingleCall" depends="test.init">
+	<target name="test.java.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
+		<!-- 
+            Run the junit tests. 
+        -->
+		<junit forkmode="once" printsummary="on" dir="${basedir}">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
+
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}" >
+				<fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}" excludes="**/regression/**" />
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="test.java.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
 		<!-- 
             Run the junit tests. 
         -->
@@ -93,8 +151,32 @@
 			</batchtest>
 		</junit>
 	</target>
+  
+	<target name="test.java.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
+		<!-- 
+            Run the junit tests. 
+        -->
+		<junit forkmode="once" printsummary="on" dir="${basedir}">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
 
-	<target name="test.java.all" unless="isSingleCall" depends="test.init">
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}">
+				<fileset dir="${test.src.dir}" includes="${test.cases.java}" excludes="**/regression/**" />
+			</batchtest>
+		</junit>
+	</target>
+  
+	<target name="test.java.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
 		<!-- 
             Run the junit tests. 
         -->
@@ -118,13 +200,54 @@
 	</target>
 
 
-	<target name="test.script"
-		depends="test.script.single, test.script.all">
+	<target name="test.script" depends="test.script.isSingleAndWebdriver, test.script.isSingleAndNotWebdriver, test.script.isNotSingleAndWebdriver, test.script.isNotSingleAndNotWebdriver" >
 	</target>
 	<!-- 
         Performs a functional test by running the configured script test cases. 
     -->
-	<target name="test.script.single" if="isSingleCall" depends="test.init">
+	<target name="test.script.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
+		<!-- 
+			Determine the test scripts to run from the configuration. 
+		-->
+		<fileset id="scripts"
+		         dir="${test.scripts.dir}"
+		         includes="${test.cases.singlescript}"
+		         excludes="**/*_data.xml **/*_datasets.xml"
+		/>
+		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
+		</pathconvert>
+		
+		<echo message="Found the following file: ${scripts}"/>
+		<!-- 
+            Run the generic script test case suite. 
+        -->
+		<junit forkmode="once" printsummary="on">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
+
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- configure the tests to run -->
+			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}">
+				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+				              classpathref="xlt.class.path"
+				/>
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="test.script.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
 		<!-- 
 			Determine the test scripts to run from the configuration. 
 		-->
@@ -168,7 +291,51 @@
 	<!-- 
         Performs a functional test by running the configured script test cases. 
     -->
-	<target name="test.script.all" unless="isSingleCall" depends="test.init">
+	<target name="test.script.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
+		<!-- 
+			Determine the test scripts to run from the configuration. 
+		-->
+		<fileset id="scripts"
+		         dir="${test.scripts.dir}"
+		         includes="${test.cases.script}"
+		         excludes="**/*_data.xml **/*_datasets.xml"
+		/>
+		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
+		</pathconvert>
+
+		<!-- 
+            Run the generic script test case suite. 
+        -->
+		<junit forkmode="once" printsummary="on">
+			<!-- build the class path -->
+			<classpath refid="test.suite.class.path" />
+
+			<!-- configure the environment for XLT-based test cases -->
+			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
+			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
+			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+
+			<!-- configure the test result formatter -->
+			<formatter type="xml" />
+
+			<!-- configure the tests to run -->
+			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+
+			<!-- execute all configured tests -->
+			<batchtest fork="yes" todir="${test.results.dir}">
+				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+				              classpathref="xlt.class.path"
+				/>
+			</batchtest>
+		</junit>
+	</target>
+
+	<!-- 
+        Performs a functional test by running the configured script test cases. 
+    -->
+	<target name="test.script.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
 		<!-- 
 			Determine the test scripts to run from the configuration. 
 		-->
