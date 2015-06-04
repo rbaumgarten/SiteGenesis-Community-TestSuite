@@ -11,7 +11,7 @@
     <parameter name="number_varName" value="productColorRandom"/>
   </module>
   <codecomment>Click on generated random position of available color items</codecomment>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickColorPosition">
+  <module name="modules.pages.product.productdetailpage.MProductDetailPage_clickColorPosition">
     <parameter name="MProductColorPosition" value="${productColorRandom}"/>
   </module>
 </scriptmodule>
