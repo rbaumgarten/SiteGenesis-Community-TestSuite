@@ -43,6 +43,7 @@
   <action name="PDP"/>
   <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandom"/>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateDeactivatedAdd2CartButton"/>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
   <codecomment># Teardown
