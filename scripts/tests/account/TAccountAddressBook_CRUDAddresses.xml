@@ -62,7 +62,7 @@
     <parameter name="breadcrumbTitle" value="Addresses"/>
   </module>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
-  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateEmptyAddressList"/>
+  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddressListIsEmpty"/>
   <codecomment>## Address Book
 
 - Enter shipping address data in dialog
@@ -264,7 +264,7 @@
   <module name="modules.pages.account.addressbook.MAccount_AddressBook_clickDeleteAddress">
     <parameter name="position" value="1"/>
   </module>
-  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateEmptyAddressList"/>
+  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddressListIsEmpty"/>
   <codecomment># Teardown
 
 - Go to account menu
