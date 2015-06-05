@@ -18,10 +18,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Leads to an empty search result page with suggestion</li>
  * <li>Validate empty search result</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  */
 @ScriptName
 ("tests.search.TSearch_NoResults")

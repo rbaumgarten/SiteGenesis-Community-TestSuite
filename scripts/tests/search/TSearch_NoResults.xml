@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
+  <tags>smoke,search,no result</tags>
   <description>Test search for no products found.
 
 # 1. Setup and preparation
