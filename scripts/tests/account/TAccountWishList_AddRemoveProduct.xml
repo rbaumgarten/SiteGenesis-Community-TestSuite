@@ -78,7 +78,7 @@
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validatePage"/>
   <module name="modules.pages.account.VAccount_Navigation_validate"/>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductBasicDetails">
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_varDynamic}"/>
