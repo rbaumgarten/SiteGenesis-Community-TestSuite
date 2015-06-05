@@ -23,9 +23,9 @@
   <codecomment># Scope</codecomment>
   <codecomment>## One Result
 
-- Search product number
-- Valdiate PDP
-- Valdiate PDP product number</codecomment>
+- Search product by sku/product number
+- Validate PDP sku/product numbers
+- Validate PDP</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
