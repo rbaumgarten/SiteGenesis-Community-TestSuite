@@ -69,7 +69,7 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${plainProductName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
