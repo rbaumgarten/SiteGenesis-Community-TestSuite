@@ -4,7 +4,9 @@
 Choose Logout
 Verify Logout
 *Caution* this only works if nobody is logged in</description>
+  <action name="OpenUserMenu"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <action name="Logout"/>
   <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateLogoutState"/>
 </scriptmodule>

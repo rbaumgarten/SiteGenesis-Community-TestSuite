@@ -18,7 +18,7 @@
 - Validate page
 - Validate order data
 - Go to account menu</codecomment>
-  <action name="GoToOrderHistory"/>
+  <action name="AccountOrders"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToOrderHistory"/>
   <module name="modules.pages.account.orderhistory.VAccount_OrderHistory_validatePage"/>
   <module name="modules.pages.account.orderhistory.VAccount_OrderHistory_validateOrder">
