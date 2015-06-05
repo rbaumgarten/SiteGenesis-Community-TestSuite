@@ -31,7 +31,7 @@
 - Go to random product
 - Valdiate PDP
 - Valdiate PDP product number</codecomment>
-  <action name="Search"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
@@ -40,7 +40,7 @@
   </module>
   <module name="modules.pages.search.VSearch_Results_validateRefine"/>
   <module name="modules.pages.search.VSearch_Results_validateProductListing"/>
-  <action name="PDP"/>
+  <action name="ProductDetailPage"/>
   <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandomly"/>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
