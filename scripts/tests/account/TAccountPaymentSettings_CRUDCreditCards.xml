@@ -60,7 +60,7 @@
     <parameter name="breadcrumbTitle" value="Payment Settings"/>
   </module>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validatePage"/>
-  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateEmptyCreditCardList"/>
+  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateCreditCardListIsEmpty"/>
   <codecomment>## Payment Settings
 
 - Add credit card
@@ -71,7 +71,7 @@
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateDialog"/>
   <action name="CancelCreditCardDialog"/>
   <module name="modules.pages.account.paymentsettings.MAccount_PaymentSettings_Dialog_clickCancel"/>
-  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateEmptyCreditCardList"/>
+  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateCreditCardListIsEmpty"/>
   <codecomment>## Payment Settings
 
 - Add visa credit card
@@ -151,7 +151,7 @@
     <parameter name="position" value="1"/>
     <parameter name="ownerName" value="${owner_02}"/>
   </module>
-  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateEmptyCreditCardList"/>
+  <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateCreditCardListIsEmpty"/>
   <codecomment># Teardown
 
 - Go to account menu
