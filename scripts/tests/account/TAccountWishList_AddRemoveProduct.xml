@@ -77,7 +77,7 @@
     <parameter name="breadcrumbTitle" value="Wish List"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
