@@ -8,7 +8,7 @@
     <parameter name="numberMax" value="${sortByCountNotViewAll}"/>
     <parameter name="number_varName" value="sortByRandom"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Option_selectSortByPosition">
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByPosition">
     <parameter name="sortByPosition" value="${sortByRandom}"/>
     <parameter name="sortByLabel_varName" value="@{sortByLabel_varName}"/>
   </module>
