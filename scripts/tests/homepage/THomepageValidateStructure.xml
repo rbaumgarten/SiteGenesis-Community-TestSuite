@@ -10,24 +10,16 @@
 # 2. Scope of test
 
 - Validate global header, navigation and footer
-- Validate hompage content
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Validate hompage content</description>
   <codecomment># Setup
 
 - Start session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Homepage 
+  <codecomment>Homepage 
 
 - Validate global header, navigation and footer
 - Validate hompage content</codecomment>
-  <action name="ViewHomepage"/>
   <module name="modules.global.headerfooternav.VGlobal_validateHeaderFooterNav"/>
   <module name="modules.pages.homepage.VHomepage_validatePage"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>
