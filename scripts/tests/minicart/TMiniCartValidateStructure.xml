@@ -18,11 +18,7 @@
 - Validate subtotal inside mini cart body
 - Remove product from cart
 - Validate empty cart
-- Validate empty mini cart
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Validate empty mini cart</description>
   <codecomment># Setup
 
 - Start Session
@@ -39,20 +35,20 @@
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Mini Cart
+  <codecomment>Mini Cart
 
 - Validate header
 - Validate header items
 - Open body
 - Validate body product
 - Validate body subtotal</codecomment>
-  <action name="VIewMiniCart"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateHeader"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
     <comment>**Caution:** Browser window needs to be 1200 pixels wide to show totals subtotal in header.</comment>
     <parameter name="totalsQuantity" value="${productQuantity_varDynamic}"/>
     <parameter name="totalsSubtotal" value="${productPriceTotal_varDynamic}"/>
   </module>
+  <action name="VIewMiniCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_hoverBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodyProduct">
@@ -64,20 +60,17 @@
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal">
     <parameter name="totalsSubtotal" value="${productPriceTotal_varDynamic}"/>
   </module>
-  <codecomment>## Cart
+  <codecomment>Cart
 
 - Remove product
 - Validate empty cart</codecomment>
-  <action name="RemoveProduct"/>
+  <action name="RemoveLineItem"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
-  <codecomment>## Mini Cart
+  <codecomment>Mini Cart
 
 - Validate empty</codecomment>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateEmpty"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>

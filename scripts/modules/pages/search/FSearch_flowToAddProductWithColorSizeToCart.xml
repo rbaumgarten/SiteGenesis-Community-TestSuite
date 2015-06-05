@@ -26,7 +26,7 @@
   <codecomment># Search
 
 - Submit search string</codecomment>
-  <action name="Search"/>
+  <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="@{productNumber}"/>
   </module>
@@ -36,7 +36,7 @@
 - Store product basics
 - Store product attributes
 - Add product to cart</codecomment>
-  <action name="PDPSetDetails"/>
+  <action name="ConfigureProduct"/>
   <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
@@ -58,7 +58,7 @@
 - Validate product basics
 - Validate product attributes
 - Store product price total</codecomment>
-  <action name="GoToCart"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
     <parameter name="row" value="@{cartRow}"/>
