@@ -9,7 +9,7 @@
     <parameter name="numberMax" value="${itemsPerPageCount}"/>
     <parameter name="number_varName" value="itemsPerPageRandom"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPagePositon">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByPosition">
     <parameter name="itemsPerPagePosition" value="${itemsPerPageRandom}"/>
     <parameter name="itemsPerPageLabel_varName" value="@{itemsPerPageLabel_varName}"/>
   </module>

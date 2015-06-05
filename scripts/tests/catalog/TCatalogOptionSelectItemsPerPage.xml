@@ -53,7 +53,7 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
 - Select items per page via random
 - Validate item count</codecomment>
   <action name="SelectItemsPerPageViaPosition"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPagePositon">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByPosition">
     <parameter name="itemsPerPagePosition" value="${itemsPerPagePosition}"/>
     <parameter name="itemsPerPageLabel_varName" value="itemsPerPageLabel"/>
   </module>
@@ -61,7 +61,7 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel}"/>
   </module>
   <action name="SelectItemsPerPageViaRandom"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandom">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
     <parameter name="itemsPerPageLabel_varName" value="itemsPerPageLabel_random"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPage">
@@ -72,35 +72,35 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
 - Select items per page via labels
 - Validate item counts</codecomment>
   <action name="SelectItemsPerPage12"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_12}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPage">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_12}"/>
   </module>
   <action name="SelectItemsPerPage24"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_24}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPage">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_24}"/>
   </module>
   <action name="SelectItemsPerPage36"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_36}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPage">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_36}"/>
   </module>
   <action name="SelectItemsPerPage48"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_48}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPage">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_48}"/>
   </module>
   <action name="SelectItemsPerPageViewAll"/>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_ViewAll}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPageViewAll"/>
