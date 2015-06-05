@@ -60,8 +60,8 @@ Validate displaying product data either via quick view or via product detail pag
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
-  <module name="modules.pages.product.VProduct_validateIsColorSelected"/>
-  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
+  <module name="modules.pages.product.VProduct_validateColorIsSelected"/>
+  <module name="modules.pages.product.VProduct_validateSizeIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateThumbnails"/>
@@ -86,8 +86,8 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
-  <module name="modules.pages.product.VProduct_validateIsNoColorSelected"/>
-  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
+  <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
+  <module name="modules.pages.product.VProduct_validateSizeIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
@@ -117,8 +117,8 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
-  <module name="modules.pages.product.VProduct_validateIsNoColorSelected"/>
-  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
+  <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
+  <module name="modules.pages.product.VProduct_validateSizeIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
