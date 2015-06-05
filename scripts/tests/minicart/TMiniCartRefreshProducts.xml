@@ -81,14 +81,13 @@
 - Open body
 - Validate body product
 - Validate body subtotal</codecomment>
-  <action name="VIewMiniCart"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateHeader"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateHeaderTotals">
     <parameter name="totalsQuantity" value="3"/>
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
+  <action name="VIewMiniCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_hoverBody"/>
-  <command name="waitForVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodyProduct">
     <parameter name="row" value="2"/>
