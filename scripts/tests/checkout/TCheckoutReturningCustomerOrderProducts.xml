@@ -168,7 +168,7 @@
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_selectSavedAddress">
     <parameter name="title" value="${shippingAddress_title}"/>
   </module>
-  <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.shipping.VCheckout_ShippingAddress_validateAddress">
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
     <parameter name="lastname" value="${shippingAddress_lastname}"/>
     <parameter name="address1" value="${shippingAddress_address1}"/>
