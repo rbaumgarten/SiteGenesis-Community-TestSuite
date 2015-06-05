@@ -25,10 +25,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Validate empty cart</li>
  * <li>Validate empty mini cart</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  */
 @ScriptName
 ("tests.minicart.TMiniCartValidateStructure")

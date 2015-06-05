@@ -36,10 +36,7 @@
 - Remove product 01
 - Validate empty cart
 - Validate empty mini cart
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+</description>
   <codecomment># Setup
 
 - Start Session
