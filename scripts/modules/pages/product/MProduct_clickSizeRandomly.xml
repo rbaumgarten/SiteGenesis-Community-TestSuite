@@ -11,7 +11,7 @@
     <parameter name="number_varName" value="productSizeRandom"/>
   </module>
   <codecomment>Click on generated random position of available size items</codecomment>
-  <module name="modules.pages.product.MProduct_clickSizePosition">
+  <module name="modules.pages.product.MProduct_clickSizeByPosition">
     <parameter name="productSizePosition" value="${productSizeRandom}"/>
   </module>
 </scriptmodule>
