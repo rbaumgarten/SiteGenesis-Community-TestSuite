@@ -93,7 +93,7 @@
 - Validate color list is empty
 - Validate refinement list is empty</codecomment>
   <action name="RemoveFilter"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterPosition">
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterByPosition">
     <parameter name="position" value="2"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsNotSelected">
