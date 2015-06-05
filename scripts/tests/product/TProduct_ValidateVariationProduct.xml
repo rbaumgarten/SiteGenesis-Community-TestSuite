@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,qv</tags>
-  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products
+  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for variation products
 
 # Setup
 Open the site and remove cookies
@@ -16,14 +16,18 @@ Validate displaying product data either via quick view or via product detail pag
 - search for product name and validate PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Electronics/Gaming</codecomment>
+  <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
-    <parameter name="nameLevel1" value="${plainProductCategoryLevel1}"/>
+    <parameter name="nameLevel1" value="${variationProductCategoryLevel1}"/>
   </module>
   <action name="CategoryLevel2"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
-    <parameter name="nameLevel2" value="${plainProductCategoryLevel2}"/>
+    <parameter name="nameLevel2" value="${variationProductCategoryLevel2}"/>
+  </module>
+  <action name="CategoryLevel3"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
+    <parameter name="nameLevel3" value="${variationProductCategoryLevel3}"/>
   </module>
   <action name="SortByName"/>
   <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
@@ -41,7 +45,7 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductTitle">
-    <parameter name="title" value="${plainProductName}"/>
+    <parameter name="title" value="${variationProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
@@ -54,7 +58,7 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
-  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <codecomment>Store product informations to check them later</codecomment>
@@ -94,7 +98,7 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="searchText" value="${productName}"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="Home ${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
