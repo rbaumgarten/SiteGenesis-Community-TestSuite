@@ -22,7 +22,7 @@
 - Search product by sku/product number
 - Validate PDP sku/product numbers
 - Validate PDP</codecomment>
-  <action name="SearchBySKU"/>
+  <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
