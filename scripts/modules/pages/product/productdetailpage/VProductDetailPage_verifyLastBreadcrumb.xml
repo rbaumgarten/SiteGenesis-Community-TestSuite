@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validate the last breadcrumb of the PDP, check if product name is shown.</description>
-  <parameter name="productName" desc="The product name expected as part of the breadcrumbs."/>
-  <command name="assertText" target="css=.breadcrumb span" value="@{productName}"/>
-</scriptmodule>
