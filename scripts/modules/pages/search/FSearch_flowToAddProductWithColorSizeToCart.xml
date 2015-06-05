@@ -59,7 +59,7 @@
 - Validate product attributes
 - Store product price total</codecomment>
   <action name="GoToCart"/>
-  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
     <parameter name="row" value="@{cartRow}"/>
     <parameter name="productPriceTotal_varName" value="@{productPriceTotal_varName}"/>
