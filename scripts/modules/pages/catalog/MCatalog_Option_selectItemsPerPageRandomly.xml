@@ -5,11 +5,11 @@
   <codecomment>View all (last element) needs other validator as numbers only</codecomment>
   <command name="storeElementCount" target="css=#main #primary .search-result-options .items-per-page #grid-paging-header option" value="itemsPerPageCountWithViewAll"/>
   <command name="storeEval" target="${itemsPerPageCountWithViewAll} - 1" value="itemsPerPageCount"/>
-  <module name="modules.helper.MHelper_Random_generateNumber">
+  <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${itemsPerPageCount}"/>
     <parameter name="number_varName" value="itemsPerPageRandom"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPagePositon">
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByPosition">
     <parameter name="itemsPerPagePosition" value="${itemsPerPageRandom}"/>
     <parameter name="itemsPerPageLabel_varName" value="@{itemsPerPageLabel_varName}"/>
   </module>

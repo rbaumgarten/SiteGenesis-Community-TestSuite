@@ -31,10 +31,10 @@
 - Generate password
 - Start session
 - Create account with profile data</codecomment>
-  <module name="modules.helper.MHelper_Random_generateEmail">
+  <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_generatePassword">
+  <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
@@ -57,12 +57,12 @@
 - Validate empty list</codecomment>
   <action name="GoToAddressBook"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
     <parameter name="breadcrumbTitle" value="Addresses"/>
   </module>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
-  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateEmptyAddressList"/>
+  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddressListIsEmpty"/>
   <codecomment>## Address Book
 
 - Enter shipping address data in dialog
@@ -264,7 +264,7 @@
   <module name="modules.pages.account.addressbook.MAccount_AddressBook_clickDeleteAddress">
     <parameter name="position" value="1"/>
   </module>
-  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateEmptyAddressList"/>
+  <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddressListIsEmpty"/>
   <codecomment># Teardown
 
 - Go to account menu

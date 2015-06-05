@@ -38,10 +38,10 @@
 - Add product 02 to cart (quantity 2)
 - Store cart subtotal
 - Go to checkout login</codecomment>
-  <module name="modules.helper.MHelper_Random_generateEmail">
+  <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_generatePassword">
+  <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
@@ -168,7 +168,7 @@
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_selectSavedAddress">
     <parameter name="title" value="${shippingAddress_title}"/>
   </module>
-  <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.shipping.VCheckout_ShippingAddress_validateAddress">
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
     <parameter name="lastname" value="${shippingAddress_lastname}"/>
     <parameter name="address1" value="${shippingAddress_address1}"/>
@@ -239,7 +239,7 @@
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_selectSavedAddress">
     <parameter name="title" value="${billingAddress_title}"/>
   </module>
-  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.billing.VCheckout_BillingAddress_validateAddress">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
     <parameter name="address1" value="${billingAddress_address1}"/>
@@ -261,7 +261,7 @@
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCardCVN">
     <parameter name="cvn" value="${cvn}"/>
   </module>
-  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingPayment_validateCreditCard">
+  <module name="modules.pages.checkout.steps.billing.VCheckout_BillingPayment_validateCreditCard">
     <parameter name="owner" value="${owner}"/>
     <parameter name="type" value="${type}"/>
     <parameter name="number" value="${number}"/>

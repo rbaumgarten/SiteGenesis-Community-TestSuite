@@ -17,9 +17,6 @@
   <command name="assertText" target="${css_shipping}_addressFields_address1" value="@{address1}"/>
   <command name="assertText" target="${css_shipping}_addressFields_address2" value="@{address2}"/>
   <command name="assertText" target="${css_shipping}_addressFields_country option.select-option[selected=&quot;selected&quot;]" value="@{country}"/>
-  <command name="assertText" disabled="true" target="${css_shipping}_addressFields_states_state option.select-option[selected=&quot;selected&quot;]" value="*@{statesState}*">
-    <comment>__Caution:__ Site Genesis currently doesn't select this value if loaded from saved addresses.</comment>
-  </command>
   <command name="assertText" target="${css_shipping}_addressFields_city" value="@{city}"/>
   <command name="assertText" target="${css_shipping}_addressFields_postal" value="@{postalCode}"/>
   <command name="assertText" target="${css_shipping}_addressFields_phone" value="@{phone}"/>
