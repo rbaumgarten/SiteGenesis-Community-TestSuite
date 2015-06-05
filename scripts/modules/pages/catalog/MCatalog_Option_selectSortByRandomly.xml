@@ -4,7 +4,7 @@
   <parameter name="sortByLabel_varName" desc="sort by label as var name"/>
   <command name="storeElementCount" target="css=#main #primary .search-result-options .sort-by #grid-sort-header option" value="sortByCount"/>
   <command name="storeEval" target="${sortByCount} - 1" value="sortByCountNotViewAll"/>
-  <module name="modules.helper.MHelper_Random_generateNumber">
+  <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${sortByCountNotViewAll}"/>
     <parameter name="number_varName" value="sortByRandom"/>
   </module>

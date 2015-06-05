@@ -6,7 +6,7 @@
   <command name="storeElementCount" target="css=.product-variations .attribute .value .swatches.size li.emptyswatch:not(.unselectable)" value="productSizeNotSelectedCount"/>
   <command name="storeEval" target="(${productSizeSelectedCount} + ${productSizeNotSelectedCount})" value="productSizeAvailableCount"/>
   <codecomment>Generate random value from size item count</codecomment>
-  <module name="modules.helper.MHelper_Random_generateNumber">
+  <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${productSizeAvailableCount}"/>
     <parameter name="number_varName" value="productSizeRandom"/>
   </module>

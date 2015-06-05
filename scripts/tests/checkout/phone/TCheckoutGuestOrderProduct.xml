@@ -37,10 +37,10 @@
 - Add variation product to cart (quantity 1)
 - Store cart subtotal
 - Go to checkout login</codecomment>
-  <module name="modules.helper.MHelper_Random_generateEmail">
+  <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_generatePassword">
+  <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
