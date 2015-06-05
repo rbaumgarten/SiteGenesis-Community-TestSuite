@@ -36,10 +36,10 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
-  <codecomment>## Plain Product
+  <codecomment>## Variation Product
 
-- Validate Quickview for plain product
-- Validate PDP for plain product
+- Validate Quickview for variation product
+- Validate PDP for variation product
 - Check if product name, price, and product number are the same</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
@@ -48,6 +48,7 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="title" value="${variationProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
+  <codecomment>Caution: if you click on an product via QV usully a color is selected</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
@@ -58,8 +59,12 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.VProduct_validateIsColorSelected"/>
+  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicData">
@@ -72,16 +77,22 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
+  <codecomment>Caution: on the pdp ususlly no color is selected if there are more than one color</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
-  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.VProduct_validateIsNoColorSelected"/>
+  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
@@ -94,19 +105,25 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
   <action name="SearchProductByName"/>
   <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
+  <codecomment>Caution: even if there is only one color if you search for the variation master there will be no color selected</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
-  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.VProduct_validateIsNoColorSelected"/>
+  <module name="modules.pages.product.VProduct_validateNoSizeSelected"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
   <codecomment>Validate the stored values form QV on the PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>

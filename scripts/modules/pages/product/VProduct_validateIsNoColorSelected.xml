@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates that no color is selected on pdpmain form</description>
+  <command name="assertElementPresent" target="css=#product-content div.product-variations ul li.attribute div.value ul.swatches.color">
+    <comment>validates that the color panel is shown, ohter wise it's useless to check if no color is selected</comment>
+  </command>
+  <command name="assertNotElementPresent" target="css=#product-content div.product-variations ul li.attribute div.value ul.swatches.color li.selected"/>
+</scriptmodule>
