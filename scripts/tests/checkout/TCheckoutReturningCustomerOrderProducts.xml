@@ -239,7 +239,7 @@
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_selectSavedAddress">
     <parameter name="title" value="${billingAddress_title}"/>
   </module>
-  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.billing.VCheckout_BillingAddress_validateAddress">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
     <parameter name="address1" value="${billingAddress_address1}"/>
