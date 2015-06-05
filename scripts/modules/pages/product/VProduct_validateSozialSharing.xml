@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
-  <description>Validates product actions such as social sharing buttons, gift registry, and wish list links.</description>
+  <description>Validates social sharing buttons</description>
   <codecomment>Social Sharing</codecomment>
   <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-facebook-official">
     <comment>Facebook</comment>
@@ -17,13 +17,5 @@
   </command>
   <command name="assertElementPresent" target="css=#product-content .product-actions a.share-icon i.fa-envelope">
     <comment>Email</comment>
-  </command>
-  <codecomment>Wishlist</codecomment>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='wishlist']">
-    <comment>Add to Wishlist</comment>
-  </command>
-  <codecomment>Gift Registry</codecomment>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='gift-registry']">
-    <comment>Add to Gift Registry</comment>
   </command>
 </scriptmodule>

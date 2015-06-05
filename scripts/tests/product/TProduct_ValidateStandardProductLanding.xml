@@ -56,7 +56,8 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
-  <module name="modules.pages.product.VProduct_validateProductActions"/>
+  <module name="modules.pages.product.VProduct_validateSozialSharing"/>
+  <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
   <codecomment>Store product informations to check them later</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
@@ -69,14 +70,15 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <module name="modules.pages.product.VProduct_validateProductActions"/>
+  <module name="modules.pages.product.VProduct_validateSozialSharing"/>
+  <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
@@ -94,14 +96,15 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="searchText" value="${productName}"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="Home ${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${plainProductCategoryLevel1} ${plainProductCategoryLevel2} ${plainProductCategoryLevel3} ${productName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <module name="modules.pages.product.VProduct_validateProductActions"/>
+  <module name="modules.pages.product.VProduct_validateSozialSharing"/>
+  <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Validate the stored values form QV on the PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
