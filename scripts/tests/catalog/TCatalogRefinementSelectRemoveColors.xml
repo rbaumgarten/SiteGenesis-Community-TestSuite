@@ -47,14 +47,14 @@
   <module name="modules.pages.catalog.MCatalog_Refinement_clickColorLabel">
     <parameter name="colorLabel" value="${colorLabel_blue}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelSelected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsSelected">
     <parameter name="colorLabel" value="${colorLabel_blue}"/>
   </module>
   <action name="RemoveColorByLabel"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickColorLabel">
     <parameter name="colorLabel" value="${colorLabel_blue}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelUnselected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsNotSelected">
     <parameter name="colorLabel" value="${colorLabel_blue}"/>
   </module>
   <codecomment>## Catalog
@@ -66,7 +66,7 @@
     <parameter name="colorPosition" value="${colorPosition_01}"/>
     <parameter name="colorLabel_varName" value="colorLabel_01"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelSelected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsSelected">
     <parameter name="colorLabel" value="${colorLabel_01}"/>
   </module>
   <action name="RefineColorByPostion"/>
@@ -74,7 +74,7 @@
     <parameter name="colorPosition" value="${colorPosition_02}"/>
     <parameter name="colorLabel_varName" value="colorLabel_02"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelSelected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsSelected">
     <parameter name="colorLabel" value="${colorLabel_02}"/>
   </module>
   <action name="RefineColorByPostion"/>
@@ -82,7 +82,7 @@
     <parameter name="colorPosition" value="${colorPosition_03}"/>
     <parameter name="colorLabel_varName" value="colorLabel_03"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelSelected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsSelected">
     <parameter name="colorLabel" value="${colorLabel_03}"/>
   </module>
   <codecomment>## Catalog
@@ -96,13 +96,13 @@
   <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterPosition">
     <parameter name="position" value="2"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelUnselected">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorLabelIsNotSelected">
     <parameter name="colorLabel" value="${colorLabel_02}"/>
   </module>
   <action name="ClearColors"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickClearColorList"/>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateEmptyColorList"/>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateEmptyRefinementList"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateColorListIsEmpty"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
   <codecomment># Teardown
 
 - End session</codecomment>
