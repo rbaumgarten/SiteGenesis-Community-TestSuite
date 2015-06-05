@@ -1,425 +1,579 @@
 <?xml version="1.0"?>
 <project default="all" basedir=".">
 
-	<!-- 
-        Reads the properties from a file.  
+    <!--
+        Reads the properties from a file.
     -->
-	<property file="build.properties" />
+    <property file="build.properties"/>
 
-	<!-- 
-        Builds the XLT class path for further reference.  
+    <!--
+        Builds the XLT class path for further reference.
     -->
-	<path id="xlt.class.path">
-		<pathelement path="${xlt.classes.dir}" />
-		<fileset dir="${xlt.lib.dir}">
-			<include name="**/*.jar" />
-		</fileset>
-	</path>
+    <path id="xlt.class.path">
+        <pathelement path="${xlt.classes.dir}"/>
+        <fileset dir="${xlt.lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
 
-	<!-- 
-        Builds the test suite class path for further reference.  
+    <!--
+        Builds the test suite class path for further reference.
     -->
-	<path id="test.suite.class.path">
-		<path refid="xlt.class.path" />
-		<pathelement location="${test.classes.dir}" />
-		<fileset dir="${test.lib.dir}">
-			<include name="*.jar" />
-		</fileset>
-	</path>
+    <path id="test.suite.class.path">
+        <path refid="xlt.class.path"/>
+        <pathelement location="${test.classes.dir}"/>
+        <fileset dir="${test.lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
 
-	<!-- 
-        Deletes any result file from a previous test run.  
+    <!--
+        Deletes any result file from a previous test run.
     -->
-	<target name="clean">
-		<delete includeEmptyDirs="true" failonerror="false">
-			<fileset dir="${test.classes.dir}" includes="**/*" />
-			<fileset dir="${test.results.dir}" includes="**/*" />
-		</delete>
-	</target>
+    <target name="clean">
+        <delete includeEmptyDirs="true" failonerror="false">
+            <fileset dir="${test.classes.dir}" includes="**/*"/>
+            <fileset dir="${test.results.dir}" includes="**/*"/>
+        </delete>
+    </target>
 
-	<!-- 
-        Compiles the Java sources in ${test.src.dir} to ${test.classes.dir}. 
+    <!--
+        Compiles the Java sources in ${test.src.dir} to ${test.classes.dir}.
         Any non-Java file in the sources dir will be copied there, too.
     -->
-	<target name="compile">
-		<mkdir dir="${test.classes.dir}" />
-		<javac srcdir="${test.src.dir}" destdir="${test.classes.dir}" debug="on" optimize="off" deprecation="on" includeantruntime="false">
-			<classpath refid="test.suite.class.path" />
-		</javac>
-		<copy todir="${test.classes.dir}">
-			<fileset dir="${test.src.dir}">
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-	</target>
+    <target name="compile">
+        <mkdir dir="${test.classes.dir}"/>
+        <javac srcdir="${test.src.dir}" destdir="${test.classes.dir}" debug="on" optimize="off" deprecation="on"
+               includeantruntime="false">
+            <classpath refid="test.suite.class.path"/>
+        </javac>
+        <copy todir="${test.classes.dir}">
+            <fileset dir="${test.src.dir}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
 
 
-
-	<condition property="isSingleAndWebdriver">
-  	<and>
-      <isset property="testname"/>
-      <isset property="webdriver"/>
-    </and>
-	</condition>
-
-	<condition property="isSingleAndNotWebdriver">
-  	<and>
-      <isset property="testname"/>
-      <not>
+    <condition property="isWebdriver">
         <isset property="webdriver"/>
-      </not>
-    </and>
-	</condition>
+    </condition>
 
-	<condition property="isNotSingleAndWebdriver">
-  	<and>
-      <not>
-        <isset property="testname"/>
-      </not>
-      <isset property="webdriver"/>
-    </and>
-	</condition>
+    <condition property="isSingleAndWebdriver">
+        <and>
+            <isset property="testname"/>
+            <isset property="webdriver"/>
+        </and>
+    </condition>
 
-	<condition property="isNotSingleAndNotWebdriver">
-  	<and>
-      <not>
-        <isset property="testname"/>
-      </not>
-      <not>
-        <isset property="webdriver"/>
-      </not>
-    </and>
-	</condition>
+    <condition property="isSingleAndNotWebdriver">
+        <and>
+            <isset property="testname"/>
+            <not>
+                <isset property="webdriver"/>
+            </not>
+        </and>
+    </condition>
 
-	<!-- 
-        Prepares everything for testing. 
+    <condition property="isNotSingleAndWebdriver">
+        <and>
+            <not>
+                <isset property="testname"/>
+            </not>
+            <isset property="webdriver"/>
+        </and>
+    </condition>
+
+    <condition property="isNotSingleAndNotWebdriver">
+        <and>
+            <not>
+                <isset property="testname"/>
+            </not>
+            <not>
+                <isset property="webdriver"/>
+            </not>
+        </and>
+    </condition>
+
+    <!--
+        Prepares everything for testing.
     -->
-	<target name="test.init" depends="compile">
-		<mkdir dir="${test.results.dir}" />
-	</target>
- 
-	<target name="test.java"
-		depends="test.java.isSingleAndWebdriver, test.java.isSingleAndNotWebdriver, test.java.isNotSingleAndWebdriver, test.java.isNotSingleAndNotWebdriver">
-	</target>
+    <target name="test.init" depends="compile">
+        <mkdir dir="${test.results.dir}"/>
+    </target>
 
-	<!-- 
-        Performs a functional test by running the configured Java test cases. 
+    <target name="test.java"
+            depends="test.java.isSingleAndWebdriver, test.java.isSingleAndNotWebdriver, test.java.isNotSingleAndWebdriver, test.java.isNotSingleAndNotWebdriver">
+        <!--
+            Create a test report from the test results.
+        -->
+        <junitreport todir="${test.results.dir}">
+            <!-- determine the test result files -->
+            <fileset dir="${test.results.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+
+            <!-- generate the HTML report -->
+            <report format="noframes" todir="${test.results.dir}"/>
+        </junitreport>
+    </target>
+
+    <!--
+        Performs a functional test by running the configured Java test cases.
     -->
-	<target name="test.java.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
-		<!-- 
-            Run the junit tests. 
+    <target name="test.java.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
+        <!--
+            Run the junit tests.
         -->
-		<junit forkmode="once" printsummary="on" dir="${basedir}">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <junit forkmode="once" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
-      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+            <sysproperty key="xlt.webDriver" value="${webdriver}"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}" >
-				<fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}" excludes="**/regression/**" />
-			</batchtest>
-		</junit>
-	</target>
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}"
+                         excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
 
-	<target name="test.java.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
-		<!-- 
-            Run the junit tests. 
+    <target name="test.java.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
+        <!--
+            Run the junit tests.
         -->
-		<junit forkmode="once" printsummary="on" dir="${basedir}">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <junit forkmode="once" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}" >
-				<fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}" excludes="**/regression/**" />
-			</batchtest>
-		</junit>
-	</target>
-  
-	<target name="test.java.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
-		<!-- 
-            Run the junit tests. 
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <fileset id="scripts" dir="${test.src.dir}" includes="${test.cases.singlejava}"
+                         excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test.java.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
+        <!--
+            Run the junit tests.
         -->
-		<junit forkmode="once" printsummary="on" dir="${basedir}">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <junit forkmode="once" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
-      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+            <sysproperty key="xlt.webDriver" value="${webdriver}"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<fileset dir="${test.src.dir}" includes="${test.cases.java}" excludes="**/regression/**" />
-			</batchtest>
-		</junit>
-	</target>
-  
-	<target name="test.java.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
-		<!-- 
-            Run the junit tests. 
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <fileset dir="${test.src.dir}" includes="${test.cases.java}" excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test.java.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
+        <!--
+            Run the junit tests.
         -->
-		<junit forkmode="once" printsummary="on" dir="${basedir}">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <junit forkmode="once" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<fileset dir="${test.src.dir}" includes="${test.cases.java}" excludes="**/regression/**" />
-			</batchtest>
-		</junit>
-	</target>
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <fileset dir="${test.src.dir}" includes="${test.cases.java}" excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
 
 
-	<target name="test.script" depends="test.script.isSingleAndWebdriver, test.script.isSingleAndNotWebdriver, test.script.isNotSingleAndWebdriver, test.script.isNotSingleAndNotWebdriver" >
-	</target>
-	<!-- 
-        Performs a functional test by running the configured script test cases. 
+    <target name="test.script"
+            depends="test.script.isSingleAndWebdriver, test.script.isSingleAndNotWebdriver, test.script.isNotSingleAndWebdriver, test.script.isNotSingleAndNotWebdriver">
+        <!--
+            Create a test report from the test results.
+        -->
+        <junitreport todir="${test.results.dir}">
+            <!-- determine the test result files -->
+            <fileset dir="${test.results.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+
+            <!-- generate the HTML report -->
+            <report format="noframes" todir="${test.results.dir}"/>
+        </junitreport>
+    </target>
+    <!--
+        Performs a functional test by running the configured script test cases.
     -->
-	<target name="test.script.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
-		<!-- 
-			Determine the test scripts to run from the configuration. 
-		-->
-		<fileset id="scripts"
-		         dir="${test.scripts.dir}"
-		         includes="${test.cases.singlescript}"
-		         excludes="**/*_data.xml **/*_datasets.xml"
-		/>
-		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
-			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
-		</pathconvert>
-		
-		<echo message="Found the following file: ${scripts}"/>
-		<!-- 
-            Run the generic script test case suite. 
+    <target name="test.script.isSingleAndWebdriver" if="isSingleAndWebdriver" depends="test.init">
+        <!--
+            Determine the test scripts to run from the configuration.
         -->
-		<junit forkmode="once" printsummary="on">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <fileset id="scripts"
+                 dir="${test.scripts.dir}"
+                 includes="${test.cases.singlescript}"
+                 excludes="**/*_data.xml **/*_datasets.xml"
+                />
+        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
+        </pathconvert>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
-      <sysproperty key="xlt.webDriver" value="${webdriver}" />
-
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
-
-			<!-- configure the tests to run -->
-			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
-
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
-				              classpathref="xlt.class.path"
-				/>
-			</batchtest>
-		</junit>
-	</target>
-
-	<target name="test.script.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
-		<!-- 
-			Determine the test scripts to run from the configuration. 
-		-->
-		<fileset id="scripts"
-		         dir="${test.scripts.dir}"
-		         includes="${test.cases.singlescript}"
-		         excludes="**/*_data.xml **/*_datasets.xml"
-		/>
-		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
-			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
-		</pathconvert>
-		
-		<echo message="Found the following file: ${scripts}"/>
-		<!-- 
-            Run the generic script test case suite. 
+        <echo message="Found the following file: ${scripts}"/>
+        <!--
+            Run the generic script test case suite.
         -->
-		<junit forkmode="once" printsummary="on">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <junit forkmode="once" printsummary="on">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+            <sysproperty key="xlt.webDriver" value="${webdriver}"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- configure the tests to run -->
-			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+            <!-- configure the tests to run -->
+            <sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
-				              classpathref="xlt.class.path"
-				/>
-			</batchtest>
-		</junit>
-	</target>
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+                              classpathref="xlt.class.path"
+                        />
+            </batchtest>
+        </junit>
+    </target>
 
-	<!-- 
-        Performs a functional test by running the configured script test cases. 
+    <target name="test.script.isSingleAndNotWebdriver" if="isSingleAndNotWebdriver" depends="test.init">
+        <!--
+            Determine the test scripts to run from the configuration.
+        -->
+        <fileset id="scripts"
+                 dir="${test.scripts.dir}"
+                 includes="${test.cases.singlescript}"
+                 excludes="**/*_data.xml **/*_datasets.xml"
+                />
+        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
+        </pathconvert>
+
+        <echo message="Found the following file: ${scripts}"/>
+        <!--
+            Run the generic script test case suite.
+        -->
+        <junit forkmode="once" printsummary="on">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
+
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
+
+            <!-- configure the tests to run -->
+            <sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}"/>
+
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+                              classpathref="xlt.class.path"
+                        />
+            </batchtest>
+        </junit>
+    </target>
+
+    <!--
+        Performs a functional test by running the configured script test cases.
     -->
-	<target name="test.script.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
-		<!-- 
-			Determine the test scripts to run from the configuration. 
-		-->
-		<fileset id="scripts"
-		         dir="${test.scripts.dir}"
-		         includes="${test.cases.script}"
-		         excludes="**/*_data.xml **/*_datasets.xml"
-		/>
-		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
-			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
-		</pathconvert>
-
-		<!-- 
-            Run the generic script test case suite. 
+    <target name="test.script.isNotSingleAndWebdriver" if="isNotSingleAndWebdriver" depends="test.init">
+        <!--
+            Determine the test scripts to run from the configuration.
         -->
-		<junit forkmode="once" printsummary="on">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <fileset id="scripts"
+                 dir="${test.scripts.dir}"
+                 includes="${test.cases.script}"
+                 excludes="**/*_data.xml **/*_datasets.xml"
+                />
+        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
+        </pathconvert>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
-      <sysproperty key="xlt.webDriver" value="${webdriver}" />
+        <!--
+            Run the generic script test case suite.
+        -->
+        <junit forkmode="once" printsummary="on">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+            <sysproperty key="xlt.webDriver" value="${webdriver}"/>
 
-			<!-- configure the tests to run -->
-			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
-				              classpathref="xlt.class.path"
-				/>
-			</batchtest>
-		</junit>
-	</target>
+            <!-- configure the tests to run -->
+            <sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}"/>
 
-	<!-- 
-        Performs a functional test by running the configured script test cases. 
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+                              classpathref="xlt.class.path"
+                        />
+            </batchtest>
+        </junit>
+    </target>
+
+    <!--
+        Performs a functional test by running the configured script test cases.
     -->
-	<target name="test.script.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
-		<!-- 
-			Determine the test scripts to run from the configuration. 
-		-->
-		<fileset id="scripts"
-		         dir="${test.scripts.dir}"
-		         includes="${test.cases.script}"
-		         excludes="**/*_data.xml **/*_datasets.xml"
-		/>
-		<pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
-			<globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true" />
-		</pathconvert>
-
-		<!-- 
-            Run the generic script test case suite. 
+    <target name="test.script.isNotSingleAndNotWebdriver" if="isNotSingleAndNotWebdriver" depends="test.init">
+        <!--
+            Determine the test scripts to run from the configuration.
         -->
-		<junit forkmode="once" printsummary="on">
-			<!-- build the class path -->
-			<classpath refid="test.suite.class.path" />
+        <fileset id="scripts"
+                 dir="${test.scripts.dir}"
+                 includes="${test.cases.script}"
+                 excludes="**/*_data.xml **/*_datasets.xml"
+                />
+        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
+        </pathconvert>
 
-			<!-- configure the environment for XLT-based test cases -->
-			<sysproperty key="com.xceptance.xlt.home" value="${basedir}" />
-			<sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data" />
-			<sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties" />
+        <!--
+            Run the generic script test case suite.
+        -->
+        <junit forkmode="once" printsummary="on">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
 
-			<!-- configure the test result formatter -->
-			<formatter type="xml" />
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
 
-			<!-- configure the tests to run -->
-			<sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}" />
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
 
-			<!-- execute all configured tests -->
-			<batchtest fork="yes" todir="${test.results.dir}">
-				<javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
-				              classpathref="xlt.class.path"
-				/>
-			</batchtest>
-		</junit>
-	</target>
+            <!-- configure the tests to run -->
+            <sysproperty key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" value="${scripts}"/>
 
-	<!-- 
-        Performs all the functional tests and creates a JUnit test report.  
+            <!-- execute all configured tests -->
+            <batchtest fork="yes" todir="${test.results.dir}">
+                <javaresource name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+                              classpathref="xlt.class.path"
+                        />
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test.parallel" depends="test.init">
+        <parallel threadsPerProcessor="1">
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TAccountAddressBook_CRUDAddresses"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/catalog"/>
+                <param name="namePattern" value="TCatalogO"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/catalog"/>
+                <param name="namePattern" value="TCatalogV"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TCheckoutGuestOrderProduct"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TCheckoutNewCustomerOrderProducts"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TCheckoutReturningCustomerOrderProduct"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TAccountLogin"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/catalog"/>
+                <param name="namePattern" value="TCatalogR"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TAccountP"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/cart"/>
+                <param name="namePattern" value="T"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TP"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TM"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/search"/>
+                <param name="namePattern" value="TS"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TH"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TestR"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TAccountWishList_AddRemoveProduct"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**"/>
+                <param name="namePattern" value="TAccount_CreateAccount"/>
+            </antcall>
+        </parallel>
+        <!--
+              Create a test report from the test results.
+          -->
+        <junitreport todir="${test.results.dir}">
+            <!-- determine the test result files -->
+            <fileset dir="${test.results.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+
+            <!-- generate the HTML report -->
+            <report format="noframes" todir="${test.results.dir}"/>
+        </junitreport>
+    </target>
+
+    <target name="test.parallel.pattern"
+            depends="test.parallel.pattern.isWebdriver, test.parallel.pattern.isNotWebdriver">
+    </target>
+
+    <target name="test.parallel.pattern.isWebdriver" if="isWebdriver">
+        <echo>Searching for: [${pathPattern}]/[${namePattern}]*.java</echo>
+        <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
+
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+            <sysproperty key="xlt.webDriver" value="${webdriver}"/>
+
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
+
+            <!-- execute all configured tests -->
+            <batchtest todir="${test.results.dir}">
+                <fileset id="scripts" dir="${test.src.dir}" includes="${pathPattern}/${namePattern}*.java"
+                         excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test.parallel.pattern.isNotWebdriver" unless="isWebdriver">
+        <echo>Searching for: [${pathPattern}]/[${namePattern}]*.java</echo>
+        <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}">
+            <!-- build the class path -->
+            <classpath refid="test.suite.class.path"/>
+
+            <!-- configure the environment for XLT-based test cases -->
+            <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+            <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+            <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+
+            <!-- configure the test result formatter -->
+            <formatter type="xml"/>
+
+            <!-- execute all configured tests -->
+            <batchtest todir="${test.results.dir}">
+                <fileset id="scripts" dir="${test.src.dir}" includes="${pathPattern}/${namePattern}*.java"
+                         excludes="**/regression/**"/>
+            </batchtest>
+        </junit>
+    </target>
+
+    <!--
+        Performs all the functional tests and creates a JUnit test report.
     -->
-	<target name="test" depends="test.java, test.script">
-		<!-- 
-            Create a test report from the test results. 
-        -->
-		<junitreport todir="${test.results.dir}">
-			<!-- determine the test result files -->
-			<fileset dir="${test.results.dir}">
-				<include name="TEST-*.xml" />
-			</fileset>
+    <target name="test" depends="test.java, test.script"/>
 
-			<!-- generate the HTML report -->
-			<report format="noframes" todir="${test.results.dir}" />
-		</junitreport>
-	</target>
-
-	<!-- 
+    <!--
         Performs a load test with the test cases configured in the test suite.
-        For this, the XLT load test environment is used. 
+        For this, the XLT load test environment is used.
     -->
-	<target name="loadtest" depends="compile">
-		<!-- 
-			Determine the command to run depending on the OS.
-		-->
-		<condition property="command" value="mastercontroller.cmd" else="mastercontroller.sh">
-			<os family="windows" />
-		</condition>
-
-		<!-- 
-            Run the master controller using an embedded agent controller. 
+    <target name="loadtest" depends="compile">
+        <!--
+            Determine the command to run depending on the OS.
         -->
-		<exec executable="${xlt.bin.dir}/${command}" failonerror="true">
-			<arg line="-auto -embedded -report" />
-		</exec>
-	</target>
+        <condition property="command" value="mastercontroller.cmd" else="mastercontroller.sh">
+            <os family="windows"/>
+        </condition>
 
-	<!-- 
-        Executes clean and only the java functional testing target.  
-    -->
-	<target name="basic" depends="clean, test.java"/>
+        <!--
+            Run the master controller using an embedded agent controller.
+        -->
+        <exec executable="${xlt.bin.dir}/${command}" failonerror="true">
+            <arg line="-auto -embedded -report"/>
+        </exec>
+    </target>
 
-	<!-- 
-        Executes all targets one after the other.  
+    <!--
+        Executes clean and only the java functional testing target.
     -->
-	<target name="all" depends="clean, test, loadtest" />
+    <target name="basic" depends="clean, test.java"/>
+
+    <target name="parallel" depends="clean, test.parallel"/>
+
+    <!--
+        Executes all targets one after the other.
+    -->
+    <target name="all" depends="clean, test, loadtest"/>
 </project>
