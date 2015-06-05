@@ -73,6 +73,7 @@ The following steps explain what needs to be done to execute the test suite via 
 - Start a single test case by calling "ant basic -Dtestname=[TTestcaseName]"
 - Start test cases with an other WebDriver than the one specified in your default.properties by calling "ant basic -Dwebdriver=[WebdriverName]" (Make sure that you have specified the pathToDriverServer for this WebDriver)
 - You can also start a single test with an other WebDriver by combining these options.
+- To run your Java test cases in a parallel way (one browser per core) just call "ant parallel". The Webdriver parameter also applies to this call. BTW: Make sure that your test cases are independent of each other when using this feature.
 
 ### XLT Framework for Grunt or Gulp based Execution
 
