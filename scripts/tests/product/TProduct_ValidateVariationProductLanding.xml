@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>product,pdp,qv</tags>
+  <tags>product,pdp,quickview</tags>
   <description>Verifies the structure of quickview (QV) and product details pages (PDP) for variation products
 
 # Setup

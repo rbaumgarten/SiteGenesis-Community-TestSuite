@@ -39,7 +39,7 @@ Validate displaying product data either via quick view or via product detail pag
 - Check if product name, price, and product number are the same</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <action name="PlainProductQuickview"/>
+  <action name="ProductQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${plainProductName}"/>
   </module>
@@ -65,7 +65,7 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productPriceSales_varName" value="productPrice"/>
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
-  <action name="ProductDetailPageFromQV"/>
+  <action name="DisplayProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
   <codecomment>Verify product detail page</codecomment>
@@ -90,7 +90,7 @@ Validate displaying product data either via quick view or via product detail pag
   <codecomment>Go back to Homepage</codecomment>
   <action name="BackToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
-  <action name="SearchProductByName"/>
+  <action name="SearchByName"/>
   <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productName}"/>
