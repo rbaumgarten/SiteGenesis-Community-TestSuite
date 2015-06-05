@@ -16,11 +16,10 @@
 - Start session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Homepage 
+  <codecomment>Homepage 
 
 - Validate global header, navigation and footer
 - Validate hompage content</codecomment>
-  <action name="ViewHomepage"/>
   <module name="modules.global.headerfooternav.VGlobal_validateHeaderFooterNav"/>
   <module name="modules.pages.homepage.VHomepage_validatePage"/>
 </testcase>
