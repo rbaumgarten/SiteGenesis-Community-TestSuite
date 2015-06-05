@@ -261,7 +261,7 @@
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCardCVN">
     <parameter name="cvn" value="${cvn}"/>
   </module>
-  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingPayment_validateCreditCard">
+  <module name="modules.pages.checkout.steps.billing.VCheckout_BillingPayment_validateCreditCard">
     <parameter name="owner" value="${owner}"/>
     <parameter name="type" value="${type}"/>
     <parameter name="number" value="${number}"/>
