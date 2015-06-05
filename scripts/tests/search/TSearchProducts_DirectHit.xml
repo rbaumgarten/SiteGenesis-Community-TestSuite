@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
-  <description>Test search for a single product result and hence for an immediate display of that product.
+  <tags>smoke,search,sku</tags>
+  <description>Test search for a single product result and hence for an immediate display of that product by searching for a sku.
 
 # 1. Setup and preparation
 
@@ -9,13 +9,9 @@
 
 # 2. Scope of test
 
-- Search for text
+- Search for sku
 - Product detail page comes up
-- Validate product detail page
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Validate product detail page</description>
   <codecomment># Setup
 
 - Start session</codecomment>
@@ -26,7 +22,7 @@
 - Search product by sku/product number
 - Validate PDP sku/product numbers
 - Validate PDP</codecomment>
-  <action name="Search"/>
+  <action name="SearchSKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
@@ -36,7 +32,4 @@
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>
