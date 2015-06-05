@@ -1,0 +1,23 @@
+{
+  "name": "grunt-and-gulp-xlt-test-runner",
+  "version": "1.0.0",
+  "description": "This is a functional test suite for Demandware SiteGenesis, the best practice ecommerce reference store implementation for and by Demandware.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xceptance/SiteGenesis-Community-TestSuite.git"
+  },
+  "author": "Xceptance GmbH",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "node-xlt": "^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues"
+  },
+  "homepage": "https://github.com/Xceptance/SiteGenesis-Community-TestSuite#readme"
+}
