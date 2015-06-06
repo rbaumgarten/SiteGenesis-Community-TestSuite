@@ -51,7 +51,6 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
-  <action name="ViewCart"/>
   <module name="modules.pages.cart.MCart_storeTotalsSubtotal">
     <parameter name="totalsSubtotal" value="totalSubtotal_varDynamic"/>
   </module>
