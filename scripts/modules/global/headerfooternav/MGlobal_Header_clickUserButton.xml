@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click on user button in header.</description>
-  <command name="waitForElementPresent" target="css=#navigation .menu-utility-user"/>
   <command name="click" target="css=#navigation .menu-utility-user .user-info a"/>
+  <command name="waitForElementPresent" target="css=.menu-utility-user .user-info .user-panel .user-links">
+    <comment>Make sure it appeared before continuing.</comment>
+  </command>
 </scriptmodule>

@@ -51,20 +51,19 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
-  <action name="ViewCart"/>
   <module name="modules.pages.cart.MCart_storeTotalsSubtotal">
     <parameter name="totalsSubtotal" value="totalSubtotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Checkout Login
+  <codecomment>Checkout Login
 - Validate page
 - Login as guest</codecomment>
-  <action name="GoToCOLogin"/>
+  <action name="Checkout"/>
   <module name="modules.pages.cart.MCart_clickGoToCheckoutLogin"/>
   <module name="modules.pages.checkout.login.VCheckout_Login_validatePage"/>
-  <action name="COLoginGoToGuest"/>
+  <action name="CheckoutAsGuest"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_clickGoToGuest"/>
-  <codecomment>## Shipping
+  <codecomment>Shipping
 
 - Validate page
 - Enter data 
@@ -95,7 +94,9 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <comment>Initial price pattern validation.</comment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <action name="COShipping"/>
+  <codecomment>Shipping
+
+- Enter data</codecomment>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
@@ -125,10 +126,11 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="position" value="${shippingMethod_position}"/>
     <parameter name="price" value="${totalsShipping_varDynamic}"/>
   </module>
+  <action name="CheckoutShipping"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue">
     <comment>Save shipping data and continue checkout</comment>
   </module>
-  <codecomment>## Billing
+  <codecomment>Billing
 
 - Validate page
 - Enter data 
@@ -165,7 +167,9 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="postal" value="${postalCode}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
   </module>
-  <action name="COBilling"/>
+  <codecomment>Billing
+
+- Enter data</codecomment>
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail">
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
@@ -177,14 +181,14 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="year" value="${year}"/>
     <parameter name="cvn" value="${cvn}"/>
   </module>
+  <action name="CheckoutBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
-  <codecomment>## Place Order
+  <codecomment>Place Order
 
 - Validate page
 - Enter data 
 - Store data
 - Submit data</codecomment>
-  <action name="COPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -241,12 +245,12 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="year" value="${year}"/>
     <parameter name="paymentAmount" value="${totalsTotal_varDynamic}"/>
   </module>
+  <action name="COPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
-  <codecomment>## Order Confirmation
+  <codecomment>Order Confirmation
 
 - Validate page
 - Validate all specific order data</codecomment>
-  <action name="COConfirmation"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation">
     <parameter name="orderDatePattern" value="${storefront_orderDatePattern}"/>
@@ -313,17 +317,16 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="billingAddress_lastname" value="${lastname}"/>
     <parameter name="billingAddress_email" value="${email_varDynamic}"/>
   </module>
-  <action name="COConfirmationNewCustomer"/>
+  <action name="CreateAnAccountFromConfirmationPage"/>
   <module name="modules.pages.checkout.steps.boxes.MCheckout_BoxNewCustomer_enterClickSubmit">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <codecomment># Account
+  <codecomment>Account
 
 - Validate customer name
 - Validate profile in personal data
-- Validate order in order history
-- Logout</codecomment>
+- Validate order in order history</codecomment>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
@@ -341,10 +344,6 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="shippingAddress_lastname" value="${lastname}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <codecomment># Teardown
-
-- Logout
-- End session</codecomment>
-  <action name="Logout"/>
+  <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

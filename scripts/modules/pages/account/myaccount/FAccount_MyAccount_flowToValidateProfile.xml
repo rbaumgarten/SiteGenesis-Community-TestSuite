@@ -15,7 +15,7 @@
 - Go to personal data
 - Validate profile data
 - Go to account menu</codecomment>
-  <action name="GoToPersonalData"/>
+  <action name="AccountPersonalData"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPersonalData"/>
   <module name="modules.pages.account.personaldata.VAccount_PersonalData_validateProfile">
     <parameter name="firstname" value="@{firstname}"/>
