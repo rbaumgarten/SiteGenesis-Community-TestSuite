@@ -12,13 +12,13 @@
   <parameter name="number" desc="number"/>
   <parameter name="month" desc="month"/>
   <parameter name="year" desc="year"/>
-  <codecomment># Payment Settings
+  <codecomment>Payment Settings
 
 - Go to payment settings
 - Validate page
 - Validate credit card data
 - Go to account menu</codecomment>
-  <action name="GoToPaymentSettings"/>
+  <action name="AccountPaymentSettings"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPaymentSettings"/>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validatePage"/>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validateCreditCard">

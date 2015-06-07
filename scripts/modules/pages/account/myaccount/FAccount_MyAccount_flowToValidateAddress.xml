@@ -17,13 +17,13 @@
   <parameter name="city" desc="city"/>
   <parameter name="postalCode" desc="postal code"/>
   <parameter name="phone" desc="phone"/>
-  <codecomment># Address Book
+  <codecomment>Address Book
 
 - Go to address book
 - Validate page
 - Validate address data
 - Go to account</codecomment>
-  <action name="GoToAddressBook"/>
+  <action name="AccountAddresses"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddress">
@@ -39,5 +39,4 @@
     <parameter name="postalCode" value="@{postalCode}"/>
     <parameter name="phone" value="@{phone}"/>
   </module>
-  <action name="GoToAccount"/>
 </scriptmodule>

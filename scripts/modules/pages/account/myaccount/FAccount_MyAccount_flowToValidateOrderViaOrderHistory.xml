@@ -12,7 +12,7 @@
   <parameter name="shippingAddress_firstname" desc="shipping address firstname"/>
   <parameter name="shippingAddress_lastname" desc="shipping address lastname"/>
   <parameter name="totalsTotal" desc="totals total"/>
-  <codecomment># Order history
+  <codecomment>Order history
 
 - Go to order history
 - Validate page

@@ -25,11 +25,7 @@
 - Validate shipping and billing address
 - Validate credit card in payment settings
 - Validate order via order history
-- Logout
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Logout</description>
   <codecomment># Setup
 
 - Create mail
@@ -70,29 +66,28 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
-  <action name="ViewCart"/>
   <module name="modules.pages.cart.MCart_storeTotalsSubtotal">
     <parameter name="totalsSubtotal" value="totalsSubtotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Checkout Login
+  <codecomment>Checkout Login
 
 - Validate page
 - Login as new customer</codecomment>
-  <action name="GoToCOLogin"/>
+  <action name="Checkout"/>
   <module name="modules.pages.cart.MCart_clickGoToCheckoutLogin"/>
   <module name="modules.pages.checkout.login.VCheckout_Login_validatePage"/>
-  <action name="COLoginGoToNewCustomer"/>
+  <action name="CheckoutAsNewCustomer"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_clickGoToNewCustomer"/>
-  <action name="COLoginEnterNewCustomerProfile"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_CreateAccount_enterProfile">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
   </module>
+  <action name="CheckoutCreateNewCustomer"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_CreateAccount_clickSubmitProfile"/>
-  <codecomment>## Shipping
+  <codecomment>Shipping
 
 - Validate page
 - Enter data 
@@ -134,7 +129,7 @@
     <comment>Initial price pattern validation.</comment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <action name="COShipping"/>
+  <codecomment>Shipping - Enter Data</codecomment>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress">
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
     <parameter name="lastname" value="${shippingAddress_lastname}"/>
@@ -164,10 +159,11 @@
     <parameter name="position" value="${shippingMethod_position}"/>
     <parameter name="price" value="${totalsShipping_varDynamic}"/>
   </module>
+  <action name="CheckoutShipping"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue">
     <comment>Save shipping data and continue checkout</comment>
   </module>
-  <codecomment>## Billing
+  <codecomment>Billing
 
 - Validate page
 - Enter data 
@@ -215,7 +211,7 @@
     <parameter name="postal" value="${shippingAddress_postalCode}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
   </module>
-  <action name="COBilling"/>
+  <codecomment>Billing - enter data</codecomment>
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterAddress">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
     <parameter name="lastname" value="${billingAddress_lastname}"/>
@@ -239,14 +235,14 @@
     <parameter name="year" value="${year}"/>
     <parameter name="cvn" value="${cvn}"/>
   </module>
+  <action name="CheckoutBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
-  <codecomment>## Place Order
+  <codecomment>Place Order
 
 - Validate page
 - Enter data 
 - Store data
 - Submit data</codecomment>
-  <action name="COPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -315,12 +311,12 @@
     <parameter name="year" value="${year}"/>
     <parameter name="paymentAmount" value="${totalsTotal_varDynamic}"/>
   </module>
+  <action name="PlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
-  <codecomment>## Order Confirmation
+  <codecomment>Order Confirmation
 
 - Validate page
 - Validate all specific order data</codecomment>
-  <action name="COConfirmation"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation">
     <parameter name="orderDatePattern" value="${storefront_orderDatePattern}"/>
@@ -393,14 +389,13 @@
     <parameter name="orderNumber_varName" value="orderNumber_varDynamic"/>
     <parameter name="orderDate_varName" value="orderDate_varDynamic"/>
   </module>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Go to account
 - Validate customer name
 - Validate address data
 - Validate order history
 - Logout</codecomment>
-  <action name="GoToAccount"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="${billingAddress_firstname}"/>
@@ -455,10 +450,6 @@
     <parameter name="shippingAddress_lastname" value="${shippingAddress_lastname}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <codecomment># Teardown
-
-- Logout
-- End session</codecomment>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
