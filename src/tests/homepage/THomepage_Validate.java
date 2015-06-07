@@ -19,7 +19,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.homepage.THomepageValidateStructure")
-public class THomepageValidateStructure extends AbstractScriptTestCase
+("tests.homepage.THomepage_Validate")
+public class THomepage_Validate extends AbstractScriptTestCase
 {
 }
