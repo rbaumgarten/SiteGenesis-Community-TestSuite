@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test guest checkout with one variation product with color and size, one address and visa. 
+  <description>Test guest checkout with one variation product with color and size, one address and VISA. 
 
 # 1. Setup and preparation
 

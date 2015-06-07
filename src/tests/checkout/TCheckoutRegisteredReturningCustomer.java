@@ -29,13 +29,9 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Logout</li>
  * <li>Validate order summary via check order status</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  */
 @ScriptName
-("tests.checkout.TCheckoutReturningCustomerOrderProducts")
-public class TCheckoutReturningCustomerOrderProducts extends AbstractScriptTestCase
+("tests.checkout.TCheckoutRegisteredReturningCustomer")
+public class TCheckoutRegisteredReturningCustomer extends AbstractScriptTestCase
 {
 }

@@ -34,7 +34,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.checkout.TCheckoutNewCustomerOrderProducts")
-public class TCheckoutNewCustomerOrderProducts extends AbstractScriptTestCase
+("tests.checkout.TCheckoutRegisteredNewCustomer")
+public class TCheckoutRegisteredNewCustomer extends AbstractScriptTestCase
 {
 }
