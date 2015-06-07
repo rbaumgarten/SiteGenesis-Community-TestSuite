@@ -2,6 +2,8 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click on UserButton
 Choose My Account</description>
+  <action name="OpenUserMenu"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <action name="MyAccount"/>
   <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickMyAccount"/>
 </scriptmodule>

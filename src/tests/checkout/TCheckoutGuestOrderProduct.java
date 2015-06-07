@@ -20,13 +20,9 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Use same as shipping address for billing and use payment method credit card (visa)</li>
  * <li>Validate place order page</li>
  * <li>Validate order confirmation page</li>
- * <li>Go to account</li>
+ * <li>Create an account</li>
  * <li>Validate customer name and profile</li>
  * <li>Validate order via order history</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>Logout and end session</li>
  * </ul>
  * <p>Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</p>
  */
