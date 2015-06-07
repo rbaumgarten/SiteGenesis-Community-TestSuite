@@ -19,7 +19,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.catalog.TCatalogValidatePagesCategoryLevel1")
-public class TCatalogValidatePagesCategoryLevel1 extends AbstractScriptTestCase
+("tests.catalog.TCatalogCategory_Level1_Validate")
+public class TCatalogCategory_Level1_Validate extends AbstractScriptTestCase
 {
 }

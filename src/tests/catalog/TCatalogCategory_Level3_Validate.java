@@ -7,19 +7,19 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test validate pages of category level 2.</p>
+ * <p>Test validate pages of category level 3.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>Go to all pages of category level 2</li>
+ * <li>Go to all pages of category level 3</li>
  * <li>Validate all pages</li>
  * </ul>
  */
 @ScriptName
-("tests.catalog.TCatalogValidatePagesCategoryLevel2")
-public class TCatalogValidatePagesCategoryLevel2 extends AbstractScriptTestCase
+("tests.catalog.TCatalogCategory_Level3_Validate")
+public class TCatalogCategory_Level3_Validate extends AbstractScriptTestCase
 {
 }
