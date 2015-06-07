@@ -11,10 +11,7 @@
 
 - Go to all pages of category level 3
 - Validate all pages
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+</description>
   <codecomment># Setup
 
 - Start session</codecomment>
@@ -97,7 +94,4 @@
     <parameter name="positionLevel3" value="3"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>

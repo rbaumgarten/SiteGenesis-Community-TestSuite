@@ -28,7 +28,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.catalog.TCatalogRefinementSelectRemoveColors")
-public class TCatalogRefinementSelectRemoveColors extends AbstractScriptTestCase
+("tests.catalog.TCatalogRefinements_ByColor")
+public class TCatalogRefinements_ByColor extends AbstractScriptTestCase
 {
 }

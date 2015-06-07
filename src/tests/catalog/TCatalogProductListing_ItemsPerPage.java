@@ -31,7 +31,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <p>Please ignore this message, it is a known script developer issue (<a href="https://lab.xceptance.de/issues/2349">https://lab.xceptance.de/issues/2349</a>).</p>
  */
 @ScriptName
-("tests.catalog.TCatalogOptionSelectItemsPerPage")
-public class TCatalogOptionSelectItemsPerPage extends AbstractScriptTestCase
+("tests.catalog.TCatalogProductListing_ItemsPerPage")
+public class TCatalogProductListing_ItemsPerPage extends AbstractScriptTestCase
 {
 }

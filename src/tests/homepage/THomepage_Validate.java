@@ -1,29 +1,25 @@
 /*
  * NOTE: This file is generated. Do not edit! Your changes will be lost.
  */
-package tests.catalog;
+package tests.homepage;
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test validate pages of category level 3.</p>
+ * <p>Test browse hompage with basic functions.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>Go to all pages of category level 3</li>
- * <li>Validate all pages</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
+ * <li>Validate global header, navigation and footer</li>
+ * <li>Validate hompage content</li>
  * </ul>
  */
 @ScriptName
-("tests.catalog.TCatalogValidatePagesCategoryLevel3")
-public class TCatalogValidatePagesCategoryLevel3 extends AbstractScriptTestCase
+("tests.homepage.THomepage_Validate")
+public class THomepage_Validate extends AbstractScriptTestCase
 {
 }

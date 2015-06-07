@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.checkout.phone.TCheckoutGuest")
-public class TCheckoutGuest extends AbstractScriptTestCase
+("tests.checkout.phone.TCheckoutOrder_AsGuest")
+public class TCheckoutOrder_AsGuest extends AbstractScriptTestCase
 {
 }

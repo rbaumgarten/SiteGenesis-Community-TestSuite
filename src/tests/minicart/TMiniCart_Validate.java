@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.minicart.TMiniCartValidateStructure")
-public class TMiniCartValidateStructure extends AbstractScriptTestCase
+("tests.minicart.TMiniCart_Validate")
+public class TMiniCart_Validate extends AbstractScriptTestCase
 {
 }
