@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test guest checkout with one variation product with color and size, one address and visa. </p>
+ * <p>Test guest checkout with one variation product with color and size, one address and VISA. </p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <p>Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</p>
  */
 @ScriptName
-("tests.checkout.TCheckoutGuestOrderProduct")
-public class TCheckoutGuestOrderProduct extends AbstractScriptTestCase
+("tests.checkout.TCheckoutGuest")
+public class TCheckoutGuest extends AbstractScriptTestCase
 {
 }

@@ -21,11 +21,7 @@
 - Validate place order page
 - Validate order confirmation, store order number and date
 - Logout
-- Validate order summary via check order status
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Validate order summary via check order status</description>
   <codecomment># Setup
 
 - Create mail
