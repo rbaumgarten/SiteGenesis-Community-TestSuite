@@ -17,10 +17,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Go to all pages of category level 1</li>
  * <li>Validate all pages</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  */
 @ScriptName
 ("tests.catalog.TCatalogValidatePagesCategoryLevel1")
