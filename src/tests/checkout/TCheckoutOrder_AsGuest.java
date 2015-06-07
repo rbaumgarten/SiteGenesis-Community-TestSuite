@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <p>Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</p>
  */
 @ScriptName
-("tests.checkout.TCheckoutGuest")
-public class TCheckoutGuest extends AbstractScriptTestCase
+("tests.checkout.TCheckoutOrder_AsGuest")
+public class TCheckoutOrder_AsGuest extends AbstractScriptTestCase
 {
 }
