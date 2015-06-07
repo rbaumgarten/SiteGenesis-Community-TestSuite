@@ -27,7 +27,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.catalog.TCatalog_ProductListing_SortBy")
-public class TCatalog_ProductListing_SortBy extends AbstractScriptTestCase
+("tests.catalog.TCatalogProductListing_SortBy")
+public class TCatalogProductListing_SortBy extends AbstractScriptTestCase
 {
 }
