@@ -21,7 +21,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_ValidateOptionProductLanding")
-public class TProduct_ValidateOptionProductLanding extends AbstractScriptTestCase
+("tests.product.TProduct_Validate_OptionProduct")
+public class TProduct_Validate_OptionProduct extends AbstractScriptTestCase
 {
 }

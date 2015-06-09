@@ -57,6 +57,8 @@
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>

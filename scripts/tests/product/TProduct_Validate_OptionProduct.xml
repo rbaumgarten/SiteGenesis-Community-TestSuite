@@ -16,7 +16,7 @@ Validate displaying product data either via quick view or via product detail pag
 - search for product name and validate PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Electronics/Gaming</codecomment>
+  <codecomment>Navigate to Electronics/Gaming/Game Consoles</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="${optionProductCategoryLevel1}"/>
@@ -31,7 +31,7 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <action name="SortByName"/>
   <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
-  <module name="modules.pages.catalog.MCatalog_Option_selectSortByLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Product Name A - Z"/>
   </module>
   <codecomment># Scope</codecomment>
@@ -46,7 +46,7 @@ By default no extra option should be selected</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
-  <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductTitle">
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
@@ -70,11 +70,15 @@ By default no extra option should be selected</codecomment>
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
-  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
+    <parameter name="productName" value="${optionProductName}"/>
+  </module>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
     <parameter name="breadcrumbPath" value="*${optionProductCategoryLevel1} ${optionProductCategoryLevel2} ${optionProductCategoryLevel3} ${productName}"/>
@@ -93,6 +97,9 @@ By default no extra option should be selected</codecomment>
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <codecomment>Go back to Homepage</codecomment>
@@ -120,6 +127,9 @@ By default no extra option should be selected</codecomment>
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
 </testcase>

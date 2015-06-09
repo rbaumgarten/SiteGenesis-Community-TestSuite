@@ -4,11 +4,11 @@
 Caution:
 This Elements will be only seen after selecting an size and color</description>
   <codecomment>Wishlist</codecomment>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='wishlist']">
+  <command name="assertElementPresent" target="css=.product-actions a[data-action='wishlist']">
     <comment>Add to Wishlist</comment>
   </command>
   <codecomment>Gift Registry</codecomment>
-  <command name="assertElementPresent" target="css=#product-content .product-actions a[data-action='gift-registry']">
+  <command name="assertElementPresent" target="css=.product-actions a[data-action='gift-registry']">
     <comment>Add to Gift Registry</comment>
   </command>
 </scriptmodule>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,qv</tags>
-  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for option products
+  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for product bundles
 
 # Setup
 Open the site and remove cookies
@@ -16,7 +16,7 @@ Validate displaying product data either via quick view or via product detail pag
 - search for product name and validate PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Electronics/Gaming</codecomment>
+  <codecomment>Navigate to Electronics/Gaming/Game Consoles</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="${bundleProductCategoryLevel1}"/>
@@ -31,22 +31,20 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <action name="SortByName"/>
   <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
-  <module name="modules.pages.catalog.MCatalog_Option_selectSortByLabel">
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Product Name A - Z"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
-  <codecomment>## Option Product
+  <codecomment>##  Product Bundle
 
 - Validate Quickview for option product
 - Validate PDP for option product
 - Check if product name, price, and product number are the same</codecomment>
-  <codecomment>### Caution
-By default no extra option should be selected</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="PlainProductQuickview"/>
-  <module name="modules.pages.catalog.MCatalog_clickOnQVviaProductTitle">
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${bundleProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
@@ -57,9 +55,8 @@ By default no extra option should be selected</codecomment>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <module name="modules.pages.product.VProduct_validatePDPandQVShared">
-    <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
-  </module>
+  <module name="modules.pages.product.VProduct_validateProductBundle"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
@@ -69,11 +66,12 @@ By default no extra option should be selected</codecomment>
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
-    <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
-  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
+    <parameter name="productName" value="${bundleProductName}"/>
+  </module>
   <codecomment>Verify product detail page</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
     <parameter name="breadcrumbPath" value="*${optionProductCategoryLevel1} ${optionProductCategoryLevel2} ${optionProductCategoryLevel3} ${productName}"/>
@@ -81,11 +79,10 @@ By default no extra option should be selected</codecomment>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
-  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
@@ -107,11 +104,11 @@ By default no extra option should be selected</codecomment>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateProductBundle"/>
+  <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
-  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
   <codecomment>Validate the stored values form QV on the PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
     <parameter name="productName" value="${productName}"/>
