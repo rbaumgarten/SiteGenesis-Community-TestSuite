@@ -16,7 +16,6 @@
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-number"/>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .availability"/>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .attribute"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-main-attributes"/>
   <codecomment>Second Product</codecomment>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .product-name"/>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2).product-set-details .product-number"/>

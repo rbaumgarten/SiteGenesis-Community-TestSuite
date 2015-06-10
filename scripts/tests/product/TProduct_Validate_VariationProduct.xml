@@ -102,7 +102,6 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
-    <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
@@ -136,7 +135,6 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
-    <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
