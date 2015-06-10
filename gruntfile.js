@@ -1,24 +1,8 @@
 var grunt = require('grunt');
-
 var xlt = require('node-xlt');
-xlt.setOptions({
-                baseDir: './',
-                testSrcDir: 'src/',
-                testClassesDir: 'classes/',
-                testCasesJava: '**/T*.java',
-                testCasesClass: '**/T*.class',
-                pathToXLT: '../..'
-            });
+xlt.setOptions({pathToXLT: '../PATH_TO_XLT'});
 
 grunt.initConfig({
-});
-
-grunt.registerTask('runAll', function() {
-  xlt.runAllTestCases( );
-});
-
-grunt.registerTask('compile', function() {
-  xlt.compileAllTestCases( );
 });
 
 grunt.registerTask('javaversion', function() {
@@ -29,6 +13,16 @@ grunt.registerTask('javaversion', function() {
   });
 });
 
+grunt.registerTask('checkPrerequisites', function() {
+  xlt.checkPrerequisites( );
+});
 
+grunt.registerTask('compile', function() {
+  xlt.compileAllTestCases( );
+});
 
-grunt.registerTask('default', ['javaversion', 'compile', 'runAll']);
+grunt.registerTask('runAll', function() {
+  xlt.runAllTestCases( );
+});
+
+grunt.registerTask('default', ['javaversion', 'checkPrerequisites', 'compile', 'runAll']);

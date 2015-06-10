@@ -80,21 +80,18 @@ The following steps explain how you can execute the test suite using grunt or gu
 
 #### Prerequisites
 
-- same as for Apache Ant (see above)
+- XLT&reg; Framework v4.5 (or higher)
 - Node
 - Grunt or Gulp
 
 #### Installation
-
-- same as for Apache Ant (see above)
-- Navigate into the grunt or gulp directory of this test suite with your console.
+- [Download the XLT Framework](https://www.xceptance.com/en/xlt/download.html) and unzip it into a directory of your choice.
+- Configure the "pathToXLT" in the gruntfile.js or in the gulpfile.js by setting the base path of your local XLT installation (This can be done relative to your base directory).
+- Make sure that your test suite is running in the script developer (e.g. configure "storefront_url" via Manage Global Test Data ).
 - Install the node dependencies by calling "npm install".
 
 #### Usage
-- Navigate into the grunt or gulp directory of this test suite with your console.
-- Start the test suite by calling "grunt" or "gulp". This calls the default target and will execute all test cases.
-- Call a single test case with grunt: "grunt single:[TTestcaseName]"
-- Call a single test case with gulp: "name=[TTestcaseName] gulp single"
+- Start the test suite by calling "grunt" or "gulp". This calls the default target and will compile and execute all test cases.
 
 ## Test Suite Structure
 

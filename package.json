@@ -14,7 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "node-xlt": "^1.0.0"
+    "gulp": "^3.9.0",
+    "node-xlt": "^0.1.0"
   },
   "bugs": {
     "url": "https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues"
