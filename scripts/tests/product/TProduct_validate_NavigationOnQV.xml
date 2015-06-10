@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Navigate to Womens/Accessories/Scarves</codecomment>
+  <action name="CategoryLevel1"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
+    <parameter name="nameLevel1" value="${NavigationCategoryLevel1}"/>
+  </module>
+  <action name="CategoryLevel2"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
+    <parameter name="nameLevel2" value="${NavigationCategoryLevel2}"/>
+  </module>
+  <action name="CategoryLevel3"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
+    <parameter name="nameLevel3" value="${NavigationCategoryLevel3}"/>
+  </module>
+</testcase>
