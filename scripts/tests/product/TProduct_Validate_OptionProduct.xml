@@ -45,7 +45,7 @@ Validate displaying product data either via quick view or via product detail pag
 By default no extra option should be selected</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <action name="PlainProductQuickview"/>
+  <action name="OptionProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
   </module>
