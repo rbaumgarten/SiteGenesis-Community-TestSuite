@@ -43,7 +43,7 @@ Validate displaying product data either via quick view or via product detail pag
 - Check if product name, price, and product number are the same</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <action name="PlainProductQuickview"/>
+  <action name="ProductBundleQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${bundleProductName}"/>
   </module>
@@ -88,7 +88,6 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
-    <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <codecomment>Go back to Homepage</codecomment>
   <action name="BackToHomepage"/>
@@ -114,6 +113,5 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
-    <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
 </testcase>
