@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Stores Quantitiy. Takes them from PDP or QV.</description>
+  <parameter name="productQuantity_varName" desc="product quantity as var name"/>
+  <command name="storeText" target="id=Quantity" value="@{productQuantity_varName}"/>
+</scriptmodule>

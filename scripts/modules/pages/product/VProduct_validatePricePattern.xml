@@ -3,5 +3,5 @@
   <tags>pdp,qv</tags>
   <description>Validates the price pattern on a product detail or quickview page.</description>
   <parameter name="pricePattern" desc="The price pattern to check against."/>
-  <command name="assertText" target="css=#product-content  .product-price span.price-sales" value="regexp:@{pricePattern}"/>
+  <command name="assertText" target="css=.product-price span.price-sales" value="regexp:@{pricePattern}"/>
 </scriptmodule>

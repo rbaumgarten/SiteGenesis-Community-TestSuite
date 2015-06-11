@@ -4,9 +4,7 @@
   <parameter name="productName_varName" desc="product name as var name"/>
   <parameter name="productNumber_varName" desc="product numbe as var name"/>
   <parameter name="productPriceSales_varName" desc="product sales price as var name"/>
-  <parameter name="productQuantity_varName" desc="product quantity as var name"/>
   <command name="storeText" target="css=#pdpMain .product-name" value="@{productName_varName}"/>
-  <command name="storeText" target="css=.product-detail #product-content .product-number span" value="@{productNumber_varName}"/>
-  <command name="storeText" target="css=#product-content  .product-price span.price-sales" value="@{productPriceSales_varName}"/>
-  <command name="storeText" target="id=Quantity" value="@{productQuantity_varName}"/>
+  <command name="storeText" target="css=.product-number span" value="@{productNumber_varName}"/>
+  <command name="storeText" target="css=.product-price span.price-sales" value="@{productPriceSales_varName}"/>
 </scriptmodule>

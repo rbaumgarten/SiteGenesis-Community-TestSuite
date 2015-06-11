@@ -5,13 +5,13 @@
   <parameter name="prevButtonState" desc="State of the previous button, full CSS piece here"/>
   <parameter name="nextButtonState" desc="State of the next button, full CSS piece here"/>
   <codecomment>Title</codecomment>
-  <command name="assertText" target="css=.ui-dialog #ui-id-1.ui-dialog-title" value="regexpi:Product Quickview">
+  <command name="waitForElementPresent" target="css=.ui-dialog #ui-id-1.ui-dialog-title">
     <comment>Check the title of the QV dialog. </comment>
   </command>
   <command name="assertElementPresent" target="css=.ui-dialog button.ui-dialog-titlebar-close">
     <comment>Close button there?</comment>
   </command>
   <codecomment>Navigation Buttons</codecomment>
-  <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-prev@{prevButtonState}"/>
-  <command name="assertElementPresent" target="css=#QuickViewDialog .quickview-nav button.quickview-next@{nextButtonState}"/>
+  <command name="assertElementPresent" target="css=#pdpMain div button.quickview-prev@{prevButtonState}"/>
+  <command name="assertElementPresent" target="css=#pdpMain div button.quickview-next@{nextButtonState}"/>
 </scriptmodule>

@@ -71,11 +71,15 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
-  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
+    <parameter name="productName" value="${variationProductName}"/>
+  </module>
   <codecomment>Verify product detail page</codecomment>
   <codecomment>Caution: on the pdp ususlly no color is selected if there are more than one color</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
@@ -98,6 +102,9 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <codecomment>Go back to Homepage</codecomment>
@@ -129,6 +136,9 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
 </testcase>
