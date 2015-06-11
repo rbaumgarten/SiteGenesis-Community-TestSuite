@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Womens/Accessories/Scarves</codecomment>
+  <codecomment>Navigate to Mens/Accessories/Luggage</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="${NavigationCategoryLevel1}"/>
@@ -14,4 +15,88 @@
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
     <parameter name="nameLevel3" value="${NavigationCategoryLevel3}"/>
   </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>--------------------------------</codecomment>
+  <codecomment>## Product Navigation on Quickview
+
+- open QV
+- browse trough sites vor five times to get to the last product, check if the choosen product will change</codecomment>
+  <codecomment>### Caution
+The 3 Level Category should have 4 products ether the test case won't work</codecomment>
+  <codecomment>--------------------------------</codecomment>
+  <action name="OpenQuickViewForFirstProduct"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
+    <parameter name="position" value="1"/>
+  </module>
+  <codecomment>--------------------------------</codecomment>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value="[disabled='disabled']"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <command name="storeText" target="css=#pdpMain .product-name" value="firstProductName"/>
+  <action name="OpenSecondProduct"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${firstProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <command name="storeText" target="css=#pdpMain .product-name" value="secondProductName"/>
+  <action name="OpenThirdProduct"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${secondProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <command name="storeText" target="css=#pdpMain .product-name" value="thirdProductName"/>
+  <action name="OpenLastProduct"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${thirdProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value="[disabled='disabled']"/>
+  </module>
+  <command name="storeText" target="css=#pdpMain .product-name" value="lastProductName"/>
+  <action name="OpenThirdProductAgain"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${thirdProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <action name="OpenSecondProductAgain"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${secondProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <action name="OpenFirstProductAgain"/>
+  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${firstProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value="[disabled='disabled']"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <action name="CloseQuickView"/>
+  <module name="modules.pages.product.productquickview.MProduct_closeQuickView"/>
+  <action name="OpenQuickViewFromLastProduct"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
+    <parameter name="position" value="4"/>
+  </module>
+  <codecomment>--------------------------------</codecomment>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${lastProductName}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value="[disabled='disabled']"/>
+  </module>
+  <action name="CloseQuickViewAgain"/>
+  <module name="modules.pages.product.productquickview.MProduct_closeQuickView"/>
 </testcase>
