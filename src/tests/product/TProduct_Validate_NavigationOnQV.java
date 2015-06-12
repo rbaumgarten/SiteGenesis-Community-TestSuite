@@ -22,7 +22,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_validate_NavigationOnQV")
-public class TProduct_validate_NavigationOnQV extends AbstractScriptTestCase
+("tests.product.TProduct_Validate_NavigationOnQV")
+public class TProduct_Validate_NavigationOnQV extends AbstractScriptTestCase
 {
 }
