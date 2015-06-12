@@ -3,7 +3,7 @@
   <description>Click color by position.</description>
   <parameter name="colorPosition" desc="color positon"/>
   <parameter name="colorLabel_varName" desc="color label as var name"/>
-  <command name="waitForElementPresent" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'swatches Color')]/li[@{colorPosition}]/a"/>
-  <command name="storeText" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'swatches Color')]/li[@{colorPosition}]/a" value="@{colorLabel_varName}"/>
-  <command name="click" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'swatches Color')]/li[@{colorPosition}]/a"/>
+  <command name="waitForElementPresent" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'refinementColor')]/li[@{colorPosition}]/a"/>
+  <command name="storeText" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'refinementColor')]/li[@{colorPosition}]/a" value="@{colorLabel_varName}"/>
+  <command name="click" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'refinementColor')]/li[@{colorPosition}]/a"/>
 </scriptmodule>
