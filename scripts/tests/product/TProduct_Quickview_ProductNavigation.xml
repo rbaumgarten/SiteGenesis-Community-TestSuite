@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies the product browsing via quickview (QV)
+  <description>Verifies product navigation on the quickview
 
 # Setup
 Open the site and remove cookies
 
 #  Scope
-Validate the funion of the next and prev button in the quickview header.
+Validate the previous and next functionality of the quickview
 
 - open first product
 - browse to last product, while saving the product names of the seen products
 - browse back to first product and verify if the saved product names are seen again
-- close Quickview
-- reopen the last product and verify the product name again
+- close quickview
+- reopen the last product and verify the product name
 - close quickview again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
@@ -33,14 +33,14 @@ Validate the funion of the next and prev button in the quickview header.
   <codecomment>--------------------------------</codecomment>
   <codecomment>## Product Navigation on Quickview
 
-- open first products Quickview
-- browse to the last product and save product names
+- open first product quickview
+- browse to the last product and save product names using next button
 - browse back to the first product and verify the stored product names
 - close Quickview
 - open last Product and verify stored name
 - close Quickview again</codecomment>
   <codecomment>### Caution
-The 3 Level Category should have 4 products ether the test case won't work</codecomment>
+Test data requirement: The 3rd Level Category must have exactly four products.</codecomment>
   <codecomment>--------------------------------</codecomment>
   <action name="OpenQuickViewForFirstProduct"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
