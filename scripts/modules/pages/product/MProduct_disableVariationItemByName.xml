@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click on random selected color or size to deselect it</description>
+  <parameter name="variationName" desc="Name of Variation Button"/>
+  <command name="click" target="css=#product-content div.product-variations ul li.attribute div.value ul.swatches.@{variationName} li.selected a"/>
+  <command name="waitForNotElementPresent" target="css=#product-content div.product-variations ul li.attribute div.value ul.swatches.@{variationName} li.selected"/>
+</scriptmodule>

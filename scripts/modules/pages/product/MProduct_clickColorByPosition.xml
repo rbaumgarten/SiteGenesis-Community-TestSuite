@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click product color by given count number.</description>
   <parameter name="MProductColorPosition" desc="product color position"/>
-  <command name="click" target="css=#product-content div.product-variations ul li.attribute div.value ul.swatches.Color li:not(.unselectable):not(.selected-value):nth-of-type(@{MProductColorPosition}) a"/>
+  <command name="click" target="css=#product-content .product-variations ul li .value ul  li:not(.unselectable):not(.selected-value):nth-of-type(@{MProductColorPosition}) a"/>
   <command name="storeText" disabled="true" target="css=#main" value="@{MOutputColorName}"/>
 </scriptmodule>
