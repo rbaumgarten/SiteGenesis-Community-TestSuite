@@ -21,7 +21,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_FunctionProduct")
-public class TProduct_FunctionProduct extends AbstractScriptTestCase
+("tests.product.TProduct_FunctionalVariationTest")
+public class TProduct_FunctionalVariationTest extends AbstractScriptTestCase
 {
 }
