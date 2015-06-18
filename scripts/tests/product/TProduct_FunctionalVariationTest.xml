@@ -209,7 +209,4 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validateAvailability">
     <parameter name="availabilityMassage" value="In Stock"/>
   </module>
-  <codecomment>Go back to Homepage</codecomment>
-  <action name="BackToHomepage"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
 </testcase>
