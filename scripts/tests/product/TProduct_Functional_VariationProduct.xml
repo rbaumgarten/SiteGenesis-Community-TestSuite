@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview</tags>
-  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for variation products
+  <description>Verifies the function of an variation product on quickview (QV) and product details pages (PDP)
 
 # Setup
 Open the site and remove cookies
 
 #  Scope
-Validate displaying product data either via quick view or via product detail page.
+Validate changing product numbers and enabling add2cart button while changing color and size, check also if the availability will change
 
-- validate structure of the QV
-- go from QV to PDP
-- validate stucture of PDP
-- check if product name, price, and product number are the same on both 
-- search for product name and validate PDP again</description>
+- open QV
+- change color, verify the product number changes
+- select a size, verify that add2cart button is enabled</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>
@@ -40,7 +38,7 @@ Validate displaying product data either via quick view or via product detail pag
 
 - Open QV for variation product
 - click colors validates if product number changes
-- click size validate if product button will become avaibel</codecomment>
+- click size validate if product button will become aavailable</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="VariationProductQuickview"/>

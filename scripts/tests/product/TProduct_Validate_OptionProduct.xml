@@ -60,6 +60,9 @@ By default no extra option should be selected</codecomment>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
@@ -87,6 +90,9 @@ By default no extra option should be selected</codecomment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
@@ -116,6 +122,9 @@ By default no extra option should be selected</codecomment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>

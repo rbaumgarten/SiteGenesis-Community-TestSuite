@@ -19,7 +19,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_FunctionalOptionTest")
-public class TProduct_FunctionalOptionTest extends AbstractScriptTestCase
+("tests.product.TProduct_Functional_OptionProduct")
+public class TProduct_Functional_OptionProduct extends AbstractScriptTestCase
 {
 }

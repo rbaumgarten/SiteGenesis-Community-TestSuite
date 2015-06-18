@@ -79,6 +79,7 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
+  <module name="modules.pages.product.VProduct_validateProductBundle"/>
   <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>

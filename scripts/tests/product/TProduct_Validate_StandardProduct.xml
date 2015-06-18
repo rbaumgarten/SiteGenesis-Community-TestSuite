@@ -54,6 +54,9 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validatePDPandQVShared">
     <comment>Currently PDP and QV share a lot, hence we validate that here</comment>
   </module>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateQVOnlyElements"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
@@ -80,6 +83,9 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
@@ -108,6 +114,9 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
