@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>didyoumean,search</tags>
-  <description>Verify that there is not Did you mean section on the page.</description>
+  <description>Verify that there is no "Did you mean" section on the page.</description>
   <command name="assertNotElementPresent" target="css=#primary.primary-content div.section-header .no-hits-search-term-suggest"/>
 </scriptmodule>
