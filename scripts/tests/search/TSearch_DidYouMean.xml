@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>smoke,search,didyoumean</tags>
+  <description>Test the did you mean functionality
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+
+# 2. Scope of test
+
+- Search for text with no suggestion
+- Search for a simple text with a suggestion and click it
+- Search for a more complex phrase with a suggestion and click it
+</description>
+  <codecomment># Setup
+
+- Start session</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>No result and no suggestion</codecomment>
+  <action name="SearchNoResult"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase1}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateNoDidYouMean"/>
+  <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
+    <parameter name="searchText" value="${searchPhrase1}"/>
+  </module>
+  <codecomment>Single word suggestion</codecomment>
+  <action name="SearchNoResult"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase2}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateDidYouMean">
+    <parameter name="suggestedText" value="${suggestionPhrase2}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
+    <parameter name="searchText" value="${searchPhrase2}"/>
+  </module>
+  <action name="SearchByDidYouMean"/>
+  <module name="modules.pages.search.MSearch_Results_clickDidYouMean"/>
+  <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
+    <parameter name="searchText" value="${suggestionPhrase2}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateProductListing"/>
+  <codecomment>Double word suggestion</codecomment>
+  <action name="SearchNoResult"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase3}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateDidYouMean">
+    <parameter name="suggestedText" value="${suggestionPhrase3}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateNoProductsFound">
+    <parameter name="searchText" value="${searchPhrase3}"/>
+  </module>
+  <action name="SearchByDidYouMean"/>
+  <module name="modules.pages.search.MSearch_Results_clickDidYouMean"/>
+  <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
+    <parameter name="searchText" value="${suggestionPhrase3}"/>
+  </module>
+  <module name="modules.pages.search.VSearch_Results_validateProductListing"/>
+</testcase>
