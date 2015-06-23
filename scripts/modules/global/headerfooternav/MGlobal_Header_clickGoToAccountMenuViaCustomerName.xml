@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click and go to account via customer name in header.</description>
-  <command name="waitForElementPresent" target="css=#navigation .menu-utility-user .user-info .user-account"/>
-  <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info .user-account"/>
+  <command name="click" target="css=#navigation .menu-utility-user .user-info .user-account"/>
+  <command name="waitForVisible" target="css=#navigation .menu-utility-user .user-info .user-panel"/>
+  <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info .user-panel .user-links a[title='My Account']"/>
 </scriptmodule>
