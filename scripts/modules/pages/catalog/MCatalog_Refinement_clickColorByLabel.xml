@@ -2,6 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click color by label.</description>
   <parameter name="colorLabel" desc="color label"/>
-  <command name="waitForElementPresent" target="css=#main #secondary .refinement.Color ul.Color li a[title=&quot;@{colorLabel}&quot;]"/>
-  <command name="click" target="css=#main #secondary .refinement.Color ul.Color li a[title=&quot;@{colorLabel}&quot;]"/>
+  <parameter name="breadcrumbRefinementValueCount" desc="How many refinement values should we have in the breadcrumb after this action"/>
+  <command name="click" target="css=#main #secondary .refinement.Color ul.refinementColor li a[title=&quot;@{colorLabel}&quot;]"/>
+  <command name="waitForElementCount" target="css=#main .breadcrumb .breadcrumb-refinement .breadcrumb-refinement-value" value="@{breadcrumbRefinementValueCount}"/>
 </scriptmodule>

@@ -5,10 +5,7 @@
   <parameter name="ownerName" desc="The name of the order for precise removal of the card."/>
   <command name="waitForElementPresent" target="css=#main #primary .payment-list li:nth-of-type(@{position}) button.delete"/>
   <command name="storeElementCount" target="css=#main #primary .payment-list li" value="count_credit_cards"/>
-  <command name="click" target="xpath=id('primary')//ul[@class='payment-list']/li[contains(., '@{ownerName}')]//button[@value='Delete Card']"/>
-  <command name="click" disabled="true" target="css=#main #primary .payment-list li:nth-of-type(@{position}) button.delete">
-    <comment>Disabled, because the order of credit card is non-deterministic. We have to use an XPath and access the content to make it reliable. </comment>
-  </command>
+  <command name="clickAndWait" target="xpath=id('primary')//ul[@class='payment-list']/li[contains(., '@{ownerName}')]//button[@value='Delete Card']"/>
   <command name="storeEval" target="${count_credit_cards} - 1" value="count_credit_cards_updated"/>
   <command name="waitForElementCount" target="css=#main #primary .payment-list li" value="${count_credit_cards_updated}"/>
 </scriptmodule>

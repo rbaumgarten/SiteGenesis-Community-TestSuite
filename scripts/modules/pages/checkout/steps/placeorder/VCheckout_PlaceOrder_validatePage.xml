@@ -16,7 +16,6 @@
   <command name="assertElementPresent" target="css=#main #primary #cart-table.item-list tbody"/>
   <codecomment>Validate order totals</codecomment>
   <command name="store" target="css=#main #primary .order-summary-footer .place-order-totals table.order-totals-table" value="css_order_totals"/>
-  <command name="assertElementPresent" target="${css_order_totals} thead"/>
   <command name="assertElementPresent" target="${css_order_totals} .order-subtotal"/>
   <command name="assertElementPresent" target="${css_order_totals} .order-shipping"/>
   <command name="assertElementPresent" target="${css_order_totals} .order-sales-tax"/>
@@ -30,8 +29,8 @@
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .checkout-mini-cart "/>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .checkout-order-totals"/>
   <codecomment>Validate secondary fieldset shipping address</codecomment>
-  <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-shipment .section-header .section-header-note"/>
-  <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-shipment .details"/>
+  <command name="assertElementPresent" disabled="true" target="css=#main #secondary.nav.summary .mini-shipment .section-header .section-header-note"/>
+  <command name="assertElementPresent" disabled="true" target="css=#main #secondary.nav.summary .mini-shipment .details"/>
   <codecomment>Validate secondary fieldset billing address</codecomment>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-billing-address .section-header .section-header-note"/>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-billing-address .details"/>

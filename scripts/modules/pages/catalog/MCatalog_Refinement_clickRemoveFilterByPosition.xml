@@ -2,7 +2,8 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click remove refinement in breadcrumb by position.</description>
   <parameter name="position" desc="The position to click"/>
+  <parameter name="breadcrumbRefinementValueCount" desc="How many breadcrumb refinement values should we have after this action"/>
   <command name="storeEval" target="@{position} + 1" value="filterPositionAbsolute"/>
-  <command name="waitForElementPresent" target="css=#main .breadcrumb .breadcrumb-refinement span:nth-of-type(${filterPositionAbsolute}) a"/>
   <command name="click" target="css=#main .breadcrumb .breadcrumb-refinement span:nth-of-type(${filterPositionAbsolute}) a"/>
+  <command name="waitForElementCount" target="css=#main .breadcrumb .breadcrumb-refinement .breadcrumb-refinement-value" value="@{breadcrumbRefinementValueCount}"/>
 </scriptmodule>
