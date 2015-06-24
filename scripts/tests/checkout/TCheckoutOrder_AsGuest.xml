@@ -152,7 +152,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="totalsSalesTax" value="${totalsSalesTax_varDynamic}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress" disabled="true">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
     <parameter name="address1" value="${address1}"/>
@@ -211,7 +211,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="totalsSalesTax" value="${totalsSalesTax_varDynamic}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress" disabled="true">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
     <parameter name="address1" value="${address1}"/>
