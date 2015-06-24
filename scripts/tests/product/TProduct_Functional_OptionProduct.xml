@@ -50,22 +50,32 @@ By default no extra option should be selected, by changing from QV  to PDP the O
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
+  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
+  <action name="SelectDefaultOption"/>
   <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPricePlain"/>
+  <command name="select" target="css=.product-add-to-cart form fieldset div.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
+  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
   <action name="SelectSecondOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$9.99] 1 Year Warranty"/>
-  <command name="waitForNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+  </module>
   <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPriceOption2"/>
   <action name="SelectLastOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$29.99] 5 Year Warranty"/>
-  <command name="waitForNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceOption2}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
+  </module>
   <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPriceLastOption"/>
   <action name="SelectFirstOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$0.00] None"/>
-  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
-  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="@{productPriceLastOption}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$0.00] None"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
+  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
   <action name="SelectLastOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$29.99] 5 Year Warranty"/>
-  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
@@ -80,17 +90,29 @@ By default no extra option should be selected, by changing from QV  to PDP the O
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <codecomment>Prices for Options will not be stored again, because theprice should be the same as on QV</codecomment>
-  <action name="SelectSecondOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$9.99] 1 Year Warranty"/>
-  <command name="waitForNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
-  <action name="SelectLastOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$29.99] 5 Year Warranty"/>
-  <command name="waitForNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceOption2}"/>
-  <action name="SelectFirstOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$0.00] None"/>
+  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
+  <action name="SelectDefaultOption"/>
+  <command name="select" target="css=.product-add-to-cart form fieldset div.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
   <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
-  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="@{productPriceLastOption}"/>
+  <action name="SelectSecondOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceOption2}"/>
   <action name="SelectLastOption"/>
-  <command name="select" target="id=dwopt_nintendo-wii-console_consoleWarranty" value="label=[$29.99] 5 Year Warranty"/>
-  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <action name="SelectFirstOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$0.00] None"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
+  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <action name="SelectLastOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
 </testcase>
