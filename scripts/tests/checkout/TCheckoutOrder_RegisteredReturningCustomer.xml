@@ -220,7 +220,7 @@
     <parameter name="totalsSalesTax" value="${totalsSalesTax_varDynamic}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress" disabled="true">
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
     <parameter name="lastname" value="${shippingAddress_lastname}"/>
     <parameter name="address1" value="${shippingAddress_address1}"/>
@@ -301,7 +301,7 @@
     <parameter name="totalsSalesTax" value="${totalsSalesTax_varDynamic}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress" disabled="true">
     <parameter name="firstname" value="${shippingAddress_firstname}"/>
     <parameter name="lastname" value="${shippingAddress_lastname}"/>
     <parameter name="address1" value="${shippingAddress_address1}"/>
