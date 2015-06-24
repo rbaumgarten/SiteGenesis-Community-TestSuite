@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validiate color is selected by label.</description>
   <parameter name="colorLabel" desc="color label"/>
-  <command name="waitForText" target="css=#main .breadcrumb .breadcrumb-refinement" value="regexpi:Color.*@{colorLabel}.*"/>
+  <command name="assertText" target="css=#main .breadcrumb .breadcrumb-refinement" value="regexpi:Color.*@{colorLabel}.*"/>
   <command name="assertElementPresent" target="css=#main #secondary .refinement.Color ul.refinementColor li.selected a[title=&quot;@{colorLabel}&quot;]"/>
 </scriptmodule>
