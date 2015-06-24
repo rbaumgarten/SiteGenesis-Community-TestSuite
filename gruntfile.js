@@ -25,4 +25,10 @@ grunt.registerTask('runAll', function() {
   xlt.runAllTestCases( );
 });
 
-grunt.registerTask('default', ['javaversion', 'checkPrerequisites', 'compile', 'runAll']);
+grunt.registerTask('run', ['javaversion', 'checkPrerequisites', 'compile']);
+
+grunt.registerTask('single', ['run'] function(name){
+    xlt.runSingleTestCase( name );
+});
+
+grunt.registerTask('default', ['run', 'runAll']);
