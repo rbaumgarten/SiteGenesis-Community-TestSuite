@@ -7,11 +7,11 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the structure of quickview (QV) and product details pages (PDP) for product bundles</p>
+ * <p>Verifies the structure/layoout of quickview (QV) and product details pages (PDP) for option products</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
- * <p>Validate displaying product data either via quick view or via product detail page.</p>
+ * <p>Validate displaying product data either via quickview or via product detail page.</p>
  * <ul>
  * <li>validate structure of the QV</li>
  * <li>go from QV to PDP</li>
@@ -21,7 +21,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_Validate_ProductBundle")
-public class TProduct_Validate_ProductBundle extends AbstractScriptTestCase
+("tests.product.TProduct_Validate_OptionProductLayout")
+public class TProduct_Validate_OptionProductLayout extends AbstractScriptTestCase
 {
 }
