@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+<<<<<<< HEAD
+  <description>Click on Prev button at the QV Header</description>
+=======
+  <description>Click on Next button at the QV Header</description>
+>>>>>>> TProductFunctionalTests
+  <command name="click" target="css=#pdpMain .quickview-nav .quickview-prev"/>
+</scriptmodule>

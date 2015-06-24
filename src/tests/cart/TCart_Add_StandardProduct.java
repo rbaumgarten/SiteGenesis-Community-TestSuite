@@ -10,7 +10,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <p>Test adds a Standart Product  to the cart from QV and PDP</p>
  */
 @ScriptName
-("tests.cart.TCart_Add_StandartProduct")
-public class TCart_Add_StandartProduct extends AbstractScriptTestCase
+("tests.cart.TCart_Add_StandardProduct")
+public class TCart_Add_StandardProduct extends AbstractScriptTestCase
 {
 }
