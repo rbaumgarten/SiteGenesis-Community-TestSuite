@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>product,pdp,quickview</tags>
-  <description>Verifies the function of an option product on quickview (QV) and product details pages (PDP) 
+  <tags>product,pdp,quickview,functionality,options</tags>
+  <description>Verifies the functionality of option products on quickview (QV) and product details pages (PDP) . This is basically interaction with the option boxes in comparison to the other test that is more layout.
+
 # Setup
 Open the site and remove cookies
 
 #  Scope
-Validate correct funtion of the option field 
+Validate correct funtionality of the option field 
 
-- validate function on QV
+- validate funtionality on QV
 - go to pdp
-- validate funtion on PDP</description>
+- validate funtionality on PDP</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Navigate to Electronics/Gaming/Game Consoles</codecomment>

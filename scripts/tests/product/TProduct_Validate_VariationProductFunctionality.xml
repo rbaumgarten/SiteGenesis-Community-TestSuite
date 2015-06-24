@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>product,pdp,quickview</tags>
-  <description>Verifies the function of an variation product on quickview (QV) and product details pages (PDP)
+  <tags>product,pdp,quickview,qv,functionality,variations</tags>
+  <description>Verifies the functionality of an variation product on quickview (QV) and product details pages (PDP)
 
 # Setup
 Open the site and remove cookies
 
 #  Scope
-Validate changing product numbers and enabling add2cart button while changing color and size, check also if the availability will change
+Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes
 
 - open QV
-- change color, verify the product number changes
-- select a size, verify that add2cart button is enabled</description>
+- change color, verify that the product number changes
+- select a size, verify that the add2cart button becomes enabled</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>

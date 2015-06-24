@@ -7,15 +7,15 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the function of an option product on quickview (QV) and product details pages (PDP) </p>
+ * <p>Verifies the functionality of option products on quickview (QV) and product details pages (PDP) . This is basically interaction with the option boxes in comparison to the other test that is more layout.</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
- * <p>Validate correct funtion of the option field </p>
+ * <p>Validate correct funtionality of the option field </p>
  * <ul>
- * <li>validate function on QV</li>
+ * <li>validate funtionality on QV</li>
  * <li>go to pdp</li>
- * <li>validate funtion on PDP</li>
+ * <li>validate funtionality on PDP</li>
  * </ul>
  */
 @ScriptName
