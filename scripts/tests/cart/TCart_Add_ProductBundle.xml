@@ -20,7 +20,16 @@
 
 Validate Add 2 Cart from QV and PDP and check if the same product is added
 - First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
-- Second add product from PDP and verify if the same product in cart is shown</codecomment>
+- validate if all bundle products are shown in the cart
+- Second add product from PDP and verify if the same product in cart is shown
+- validate if all bundle products are shown in the cart</codecomment>
+  <codecomment>Store the names of every bundle product 
+Caution: The product should have at least 5 elements</codecomment>
+  <command name="storeText" target="css=.product-set form div:nth-of-type(1) div.product-set-details h1.product-name a.item-name" value="firstProductName"/>
+  <command name="storeText" target="css=.product-set form div:nth-of-type(2) div.product-set-details h1.product-name a.item-name" value="secondProductName"/>
+  <command name="storeText" target="css=.product-set form div:nth-of-type(3) div.product-set-details h1.product-name a.item-name" value="thirdProductName"/>
+  <command name="storeText" target="css=.product-set form div:nth-of-type(4) div.product-set-details h1.product-name a.item-name" value="fourthProductName"/>
+  <command name="storeText" target="css=.product-set form div:nth-of-type(5) div.product-set-details h1.product-name a.item-name" value="fifthProductName"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
@@ -39,6 +48,12 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
+  <codecomment>validate if stored product names are shown</codecomment>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(2) td.item-details div.name a" value="${firstProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(3) td.item-details div.name a" value="${secondProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(4) td.item-details div.name a" value="${thirdProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(5) td.item-details div.name a" value="${fourthProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(6) td.item-details div.name a" value="${fifthProductName}"/>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <action name="DeleteQVProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
@@ -60,5 +75,11 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
+  <codecomment>validate if stored product names are shown</codecomment>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(2) td.item-details div.name a" value="${firstProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(3) td.item-details div.name a" value="${secondProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(4) td.item-details div.name a" value="${thirdProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(5) td.item-details div.name a" value="${fourthProductName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(6) td.item-details div.name a" value="${fifthProductName}"/>
   <module name="modules.pages.cart.VCart_validatePage"/>
 </testcase>
