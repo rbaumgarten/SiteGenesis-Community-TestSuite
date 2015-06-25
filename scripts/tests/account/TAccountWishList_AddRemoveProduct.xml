@@ -92,11 +92,6 @@
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
-  <codecomment># Teardown
-
-- Go to account menu
-- Logout
-- End session</codecomment>
-  <action name="Logout"/>
+  <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

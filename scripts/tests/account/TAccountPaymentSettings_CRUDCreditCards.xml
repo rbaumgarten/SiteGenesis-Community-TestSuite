@@ -159,6 +159,6 @@
 - End session</codecomment>
   <action name="GoToAccount"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToAccountMenuViaCustomerName"/>
-  <action name="Logout"/>
+  <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

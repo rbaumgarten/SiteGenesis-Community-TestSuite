@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>This modules logs out the current user and uses the always accessible header user logo and menu to achive that goal.</description>
-  <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
-</scriptmodule>

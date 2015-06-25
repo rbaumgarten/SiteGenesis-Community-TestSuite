@@ -92,7 +92,5 @@
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
   <codecomment>Log out the user</codecomment>
-  <module name="modules.helper.FHelper_Session_Logout">
-    <comment>Logout for the user.</comment>
-  </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
