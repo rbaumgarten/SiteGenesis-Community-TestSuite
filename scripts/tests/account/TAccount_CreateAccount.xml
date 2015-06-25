@@ -32,7 +32,7 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Register account via header link
 - Enter profile data
@@ -65,7 +65,7 @@
   </module>
   <action name="Logout"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Login
 - Validate account page and nav
@@ -91,11 +91,6 @@
     <parameter name="lastname" value="${lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
-  <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName" disabled="true"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
+  <codecomment>Log out the user</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

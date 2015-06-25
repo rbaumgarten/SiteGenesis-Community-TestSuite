@@ -265,11 +265,6 @@
     <parameter name="position" value="1"/>
   </module>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddressListIsEmpty"/>
-  <codecomment># Teardown
-
-- Go to account menu
-- Logout
-- End session</codecomment>
-  <action name="Logout"/>
+  <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

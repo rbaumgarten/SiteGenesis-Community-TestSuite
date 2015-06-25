@@ -87,9 +87,6 @@
     <parameter name="firstname" value="${firstname_02}"/>
     <parameter name="lastname" value="${lastname_02}"/>
   </module>
-  <action name="Logout"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

@@ -450,6 +450,6 @@
     <parameter name="shippingAddress_lastname" value="${shippingAddress_lastname}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
-  <action name="Logout"/>
+  <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

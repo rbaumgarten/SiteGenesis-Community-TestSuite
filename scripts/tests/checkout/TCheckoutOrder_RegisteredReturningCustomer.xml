@@ -404,7 +404,6 @@
 
 - Logout
 - Validate order via check order status</codecomment>
-  <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <module name="modules.pages.homepage.FHomepage_flowToCheckOrderStatus">
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
@@ -442,7 +441,4 @@
     <parameter name="shippingMethodName" value="${shippingMethod_name}"/>
     <parameter name="shippingStatus" value="${storefront_shippingStatus}"/>
   </module>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>
