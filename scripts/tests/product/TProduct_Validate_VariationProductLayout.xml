@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>product,pdp,quickview</tags>
-  <description>Verifies the structure of quickview (QV) and product details pages (PDP) for variation products
+  <tags>product,pdp,quickview,layout,variations</tags>
+  <description>Verifies the structure/layout of quickview (QV) and product details pages (PDP) of variation products
 
 # Setup
 Open the site and remove cookies
 
 #  Scope
-Validate displaying product data either via quick view or via product detail page.
+Validate the displaying of product data either via quickview or via product detail page.
 
 - validate structure of the QV
 - go from QV to PDP

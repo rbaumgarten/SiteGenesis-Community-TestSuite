@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies product navigation on the quickview
+  <tags>qv,quickview,navigation</tags>
+  <description>Validates product navigation on quickview
 
 # Setup
 Open the site and remove cookies

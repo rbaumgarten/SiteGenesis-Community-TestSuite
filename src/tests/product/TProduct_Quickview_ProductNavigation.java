@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies product navigation on the quickview</p>
+ * <p>Validates product navigation on quickview</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>

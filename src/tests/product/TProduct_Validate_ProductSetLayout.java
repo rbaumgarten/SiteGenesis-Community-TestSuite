@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the structure of quickview (QV) and product details pages (PDP) for standard products</p>
+ * <p>Verifies the structure/layout of quickview (QV) and product details pages (PDP) for  product sets</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
@@ -21,7 +21,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.product.TProduct_Validate_StandardProduct")
-public class TProduct_Validate_StandardProduct extends AbstractScriptTestCase
+("tests.product.TProduct_Validate_ProductSetLayout")
+public class TProduct_Validate_ProductSetLayout extends AbstractScriptTestCase
 {
 }
