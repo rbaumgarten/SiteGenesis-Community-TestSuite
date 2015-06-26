@@ -8,7 +8,7 @@
   <codecomment>Search for Mario to get a standart product</codecomment>
   <action name="SearchForStandartProduct"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="Bundle"/>
+    <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment>Go to QV of the first Game</codecomment>
   <action name="GoToQuickView"/>
