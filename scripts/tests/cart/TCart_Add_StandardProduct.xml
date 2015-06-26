@@ -22,7 +22,7 @@
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="Mario"/>
+    <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment>Open QV of the first game</codecomment>
   <action name="OpenQuickView"/>
