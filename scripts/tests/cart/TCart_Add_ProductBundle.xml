@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adds a Standart Product  to the cart from QV and PDP</description>
+  <description>Test adding a product bundle to the cart from quickview and product detail pages.
+
+# Setup
+
+- open the session
+- search for possible products
+- open quickview
+
+# Scope
+
+- add to cart from quickview
+- verify cart
+- remove product from cart
+- go to product and add to cart from product detail page
+- verify cart</description>
   <codecomment># Setup
 
 - Start Session</codecomment>
