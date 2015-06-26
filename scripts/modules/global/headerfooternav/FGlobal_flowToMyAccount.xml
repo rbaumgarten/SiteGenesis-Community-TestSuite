@@ -4,6 +4,6 @@
 Choose My Account</description>
   <action name="OpenUserMenu"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <action name="MyAccount"/>
+  <action name="GotoMyAccount"/>
   <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickMyAccount"/>
 </scriptmodule>
