@@ -40,7 +40,6 @@
 - Validate account page and nav
 - Validate customer name
 - Logout</codecomment>
-  <action name="GoToRegister"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToRegister"/>
   <action name="Register"/>
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_enterProfile">
