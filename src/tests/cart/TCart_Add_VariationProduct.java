@@ -7,7 +7,22 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test adds a Variation Product  to the cart from QV and PDP</p>
+ * <p>Adds variation products from quickview and product detail pages to the cart</p>
+ * <h1 id="setup">Setup</h1>
+ * <ul>
+ * <li>open the session</li>
+ * <li>search for possible products</li>
+ * <li>sort the result to get a predictable product order</li>
+ * <li>open quickview</li>
+ * </ul>
+ * <h1 id="scope">Scope</h1>
+ * <ul>
+ * <li>add to cart from quickview with some selected variation attributes</li>
+ * <li>verify cart</li>
+ * <li>remove product from cart</li>
+ * <li>go to product detail page </li>
+ * <li>verify cart</li>
+ * </ul>
  */
 @ScriptName
 ("tests.cart.TCart_Add_VariationProduct")

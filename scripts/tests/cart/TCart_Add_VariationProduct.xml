@@ -37,7 +37,7 @@
   </module>
   <codecomment># Scope</codecomment>
   <action name="SelectSize"/>
-  <codecomment>Color is preselected because we are on the QV</codecomment>
+  <codecomment>The color is already preselected</codecomment>
   <module name="modules.pages.product.MProduct_clickSizeByPosition">
     <parameter name="productSizePosition" value="3"/>
   </module>
@@ -51,8 +51,8 @@
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
   <action name="AddToCart"/>
-  <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
+  <codecomment>Quickview should disappear after add to cart</codecomment>
   <command name="waitForNotVisible" target="id=pdpMain"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
@@ -79,7 +79,7 @@
     <parameter name="searchText" value="${productNumber}"/>
   </module>
   <action name="AddToCart"/>
-  <codecomment>Color and Size should be alreadey selected because they are save in the itme number</codecomment>
+  <codecomment>Color and size should be already selected because we came in by an SKU for the variation</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
