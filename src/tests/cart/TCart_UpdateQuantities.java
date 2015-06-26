@@ -8,11 +8,11 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 /**
  * <p>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won&#39;t display the total and the test will fail.</p>
- * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
+ * <h1 id="setup-and-preparation">Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies.</li>
  * </ul>
- * <h1 id="2-scope-of-test">2. Scope of test</h1>
+ * <h1 id="scope">Scope</h1>
  * <h2 id="product-01-change-quantity-via-update-cart">Product 01 - Change quantity via update cart</h2>
  * <ul>
  * <li>Add product 01 to cart (quantity 1).</li>
