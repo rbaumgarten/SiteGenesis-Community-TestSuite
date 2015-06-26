@@ -79,13 +79,13 @@
   <module name="modules.pages.checkout.login.VCheckout_Login_validatePage"/>
   <action name="CheckoutAsNewCustomer"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_clickGoToNewCustomer"/>
+  <action name="CheckoutCreateNewCustomer"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_CreateAccount_enterProfile">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
   </module>
-  <action name="CheckoutCreateNewCustomer"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_CreateAccount_clickSubmitProfile"/>
   <codecomment>Shipping
 

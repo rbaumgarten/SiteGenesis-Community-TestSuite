@@ -34,8 +34,7 @@
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>### Search
-
+  <codecomment>Search
 - Add product 01 to cart</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <comment>Add the first product with quantity 1 to the cart. The output value of productPriceTotal is "unused" because it will be calculated in the test and validated against the storefront presentation.</comment>
@@ -49,9 +48,9 @@
     <parameter name="productPriceTotal_varName" value="unused"/>
   </module>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 01 - Change quantity via update cart</codecomment>
+  <codecomment>Product 01 - Change quantity via update cart</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>### Cart
+  <codecomment>Cart
 
 - Validate cart page 
 - Validate product 01 row structure
@@ -64,7 +63,7 @@
     <parameter name="row" value="1"/>
     <parameter name="productPriceTotal" value="${productPriceSales_01_varDynamic}"/>
   </module>
-  <codecomment>### Cart
+  <codecomment>Cart
 
 - __Update cart__: Increase product 01 quantity with random value from range
 - Calculate product 01 clean price
@@ -98,7 +97,7 @@
     <parameter name="row" value="1"/>
     <parameter name="productPriceTotal" value="${productPriceTotal_01_varDynamic}"/>
   </module>
-  <codecomment>### Search
+  <codecomment>Search
 
 - Add product 02 to cart (quantity 2)</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
@@ -113,9 +112,9 @@
     <parameter name="productPriceTotal_varName" value="unused"/>
   </module>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>## Product 02 - Change quantity via edit dialog</codecomment>
+  <codecomment>Product 02 - Change quantity via edit dialog</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
-  <codecomment>### Helper
+  <codecomment>Helper
 
 - Calculate product price total 02
 - Calculate product totals quantity
@@ -144,7 +143,7 @@
     <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
-  <codecomment>### Cart
+  <codecomment>Cart
 
 - Validate product 01 basic details
 - Validate product 01 basic price total
@@ -176,7 +175,7 @@
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <codecomment>### Cart
+  <codecomment>Cart
 
 - __Edit dialog__: Increase product 02 quantity with random value from range</codecomment>
   <action name="UpdateQuantityViaEdit"/>
@@ -187,7 +186,7 @@
     <parameter name="row" value="2"/>
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
   </module>
-  <codecomment>### Helper
+  <codecomment>Helper
 
 - Calculate product price total 02
 - Calculate product totals quantity
@@ -215,7 +214,7 @@
     <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
-  <codecomment>### Cart
+  <codecomment>Cart
 
 - Validate mini cart header items
 - Validate product 01 basic details
@@ -255,7 +254,4 @@
   <module name="modules.pages.cart.VCart_validateOrderTotalsPricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>

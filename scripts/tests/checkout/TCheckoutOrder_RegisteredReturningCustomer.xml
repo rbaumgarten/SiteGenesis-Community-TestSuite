@@ -90,7 +90,6 @@
     <parameter name="year" value="${year}"/>
   </module>
   <module name="modules.global.headerfooternav.FGlobal_flowToMyAccount"/>
-  <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <parameter name="cartRow" value="1"/>
@@ -112,23 +111,22 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
-  <action name="ViewCart"/>
   <module name="modules.pages.cart.MCart_storeTotalsSubtotal">
     <parameter name="totalsSubtotal" value="totalsSubtotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Checkout Login
+  <codecomment>Checkout Login
 - Validate page
 - Login as returning customer</codecomment>
-  <action name="GoToCOLogin"/>
+  <action name="Checkout"/>
   <module name="modules.pages.cart.MCart_clickGoToCheckoutLogin"/>
   <module name="modules.pages.checkout.login.VCheckout_Login_validatePage"/>
-  <action name="COLoginGoToReturningCustomer"/>
+  <action name="CheckoutLogin"/>
   <module name="modules.pages.checkout.login.MCheckout_Login_enterClickGoToReturningCustomer">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <codecomment># Shipping
+  <codecomment>Shipping
 
 - Validate page
 - Enter data 
@@ -160,7 +158,6 @@
     <comment>Initial price pattern validation.</comment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <action name="COShipping"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_selectSavedAddress">
     <parameter name="title" value="${shippingAddress_title}"/>
   </module>
@@ -192,8 +189,9 @@
     <parameter name="position" value="${shippingMethod_position}"/>
     <parameter name="price" value="${totalsShipping_varDynamic}"/>
   </module>
+  <action name="CheckoutShipping"/>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_Shipping_clickContinue"/>
-  <codecomment># Billing
+  <codecomment>Billing
 
 - Validate page
 - Enter data 
@@ -231,7 +229,6 @@
     <parameter name="postal" value="${shippingAddress_postalCode}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
   </module>
-  <action name="COBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_selectSavedAddress">
     <parameter name="title" value="${billingAddress_title}"/>
   </module>
@@ -265,14 +262,14 @@
     <parameter name="year" value="${year}"/>
     <parameter name="cvn" value="${cvn}"/>
   </module>
+  <action name="CheckoutBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
-  <codecomment># Place Order
+  <codecomment>Place Order
 
 - Validate page
 - Enter data 
 - Store data
 - Submit data</codecomment>
-  <action name="COPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validatePage"/>
   <module name="modules.pages.checkout.steps.placeorder.VCheckout_PlaceOrder_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -331,13 +328,13 @@
     <parameter name="year" value="${year}"/>
     <parameter name="paymentAmount" value="${totalsTotal_varDynamic}"/>
   </module>
+  <action name="CheckoutPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
-  <codecomment># Order Confirmation
+  <codecomment>Order Confirmation
 
 - Validate page
 - Validate all specific order data
 - Logout</codecomment>
-  <action name="COConfirmation"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validatePage"/>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateOrderInformation">
     <parameter name="orderDatePattern" value="${storefront_orderDatePattern}"/>
@@ -400,7 +397,7 @@
     <parameter name="orderNumber_varName" value="orderNumber_varDynamic"/>
     <parameter name="orderDate_varName" value="orderDate_varDynamic"/>
   </module>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Logout
 - Validate order via check order status</codecomment>
