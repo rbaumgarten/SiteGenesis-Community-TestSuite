@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adds a Standart Product  to the cart from QV and PDP</description>
+  <tags>cart,product,add</tags>
+  <description>Test adding a standard product to the cart from quickview and product detail pages.
+
+# Setup
+
+- open the session
+- search for possible products
+- open quickview
+
+# Scope
+
+- add to cart from quickview
+- verify cart
+- remove product from cart
+- go to product and add to cart from product detail page
+- verify cart</description>
   <codecomment># Setup
 
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Search for Mario to get a standart product</codecomment>
-  <action name="SearchForStandartProduct"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="Mario"/>
   </module>
-  <codecomment>Go to QV of the first Game</codecomment>
-  <action name="GoToQuickView"/>
+  <codecomment>Open QV of the first game</codecomment>
+  <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Cart
-
-Validate Add 2 Cart from QV and PDP and check if the same product is added
-- First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
-- Second add product from PDP and verify if the same product in cart is shown</codecomment>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
   <action name="AddToCart"/>
-  <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
+  <codecomment>Quickview becomes invisible after add to cart</codecomment>
   <command name="waitForNotVisible" target="id=pdpMain"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -40,18 +49,18 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
-  <action name="DeleteQVProduct"/>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
-  <action name="SerchProductviaStoredProductNumber"/>
+  <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
-  <action name="AddProductToCartPDP"/>
+  <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
