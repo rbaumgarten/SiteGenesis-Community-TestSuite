@@ -53,19 +53,25 @@ By default no extra option should be selected, by changing from QV  to PDP the O
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
   <action name="SelectDefaultOption"/>
-  <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPricePlain"/>
+  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+    <parameter name="addToCartPrice_var" value="productPricePlain"/>
+  </module>
   <command name="select" target="css=.product-add-to-cart form fieldset div.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
   <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
   <action name="SelectSecondOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
   </module>
-  <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPriceOption2"/>
+  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+    <parameter name="addToCartPrice_var" value="productPriceOption2"/>
+  </module>
   <action name="SelectLastOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
   </module>
-  <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="productPriceLastOption"/>
+  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+    <parameter name="addToCartPrice_var" value="productPriceLastOption"/>
+  </module>
   <action name="SelectFirstOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$0.00] None"/>

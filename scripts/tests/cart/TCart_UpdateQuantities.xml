@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
+  <tags>smoke,cart,update</tags>
   <description>Test refresh products and calculate sums with update quantity and resort rows in cart. This test needs a full desktop view of the browser, otherwise the minicart won't display the total and the test will fail.
 
-# 1. Setup and preparation
+# Setup and preparation
 
 - Start session, open homepage and delete all visible cookies.
 
-# 2. Scope of test
+# Scope
 
 ## Product 01 - Change quantity via update cart
 

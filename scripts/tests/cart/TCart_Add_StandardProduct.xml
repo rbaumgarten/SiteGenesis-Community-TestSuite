@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>cart,product,add</tags>
+  <description>Test adding a standard product to the cart from quickview and product detail pages.
+
+# Setup
+
+- open the session
+- search for possible products
+- open quickview
+
+# Scope
+
+- add to cart from quickview
+- verify cart
+- remove product from cart
+- go to product and add to cart from product detail page
+- verify cart</description>
+  <codecomment># Setup
+
+- Start Session</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="SearchProducts"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase}"/>
+  </module>
+  <codecomment>Open QV of the first game</codecomment>
+  <action name="OpenQuickView"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
+    <parameter name="position" value="1"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName"/>
+    <parameter name="productNumber_varName" value="productNumber"/>
+    <parameter name="productPriceSales_varName" value="productPrice"/>
+  </module>
+  <action name="AddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
+  <codecomment>Quickview becomes invisible after add to cart</codecomment>
+  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <action name="ViewCart"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName}"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePage"/>
+  <action name="RemoveProduct"/>
+  <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
+  <action name="SearchProductBySKU"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <action name="AddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
+  <action name="ViewCart"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName}"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePage"/>
+</testcase>
