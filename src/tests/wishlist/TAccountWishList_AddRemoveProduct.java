@@ -1,7 +1,7 @@
 /*
  * NOTE: This file is generated. Do not edit! Your changes will be lost.
  */
-package tests.account;
+package tests.wishlist;
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
@@ -31,7 +31,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.account.TAccountWishList_AddRemoveProduct")
+("tests.wishlist.TAccountWishList_AddRemoveProduct")
 public class TAccountWishList_AddRemoveProduct extends AbstractScriptTestCase
 {
 }
