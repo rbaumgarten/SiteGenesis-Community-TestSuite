@@ -3,5 +3,5 @@
   <description>Click logout via customer name in header.</description>
   <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info a.not-user"/>
   <codecomment>Valdiate logout finished</codecomment>
-  <command name="waitForText" target="css=#navigation .menu-utility-user .user-info .user-login" value="*LOGIN*"/>
+  <command name="assertText" target="css=#navigation .menu-utility-user .user-info .user-login" value="*LOGIN*"/>
 </scriptmodule>
