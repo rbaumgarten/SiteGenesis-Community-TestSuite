@@ -7,3 +7,4 @@ classes
 /results/
 /target/
 node_modules
+junitvmwatcher*.properties
