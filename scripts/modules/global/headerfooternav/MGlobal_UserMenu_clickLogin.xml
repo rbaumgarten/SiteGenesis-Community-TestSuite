@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click login in header.</description>
-  <command name="waitForElementPresent" disabled="true" target="css=.user-info.active .user-panel .user-links a:first-of-type">
-    <comment>This is not needed in most cases because the activity before should have waited.</comment>
-  </command>
   <command name="clickAndWait" target="css=.user-info.active .user-panel .user-links a:first-of-type"/>
 </scriptmodule>
