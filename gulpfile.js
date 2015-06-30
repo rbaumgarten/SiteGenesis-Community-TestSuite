@@ -33,7 +33,7 @@ gulp.task('all',['run'], function() {
 gulp.task('single',['run'], function (){
     var name = process.env.name;
     if (!name || name.length == 0) { 
-        grunt.warn('You need to provide the name of a test script.'); 
+        console.log('You need to provide the name of a test script.'); 
     } else { 
         xlt.runSingleTestCase(name);
     }
