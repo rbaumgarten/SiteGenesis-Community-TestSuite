@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate shipping page.</description>
   <codecomment>Validate page title</codecomment>
-  <command name="waitForElementPresent" target="css=#dwfrm_singleshipping_shippingAddress fieldset legend"/>
+  <command name="assertElementPresent" target="css=#dwfrm_singleshipping_shippingAddress fieldset legend"/>
   <codecomment>Validate progress indicators</codecomment>
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-1.active" value="*Shipping*"/>
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-2.inactive" value="*Billing*"/>

@@ -7,8 +7,8 @@
   <parameter name="productPriceTotal" desc="product price total"/>
   <codecomment>Validate product in order summary box</codecomment>
   <command name="store" target="css=#main #secondary .checkout-mini-cart .mini-cart-product:nth-of-type" value="css_box_minicart_product"/>
-  <command name="waitForElementPresent" target="${css_box_minicart_product}(@{row}) .mini-cart-image"/>
-  <command name="waitForText" target="${css_box_minicart_product}(@{row}) .mini-cart-name a" value="@{productName}"/>
-  <command name="waitForText" target="${css_box_minicart_product}(@{row}) .mini-cart-pricing .value" value="@{productQuantity}"/>
-  <command name="waitForText" target="${css_box_minicart_product}(@{row}) .mini-cart-pricing .mini-cart-price" value="@{productPriceTotal}"/>
+  <command name="assertElementPresent" target="${css_box_minicart_product}(@{row}) .mini-cart-image"/>
+  <command name="assertText" target="${css_box_minicart_product}(@{row}) .mini-cart-name a" value="@{productName}"/>
+  <command name="assertText" target="${css_box_minicart_product}(@{row}) .mini-cart-pricing .value" value="@{productQuantity}"/>
+  <command name="assertText" target="${css_box_minicart_product}(@{row}) .mini-cart-pricing .mini-cart-price" value="@{productPriceTotal}"/>
 </scriptmodule>

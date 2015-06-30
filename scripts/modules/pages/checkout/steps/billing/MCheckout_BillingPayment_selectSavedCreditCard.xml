@@ -18,7 +18,7 @@
     <parameter name="number" value="${monthNumberShort}"/>
     <parameter name="numberLastTwoDigits_varName" value="monthNumber"/>
   </module>
-  <command name="waitForText" target="css=select[name=&quot;dwfrm_billing_paymentMethods_creditCardList&quot;]" value="*@{typeShort}*${numberLastFourDigits}*${monthNumber}.@{year}*"/>
+  <command name="assertText" target="css=select[name=&quot;dwfrm_billing_paymentMethods_creditCardList&quot;]" value="*@{typeShort}*${numberLastFourDigits}*${monthNumber}.@{year}*"/>
   <command name="assertNotText" target="css=select[name=&quot;dwfrm_billing_paymentMethods_creditCardList&quot;]" value="*@{number}*"/>
   <command name="select" target="css=select[name=&quot;dwfrm_billing_paymentMethods_creditCardList&quot;]" value="*@{typeShort}*${numberLastFourDigits}*${monthNumber}.@{year}*"/>
   <command name="waitForText" target="css=input[name=&quot;dwfrm_billing_paymentMethods_creditCard_owner&quot;]" value="@{owner}"/>

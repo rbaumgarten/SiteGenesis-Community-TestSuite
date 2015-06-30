@@ -4,6 +4,6 @@
   <parameter name="giftYesNo" desc="yes or no"/>
   <parameter name="giftOptionalMessage" desc="message with max. 250 characters"/>
   <command name="check" target="css=#main #primary #is-gift-@{giftYesNo}"/>
-  <command name="waitForElementPresent" target="css=#main #primary #dwfrm_singleshipping_shippingAddress_giftMessage"/>
+  <command name="waitForElementPresent" disabled="true" target="css=#main #primary #dwfrm_singleshipping_shippingAddress_giftMessage"/>
   <command name="type" target="css=#main #primary #dwfrm_singleshipping_shippingAddress_giftMessage" value="@{giftOptionalMessage}"/>
 </scriptmodule>

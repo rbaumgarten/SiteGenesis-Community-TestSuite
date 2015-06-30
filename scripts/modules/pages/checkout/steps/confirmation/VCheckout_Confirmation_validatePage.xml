@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate page.</description>
   <codecomment>Validate page title</codecomment>
-  <command name="waitForElementPresent" target="css=#main #primary h1"/>
+  <command name="assertElementPresent" target="css=#main #primary h1"/>
   <command name="assertElementPresent" target="css=#main #primary .print-page"/>
   <command name="assertElementPresent" target="css=#main #primary .confirmation-message"/>
   <codecomment>Valdiate primary table order summary</codecomment>

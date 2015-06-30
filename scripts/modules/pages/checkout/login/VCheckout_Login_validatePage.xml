@@ -3,7 +3,7 @@
   <description>Validate checkout start page.</description>
   <codecomment>Validate browser check</codecomment>
   <command name="waitForElementPresent" disabled="true" target="css=#main #browser-check"/>
-  <command name="waitForElementPresent" target="css=#primary .checkoutlogin"/>
+  <command name="waitForElementPresent" disabled="true" target="css=#primary .checkoutlogin"/>
   <codecomment>Validate breadcrumb</codecomment>
   <command name="assertElementPresent" disabled="true" target="css=#main .breadcrumb [title=&quot;Home&quot;]"/>
   <command name="assertElementPresent" disabled="true" target="css=#main .breadcrumb [title=&quot;My Account&quot;]"/>

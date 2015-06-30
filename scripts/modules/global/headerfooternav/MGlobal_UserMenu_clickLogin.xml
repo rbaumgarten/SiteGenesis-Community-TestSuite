@@ -2,4 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click login in header.</description>
   <command name="clickAndWait" target="css=.user-info.active .user-panel .user-links a:first-of-type"/>
+  <command name="pause" value="500">
+    <comment>Needed because Analytics is delayed by 100ms. If we are faster than that, we miss the call and get problems with the cookies that are changed during login/logout.</comment>
+  </command>
 </scriptmodule>

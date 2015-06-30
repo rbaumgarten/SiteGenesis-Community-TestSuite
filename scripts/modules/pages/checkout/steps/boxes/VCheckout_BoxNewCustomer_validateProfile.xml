@@ -5,7 +5,7 @@
   <parameter name="billingAddress_lastname" desc="lastname"/>
   <parameter name="billingAddress_email" desc="email"/>
   <codecomment>Validate profile data in box new customer</codecomment>
-  <command name="waitForText" target="id=dwfrm_profile_customer_firstname" value="@{billingAddress_firstname}"/>
+  <command name="assertText" target="id=dwfrm_profile_customer_firstname" value="@{billingAddress_firstname}"/>
   <command name="assertText" target="id=dwfrm_profile_customer_lastname" value="@{billingAddress_lastname}"/>
   <command name="assertText" target="id=dwfrm_profile_customer_email" value="@{billingAddress_email}"/>
 </scriptmodule>
