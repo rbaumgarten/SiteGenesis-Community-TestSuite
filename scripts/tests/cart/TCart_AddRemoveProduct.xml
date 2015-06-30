@@ -62,6 +62,9 @@
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceTotal_varDynamic}"/>
   </module>
+  <module name="modules.pages.cart.VCart_validateOrderTotalsPricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
   <codecomment>## Cart
 
 - Remove product

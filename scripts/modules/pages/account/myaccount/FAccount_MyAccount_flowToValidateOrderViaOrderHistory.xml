@@ -12,14 +12,17 @@
   <parameter name="shippingAddress_firstname" desc="shipping address firstname"/>
   <parameter name="shippingAddress_lastname" desc="shipping address lastname"/>
   <parameter name="totalsTotal" desc="totals total"/>
-  <codecomment># Order history
+  <codecomment>Order history
 
 - Go to order history
 - Validate page
 - Validate order data
 - Go to account menu</codecomment>
-  <action name="GoToOrderHistory"/>
+  <action name="AccountOrders"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToOrderHistory"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Order History"/>
+  </module>
   <module name="modules.pages.account.orderhistory.VAccount_OrderHistory_validatePage"/>
   <module name="modules.pages.account.orderhistory.VAccount_OrderHistory_validateOrder">
     <parameter name="position" value="@{position}"/>

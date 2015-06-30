@@ -37,21 +37,23 @@
 - Store product attributes
 - Add product to cart</codecomment>
   <action name="PDPSetDetails"/>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_enterQuantity">
+  <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="@{productName_varName}"/>
     <parameter name="productNumber_varName" value="@{productNumber_varName}"/>
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
   </module>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_storeColorAndSize">
+  <module name="modules.pages.product.MProduct_storeColorAndSize">
     <parameter name="productColor_varName" value="@{productColor_varName}"/>
     <parameter name="productSize_varName" value="@{productSize_varName}"/>
   </module>
   <action name="AddToCart"/>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickAddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <codecomment># Cart 
 
 - Go to cart
@@ -59,7 +61,7 @@
 - Validate product attributes
 - Store product price total</codecomment>
   <action name="GoToCart"/>
-  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="@{cartRow}"/>
     <parameter name="productName" value="${@{productName_varName}}"/>

@@ -22,7 +22,7 @@
   <codecomment># Search
 
 - Submit search string</codecomment>
-  <action name="Search"/>
+  <action name="SearchProductByName"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="@{productNumber}"/>
   </module>
@@ -31,31 +31,27 @@
 - Set quantity
 - Store product basics
 - Add product to cart</codecomment>
-  <action name="PDPSetDetails"/>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_enterQuantity">
+  <action name="ConfigureProduct"/>
+  <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="@{productName_varName}"/>
     <parameter name="productNumber_varName" value="@{productNumber_varName}"/>
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
   </module>
-  <module name="modules.pages.productdetailpage.MProductDetailPage_clickAddToCart"/>
+  <action name="AddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <codecomment># Cart 
 
 - Go to cart
 - Validate product basics
 - Store product price total</codecomment>
-  <action name="GoToCart"/>
-  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartViaHeaderLink"/>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
-    <parameter name="row" value="@{cartRow}"/>
-    <parameter name="productName" value="${@{productName_varName}}"/>
-    <parameter name="productNumber" value="@{productNumber}"/>
-    <parameter name="productQuantity" value="${@{productQuantity_varName}}"/>
-    <parameter name="productPriceSales" value="${@{productPriceSales_varName}}"/>
-  </module>
+  <action name="ViewCart"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
     <parameter name="row" value="@{cartRow}"/>
     <parameter name="productPriceTotal_varName" value="@{productPriceTotal_varName}"/>

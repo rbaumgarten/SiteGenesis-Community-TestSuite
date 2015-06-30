@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Stores the Price which is shown next to the add to cart button</description>
+  <parameter name="addToCartPrice_var"/>
+  <command name="storeText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="@{addToCartPrice_var}"/>
+</scriptmodule>

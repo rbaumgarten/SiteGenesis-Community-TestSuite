@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>qv</tags>
+  <description>Validates elements that are specific to QV and not shared with PDP.</description>
+  <codecomment>Extra validations for QV</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain .product-number + a">
+    <comment>The link to the PDP from QV. This elements does not have a nice name, so we identify it by sibling selector.</comment>
+  </command>
+</scriptmodule>

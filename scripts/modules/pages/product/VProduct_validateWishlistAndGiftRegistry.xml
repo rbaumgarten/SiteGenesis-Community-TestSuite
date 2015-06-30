@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates gift registry and wish list links
+Caution:
+This Elements will be only seen after selecting an size and color</description>
+  <codecomment>Wishlist</codecomment>
+  <command name="assertElementPresent" target="css=.product-actions a[data-action='wishlist']">
+    <comment>Add to Wishlist</comment>
+  </command>
+  <codecomment>Gift Registry</codecomment>
+  <command name="assertElementPresent" target="css=.product-actions a[data-action='gift-registry']">
+    <comment>Add to Gift Registry</comment>
+  </command>
+</scriptmodule>

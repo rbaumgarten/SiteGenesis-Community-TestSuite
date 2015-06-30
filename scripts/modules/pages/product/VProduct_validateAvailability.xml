@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates the Availability-block and the availability massage by paramater</description>
+  <parameter name="availabilityMassage"/>
+  <command name="assertElementPresent" target="css=.product-add-to-cart form div.availability-block"/>
+  <command name="assertText" target="css=.product-add-to-cart form fieldset div.availability-block div.availability span.value div.availability-msg p.in-stock-msg" value="@{availabilityMassage}"/>
+</scriptmodule>

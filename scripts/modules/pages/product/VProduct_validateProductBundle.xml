@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates the main content of a product bundle page </description>
+  <codecomment>Product Name</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain.pdp-main h1.product-name[itemprop='name']"/>
+  <codecomment>Product Image</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain div.product-col-1 div.product-primary-image a.product-image"/>
+  <codecomment>Product Number</codecomment>
+  <command name="assertElementPresent" target="css=#pdpMain div.product-col-2 div.product-number span[itemprop='productID']"/>
+  <codecomment>Item List</codecomment>
+  <command name="assertElementPresent" target="css=#product-set-list"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-image"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details"/>
+  <codecomment>First Product</codecomment>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .availability"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .attribute"/>
+  <codecomment>Second Product</codecomment>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2).product-set-details .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .availability"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .attribute"/>
+  <codecomment>Third Product</codecomment>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .availability"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .attribute"/>
+  <codecomment>Forth Product</codecomment>
+  <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .availability"/>
+  <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .attribute"/>
+</scriptmodule>

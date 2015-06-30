@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
+  <description>Validates social sharing buttons</description>
+  <codecomment>Social Sharing</codecomment>
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-facebook-official">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-twitter">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-google-plus">
+    <comment>Facebook</comment>
+  </command>
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-pinterest">
+    <comment>Pinterest</comment>
+  </command>
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-envelope">
+    <comment>Email</comment>
+  </command>
+</scriptmodule>

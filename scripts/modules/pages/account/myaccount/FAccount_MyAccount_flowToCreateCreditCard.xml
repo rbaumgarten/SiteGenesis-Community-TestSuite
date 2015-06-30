@@ -27,7 +27,7 @@
   <action name="GoToPaymentSettings"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPaymentSettings"/>
   <module name="modules.pages.account.paymentsettings.VAccount_PaymentSettings_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <action name="AddCreditCard"/>
   <module name="modules.pages.account.paymentsettings.MAccount_PaymentSettings_clickAddCreditCard"/>
   <action name="ApplyCreditCardDialog"/>

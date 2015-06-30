@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
-  <description>Test search for multiple product results.
+  <tags>smoke,search</tags>
+  <description>Test search and expect a search result with multiple products.
 
 # 1. Setup and preparation
 
@@ -10,7 +10,7 @@
 # 2. Scope of test
 
 - Search for text
-- Leads to multiple product results
+- Returns multiple products aka a product listing page
 - Validate result page (similar to catalog page)
 - Select a product
 - Validate product detail page
@@ -31,7 +31,7 @@
 - Go to random product
 - Valdiate PDP
 - Valdiate PDP product number</codecomment>
-  <action name="Search"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
@@ -40,10 +40,9 @@
   </module>
   <module name="modules.pages.search.VSearch_Results_validateRefine"/>
   <module name="modules.pages.search.VSearch_Results_validateProductListing"/>
-  <action name="PDP"/>
-  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandom"/>
-  <module name="modules.pages.productdetailpage.VProductDetailPage_validatePage"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
+  <action name="ProductDetailPage"/>
+  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandomly"/>
+  <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validatePDPOnlyElements"/>
 </testcase>

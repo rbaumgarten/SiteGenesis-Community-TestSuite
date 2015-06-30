@@ -7,7 +7,6 @@
   <parameter name="number" desc="number"/>
   <parameter name="month" desc="month"/>
   <parameter name="year" desc="year"/>
-  <command name="waitForElementPresent" target="css=#main .breadcrumb a.breadcrumb-element:nth-of-type(3)[title=&quot;Payment Settings&quot;]"/>
   <codecomment>Validate credit card data</codecomment>
   <command name="waitForElementCount" target="xpath=//ul[@class='payment-list']/li[contains(., '@{owner}')]" value="1">
     <comment>This solution is not very nice, but due to the current state of the html (no structure in the address) and no predictability at which position a new address is displayed, the only one that works ok.</comment>

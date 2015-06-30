@@ -8,7 +8,7 @@
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-2.inactive" value="*Billing*"/>
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-3.inactive" value="*Place Order*"/>
   <codecomment>Validate primary fieldset shipping address</codecomment>
-  <command name="store" target="css=#main #primary [class=&quot;checkout-shipping address&quot;] fieldset:nth-of-type(1) " value="fieldsetShippingAddress"/>
+  <command name="store" target="css=#main #primary #dwfrm_singleshipping_shippingAddress fieldset:nth-of-type(1) " value="fieldsetShippingAddress"/>
   <command name="assertElementPresent" target="${fieldsetShippingAddress} legend"/>
   <command name="assertElementPresent" target="${fieldsetShippingAddress} .form-field-tooltip:not(.with-helper-text) .tooltip"/>
   <command name="assertElementPresent" disabled="true" target="${fieldsetShippingAddress} .form-field-tooltip.with-helper-text .tooltip"/>

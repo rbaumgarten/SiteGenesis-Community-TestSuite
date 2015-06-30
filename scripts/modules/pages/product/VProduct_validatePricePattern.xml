@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>pdp,qv</tags>
+  <description>Validates the price pattern on a product detail or quickview page.</description>
+  <parameter name="pricePattern" desc="The price pattern to check against."/>
+  <command name="assertText" target="css=.product-price span.price-sales" value="regexp:@{pricePattern}"/>
+</scriptmodule>

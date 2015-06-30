@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>smoke</tags>
+  <tags>smoke,search,articles</tags>
   <description>Test search for articles.
 
 # 1. Setup and preparation
@@ -12,11 +12,7 @@
 - Search for text 
 - Leads to no products but found articles
 - Click articles link
-- Validate articles results page
-
-# 3. Clean up
-
-- End session and clean up created cookies</description>
+- Validate articles results page</description>
   <codecomment># Setup
 
 - Start session</codecomment>
@@ -27,7 +23,7 @@
 - Search article content
 - Validiate PDP
 - Validiate PDP product number</codecomment>
-  <action name="Search"/>
+  <action name="SearchArticlesOnly"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchText}"/>
   </module>
@@ -40,7 +36,4 @@
   <action name="ViewArticles"/>
   <module name="modules.pages.search.MSearch_Results_clickArticleResults"/>
   <module name="modules.pages.search.VSearch_Results_validateArticleCatalog"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>

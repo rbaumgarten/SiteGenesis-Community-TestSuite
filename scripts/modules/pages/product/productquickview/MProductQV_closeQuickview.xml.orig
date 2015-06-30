@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+<<<<<<< HEAD
+  <description>Click on quickview close button</description>
+=======
+  <description>Closes QV by clicking on close button in QV header</description>
+>>>>>>> TProductFunctionalTests
+  <command name="click" target="css=.ui-dialog button.ui-dialog-titlebar-close"/>
+  <codecomment>The Quickview dialog will not disapear after closing it it only will be set on inviseble</codecomment>
+  <command name="waitForNotVisible" target="css=.ui-dialog"/>
+</scriptmodule>

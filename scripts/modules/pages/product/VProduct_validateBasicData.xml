@@ -4,9 +4,7 @@
   <parameter name="productName" desc="product name to validate"/>
   <parameter name="productNumber" desc="product number to validate"/>
   <parameter name="productPrice" desc="product price to validate"/>
-  <parameter name="productQuantity" desc="product quantity to validate"/>
   <command name="assertText" target="css=#pdpMain .product-name" value="@{productName}"/>
-  <command name="assertText" target="css=#product-content .product-number span" value="@{productNumber}"/>
-  <command name="assertText" target="css=#product-content .product-price" value="@{productPrice}"/>
-  <command name="assertText" target="css=#Quantity" value="@{productQuantity}"/>
+  <command name="assertText" target="css=.product-number span" value="@{productNumber}"/>
+  <command name="assertText" target="css=.product-price .price-sales" value="@{productPrice}"/>
 </scriptmodule>

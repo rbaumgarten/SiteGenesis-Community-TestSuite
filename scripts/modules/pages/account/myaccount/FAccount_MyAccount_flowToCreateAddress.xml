@@ -32,7 +32,7 @@
   <action name="GoToAddressBook"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToAddressBook"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <action name="CreateNewAddress"/>
   <module name="modules.pages.account.addressbook.MAccount_AddressBook_clickCreateNewAddress"/>
   <action name="CreateAddressDialog"/>

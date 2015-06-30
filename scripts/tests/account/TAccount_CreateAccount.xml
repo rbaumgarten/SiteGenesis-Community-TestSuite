@@ -24,15 +24,15 @@
 - Generate email
 - Generate password
 - Start session</codecomment>
-  <module name="modules.helper.MHelper_Random_generateEmail">
+  <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_generatePassword">
+  <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Register account via header link
 - Enter profile data
@@ -50,15 +50,22 @@
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile"/>
+  <codecomment>Account breadcrumb</codecomment>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="My Account"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="My Account"/>
+  </module>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
   </module>
   <action name="Logout"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <codecomment>## Account
+  <codecomment>Account
 
 - Login
 - Validate account page and nav
@@ -71,21 +78,19 @@
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <action name="GoToPersonalData"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToPersonalData"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Edit Account"/>
+  </module>
   <module name="modules.pages.account.personaldata.VAccount_PersonalData_validatePage"/>
-  <module name="modules.pages.account.VAccount_validateNav"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
   <module name="modules.pages.account.personaldata.VAccount_PersonalData_validateProfile">
     <parameter name="firstname" value="${firstname}"/>
     <parameter name="lastname" value="${lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
-  <action name="Logout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickLogout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName" disabled="true"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
+  <codecomment>Log out the user</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

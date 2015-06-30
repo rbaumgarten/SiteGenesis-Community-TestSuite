@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click color by position.</description>
+  <parameter name="colorPosition" desc="color positon"/>
+  <parameter name="colorLabel_varName" desc="color label as var name"/>
+  <parameter name="breadcrumbRefinementValueCount" desc="How many refinement values should we have in the breadcrumb after this action"/>
+  <command name="storeText" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'refinementColor')]/li[@{colorPosition}]/a" value="@{colorLabel_varName}"/>
+  <command name="click" target="xpath=id('secondary')/div[@class='refinement Color']//ul[contains(@class, 'refinementColor')]/li[@{colorPosition}]/a"/>
+  <command name="waitForElementCount" target="css=#main .breadcrumb .breadcrumb-refinement .breadcrumb-refinement-value" value="@{breadcrumbRefinementValueCount}"/>
+</scriptmodule>
