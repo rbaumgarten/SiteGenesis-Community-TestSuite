@@ -14,7 +14,7 @@
   <parameter name="phone" desc="phone"/>
   <codecomment>Validate address data</codecomment>
   <command name="store" target="css=#primary #addresses .address-list li:nth-of-type(@{position})" value="css_address"/>
-  <command name="waitForText" target="${css_address} .mini-address-title" value="@{title}"/>
+  <command name="assertText" target="${css_address} .mini-address-title" value="@{title}"/>
   <command name="assertText" target="${css_address} .mini-address-name" value="*@{firstname}*@{lastname}*"/>
   <command name="assertText" target="${css_address} .mini-address-location address" value="@{address1}*"/>
   <command name="assertText" target="${css_address} .mini-address-location address" value="*@{address2}*"/>

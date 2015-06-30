@@ -13,7 +13,6 @@
   <parameter name="phone" desc="phone"/>
   <codecomment>Enter address data</codecomment>
   <command name="store" target="css=#dwfrm_profile_address" value="css_address"/>
-  <command name="waitForElementPresent" target="${css_address}_firstname"/>
   <command name="type" target="${css_address}_addressid" value="@{title}"/>
   <command name="type" target="${css_address}_firstname" value="@{firstname}"/>
   <command name="type" target="${css_address}_lastname" value="@{lastname}"/>
