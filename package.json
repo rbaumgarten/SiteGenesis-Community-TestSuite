@@ -15,7 +15,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "gulp": "^3.9.0",
-    "node-xlt": "^0.1.0"
+    "node-xlt": "^0.2.0"
   },
   "bugs": {
     "url": "https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues"
