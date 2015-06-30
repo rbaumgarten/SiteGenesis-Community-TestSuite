@@ -1,34 +1,60 @@
 var grunt = require('grunt');
 var xlt = require('node-xlt');
-xlt.setOptions({pathToXLT: '../PATH_TO_XLT'});
+
+var xltOptions = {pathToXLT: '../PATH_TO_XLT'};
+xlt.setOptions(xltOptions);
+
+function setWebdiver(webdriver) {
+    if (!webdriver || webdriver.length == 0 || webdriver == "undefined") { 
+        xltOptions.xltWebDriver = null;
+    } else {
+        xltOptions.xltWebDriver = webdriver;
+    }
+    xlt.setOptions(xltOptions);
+};
 
 grunt.initConfig({
 });
 
 grunt.registerTask('javaversion', function() {
-  var done = this.async();
-  xlt.javaVersion(function(err, res){
-    console.log("Vers= "+ res);
-    done(true);
-  });
+    var done = this.async();
+    xlt.javaVersion(function(err, res){
+        console.log("Vers= "+ res);
+        done(true);
+    });
 });
 
 grunt.registerTask('checkPrerequisites', function() {
-  xlt.checkPrerequisites( );
+    xlt.checkPrerequisites();
 });
 
 grunt.registerTask('compile', function() {
-  xlt.compileAllTestCases( );
-});
-
-grunt.registerTask('runAll', function() {
-  xlt.runAllTestCases( );
+    xlt.deleteTestCaseDirectory();
+    xlt.compileAllTestCases();
 });
 
 grunt.registerTask('run', ['javaversion', 'checkPrerequisites', 'compile']);
 
-grunt.registerTask('single', ['run'] function(name){
-    xlt.runSingleTestCase( name );
+grunt.registerTask('runall', function(webdriver) {
+    setWebdiver(webdriver);
+    xlt.runAllTestCases( );
 });
 
-grunt.registerTask('default', ['run', 'runAll']);
+grunt.registerTask('all', function(webdriver) {
+    grunt.task.run(['run', 'runall:'+webdriver]);
+});
+
+grunt.registerTask('runsingle', function(name, webdriver){
+    setWebdiver(webdriver);
+    if (!name || name.length == 0 || name == "undefined") { 
+        grunt.warn('You need to provide the name of a test script.'); 
+    } else { 
+        xlt.runSingleTestCase(name);
+    }
+});
+
+grunt.registerTask('single', function(name, webdriver) {
+    grunt.task.run(['run', 'runsingle:'+name+':'+webdriver]);
+});
+
+grunt.registerTask('default', ['all']);

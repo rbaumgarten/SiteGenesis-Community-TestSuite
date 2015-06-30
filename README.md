@@ -90,8 +90,19 @@ The following steps explain how you can execute the test suite using grunt or gu
 - Make sure that your test suite is running in the script developer (e.g. configure "storefront_url" via Manage Global Test Data ).
 - Install the node dependencies by calling "npm install".
 
-#### Usage
-- Start the test suite by calling "grunt" or "gulp". This calls the default target and will compile and execute all test cases.
+#### Usage Grunt
+- Start the test suite by calling "**grunt**". This calls the default target and will compile and execute all test cases.
+- Call all test cases with a specific WebDriver without changing the properties file: "**grunt all:[WebDriver]**"
+- Call a single test case: "**grunt single:[tests.package.TTestcaseName]**"
+- Call a single test case with a specific WebDriver: "**grunt single:[tests.package.TTestcaseName]:[WebDriver]**"
+- e.g. "**grunt single:tests.account.TAccount_CreateAccount:chrome**"
+
+#### Usage Gulp
+- Start the test suite by calling "**gulp**". This calls the default target and will compile and execute all test cases.
+- Call all test cases with a specific WebDriver without changing the properties file: "**webdriver=[WebDriver] gulp**"
+- Call a single test case with gulp: "**name=[tests.package.TTestcaseName] gulp single**"
+- Call a single test case with a specific WebDriver gulp: "**name=[tests.package.TTestcaseName] webdriver=[WebDriver] gulp single**"
+- e.g. "**name=tests.account.TAccount_CreateAccount webdriver=chrome gulp**"
 
 ## Test Suite Structure
 
