@@ -3,5 +3,6 @@
   <description>Click product color by given count number.</description>
   <parameter name="MProductColorPosition" desc="product color position"/>
   <command name="click" target="css=#product-content .product-variations ul li .value ul  li:not(.unselectable):not(.selected-value):nth-of-type(@{MProductColorPosition}) a"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
   <command name="waitForElementPresent" target="css=#product-content .product-variations li div.value ul.swatches.color  li.selected"/>
 </scriptmodule>
