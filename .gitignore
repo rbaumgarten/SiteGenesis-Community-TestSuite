@@ -6,4 +6,5 @@ classes
 /bin/
 /results/
 /target/
-phantomjsdriver.log
+node_modules
+junitvmwatcher*.properties
