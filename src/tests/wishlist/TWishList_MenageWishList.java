@@ -21,9 +21,8 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Validate nav and page</li>
  * <li>Add product to wishlist</li>
  * <li>Validate product basic details</li>
- * <li>Remove product </li>
+ * <li>Remove product 01</li>
  * <li>Validate empty</li>
- * <li>do it again for QV</li>
  * </ul>
  * <h1 id="3-clean-up">3. Clean up</h1>
  * <ul>
@@ -32,7 +31,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.wishlist.TWishList_AddRemoveProduct")
-public class TWishList_AddRemoveProduct extends AbstractScriptTestCase
+("tests.wishlist.TWishList_MenageWishList")
+public class TWishList_MenageWishList extends AbstractScriptTestCase
 {
 }

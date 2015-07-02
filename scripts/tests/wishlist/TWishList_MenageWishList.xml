@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>smoke</tags>
+  <description>Test add product to wishlist.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create new account
+- Search product 01
+
+# 2. Scope of test
+
+- Store product details and add to wishlist
+- Login
+- Validate nav and page
+- Add product to wishlist
+- Validate product basic details
+- Remove product 01
+- Validate empty
+
+# 3. Clean up
+
+- Logout
+- End session and clean up created cookies</description>
+  <codecomment># Setup
+
+- Create mail
+- Create password
+- Start session
+- Create account</codecomment>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="email_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="password_varDynamic"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
+    <parameter name="firstname" value="${firstname}"/>
+    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="email" value="${email_varDynamic}"/>
+    <parameter name="password" value="${password_varDynamic}"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>## ProductDetailPage
+
+- Search
+- Store product details
+- Add to wishlist</codecomment>
+  <action name="Search"/>
+</testcase>
