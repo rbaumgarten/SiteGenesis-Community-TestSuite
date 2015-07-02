@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://xlt.xceptance.com/xlt-script-data">
+  <WishListUser_firstName>${WishListUser_FirstName}</WishListUser_firstName>
+  <WishListUser_lastName>${WishListUser_LastName}</WishListUser_lastName>
+  <WishListSearcher_firstName>Jane</WishListSearcher_firstName>
+  <WishListSearcher_lastName>Searcher</WishListSearcher_lastName>
+  <productNumber>${productNumber_typeOptionProduct}</productNumber>
+</data>

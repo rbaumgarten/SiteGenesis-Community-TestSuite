@@ -36,11 +36,11 @@
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="email" value="${email_varDynamic}"/>
-    <parameter name="password" value="${password_varDynamic}"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value=""/>
+    <parameter name="lastname" value=""/>
+    <parameter name="email" value=""/>
+    <parameter name="password" value=""/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>## ProductDetailPage
@@ -48,5 +48,47 @@
 - Search
 - Store product details
 - Add to wishlist</codecomment>
+  <action name="LogIn"/>
   <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumberFirst}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumberSecond}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumberThird}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
 </testcase>
