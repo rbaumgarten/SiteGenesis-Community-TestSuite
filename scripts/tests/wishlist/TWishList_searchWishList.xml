@@ -97,5 +97,33 @@
   <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
   <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
   <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
-  <command name="clickAndWait" target="document.forms[2].dwfrm_wishlist_search_search"/>
+  <action name="ClickSearchWishList"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <action name="ClickView"/>
+  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
+  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <action name="GOTOSearchWishList"/>
+  <command name="clickAndWait" target="css=#secondary.nav nav div.secondary-navigation div.content-asset ul:nth-of-type(3) li:nth-of-type(2) a"/>
+  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
+  <action name="ClickSearchWishList"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <action name="ClickView"/>
+  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
+  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
 </testcase>
