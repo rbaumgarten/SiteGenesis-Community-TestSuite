@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <firstname>${billingAddress_firstname}</firstname>
+  <firstname>${WishListUser_FirstName}</firstname>
   <lastname>${WishListUser_LastName}</lastname>
   <productNumberFirst>easports-monopoly-ps3</productNumberFirst>
   <productNumberSecond>sega-bass-fishing-wii</productNumberSecond>

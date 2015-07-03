@@ -37,10 +37,10 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value=""/>
-    <parameter name="lastname" value=""/>
-    <parameter name="email" value=""/>
-    <parameter name="password" value=""/>
+    <parameter name="firstname" value="${firstname}"/>
+    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="email" value="${email_varDynamic}"/>
+    <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>## ProductDetailPage
@@ -48,7 +48,6 @@
 - Search
 - Store product details
 - Add to wishlist</codecomment>
-  <action name="LogIn"/>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumberFirst}"/>
