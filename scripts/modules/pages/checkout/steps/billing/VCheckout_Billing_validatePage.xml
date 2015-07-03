@@ -30,6 +30,6 @@
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .checkout-mini-cart"/>
   <command name="assertElementPresent" target="css=#main #secondary.nav.summary .checkout-order-totals"/>
   <codecomment>Validate secondary fieldset shipping address</codecomment>
-  <command name="assertElementPresent" disabled="true" target="css=#main #secondary.nav.summary .mini-shipment .section-header .section-header-note"/>
-  <command name="assertElementPresent" disabled="true" target="css=#main #secondary.nav.summary .mini-shipment .details"/>
+  <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-shipment .section-header .section-header-note"/>
+  <command name="assertElementPresent" target="css=#main #secondary.nav.summary .mini-shipment .details"/>
 </scriptmodule>
