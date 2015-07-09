@@ -54,12 +54,12 @@
   </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productName_varName" value="firstProductName"/>
+    <parameter name="productNumber_varName" value="firstProductNumber"/>
+    <parameter name="productPriceSales_varName" value="firstProductPriceSales"/>
   </module>
   <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productQuantity_varName" value="firstProductQuantity"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
   <action name="Search"/>
@@ -68,12 +68,12 @@
   </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productName_varName" value="secondProductName"/>
+    <parameter name="productNumber_varName" value="secondProductNumber"/>
+    <parameter name="productPriceSales_varName" value="secondProductPriceSales"/>
   </module>
   <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productQuantity_varName" value="secondProductQuantity"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
   <action name="Search"/>
@@ -82,12 +82,110 @@
   </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productName_varName" value="thirdProductName"/>
+    <parameter name="productNumber_varName" value="thirdProductNumber"/>
+    <parameter name="productPriceSales_varName" value="thirdProductPriceSales"/>
   </module>
   <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productQuantity_varName" value="thirdProductQuantity"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${firstProductName}"/>
+    <parameter name="productNumber" value="${firstProductNumber}"/>
+    <parameter name="productQuantity" value="${firstProductQuantity}"/>
+    <parameter name="productPriceSales" value="${firstProductPriceSales}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="${secondProductQuantity}"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="3"/>
+    <parameter name="productName" value="${thirdProductName}"/>
+    <parameter name="productNumber" value="${thirdProductNumber}"/>
+    <parameter name="productQuantity" value="${thirdProductQuantity}"/>
+    <parameter name="productPriceSales" value="${thirdProductPriceSales}"/>
+  </module>
+  <action name="UpdateQuantity"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+    <parameter name="row" value="2"/>
+    <parameter name="quantity" value="4"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="4"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <action name="UpdateQuantity"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+    <parameter name="row" value="2"/>
+    <parameter name="quantity" value="5"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="5"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <action name="UpdateQuantity"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+    <parameter name="row" value="2"/>
+    <parameter name="quantity" value="${secondProductQuantity}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="${secondProductQuantity}"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <action name="LogOut"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <action name="GoToLogIn"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
+  <action name="LogIn"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <comment>Enter email and wrong password.</comment>
+    <parameter name="email" value="${email_varDynamic}"/>
+    <parameter name="password" value="${password_varDynamic}"/>
+  </module>
+  <action name="GoToWishList"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
+  <action name="RemoveProduct"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="${secondProductQuantity}"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <action name="RemoveProduct"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="2"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="${secondProductQuantity}"/>
+    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+  </module>
+  <action name="RemoveProductFromWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
