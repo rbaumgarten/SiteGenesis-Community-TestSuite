@@ -82,4 +82,15 @@
   </module>
   <action name="GoToWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
+  <command name="click" target="css=#primary.primary-content table.item-list tbody tr td.item-dashboard form fieldset div.option-add-to-cart button.button-fancy-small.add-to-cart"/>
+  <command name="waitForVisible" target="css=#mini-cart div.mini-cart-content"/>
+  <action name="GoToCart"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
 </testcase>

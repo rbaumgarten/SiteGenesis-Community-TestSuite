@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>smoke</tags>
+  <description>Test add product to wishlist.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create new account
+- Search product 01
+
+# 2. Scope of test
+
+- Store product details and add to wishlist
+- Login
+- Validate nav and page
+- Add product to wishlist
+- Validate product basic details
+- Remove product 
+- Validate empty
+- do it again for QV
+
+# 3. Clean up
+
+- Logout
+- End session and clean up created cookies</description>
+  <codecomment># Setup
+
+- Create mail for User and Searcher
+- Create password for User and Searcher
+- Start session
+- Create account</codecomment>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListUser_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListUser_password"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListSearcher_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListSearcher_password"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${WishListUser_firstName}"/>
+    <parameter name="lastname" value="${WishListUser_lastName}"/>
+    <parameter name="email" value="${WishListUser_email}"/>
+    <parameter name="password" value="${WishListUser_password}"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>## ProductDetailPage
+
+- Search
+- Store product details
+- Add to wishlist</codecomment>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <codecomment>## Wishlist
+
+- Login
+- Validate nav and page
+- Validate product details
+- Remove product
+- Validate empty wishlist</codecomment>
+  <action name="MakeListPublic"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_share.list-share button.share-option"/>
+  <action name="Logout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>## Wishlist Search
+
+- create new User
+- search WishList from WischListUser</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${WishListSearcher_firstName}"/>
+    <parameter name="lastname" value="${WishListSearcher_lastName}"/>
+    <parameter name="email" value="${WishListSearcher_email}"/>
+    <parameter name="password" value="${WishListSearcher_password}"/>
+  </module>
+  <action name="ClickUserButton"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <action name="OpenWishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
+  <action name="ClickSearchWishList"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <action name="ClickView"/>
+  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
+  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <action name="GOTOSearchWishList"/>
+  <command name="clickAndWait" target="css=#secondary.nav nav div.secondary-navigation div.content-asset ul:nth-of-type(3) li:nth-of-type(2) a"/>
+  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
+  <action name="ClickSearchWishList"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <action name="ClickView"/>
+  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
+  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+</testcase>
