@@ -63,13 +63,6 @@
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <codecomment>## Wishlist
-
-- Login
-- Validate nav and page
-- Validate product details
-- Remove product
-- Validate empty wishlist</codecomment>
   <action name="Login"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
     <parameter name="email" value="${email_varDynamic}"/>
@@ -93,7 +86,8 @@
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
-  <codecomment>## Add to Wishlist from Quickview</codecomment>
+  <codecomment>## Catalog
+- goto product</codecomment>
   <action name="GoToStartPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
   <action name="CategoryLevel1"/>
@@ -113,6 +107,10 @@
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${plainProductName}"/>
   </module>
+  <codecomment>## Quickview
+
+- store product details
+- add product to cart</codecomment>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>

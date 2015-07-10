@@ -89,4 +89,6 @@
     <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
   </module>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

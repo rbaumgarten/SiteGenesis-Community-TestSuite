@@ -95,4 +95,6 @@
   <action name="ClickClose"/>
   <command name="click" target="css=#send-to-friend-dialog button.close-button"/>
   <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>

@@ -12,22 +12,14 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
  * <li>Create new account</li>
- * <li>Search product 01</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>Store product details and add to wishlist</li>
- * <li>Login</li>
- * <li>Validate nav and page</li>
- * <li>Add product to wishlist</li>
- * <li>Validate product basic details</li>
- * <li>Remove product 01</li>
- * <li>Validate empty</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>Logout</li>
- * <li>End session and clean up created cookies</li>
+ * <li>add three differnt products and store the product data</li>
+ * <li>change the quantity three times</li>
+ * <li>logout and log in</li>
+ * <li>remove products</li>
+ * <li>remove the products</li>
  * </ul>
  */
 @ScriptName

@@ -7,22 +7,14 @@
 
 - Start session, open homepage and delete all visible cookies
 - Create new account
-- Search product 01
 
 # 2. Scope of test
 
-- Store product details and add to wishlist
-- Login
-- Validate nav and page
-- Add product to wishlist
-- Validate product basic details
-- Remove product 01
-- Validate empty
-
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+- add three differnt products and store the product data
+- change the quantity three times
+- logout and log in
+- remove products
+- remove the products</description>
   <codecomment># Setup
 
 - Create mail
@@ -90,6 +82,10 @@
     <parameter name="productQuantity_varName" value="thirdProductQuantity"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <codecomment>## WishList
+
+- validate product datas
+- change Quantitys</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${firstProductName}"/>
@@ -147,6 +143,10 @@
     <parameter name="productQuantity" value="${secondProductQuantity}"/>
     <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
   </module>
+  <codecomment>## Change login stat
+- logout
+- login
+- goto WishList</codecomment>
   <action name="LogOut"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <action name="GoToLogIn"/>
@@ -159,6 +159,9 @@
   </module>
   <action name="GoToWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
+  <codecomment>## WishList
+
+- remove products</codecomment>
   <action name="RemoveProduct"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
