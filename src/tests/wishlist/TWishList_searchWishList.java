@@ -32,7 +32,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.wishlist.TWishList_searchWishList")
-public class TWishList_searchWishList extends AbstractScriptTestCase
+("tests.wishlist.TWishList_SearchWishList")
+public class TWishList_SearchWishList extends AbstractScriptTestCase
 {
 }
