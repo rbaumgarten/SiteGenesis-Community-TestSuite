@@ -8,22 +8,16 @@
 - Start session, open homepage and delete all visible cookies
 - Create new account
 - Search product 01
+- add product to wishlist 
+- make wishlist public 
+- logout
 
 # 2. Scope of test
 
-- Store product details and add to wishlist
-- Login
-- Validate nav and page
-- Add product to wishlist
-- Validate product basic details
-- Remove product 
-- Validate empty
-- do it again for QV
+-create a new user
+- search for the created wishlist (public)
 
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+ </description>
   <codecomment># Setup
 
 - Create mail for User and Searcher
@@ -49,12 +43,6 @@
     <parameter name="email" value="${WishListUser_email}"/>
     <parameter name="password" value="${WishListUser_password}"/>
   </module>
-  <codecomment># Scope</codecomment>
-  <codecomment>## ProductDetailPage
-
-- Search
-- Store product details
-- Add to wishlist</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
@@ -80,6 +68,7 @@
   <command name="clickAndWait" target="css=#dwfrm_wishlist_share.list-share button.share-option"/>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment># Scope</codecomment>
   <codecomment>## Wishlist Search
 
 - create new User

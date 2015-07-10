@@ -11,25 +11,20 @@
 
 # 2. Scope of test
 
-- Store product details and add to wishlist
-- Login
-- Validate nav and page
-- Add product to wishlist
-- Validate product basic details
-- Remove product 
-- Validate empty
-- do it again for QV
+- add product to wishlist
+- click send to friend 
+- cancel form
+- click send to friend
+- click preview
 
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+</description>
   <codecomment># Setup
 
 - Create mail for User and Searcher
 - Create password for User and Searcher
 - Start session
-- Create account</codecomment>
+- Create account
+- add product to wishlist</codecomment>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_sender"/>
   </module>
@@ -39,28 +34,13 @@
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_receiver"/>
   </module>
-  <module name="modules.helper.MHelper_Random_createPassword">
-    <parameter name="password_varName" value="password_receiver"/>
-  </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
-    <parameter name="firstname" value="${firstName_receiver}"/>
-    <parameter name="lastname" value="${lastName_receiver}"/>
-    <parameter name="email" value="${email_receiver}"/>
-    <parameter name="password" value="${password_receiver}"/>
-  </module>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
     <parameter name="firstname" value="${firstName_sender}"/>
     <parameter name="lastname" value="${lastName_sender}"/>
     <parameter name="email" value="${email_sender}"/>
     <parameter name="password" value="${password_sender}"/>
   </module>
-  <codecomment># Scope</codecomment>
-  <codecomment>## ProductDetailPage
-
-- Search
-- Store product details
-- Add to wishlist</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
@@ -75,61 +55,44 @@
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <codecomment>## Wishlist
+  <codecomment># Scope</codecomment>
+  <codecomment>## WishList
 
-- Login
-- Validate nav and page
-- Validate product details
-- Remove product
-- Validate empty wishlist</codecomment>
-  <action name="MakeListPublic"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_share.list-share button.share-option"/>
-  <action name="Logout"/>
-  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
-  <codecomment>## Wishlist Search
-
-- create new User
-- search WishList from WischListUser</codecomment>
-  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${WishListSearcher_firstName}"/>
-    <parameter name="lastname" value="${WishListSearcher_lastName}"/>
-    <parameter name="email" value="${WishListSearcher_email}"/>
-    <parameter name="password" value="${WishListSearcher_password}"/>
-  </module>
-  <action name="ClickUserButton"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <action name="OpenWishList"/>
-  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
-  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
-  <action name="ClickSearchWishList"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
-  <action name="ClickView"/>
-  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
-  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
-  </module>
-  <action name="GOTOSearchWishList"/>
-  <command name="clickAndWait" target="css=#secondary.nav nav div.secondary-navigation div.content-asset ul:nth-of-type(3) li:nth-of-type(2) a"/>
-  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
-  <action name="ClickSearchWishList"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
-  <action name="ClickView"/>
-  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
-  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
-  </module>
+- Send to Friend</codecomment>
+  <action name="ClickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <action name="ClickCancel"/>
+  <command name="click" target="css=#send-to-friend-main fieldset div button.cancel"/>
+  <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
+  <action name="ClickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsname" value="${firstName_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsemail" value="${email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_confirmfriendsemail" value="${email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_message" value="Take a look into my wishlist"/>
+  <action name="ClickPreview"/>
+  <command name="click" target="css=#send-to-friend-main fieldset div button.preview-button"/>
+  <command name="waitForText" target="css=#send-to-friend-main fieldset h2" value="Review Your Message"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset p" value="Once you have reviewed your message you can edit or send by clicking the buttons below"/>
+  <command name="assertElementPresent" target="css=#send-to-friend-main fieldset div.send-to-friend-product"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset div.send-to-friend-product dd:nth-of-type(1)" value="${firstName_receiver}*${email_receiver}"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset div.send-to-friend-product dd:nth-of-type(2)" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
+  <action name="ClickSend"/>
+  <command name="click" target="css=#send-to-friend-form div button.send-button"/>
+  <command name="waitForText" target="css=#send-to-friend-dialog.dialog-content.ui-dialog-content.ui-widget-content h2 " value="Your message has been sent."/>
+  <action name="ClickClose"/>
+  <command name="click" target="css=#send-to-friend-dialog button.close-button"/>
+  <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
+  <action name="ClickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsname" value="${firstName_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsemail" value="${email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_confirmfriendsemail" value="${email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_message" value="Take a look into my wishlist"/>
+  <action name="ClickSend"/>
+  <command name="click" target="css=#send-to-friend-main fieldset div button.send-button"/>
+  <command name="waitForText" target="css=#send-to-friend-dialog.dialog-content.ui-dialog-content.ui-widget-content h2 " value="Your message has been sent."/>
+  <action name="ClickClose"/>
+  <command name="click" target="css=#send-to-friend-dialog button.close-button"/>
+  <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
 </testcase>

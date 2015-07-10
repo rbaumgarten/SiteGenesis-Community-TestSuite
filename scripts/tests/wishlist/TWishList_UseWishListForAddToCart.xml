@@ -29,7 +29,10 @@
 - Create mail
 - Create password
 - Start session
-- Create account</codecomment>
+- Create account
+- Search Product
+- Add Product to WishList
+- Logout</codecomment>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
@@ -43,12 +46,6 @@
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <codecomment># Scope</codecomment>
-  <codecomment>## ProductDetailPage
-
-- Search
-- Store product details
-- Add to wishlist</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
@@ -63,15 +60,14 @@
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <codecomment>## Wishlist
-
-- Login
-- Validate nav and page
-- Validate product details
-- Remove product
-- Validate empty wishlist</codecomment>
   <action name="LogOut"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Wishlist
+
+- login 
+- add product to cart 
+- validate cart</codecomment>
   <action name="GoToLogIn"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
   <action name="LogIn"/>

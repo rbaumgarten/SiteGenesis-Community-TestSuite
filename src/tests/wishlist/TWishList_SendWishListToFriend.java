@@ -16,19 +16,11 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>Store product details and add to wishlist</li>
- * <li>Login</li>
- * <li>Validate nav and page</li>
- * <li>Add product to wishlist</li>
- * <li>Validate product basic details</li>
- * <li>Remove product </li>
- * <li>Validate empty</li>
- * <li>do it again for QV</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>Logout</li>
- * <li>End session and clean up created cookies</li>
+ * <li>add product to wishlist</li>
+ * <li>click send to friend </li>
+ * <li>cancel form</li>
+ * <li>click send to friend</li>
+ * <li>click preview</li>
  * </ul>
  */
 @ScriptName

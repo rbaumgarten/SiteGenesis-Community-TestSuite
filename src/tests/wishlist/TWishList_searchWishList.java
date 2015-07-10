@@ -13,22 +13,14 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Start session, open homepage and delete all visible cookies</li>
  * <li>Create new account</li>
  * <li>Search product 01</li>
+ * <li>add product to wishlist </li>
+ * <li>make wishlist public </li>
+ * <li>logout</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
+ * <p>-create a new user</p>
  * <ul>
- * <li>Store product details and add to wishlist</li>
- * <li>Login</li>
- * <li>Validate nav and page</li>
- * <li>Add product to wishlist</li>
- * <li>Validate product basic details</li>
- * <li>Remove product </li>
- * <li>Validate empty</li>
- * <li>do it again for QV</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>Logout</li>
- * <li>End session and clean up created cookies</li>
+ * <li>search for the created wishlist (public)</li>
  * </ul>
  */
 @ScriptName
