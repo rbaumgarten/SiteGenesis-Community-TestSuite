@@ -31,23 +31,29 @@
 - Start session
 - Create account</codecomment>
   <module name="modules.helper.MHelper_Random_createEmail">
-    <parameter name="email_varName" value="WishListUser_email"/>
+    <parameter name="email_varName" value="email_sender"/>
   </module>
   <module name="modules.helper.MHelper_Random_createPassword">
-    <parameter name="password_varName" value="WishListUser_password"/>
+    <parameter name="password_varName" value="password_sender"/>
   </module>
   <module name="modules.helper.MHelper_Random_createEmail">
-    <parameter name="email_varName" value="WishListSearcher_email"/>
+    <parameter name="email_varName" value="email_receiver"/>
   </module>
   <module name="modules.helper.MHelper_Random_createPassword">
-    <parameter name="password_varName" value="WishListSearcher_password"/>
+    <parameter name="password_varName" value="password_receiver"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
+    <parameter name="firstname" value="${firstName_receiver}"/>
+    <parameter name="lastname" value="${lastName_receiver}"/>
+    <parameter name="email" value="${email_receiver}"/>
+    <parameter name="password" value="${password_receiver}"/>
+  </module>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${WishListUser_firstName}"/>
-    <parameter name="lastname" value="${WishListUser_lastName}"/>
-    <parameter name="email" value="${WishListUser_email}"/>
-    <parameter name="password" value="${WishListUser_password}"/>
+    <parameter name="firstname" value="${firstName_sender}"/>
+    <parameter name="lastname" value="${lastName_sender}"/>
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="password" value="${password_sender}"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>## ProductDetailPage
