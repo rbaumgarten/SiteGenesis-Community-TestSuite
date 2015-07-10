@@ -31,7 +31,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.wishlist.TWishList_MenageWishList")
-public class TWishList_MenageWishList extends AbstractScriptTestCase
+("tests.wishlist.TWishList_ManageWishList")
+public class TWishList_ManageWishList extends AbstractScriptTestCase
 {
 }
