@@ -220,7 +220,11 @@
     <parameter name="postalCode" value="${postalCode_03}"/>
     <parameter name="phone" value="${phone_03}"/>
   </module>
-  <module name="modules.pages.account.addressbook.MAccount_AddressBook_Dialog_clickApply"/>
+  <module name="modules.pages.account.addressbook.MAccount_AddressBook_Dialog_clickApply">
+    <parameter name="position" value="2"/>
+    <parameter name="title" value="${title_03}"/>
+  </module>
+  <action name="TEST"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddress">
     <parameter name="position" value="2"/>
     <parameter name="title" value="${title_03}"/>

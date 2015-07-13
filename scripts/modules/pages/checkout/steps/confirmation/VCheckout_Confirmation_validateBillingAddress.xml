@@ -11,7 +11,7 @@
   <parameter name="country" desc="country"/>
   <parameter name="phone" desc="phone"/>
   <codecomment>Validate column billing address</codecomment>
-  <command name="waitForText" target="css=#main #primary .order-confirmation-details .item-list .order-billing .mini-address-name" value="@{firstname} @{lastname}"/>
+  <command name="assertText" target="css=#main #primary .order-confirmation-details .item-list .order-billing .mini-address-name" value="@{firstname} @{lastname}"/>
   <command name="assertText" target="css=#main #primary .order-confirmation-details .item-list .order-billing .mini-address-location address" value="*@{address1}*"/>
   <command name="assertText" target="css=#main #primary .order-confirmation-details .item-list .order-billing .mini-address-location address" value="*@{address2}*"/>
   <command name="assertText" target="css=#main #primary .order-confirmation-details .item-list .order-billing .mini-address-location address" value="*@{city}*@{statesStateShort}*@{postalCode}*"/>

@@ -3,10 +3,5 @@
   <description>Validate customer name on MyAccount page.</description>
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
-  <command name="waitForElementPresent" target="css=#primary h1"/>
-  <command name="waitForText" target="css=#primary h1" value="*My Account |*@{firstname}*@{lastname}*"/>
-  <command name="assertText" disabled="true" target="css=#navigation .menu-utility-user .user-info .user-account" value="regexpi:@{firstname} @{lastname}"/>
-  <command name="assertText" disabled="true" target="css=#navigation .menu-utility-user .user-info a.not-user" value="regexpi:\( NOT @{firstname}\? \)">
-    <comment>escape special chars as question mark and brackets with backslash</comment>
-  </command>
+  <command name="assertText" target="css=#primary h1" value="*My Account |*@{firstname}*@{lastname}*"/>
 </scriptmodule>

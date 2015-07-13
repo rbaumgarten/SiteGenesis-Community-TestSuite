@@ -6,5 +6,4 @@
   <command name="waitForElementPresent" target="id=q"/>
   <command name="type" target="id=q" value="@{searchText}"/>
   <command name="submitAndWait" target="name=simpleSearch"/>
-  <action name="MSearch_enterTextAndSubmit_MobilePhoneSize-0"/>
 </scriptmodule>

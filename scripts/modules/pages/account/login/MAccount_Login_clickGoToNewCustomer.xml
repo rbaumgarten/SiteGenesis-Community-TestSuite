@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click and go to new customer on account login page.</description>
   <action name="Account_Login_clickGoToNewCustomer"/>
-  <command name="waitForElementPresent" target="css=.menu-utility-user li.user-info.active div.user-panel div.user-links a:last-of-type"/>
+  <command name="waitForElementPresent" disabled="true" target="css=.menu-utility-user li.user-info.active div.user-panel div.user-links a:last-of-type"/>
   <command name="clickAndWait" target="css=.menu-utility-user li.user-info.active div.user-panel div.user-links a:last-of-type"/>
 </scriptmodule>

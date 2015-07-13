@@ -5,7 +5,7 @@
   <parameter name="prevButtonState" desc="State of the previous button, full CSS piece here"/>
   <parameter name="nextButtonState" desc="State of the next button, full CSS piece here"/>
   <codecomment>Title</codecomment>
-  <command name="waitForElementPresent" target="css=.ui-dialog #ui-id-1.ui-dialog-title">
+  <command name="assertElementPresent" target="css=.ui-dialog #ui-id-1.ui-dialog-title">
     <comment>Check the title of the QV dialog. </comment>
   </command>
   <command name="assertElementPresent" target="css=.ui-dialog button.ui-dialog-titlebar-close">

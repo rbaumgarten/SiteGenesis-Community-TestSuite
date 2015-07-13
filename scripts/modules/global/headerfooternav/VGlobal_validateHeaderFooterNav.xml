@@ -2,7 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate header, footer and navigation.</description>
   <codecomment>Validate header</codecomment>
-  <command name="waitForElementPresent" target="css=h1.primary-logo a img"/>
   <command name="assertElementPresent" target="css=#mini-cart"/>
   <codecomment>Validate header banner</codecomment>
   <command name="assertElementPresent" target="css= .header-banner .header-promotion"/>

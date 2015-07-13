@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate account navigation.</description>
   <codecomment>Account secondary navigation</codecomment>
-  <command name="pause" value="500">
+  <command name="pause" disabled="true" value="500">
     <comment>Normally we should not pause, but the DOM seems to be active in the background and we do not have a change to react to that.</comment>
   </command>
   <command name="waitForElementPresent" target="css=#secondary.nav nav .secondary-navigation"/>

@@ -10,7 +10,7 @@
   <parameter name="paymentAmount" desc="payment amount"/>
   <codecomment>Validate box mini payment</codecomment>
   <command name="store" target="css=#main #secondary .mini-payment-instrument .details" value="css_box_mini_payment"/>
-  <command name="waitForText" target="${css_box_mini_payment} div:nth-of-type(1)" value="@{paymentName}"/>
+  <command name="assertText" target="${css_box_mini_payment} div:nth-of-type(1)" value="@{paymentName}"/>
   <command name="assertText" target="${css_box_mini_payment}" value="*@{owner}*"/>
   <command name="assertText" target="${css_box_mini_payment}" value="*@{typeShort}*"/>
   <codecomment>Validate hidden creditcard number with only last four digits shown</codecomment>

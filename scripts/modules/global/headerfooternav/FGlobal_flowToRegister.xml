@@ -2,6 +2,8 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click on User Button
 Choose Register in drop down menu</description>
+  <action name="OpenUserPanel"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <action name="GotoCreateAccount"/>
   <module name="modules.global.headerfooternav.MGlobal_UserMenu_clickRegister"/>
 </scriptmodule>

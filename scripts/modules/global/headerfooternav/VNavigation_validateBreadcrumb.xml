@@ -2,6 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate the text of the entire breadcrumb by content. The displayed / are not part of it.</description>
   <parameter name="breadcrumbPath" desc="The full text in the breadcrumb."/>
-  <command name="waitForElementPresent" target="css=#main .breadcrumb"/>
   <command name="assertText" target="css=#main .breadcrumb" value="@{breadcrumbPath}"/>
 </scriptmodule>

@@ -15,7 +15,7 @@
   <codecomment>Validate column shipping</codecomment>
   <command name="store" target="css=#main #primary .order-confirmation-details .order-shipment-table .order-shipment-details" value="css_column_shipping"/>
   <codecomment>Validate shipping address</codecomment>
-  <command name="waitForText" target="${css_column_shipping} .order-shipment-address .firstname" value="@{firstname}"/>
+  <command name="assertText" target="${css_column_shipping} .order-shipment-address .firstname" value="@{firstname}"/>
   <command name="assertText" target="${css_column_shipping} .order-shipment-address .lastname" value="@{lastname}"/>
   <command name="assertText" target="${css_column_shipping} .order-shipment-address .street" value="*@{address1}*@{address2}*"/>
   <command name="assertText" target="${css_column_shipping} .order-shipment-address .location" value="*@{city}*@{statesStateShort}*@{postalCode}*"/>

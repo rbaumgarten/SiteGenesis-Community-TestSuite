@@ -10,7 +10,7 @@
   <parameter name="paymentAmount" desc="payment amount"/>
   <codecomment>Validate column payment method</codecomment>
   <command name="store" target="css=#main #primary .order-confirmation-details .item-list .order-payment-instruments " value="css_column_payment_creditcard"/>
-  <command name="waitForText" target="${css_column_payment_creditcard} .payment-type" value="@{paymentName}"/>
+  <command name="assertText" target="${css_column_payment_creditcard} .payment-type" value="@{paymentName}"/>
   <command name="assertText" target="${css_column_payment_creditcard}" value="*@{owner}*"/>
   <command name="assertText" target="${css_column_payment_creditcard}" value="*@{typeShort}*"/>
   <codecomment>Validate hidden creditcard number with only last four digits shown</codecomment>

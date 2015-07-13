@@ -37,7 +37,6 @@
 - Go to homepage</codecomment>
   <action name="Logout"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
-  <module name="modules.global.headerfooternav.MGlobal_Header_clickLogoutViaNotCustomerName" disabled="true"/>
   <action name="GoToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
 </scriptmodule>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click logout via customer name in header.</description>
-  <command name="waitForElementPresent" target="css=#navigation .menu-utility-user .user-info a.not-user"/>
   <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info a.not-user"/>
   <codecomment>Valdiate logout finished</codecomment>
-  <command name="waitForText" target="css=#navigation .menu-utility-user .user-info .user-login" value="*LOGIN*"/>
+  <command name="assertText" target="css=#navigation .menu-utility-user .user-info .user-login" value="*LOGIN*"/>
 </scriptmodule>

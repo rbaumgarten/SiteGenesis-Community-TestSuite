@@ -25,5 +25,4 @@
     <parameter name="email" value="@{email}"/>
     <parameter name="password" value="@{password}"/>
   </module>
-  <command name="waitForElementPresent" target="css=.account-logout"/>
 </scriptmodule>

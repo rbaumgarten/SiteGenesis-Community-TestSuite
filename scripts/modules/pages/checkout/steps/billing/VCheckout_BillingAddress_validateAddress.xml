@@ -11,7 +11,7 @@
   <parameter name="postalCode" desc="postal code"/>
   <parameter name="phone" desc="phone"/>
   <command name="store" target="css=#dwfrm_billing_billingAddress" value="css_billing"/>
-  <command name="waitForElementPresent" target="${css_billing}_addressFields_firstName"/>
+  <command name="waitForElementPresent" disabled="true" target="${css_billing}_addressFields_firstName"/>
   <command name="waitForText" target="${css_billing}_addressFields_firstName" value="@{firstname}"/>
   <command name="assertText" target="${css_billing}_addressFields_lastName" value="@{lastname}"/>
   <command name="assertText" target="${css_billing}_addressFields_address1" value="@{address1}"/>

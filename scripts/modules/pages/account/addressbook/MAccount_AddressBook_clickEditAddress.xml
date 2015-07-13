@@ -3,4 +3,7 @@
   <description>Click edit details.</description>
   <parameter name="position" desc="position"/>
   <command name="click" target="css=#main #primary #addresses .address-list li:nth-of-type(@{position}) a.address-edit"/>
+  <command name="waitForVisible" target="css=#dialog-container #edit-address-form">
+    <comment>The overlay with the form should appear. This is async JavaScript triggered, hence we have to wait until we see it.</comment>
+  </command>
 </scriptmodule>

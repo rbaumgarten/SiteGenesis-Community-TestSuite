@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate customer name for MyAccount page</description>
   <parameter name="customerName"/>
-  <command name="waitForElementPresent" target="id=primary"/>
-  <command name="waitForText" target="css=#primary h1" value="My Account**@{customerName}"/>
+  <command name="waitForElementPresent" disabled="true" target="id=primary"/>
+  <command name="assertText" target="css=#primary h1" value="My Account**@{customerName}"/>
 </scriptmodule>

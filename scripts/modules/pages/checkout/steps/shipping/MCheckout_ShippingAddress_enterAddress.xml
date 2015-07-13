@@ -11,7 +11,7 @@
   <parameter name="postalCode" desc="postal code"/>
   <parameter name="phone" desc="phone"/>
   <command name="store" target="css=#dwfrm_singleshipping_shippingAddress" value="css_shipping"/>
-  <command name="waitForElementPresent" target="${css_shipping}_addressFields_firstName"/>
+  <command name="waitForElementPresent" disabled="true" target="${css_shipping}_addressFields_firstName"/>
   <codecomment>Enter shipping data</codecomment>
   <command name="type" target="${css_shipping}_addressFields_firstName" value="@{firstname}"/>
   <command name="type" target="${css_shipping}_addressFields_lastName" value="@{lastname}"/>
