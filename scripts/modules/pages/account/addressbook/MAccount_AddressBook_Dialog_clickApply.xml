@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click apply data in address details dialog.</description>
+  <parameter name="position"/>
+  <parameter name="title"/>
   <command name="clickAndWait" target="css=button.apply-button[type=&quot;submit&quot;]"/>
+  <command name="waitForNotVisible" target="css=#dialog-container #edit-address-form">
+    <comment>The overlay with the form should appear go away after applying.</comment>
+  </command>
+  <command name="waitForText" target="css=#primary #addresses .address-list li:nth-of-type(@{position}) .mini-address-title" value="@{title}">
+    <comment>We have to wait until we see the change.</comment>
+  </command>
 </scriptmodule>
