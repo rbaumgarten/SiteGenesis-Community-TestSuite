@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adding a product bundle to the cart from quickview and product detail pages.
+  <description>Tests adding a product bundle from quickview and product detail pages to the cart.
 
 # Setup
 
 - open the session
-- search for possible products
+- search for products
 - open quickview
 
 # Scope
@@ -20,24 +20,17 @@
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Search for Mario to get a standart product</codecomment>
-  <action name="SearchForStandartProduct"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment>Go to QV of the first Game</codecomment>
-  <action name="GoToQuickView"/>
+  <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Cart
-
-Validate Add 2 Cart from QV and PDP and check if the same product is added
-- First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
-- validate if all bundle products are shown in the cart
-- Second add product from PDP and verify if the same product in cart is shown
-- validate if all bundle products are shown in the cart</codecomment>
-  <codecomment>Store the names of every bundle product 
+  <codecomment>Store the names of every bundled product 
 Caution: The product should have at least 5 elements</codecomment>
   <command name="storeText" target="css=.product-set form div:nth-of-type(1) div.product-set-details h1.product-name a.item-name" value="firstProductName"/>
   <command name="storeText" target="css=.product-set form div:nth-of-type(2) div.product-set-details h1.product-name a.item-name" value="secondProductName"/>
@@ -50,10 +43,10 @@ Caution: The product should have at least 5 elements</codecomment>
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
   <action name="AddToCart"/>
-  <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
+  <codecomment>After clicking the Add to Cart Button the QV should become invisible</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <command name="waitForNotVisible" target="id=pdpMain"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -69,18 +62,18 @@ Caution: The product should have at least 5 elements</codecomment>
   <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(5) td.item-details div.name a" value="${fourthProductName}"/>
   <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(6) td.item-details div.name a" value="${fifthProductName}"/>
   <module name="modules.pages.cart.VCart_validatePage"/>
-  <action name="DeleteQVProduct"/>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
-  <action name="SerchProductviaStoredProductNumber"/>
+  <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
-  <action name="AddProductToCartPDP"/>
+  <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>

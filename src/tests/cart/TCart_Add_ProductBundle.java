@@ -7,11 +7,11 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test adding a product bundle to the cart from quickview and product detail pages.</p>
+ * <p>Tests adding a product bundle from quickview and product detail pages to the cart.</p>
  * <h1 id="setup">Setup</h1>
  * <ul>
  * <li>open the session</li>
- * <li>search for possible products</li>
+ * <li>search for products</li>
  * <li>open quickview</li>
  * </ul>
  * <h1 id="scope">Scope</h1>
