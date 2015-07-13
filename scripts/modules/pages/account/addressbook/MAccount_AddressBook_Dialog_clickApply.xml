@@ -4,7 +4,7 @@
   <parameter name="position"/>
   <parameter name="title"/>
   <command name="clickAndWait" target="css=button.apply-button[type=&quot;submit&quot;]"/>
-  <command name="waitForNotVisible" target="css=#dialog-container #edit-address-form">
+  <command name="waitForNotElementPresent" target="css=#dialog-container #edit-address-form">
     <comment>The overlay with the form should appear go away after applying.</comment>
   </command>
   <command name="waitForText" target="css=#primary #addresses .address-list li:nth-of-type(@{position}) .mini-address-title" value="@{title}">
