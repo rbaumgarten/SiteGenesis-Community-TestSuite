@@ -15,11 +15,10 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>add three differnt products and store the product data</li>
+ * <li>add three different products and store the product data</li>
  * <li>change the quantity three times</li>
  * <li>logout and log in</li>
  * <li>remove products</li>
- * <li>remove the products</li>
  * </ul>
  */
 @ScriptName
