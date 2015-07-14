@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test add product to wishlist.
+  <description>Test adding a product to a wishlist.
 
 # 1. Setup and preparation
 
@@ -19,11 +19,7 @@
 - Remove product 
 - Validate empty
 - do it again for QV
-
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+- log out</description>
   <codecomment># Setup
 
 - Create mail
@@ -49,7 +45,7 @@
 - Search
 - Store product details
 - Add to wishlist</codecomment>
-  <action name="Search"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
@@ -107,11 +103,6 @@
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${plainProductName}"/>
   </module>
-  <codecomment>## Quickview
-
-- store product details
-- add product to cart</codecomment>
-  <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -120,8 +111,8 @@
   <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
+  <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <action name="ViewWishList"/>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
     <parameter name="breadcrumbTitle" value="Wish List"/>
   </module>

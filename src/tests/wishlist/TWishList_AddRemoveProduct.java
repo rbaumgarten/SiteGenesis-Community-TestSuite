@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test add product to wishlist.</p>
+ * <p>Test adding a product to a wishlist.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
@@ -24,11 +24,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Remove product </li>
  * <li>Validate empty</li>
  * <li>do it again for QV</li>
- * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>Logout</li>
- * <li>End session and clean up created cookies</li>
+ * <li>log out</li>
  * </ul>
  */
 @ScriptName
