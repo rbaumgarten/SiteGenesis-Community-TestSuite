@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
+  <tags>wishlist</tags>
   <description>Test add product to wishlist.
 
 # 1. Setup and preparation
@@ -14,8 +14,8 @@
 
 # 2. Scope of test
 
--create a new user
-- search for the created wishlist (public)
+- create a new user
+- search for the previously created wishlist (public)
 
  </description>
   <codecomment># Setup
@@ -57,8 +57,8 @@
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <action name="MakeListPublic"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_share.list-share button.share-option"/>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <codecomment># Scope</codecomment>

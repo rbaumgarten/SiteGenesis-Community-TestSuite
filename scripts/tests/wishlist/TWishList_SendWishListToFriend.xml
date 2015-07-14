@@ -60,12 +60,12 @@
 
 - Send to Friend</codecomment>
   <action name="ClickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <action name="ClickCancel"/>
   <command name="click" target="css=#send-to-friend-main fieldset div button.cancel"/>
   <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
   <action name="ClickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <command name="type" target="id=dwfrm_sendtofriend_friendsname" value="${firstName_receiver}"/>
   <command name="type" target="id=dwfrm_sendtofriend_friendsemail" value="${email_receiver}"/>
   <command name="type" target="id=dwfrm_sendtofriend_confirmfriendsemail" value="${email_receiver}"/>
@@ -84,7 +84,7 @@
   <command name="click" target="css=#send-to-friend-dialog button.close-button"/>
   <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
   <action name="ClickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <command name="type" target="id=dwfrm_sendtofriend_friendsname" value="${firstName_receiver}"/>
   <command name="type" target="id=dwfrm_sendtofriend_friendsemail" value="${email_receiver}"/>
   <command name="type" target="id=dwfrm_sendtofriend_confirmfriendsemail" value="${email_receiver}"/>

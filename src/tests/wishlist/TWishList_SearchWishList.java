@@ -18,9 +18,9 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>logout</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
- * <p>-create a new user</p>
  * <ul>
- * <li>search for the created wishlist (public)</li>
+ * <li>create a new user</li>
+ * <li>search for the previously created wishlist (public)</li>
  * </ul>
  */
 @ScriptName
