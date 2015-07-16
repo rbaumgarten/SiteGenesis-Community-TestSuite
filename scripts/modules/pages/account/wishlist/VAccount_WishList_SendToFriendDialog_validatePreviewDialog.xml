@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates preview for the send to friend dialog</description>
   <parameter name="message_reciver"/>
   <parameter name="message_sender"/>
   <command name="assertText" target="css=#send-to-friend-main fieldset p" value="Once you have reviewed your message you can edit or send by clicking the buttons below"/>

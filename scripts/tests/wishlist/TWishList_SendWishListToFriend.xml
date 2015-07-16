@@ -67,7 +67,7 @@
   <codecomment>send via preview</codecomment>
   <action name="ClickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MWishList_SendToFriendDialg_enterData">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
     <parameter name="firstName_receiver" value="${firstName_receiver}"/>
     <parameter name="lastName_receiver" value="${lastName_receiver}"/>
     <parameter name="email_receiver" value="${email_receiver}"/>
@@ -86,7 +86,7 @@
   <codecomment>send without preview</codecomment>
   <action name="ClickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MWishList_SendToFriendDialg_enterData">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
     <parameter name="firstName_receiver" value="${firstName_receiver}"/>
     <parameter name="lastName_receiver" value="${lastName_receiver}"/>
     <parameter name="email_receiver" value="${email_receiver}"/>
