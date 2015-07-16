@@ -77,7 +77,7 @@
   <codecomment>search wishlist on modify wishlist page</codecomment>
   <action name="OpenWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
-  <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
     <parameter name="user_firstName" value="${WishListUser_firstName}"/>
     <parameter name="user_lastName" value="${WishListUser_lastName}"/>
     <parameter name="user_email" value="${WishListUser_email}"/>
@@ -96,7 +96,7 @@
   <codecomment>search wishlist on search wishlist page</codecomment>
   <action name="GOTOSearchWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
     <parameter name="user_firstName" value="${WishListUser_firstName}"/>
     <parameter name="user_lastName" value="${WishListUser_lastName}"/>
     <parameter name="user_email" value="${WishListUser_email}"/>
