@@ -85,7 +85,7 @@
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <action name="ClickView"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
@@ -104,7 +104,7 @@
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <action name="ClickView"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
