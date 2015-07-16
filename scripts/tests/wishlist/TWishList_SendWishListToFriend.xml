@@ -82,7 +82,7 @@
   <action name="ClickSend"/>
   <module name="modules.pages.account.wishlist.MWishList_clickSendButton"/>
   <action name="ClickClose"/>
-  <module name="modules.pages.account.wishlist.MWishList_SendToFriendDialog_clickCloseButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
   <codecomment>send without preview</codecomment>
   <action name="ClickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
@@ -95,7 +95,7 @@
   <action name="ClickSend"/>
   <module name="modules.pages.account.wishlist.MWishList_clickSendButton"/>
   <action name="ClickClose"/>
-  <module name="modules.pages.account.wishlist.MWishList_SendToFriendDialog_clickCloseButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
