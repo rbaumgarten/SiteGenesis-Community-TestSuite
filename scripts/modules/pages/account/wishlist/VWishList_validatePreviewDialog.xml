@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="message_reciver"/>
+  <parameter name="message_sender"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset p" value="Once you have reviewed your message you can edit or send by clicking the buttons below"/>
+  <command name="assertElementPresent" target="css=#send-to-friend-main fieldset div.send-to-friend-product"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset div.send-to-friend-product dd:nth-of-type(1)" value="@{message_reciver}"/>
+  <command name="assertText" target="css=#send-to-friend-main fieldset div.send-to-friend-product dd:nth-of-type(2)" value="@{message_sender}"/>
+</scriptmodule>

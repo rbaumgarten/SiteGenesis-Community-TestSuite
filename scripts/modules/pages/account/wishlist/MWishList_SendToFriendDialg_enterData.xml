@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="firstName_receiver"/>
+  <parameter name="lastName_receiver"/>
+  <parameter name="email_receiver"/>
+  <parameter name="massage_reciever"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsname" value="@{firstName_receiver} @{lastName_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_friendsemail" value="@{email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_confirmfriendsemail" value="@{email_receiver}"/>
+  <command name="type" target="id=dwfrm_sendtofriend_message" value="@{massage_reciever}"/>
+</scriptmodule>
