@@ -63,7 +63,7 @@
   <action name="ClickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <action name="ClickCancel"/>
-  <module name="modules.pages.account.wishlist.MWishList_cancelDialogViaCancelButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_cancelDialogViaCancelButton"/>
   <codecomment>send via preview</codecomment>
   <action name="ClickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>

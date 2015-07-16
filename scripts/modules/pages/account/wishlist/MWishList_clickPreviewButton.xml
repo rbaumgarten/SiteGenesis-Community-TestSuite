@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Clicks on the preview button from the sendtofriend dialog</description>
   <command name="click" target="css=#send-to-friend-main fieldset div button.preview-button"/>
   <command name="waitForText" target="css=#send-to-friend-main fieldset h2" value="Review Your Message"/>
 </scriptmodule>

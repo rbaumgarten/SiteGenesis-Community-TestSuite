@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Enters data in the requierd send to friend fields from the sendtofriend dialog</description>
   <parameter name="firstName_receiver"/>
   <parameter name="lastName_receiver"/>
   <parameter name="email_receiver"/>
