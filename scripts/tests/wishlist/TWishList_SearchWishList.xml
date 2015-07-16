@@ -74,7 +74,7 @@
   </module>
   <action name="ClickUserButton"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <codecomment>search wishlist on wishlist page</codecomment>
+  <codecomment>search wishlist on modify wishlist page</codecomment>
   <action name="OpenWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
   <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
@@ -93,6 +93,7 @@
     <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
   </module>
+  <codecomment>search wishlist on search wishlist page</codecomment>
   <action name="GOTOSearchWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
