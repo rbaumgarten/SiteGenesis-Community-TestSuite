@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>random</tags>
+  <description>This module adds randomness to a string with creating it from scratch. Ideal to spice up names for test data variation.</description>
+  <parameter name="inputString" desc="the data to add randomness too"/>
+  <parameter name="returned_varString" desc="return value of this module"/>
+  <command name="store" target="${RANDOM.Number(1,4)}" value="rLength">
+    <comment>Just a random value for future use.</comment>
+  </command>
+  <command name="store" target="@{inputString}${RANDOM.String(${rLength})}" value="@{returned_varString}">
+    <comment>Add some random characters to the input string.</comment>
+  </command>
+</scriptmodule>

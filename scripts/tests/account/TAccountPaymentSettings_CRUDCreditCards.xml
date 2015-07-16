@@ -35,6 +35,16 @@
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <comment>Give the account first name some extra flavor for test data variation.</comment>
+    <parameter name="inputString" value="${firstname}"/>
+    <parameter name="returned_varString" value="firstname"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <comment>Give the account last name some extra flavor for test data variation.</comment>
+    <parameter name="inputString" value="${lastname}"/>
+    <parameter name="returned_varString" value="lastname"/>
+  </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
     <parameter name="firstname" value="${firstname}"/>
