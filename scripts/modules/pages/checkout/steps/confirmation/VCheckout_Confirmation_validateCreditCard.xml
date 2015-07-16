@@ -29,6 +29,8 @@
     <parameter name="number" value="${monthNumberShort}"/>
     <parameter name="numberLastTwoDigits_varName" value="monthNumber"/>
   </module>
-  <command name="assertText" target="${css_column_payment_creditcard}" value="*${monthNumber}*@{year}*"/>
+  <command name="assertText" target="${css_column_payment_creditcard}" value="*${monthNumber}*@{year}*">
+    <comment>Expiration has been removed for PCI complainance reasons.</comment>
+  </command>
   <command name="assertText" target="${css_column_payment_creditcard} .payment-amount .value" value="*@{paymentAmount}*"/>
 </scriptmodule>
