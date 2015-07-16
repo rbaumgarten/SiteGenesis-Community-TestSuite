@@ -75,7 +75,7 @@
   </module>
   <action name="ClickPreview"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickPreviewButton"/>
-  <module name="modules.pages.account.wishlist.VWishList_validatePreviewDialog">
+  <module name="modules.pages.account.wishlist.VAccount_WishList_SendToFriendDialog_validatePreviewDialog">
     <parameter name="message_reciver" value="${firstName_receiver}*${lastName_receiver}*${email_receiver}"/>
     <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
   </module>
