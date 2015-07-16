@@ -74,7 +74,7 @@
     <parameter name="massage_reciever" value="Please take a look at my wishlist"/>
   </module>
   <action name="ClickPreview"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickPreviewButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickPreviewButton"/>
   <module name="modules.pages.account.wishlist.VWishList_validatePreviewDialog">
     <parameter name="message_reciver" value="${firstName_receiver}*${lastName_receiver}*${email_receiver}"/>
     <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
