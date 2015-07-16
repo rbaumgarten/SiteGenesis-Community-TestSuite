@@ -78,7 +78,7 @@
   </module>
   <action name="GoToWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickAddtoCart">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickAddToCart">
     <parameter name="row" value="1"/>
   </module>
   <action name="GoToCart"/>
