@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <command name="click" target="css=#send-to-friend-form div button.send-button"/>
+  <command name="waitForText" target="css=#send-to-friend-dialog.dialog-content.ui-dialog-content.ui-widget-content h2 " value="Your message has been sent."/>
+</scriptmodule>
