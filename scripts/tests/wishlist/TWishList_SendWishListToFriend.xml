@@ -80,7 +80,7 @@
     <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
   </module>
   <action name="ClickSend"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSendButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
   <action name="ClickClose"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
   <codecomment>send without preview</codecomment>
@@ -93,7 +93,7 @@
     <parameter name="massage_reciever" value="Look at my wishlist"/>
   </module>
   <action name="ClickSend"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSendButton"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
   <action name="ClickClose"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
   <codecomment>Logout</codecomment>
