@@ -74,16 +74,18 @@
   </module>
   <action name="ClickUserButton"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <codecomment>search wishlist on wishlist page</codecomment>
   <action name="OpenWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
-  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
+  <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
+    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
   <action name="ClickSearchWishList"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickSearchWishList"/>
   <action name="ClickView"/>
-  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
-  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
@@ -92,15 +94,16 @@
     <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
   </module>
   <action name="GOTOSearchWishList"/>
-  <command name="clickAndWait" target="css=#secondary.nav nav div.secondary-navigation div.content-asset ul:nth-of-type(3) li:nth-of-type(2) a"/>
-  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="${WishListUser_lastName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="${WishListUser_firstName}"/>
-  <command name="type" target="id=dwfrm_wishlist_search_email" value="${WishListUser_email}"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MWishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
+    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
   <action name="ClickSearchWishList"/>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickSearchWishList"/>
   <action name="ClickView"/>
-  <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
-  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+  <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
