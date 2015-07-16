@@ -83,7 +83,7 @@
     <parameter name="user_email" value="${WishListUser_email}"/>
   </module>
   <action name="ClickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
@@ -102,7 +102,7 @@
     <parameter name="user_email" value="${WishListUser_email}"/>
   </module>
   <action name="ClickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MWishList_clickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MWishList_clickViewWishListOnWishListSearchResults"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
