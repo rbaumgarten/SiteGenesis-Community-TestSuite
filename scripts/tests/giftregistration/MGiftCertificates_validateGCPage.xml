@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>validates the elments on the gift certificate page</description>
+  <command name="assertText" target="css=#primary.primary-content h1" value="Gift Certificates"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#primary.primary-content .gift-certificate-purchase div.content-asset h2" value="PURCHASE AN ONLINE GIFT CERTIFICATE"/>
+  <command name="assertElementPresent" target="css=#primary.primary-content div.gift-certificate-purchase.clearfix div.content-asset"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div.dialog-required .required-indicator em" value="required"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(3) label span:last-of-type" value="Your Name"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_from"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(4) label span:last-of-type" value="Friend's Name"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_recipient"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(5) label span:last-of-type" value="Friend's Email"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_recipientEmail"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(6) label span:last-of-type" value="Confirm Friend's Email"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_confirmRecipientEmail"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(7) label span:last-of-type" value="Message"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_message"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(8) label span:last-of-type" value="Amount"/>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_amount"/>
+  <codecomment>---</codecomment>
+  <command name="assertElementPresent" target="id=AddToBasketButton"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#primary.primary-content div:nth-of-type(3) h2" value="CHECK BALANCE OF EXISTING CERTIFICATE"/>
+  <command name="assertText" target="css=#primary.primary-content div:nth-of-type(3) div">
+    <value>glob:To redeem a gift certificate, provide the card’s 16-digit number code on the billing page of the checkout process. To check the balance of your online Gift Certificate, enter the number below:</value>
+  </command>
+  <codecomment>---</codecomment>
+  <command name="assertElementPresent" target="id=dwfrm_giftcert_balance_giftCertID"/>
+  <command name="assertElementPresent" target="id=CheckBalanceButton"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#primary.primary-content div.content-asset div.terms-of-use p strong" value="Terms Of Use"/>
+  <command name="assertElementPresent" target="css=#primary.primary-content div.content-asset div.terms-of-use ul"/>
+</scriptmodule>
