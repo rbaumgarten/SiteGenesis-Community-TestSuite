@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="firstName_buyer"/>
+  <parameter name="lastName_buyer"/>
+  <parameter name="firstName_receiver"/>
+  <parameter name="lastName_receiver"/>
+  <parameter name="email_receiver"/>
+  <parameter name="giftCardPrice"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_from" value="@{firstName_buyer} @{lastName_buyer}"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_recipient" value="@{firstName_receiver} @{lastName_receiver}"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_recipientEmail" value="@{email_receiver}"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_confirmRecipientEmail" value="@{email_receiver}"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_amount" value="@{giftCardPrice}"/>
+  <command name="type" target="id=dwfrm_giftcert_purchase_message" value="have Fun"/>
+</scriptmodule>
