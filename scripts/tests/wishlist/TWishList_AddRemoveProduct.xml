@@ -64,7 +64,6 @@
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <action name="ViewWishList"/>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
     <parameter name="breadcrumbTitle" value="Wish List"/>
   </module>
