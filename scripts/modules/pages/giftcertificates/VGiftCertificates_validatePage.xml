@@ -28,9 +28,8 @@
   <codecomment>---</codecomment>
   <command name="assertElementPresent" target="id=AddToBasketButton"/>
   <codecomment>---</codecomment>
-  <command name="assertText" target="css=#primary.primary-content div:nth-of-type(3) h2" value="CHECK BALANCE OF EXISTING CERTIFICATE"/>
-  <command name="assertText" target="css=#primary.primary-content div:nth-of-type(3) div[style='padding:20px 0;']">
-    <value>glob:To redeem a gift certificate, provide the card’s 16-digit number code on the billing page of the checkout process. To check the balance of your online Gift Certificate, enter the number below:</value>
+  <command name="assertText" target="css=#primary &gt; div:not(.gift-certificate-purchase) h2" value="CHECK BALANCE OF EXISTING CERTIFICATE">
+    <comment>This selector is ugly, because the second area does not have a special class that marks it as check balance paragraph/section or the like.</comment>
   </command>
   <codecomment>---</codecomment>
   <command name="assertElementPresent" target="id=dwfrm_giftcert_balance_giftCertID"/>

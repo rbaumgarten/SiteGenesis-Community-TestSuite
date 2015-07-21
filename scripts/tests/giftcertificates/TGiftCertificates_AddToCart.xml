@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>giftcerts,cart</tags>
+  <description># Setup
+- create an email for the receipient
+- open the homepage and start the session
+
+# Scope
+- go to gift certificates page and validate it
+- add it to the cart
+- go to the cart
+- validate the gift cert in the cart</description>
   <codecomment># Setup
 
 - Generate mail for receiver</codecomment>
@@ -10,31 +20,31 @@
   <codecomment>---</codecomment>
   <codecomment># Scope
 
-- goto Gift Certifictions
-- enter data 
-- add gift card to cart
+- goto gift certificates
+- enter required data 
+- add gift cert to cart
 - validate cart</codecomment>
-  <action name="GotoGift"/>
-  <module name="modules.pages.giftcertificates.MHomepage_clickGiftCertificates"/>
-  <module name="modules.pages.giftcertificates.MGiftCertificates_validateGCPage"/>
+  <action name="GotoGiftCertificates"/>
+  <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
+  <module name="modules.pages.giftcertificates.VGiftCertificates_validatePage"/>
   <module name="modules.pages.giftcertificates.MGiftCertificates_enterData">
     <parameter name="firstName_buyer" value="${firstName_buyer}"/>
     <parameter name="lastName_buyer" value="${lastName_buyer}"/>
     <parameter name="firstName_receiver" value="${firstName_receiver}"/>
     <parameter name="lastName_receiver" value="${lastName_receiver}"/>
     <parameter name="email_receiver" value="${email_receiver}"/>
-    <parameter name="giftCardPrice" value="${giftCardPrice}"/>
+    <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
   </module>
-  <action name="ClickAddToCart"/>
-  <module name="modules.pages.giftcertificates.MGiftCertificate_clickAddToCart"/>
-  <action name="GoToCart"/>
+  <action name="AddToCartOfGiftCertificate"/>
+  <module name="modules.pages.giftcertificates.MGiftCertificates_clickAddToCart"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByMiniCartLink"/>
-  <module name="modules.pages.cart.VCart_validateGiftCardInCart">
+  <module name="modules.pages.cart.VCart_validateGiftCertificate">
     <parameter name="firstName_buyer" value="${firstName_buyer}"/>
     <parameter name="lastName_buyer" value="${lastName_buyer}"/>
     <parameter name="firstName_receiver" value="${firstName_receiver}"/>
     <parameter name="lastName_receiver" value="${lastName_receiver}"/>
     <parameter name="email_receiver" value="${email_receiver}"/>
-    <parameter name="giftCardPrice" value="${giftCardPrice}"/>
+    <parameter name="giftCardPrice" value="${giftCertificateValue}"/>
   </module>
 </testcase>
