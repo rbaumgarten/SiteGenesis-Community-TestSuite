@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>validates given data for a gift certificate in cart</description>
+  <parameter name="row" desc="What row to check in the cart for the data below"/>
+  <parameter name="firstNameBuyer"/>
+  <parameter name="lastNameBuyer"/>
+  <parameter name="firstNameRecipient"/>
+  <parameter name="lastNameRecipient"/>
+  <parameter name="emailRecipient"/>
+  <parameter name="giftCertificateValue"/>
+  <command name="assertElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-image"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details div.name" value="Gift Certificate"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details p.gift-cert-delivery" value="- Gift certificate will be delivered by e-mail"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details div.giftcertamount span.label" value="glob:Price:"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-details div.giftcertamount span.value" value="*@{giftCertificateValue}"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-details div:nth-of-type(3) span.value" value="@{firstNameRecipient} @{lastNameRecipient}, @{emailRecipient}"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-details div:nth-of-type(4) span.value" value="@{firstNameBuyer} @{lastNameBuyer}"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-quantity" value="1"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-quantity-details .item-user-actions button" value="Remove"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-quantity-details .item-user-actions a" value="Edit Details"/>
+  <codecomment>---</codecomment>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) td.item-total" value="*@{giftCertificateValue}"/>
+</scriptmodule>

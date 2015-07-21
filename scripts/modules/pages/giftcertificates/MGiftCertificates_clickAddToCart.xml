@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>clicks add to basket on the gift certificates page</description>
+  <command name="click" target="id=AddToBasketButton"/>
+  <command name="waitForVisible" target="css=#mini-cart .mini-cart-content"/>
+</scriptmodule>
