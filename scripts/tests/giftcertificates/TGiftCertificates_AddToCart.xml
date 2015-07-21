@@ -14,7 +14,7 @@
 
 - Generate mail for receiver</codecomment>
   <module name="modules.helper.MHelper_Random_createEmail">
-    <parameter name="email_varName" value="email_receiver"/>
+    <parameter name="email_varName" value="emailRecipient"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>---</codecomment>
@@ -28,24 +28,25 @@
   <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
   <module name="modules.pages.giftcertificates.VGiftCertificates_validatePage"/>
   <module name="modules.pages.giftcertificates.MGiftCertificates_enterData">
-    <parameter name="firstName_buyer" value="${firstName_buyer}"/>
-    <parameter name="lastName_buyer" value="${lastName_buyer}"/>
-    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
-    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
-    <parameter name="email_receiver" value="${email_receiver}"/>
+    <parameter name="firstNameBuyer" value="${firstNameBuyer}"/>
+    <parameter name="lastNameBuyer" value="${lastNameBuyer}"/>
+    <parameter name="firstNameRecipient" value="${firstNameRecipient}"/>
+    <parameter name="lastNameRecipient" value="${lastNameRecipient}"/>
+    <parameter name="emailRecipient" value="${emailRecipient}"/>
     <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
+    <parameter name="purchaseMessage" value="${purchaseMessage}"/>
   </module>
   <action name="AddToCartOfGiftCertificate"/>
   <module name="modules.pages.giftcertificates.MGiftCertificates_clickAddToCart"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByMiniCartLink"/>
   <module name="modules.pages.cart.VCart_Row_validateGiftCertificate">
-    <parameter name="firstName_buyer" value="${firstName_buyer}"/>
-    <parameter name="lastName_buyer" value="${lastName_buyer}"/>
-    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
-    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
-    <parameter name="email_receiver" value="${email_receiver}"/>
-    <parameter name="giftCardPrice" value="${giftCertificateValue}"/>
     <parameter name="row" value="1"/>
+    <parameter name="firstNameBuyer" value="${firstNameBuyer}"/>
+    <parameter name="lastNameBuyer" value="${lastNameBuyer}"/>
+    <parameter name="firstNameRecipient" value="${firstNameRecipient}"/>
+    <parameter name="lastNameRecipient" value="${lastNameRecipient}"/>
+    <parameter name="emailRecipient" value="${emailRecipient}"/>
+    <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
   </module>
 </testcase>
