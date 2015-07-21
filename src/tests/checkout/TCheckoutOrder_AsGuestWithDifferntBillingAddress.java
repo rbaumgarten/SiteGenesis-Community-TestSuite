@@ -17,7 +17,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <ul>
  * <li>Start guest checkout</li>
  * <li>Enter new address and use preselected  default shipping method</li>
- * <li>Use same as shipping address for billing and use payment method credit card (visa)</li>
+ * <li>Use different addresss for billing and shipping use payment method credit card (visa)</li>
  * <li>Validate place order page</li>
  * <li>Validate order confirmation page</li>
  * <li>Create an account</li>

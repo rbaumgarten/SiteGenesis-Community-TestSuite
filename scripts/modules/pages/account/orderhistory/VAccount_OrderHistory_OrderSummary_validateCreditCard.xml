@@ -29,6 +29,6 @@
     <parameter name="number" value="${monthNumberShort}"/>
     <parameter name="numberLastTwoDigits_varName" value="monthNumber"/>
   </module>
-  <command name="assertText" target="${css_column_payment_creditcard}" value="*${monthNumber}*@{year}*"/>
+  <command name="assertText" disabled="true" target="${css_column_payment_creditcard}" value="*${monthNumber}*@{year}*"/>
   <command name="assertText" target="${css_column_payment_creditcard} .payment-amount .value" value="@{paymentAmount}"/>
 </scriptmodule>
