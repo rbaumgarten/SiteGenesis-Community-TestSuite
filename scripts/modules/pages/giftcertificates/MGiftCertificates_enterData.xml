@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>enters data in the input fields from the gift certificates page</description>
   <parameter name="firstName_buyer"/>
   <parameter name="lastName_buyer"/>
   <parameter name="firstName_receiver"/>
