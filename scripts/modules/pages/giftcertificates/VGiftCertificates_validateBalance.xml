@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>validates the price in the status message</description>
   <parameter name="balance"/>
-  <command name="assertText" target="css=#primary.primary-content form.suppress.check-balance fieldset div.form-row.error" value="*@{balance}"/>
+  <command name="assertText" target="css=#primary.primary-content form.suppress.check-balance fieldset div.form-row.error" value="Your current Gift Certificate balance is ${storefront_priceCurrency}@{balance}"/>
 </scriptmodule>
