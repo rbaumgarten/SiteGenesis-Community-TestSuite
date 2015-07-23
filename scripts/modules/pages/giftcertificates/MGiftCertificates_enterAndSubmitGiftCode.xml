@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Enters a given Gift Certificate into the check balance field an subints it</description>
   <parameter name="giftcode"/>
   <command name="type" target="id=dwfrm_giftcert_balance_giftCertID" value="@{giftcode}"/>
   <command name="clickAndWait" target="id=CheckBalanceButton"/>

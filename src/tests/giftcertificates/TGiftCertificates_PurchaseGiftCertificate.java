@@ -25,7 +25,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.giftcertificates.TGiftCertificates_buyGiftCard")
-public class TGiftCertificates_buyGiftCard extends AbstractScriptTestCase
+("tests.giftcertificates.TGiftCertificates_PurchaseGiftCertificate")
+public class TGiftCertificates_PurchaseGiftCertificate extends AbstractScriptTestCase
 {
 }

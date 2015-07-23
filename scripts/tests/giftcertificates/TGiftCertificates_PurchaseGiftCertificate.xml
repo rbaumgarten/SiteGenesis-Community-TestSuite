@@ -18,7 +18,7 @@
   <codecomment># Setup
 
 - generate short time email to recieve a gift code
-- generate mail for recipiant
+- generate mail and password for buyer
 - create account for purchase</codecomment>
   <module name="modules.helper.MHelper_getEmailFromOutside">
     <parameter name="email_var" value="emailRecipient"/>
@@ -43,13 +43,13 @@
   <codecomment>---</codecomment>
   <codecomment># Scope
 
-- goto gift certificates
+- goto Gift Certificate
 - enter required data 
 - add gift cert to cart
 - validate cart
-- purchase gift card
-- check if email with gift card is sendet
-- copy gift code and check balance of gift ccard</codecomment>
+- purchase Gift Certificate
+- check if email with Gift Certificate is sendet
+- copy gift code and check balance of Gift Certificate</codecomment>
   <action name="GotoGiftCertificates"/>
   <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
   <module name="modules.pages.giftcertificates.VGiftCertificates_validatePage"/>
