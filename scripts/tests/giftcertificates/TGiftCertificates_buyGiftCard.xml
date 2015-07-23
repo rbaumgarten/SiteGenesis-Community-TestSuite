@@ -2,14 +2,19 @@
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>giftcerts,cart</tags>
   <description># Setup
-- create an email for the receipient
+
+- create an email for the receipient,with a short time mail program
 - open the homepage and start the session
+- create an account for the buyer
 
 # Scope
 - go to gift certificates page and validate it
 - add it to the cart
 - go to the cart
-- validate the gift cert in the cart</description>
+- validate the gift cert in the cart
+- purchase gift cart
+- validates is gift card sended
+- check balance of gift card in the storefront</description>
   <codecomment># Setup
 
 - generate short time email to recieve a gift code
@@ -99,7 +104,7 @@
   <module name="modules.helper.MHelper_getGiftCodeMsg">
     <parameter name="giftcode_var" value="giftCodeMessage"/>
   </module>
-  <module name="tests.giftcertificates.MHelper_convertGiftCodeMessageToGiftCode">
+  <module name="modules.helper.MHelper_convertGiftCodeMessageToGiftCode">
     <parameter name="giftcode" value="${giftCodeMessage}"/>
     <parameter name="giftcode_var" value="giftCode"/>
   </module>
@@ -107,10 +112,10 @@
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="GotoGiftCertificates"/>
   <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
-  <module name="tests.giftcertificates.MGiftCertificates_enterAndSubmitGiftCode">
+  <module name="modules.pages.giftcertificates.MGiftCertificates_enterAndSubmitGiftCode">
     <parameter name="giftcode" value="${giftCode}"/>
   </module>
-  <module name="tests.giftcertificates.VGiftCertificates_validateBalance">
+  <module name="modules.pages.giftcertificates.VGiftCertificates_validateBalance">
     <parameter name="balance" value="${giftCertificateValue}"/>
   </module>
 </testcase>
