@@ -29,6 +29,14 @@
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password"/>
   </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstNameBuyer}"/>
+    <parameter name="returned_varString" value="firstNameBuyer"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstNameRecipient}"/>
+    <parameter name="returned_varString" value="firstNameRecipient"/>
+  </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
     <parameter name="firstname" value="${firstNameBuyer}"/>
