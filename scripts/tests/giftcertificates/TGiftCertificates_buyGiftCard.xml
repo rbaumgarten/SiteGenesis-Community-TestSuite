@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>giftcerts,cart</tags>
+  <description># Setup
+- create an email for the receipient
+- open the homepage and start the session
+
+# Scope
+- go to gift certificates page and validate it
+- add it to the cart
+- go to the cart
+- validate the gift cert in the cart</description>
+  <codecomment># Setup
+
+- generate short time email to recieve a gift code
+- generate mail for recipiant
+- create account for purchase</codecomment>
+  <module name="modules.helper.MHelper_getEmailFromOutside">
+    <parameter name="email_var" value="emailRecipient"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="emailBuyer"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="password"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
+    <parameter name="firstname" value="${firstNameBuyer}"/>
+    <parameter name="lastname" value="${lastNameBuyer}"/>
+    <parameter name="email" value="${emailBuyer}"/>
+    <parameter name="password" value="${password}"/>
+  </module>
+  <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
+    <parameter name="email" value="${emailBuyer}"/>
+    <parameter name="password" value="${password}"/>
+  </module>
+  <codecomment>---</codecomment>
+  <codecomment># Scope
+
+- goto gift certificates
+- enter required data 
+- add gift cert to cart
+- validate cart
+- purchase gift card
+- check if email with gift card is sendet
+- copy gift code and check balance of gift ccard</codecomment>
+  <action name="GotoGiftCertificates"/>
+  <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
+  <module name="modules.pages.giftcertificates.VGiftCertificates_validatePage"/>
+  <module name="modules.pages.giftcertificates.MGiftCertificates_enterData">
+    <parameter name="firstNameBuyer" value="${firstNameBuyer}"/>
+    <parameter name="lastNameBuyer" value="${lastNameBuyer}"/>
+    <parameter name="firstNameRecipient" value="${firstNameRecipient}"/>
+    <parameter name="lastNameRecipient" value="${lastNameRecipient}"/>
+    <parameter name="emailRecipient" value="${emailRecipient}"/>
+    <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
+    <parameter name="purchaseMessage" value="${purchaseMessage}"/>
+  </module>
+  <action name="AddToCartOfGiftCertificate"/>
+  <module name="modules.pages.giftcertificates.MGiftCertificates_clickAddToCart"/>
+  <action name="ViewCart"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByMiniCartLink"/>
+  <module name="modules.pages.cart.VCart_Row_validateGiftCertificate">
+    <parameter name="row" value="1"/>
+    <parameter name="firstNameBuyer" value="${firstNameBuyer}"/>
+    <parameter name="lastNameBuyer" value="${lastNameBuyer}"/>
+    <parameter name="firstNameRecipient" value="${firstNameRecipient}"/>
+    <parameter name="lastNameRecipient" value="${lastNameRecipient}"/>
+    <parameter name="emailRecipient" value="${emailRecipient}"/>
+    <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
+  </module>
+  <action name="GoToCheckout"/>
+  <module name="modules.pages.cart.MCart_clickGoToCheckoutLogin"/>
+  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterAddress">
+    <parameter name="firstname" value="${firstNameBuyer}"/>
+    <parameter name="lastname" value="${lastNameBuyer}"/>
+    <parameter name="address1" value="${billingAddress_address1}"/>
+    <parameter name="address2" value="${billingAddress_address2}"/>
+    <parameter name="country" value="${billingAddress_country}"/>
+    <parameter name="statesState" value="${billingAddress_statesState}"/>
+    <parameter name="city" value="${billingAddress_city}"/>
+    <parameter name="postalCode" value="${billingAddress_postalCode}"/>
+    <parameter name="phone" value="${billingAddress_phone}"/>
+  </module>
+  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingPayment_enterCreditCard">
+    <parameter name="owner" value="${visaCreditCard_owner}"/>
+    <parameter name="type" value="${visaCreditCard_type}"/>
+    <parameter name="number" value="${visaCreditCard_number}"/>
+    <parameter name="month" value="${visaCreditCard_month}"/>
+    <parameter name="year" value="${visaCreditCard_year}"/>
+    <parameter name="cvn" value="${visaCreditCard_cvn}"/>
+  </module>
+  <action name="GoToPurchase"/>
+  <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
+  <action name="Purchase"/>
+  <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
+  <codecomment>get back to mail page to catch the gift code</codecomment>
+  <module name="modules.helper.MHelper_getGiftCodeMsg">
+    <parameter name="giftcode_var" value="giftCodeMessage"/>
+  </module>
+  <module name="tests.giftcertificates.MHelper_convertGiftCodeMessageToGiftCode">
+    <parameter name="giftcode" value="${giftCodeMessage}"/>
+    <parameter name="giftcode_var" value="giftCode"/>
+  </module>
+  <codecomment>get back to homepage to check the balance of the gift card</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="GotoGiftCertificates"/>
+  <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
+  <module name="tests.giftcertificates.MGiftCertificates_enterAndSubmitGiftCode">
+    <parameter name="giftcode" value="${giftCode}"/>
+  </module>
+  <module name="tests.giftcertificates.VGiftCertificates_validateBalance">
+    <parameter name="balance" value="${giftCertificateValue}"/>
+  </module>
+</testcase>

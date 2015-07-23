@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Goes to the emailpage and get the email message with the gift code</description>
+  <parameter name="giftcode_var"/>
+  <action name="GoToMailPage"/>
+  <command name="open" value="${emailClientURL}"/>
+  <codecomment>Sometimes it least a little bit longer to rececieve an email</codecomment>
+  <command name="waitForText" target="css=html body div.container-narrow table#table_dea_messages.table.table-hover.table-bordered tbody tr#msg_1 td:nth-of-type(2)" value="noreply@demandware.com"/>
+  <action name="ClickMessage"/>
+  <command name="click" target="css=html body div.container-narrow table#table_dea_messages.table.table-hover.table-bordered tbody tr#msg_1"/>
+  <codecomment>After opening the popup menu sometime there is a loading screen</codecomment>
+  <command name="waitForText" target="css=html body div#modalMessage.modal.hide.fade.in div.modal-body p:last-of-type" value="To redeem your gift certificate*"/>
+  <command name="storeText" target="css=html body div#modalMessage.modal.hide.fade.in div.modal-body p:last-of-type" value="@{giftcode_var}"/>
+</scriptmodule>
