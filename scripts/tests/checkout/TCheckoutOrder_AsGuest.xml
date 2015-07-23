@@ -114,7 +114,9 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="postalCode" value="${postalCode}"/>
     <parameter name="phone" value="${phone}"/>
   </module>
-  <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress"/>
+  <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress">
+    <comment>This makes the difference of running it with two addresses or one.</comment>
+  </module>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">
     <parameter name="positon" value="${shippingMethod_position}"/>
   </module>
