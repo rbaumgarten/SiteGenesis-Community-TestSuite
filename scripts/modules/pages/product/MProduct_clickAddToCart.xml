@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click add product to cart.</description>
-  <command name="waitForElementPresent" disabled="true" target="id=add-to-cart"/>
   <command name="assertNotClass" target="id=add-to-cart" value="add-to-cart-disabled">
     <comment>Ensure that the add to cart button can be clicked, because it is active this means we check that the inactive class is not attached.</comment>
   </command>
   <command name="click" target="id=add-to-cart"/>
+  <command name="waitForVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
 </scriptmodule>

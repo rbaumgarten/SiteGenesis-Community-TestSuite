@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test guest checkout with one variation product with color and size, one address and VISA. 
+  <description>Test guest checkout with one variation product with color and size and VISA. Uses a different address for shipping than billing. Besides that it is identically to TCheckoutOrder_AsGuest.
 
 # 1. Setup and preparation
 
@@ -11,15 +11,15 @@
 # 2. Scope of test
 
 - Start guest checkout
-- Enter new address and use preselected  default shipping method
-- Use same as shipping address for billing and use payment method credit card (visa)
+- Enter new address and use preselected default shipping method
+- Use different addresss for billing and use payment method credit card (visa)
 - Validate place order page
 - Validate order confirmation page
 - Create an account
 - Validate customer name and profile
 - Validate order via order history
 
-Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different types of credit cards.</description>
+Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file. The configured example places orders with different cart quantities and combinations of addresses.</description>
   <codecomment># Setup
 
 - Generate mail
@@ -34,15 +34,26 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
+  <codecomment>No randomness to make the test data sets more effective.</codecomment>
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
     <comment>Give the account first name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${firstname}"/>
-    <parameter name="returned_varString" value="firstname"/>
+    <parameter name="inputString" value="${firstname_shipping}"/>
+    <parameter name="returned_varString" value="firstname_shipping"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
     <comment>Give the account last name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${lastname}"/>
-    <parameter name="returned_varString" value="lastname"/>
+    <parameter name="inputString" value="${lastname_shipping}"/>
+    <parameter name="returned_varString" value="lastname_shipping"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+    <comment>Give the account first name some extra flavor for test data variation.</comment>
+    <parameter name="inputString" value="${firstname_billing}"/>
+    <parameter name="returned_varString" value="firstname_billing"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+    <comment>Give the account last name some extra flavor for test data variation.</comment>
+    <parameter name="inputString" value="${lastname_shipping}"/>
+    <parameter name="returned_varString" value="lastname_shipping"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.search.FSearch_flowToAddProductWithColorSizeToCart">
@@ -104,18 +115,15 @@ Note: This test is prepared as data driven test. Running it as junit test will e
 
 - Enter data</codecomment>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_enterAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="statesState" value="${statesState}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="postalCode" value="${postalCode}"/>
-    <parameter name="phone" value="${phone}"/>
-  </module>
-  <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingAddress_checkUseAsBillingAddress">
-    <comment>This makes the difference of running it with two addresses or one.</comment>
+    <parameter name="firstname" value="${firstname_shipping}"/>
+    <parameter name="lastname" value="${lastname_shipping}"/>
+    <parameter name="address1" value="${address1_shipping}"/>
+    <parameter name="address2" value="${address2_shipping}"/>
+    <parameter name="country" value="${country_shipping}"/>
+    <parameter name="statesState" value="${statesState_shipping}"/>
+    <parameter name="city" value="${city_shipping}"/>
+    <parameter name="postalCode" value="${postalCode_shipping}"/>
+    <parameter name="phone" value="${phone_shipping}"/>
   </module>
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">
     <parameter name="positon" value="${shippingMethod_position}"/>
@@ -165,19 +173,30 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="statesStateShort" value="${statesStateShort}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="postal" value="${postalCode}"/>
+    <parameter name="firstname" value="${firstname_shipping}"/>
+    <parameter name="lastname" value="${lastname_shipping}"/>
+    <parameter name="address1" value="${address1_shipping}"/>
+    <parameter name="address2" value="${address2_shipping}"/>
+    <parameter name="country" value="${country_shipping}"/>
+    <parameter name="statesStateShort" value="${statesStateShort_shipping}"/>
+    <parameter name="city" value="${city_shipping}"/>
+    <parameter name="postal" value="${postalCode_shipping}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
   </module>
   <codecomment>Billing
 
 - Enter data</codecomment>
+  <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterAddress">
+    <parameter name="firstname" value="${firstname_billing}"/>
+    <parameter name="lastname" value="${lastname_billing}"/>
+    <parameter name="address1" value="${address1_billing}"/>
+    <parameter name="address2" value="${address2_billing}"/>
+    <parameter name="country" value="${country_billing}"/>
+    <parameter name="statesState" value="${statesState_billing}"/>
+    <parameter name="city" value="${city_billing}"/>
+    <parameter name="postalCode" value="${postalCode_billing}"/>
+    <parameter name="phone" value="${phone_billing}"/>
+  </module>
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterEmail">
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
@@ -224,25 +243,25 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxShippingAddress_validateAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="statesStateShort" value="${statesStateShort}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="postal" value="${postalCode}"/>
+    <parameter name="firstname" value="${firstname_shipping}"/>
+    <parameter name="lastname" value="${lastname_shipping}"/>
+    <parameter name="address1" value="${address1_shipping}"/>
+    <parameter name="address2" value="${address2_shipping}"/>
+    <parameter name="country" value="${country_shipping}"/>
+    <parameter name="statesStateShort" value="${statesStateShort_shipping}"/>
+    <parameter name="city" value="${city_shipping}"/>
+    <parameter name="postal" value="${postalCode_shipping}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
   </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxBillingAddress_validateAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="statesStateShort" value="${statesStateShort}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="postal" value="${postalCode}"/>
+    <parameter name="firstname" value="${firstname_billing}"/>
+    <parameter name="lastname" value="${lastname_billing}"/>
+    <parameter name="address1" value="${address1_billing}"/>
+    <parameter name="address2" value="${address2_billing}"/>
+    <parameter name="country" value="${country_billing}"/>
+    <parameter name="statesStateShort" value="${statesStateShort_billing}"/>
+    <parameter name="city" value="${city_billing}"/>
+    <parameter name="postal" value="${postalCode_billing}"/>
   </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxPayment_validateCreditCard">
     <parameter name="paymentName" value="${paymentName}"/>
@@ -265,15 +284,15 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="orderNumberPattern" value="${storefront_orderNumberPattern}"/>
   </module>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateBillingAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="statesStateShort" value="${statesStateShort}"/>
-    <parameter name="postalCode" value="${postalCode}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="phone" value="${phone}"/>
+    <parameter name="firstname" value="${firstname_billing}"/>
+    <parameter name="lastname" value="${lastname_billing}"/>
+    <parameter name="address1" value="${address1_billing}"/>
+    <parameter name="address2" value="${address2_billing}"/>
+    <parameter name="city" value="${city_billing}"/>
+    <parameter name="statesStateShort" value="${statesStateShort_billing}"/>
+    <parameter name="postalCode" value="${postalCode_billing}"/>
+    <parameter name="country" value="${country_billing}"/>
+    <parameter name="phone" value="${phone_billing}"/>
   </module>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateCreditCard">
     <parameter name="paymentName" value="${paymentName}"/>
@@ -291,15 +310,15 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.checkout.steps.confirmation.VCheckout_Confirmation_validateShippingAddress">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
-    <parameter name="address1" value="${address1}"/>
-    <parameter name="address2" value="${address2}"/>
-    <parameter name="country" value="${country}"/>
-    <parameter name="statesStateShort" value="${statesStateShort}"/>
-    <parameter name="city" value="${city}"/>
-    <parameter name="postalCode" value="${postalCode}"/>
-    <parameter name="phone" value="${phone}"/>
+    <parameter name="firstname" value="${firstname_shipping}"/>
+    <parameter name="lastname" value="${lastname_shipping}"/>
+    <parameter name="address1" value="${address1_shipping}"/>
+    <parameter name="address2" value="${address2_shipping}"/>
+    <parameter name="country" value="${country_shipping}"/>
+    <parameter name="statesStateShort" value="${statesStateShort_shipping}"/>
+    <parameter name="city" value="${city_shipping}"/>
+    <parameter name="postalCode" value="${postalCode_shipping}"/>
+    <parameter name="phone" value="${phone_shipping}"/>
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
     <parameter name="shippingStatus" value="${storefront_shippingStatus}"/>
   </module>
@@ -321,8 +340,8 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateBox"/>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxNewCustomer_validateProfile">
-    <parameter name="billingAddress_firstname" value="${firstname}"/>
-    <parameter name="billingAddress_lastname" value="${lastname}"/>
+    <parameter name="billingAddress_firstname" value="${firstname_billing}"/>
+    <parameter name="billingAddress_lastname" value="${lastname_billing}"/>
     <parameter name="billingAddress_email" value="${email_varDynamic}"/>
   </module>
   <action name="CreateAnAccountFromConfirmationPage"/>
@@ -336,20 +355,20 @@ Note: This test is prepared as data driven test. Running it as junit test will e
 - Validate profile in personal data
 - Validate order in order history</codecomment>
   <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="firstname" value="${firstname_billing}"/>
+    <parameter name="lastname" value="${lastname_billing}"/>
   </module>
   <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateProfile">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="firstname" value="${firstname_billing}"/>
+    <parameter name="lastname" value="${lastname_billing}"/>
     <parameter name="email" value="${email_varDynamic}"/>
   </module>
   <module name="modules.pages.account.myaccount.FAccount_MyAccount_flowToValidateOrderViaOrderHistory">
     <parameter name="position" value="1"/>
     <parameter name="orderNumber" value="${orderNumber_varDynamic}"/>
     <parameter name="orderDate" value="${orderDate_varDynamic}"/>
-    <parameter name="shippingAddress_firstname" value="${firstname}"/>
-    <parameter name="shippingAddress_lastname" value="${lastname}"/>
+    <parameter name="shippingAddress_firstname" value="${firstname_shipping}"/>
+    <parameter name="shippingAddress_lastname" value="${lastname_shipping}"/>
     <parameter name="totalsTotal" value="${totalsTotal_varDynamic}"/>
   </module>
   <codecomment>Logout</codecomment>
