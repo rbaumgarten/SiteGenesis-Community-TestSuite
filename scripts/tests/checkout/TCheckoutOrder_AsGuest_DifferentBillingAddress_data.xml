@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <productNumber>${productNumber_typeVariationProductColorSizeListPriceOnly}</productNumber>
-  <productQuantity>1</productQuantity>
-  <firstname_shipping>${shippingAddress_firstname}</firstname_shipping>
-  <lastname_shipping>${shippingAddress_lastname}</lastname_shipping>
-  <address1_shipping>${shippingAddress_address1}</address1_shipping>
-  <address2_shipping>${shippingAddress_address2}</address2_shipping>
-  <country_shipping>${shippingAddress_country}</country_shipping>
-  <statesState_shipping>${shippingAddress_statesState}</statesState_shipping>
-  <statesStateShort_shipping>${shippingAddress_statesStateShort}</statesStateShort_shipping>
-  <city_shipping>${shippingAddress_city}</city_shipping>
-  <postalCode_shipping>${shippingAddress_postalCode}</postalCode_shipping>
-  <phone_shipping>${shippingAddress_phone}</phone_shipping>
+  <productQuantity>2</productQuantity>
+  <firstname_shipping>Rene</firstname_shipping>
+  <lastname_shipping>Master</lastname_shipping>
+  <address1_shipping>5 Wall St</address1_shipping>
+  <address2_shipping>3th floor</address2_shipping>
+  <country_shipping>United States</country_shipping>
+  <statesState_shipping>Massachusetts</statesState_shipping>
+  <statesStateShort_shipping>MA</statesStateShort_shipping>
+  <city_shipping>Burlington</city_shipping>
+  <postalCode_shipping>01803</postalCode_shipping>
+  <phone_shipping>888-553-9216</phone_shipping>
+  <firstname_billing>Marty</firstname_billing>
+  <lastname_billing>McFly</lastname_billing>
+  <address1_billing>1921 Floor St.</address1_billing>
+  <address2_billing>floor</address2_billing>
+  <country_billing>United States</country_billing>
+  <statesState_billing>Maine</statesState_billing>
+  <statesStateShort_billing>ME</statesStateShort_billing>
+  <city_billing>Portland</city_billing>
+  <postalCode_billing>04101</postalCode_billing>
+  <phone_billing>207-221-8711</phone_billing>
   <paymentName>${storefront_creditCard_paymentName}</paymentName>
-  <owner>${visaCreditCard_owner}</owner>
+  <owner>${firstname_billing} ${lastname_billing}</owner>
   <number>${visaCreditCard_number}</number>
   <type>${visaCreditCard_type}</type>
   <typeShort>${visaCreditCard_typeShort}</typeShort>
   <month>${visaCreditCard_month}</month>
   <year>${visaCreditCard_year}</year>
   <cvn>${visaCreditCard_cvn}</cvn>
-  <firstname_billing>${billingAddress_firstname}</firstname_billing>
-  <lastname_billing>${billingAddress_lastname}</lastname_billing>
-  <address1_billing>${billingAddress_address1}</address1_billing>
-  <address2_billing>${billingAddress_address2}</address2_billing>
-  <country_billing>${billingAddress_country}</country_billing>
-  <statesState_billing>${billingAddress_statesState}</statesState_billing>
-  <statesStateShort_billing>${billingAddress_statesStateShort}</statesStateShort_billing>
-  <city_billing>${billingAddress_city}</city_billing>
-  <postalCode_billing>${billingAddress_postalCode}</postalCode_billing>
-  <phone_billing>${billingAddress_phone}</phone_billing>
 </data>

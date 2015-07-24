@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-sets>
+	<data-set>
+		<!-- data from the original data set is here too, because we want to execute it with
+			ANT as well -->
+		<productNumber>${productNumber_typeVariationProductColorSizeListPriceOnly}</productNumber>
+		<productQuantity>2</productQuantity>
+		<firstname_shipping>Rene</firstname_shipping>
+		<lastname_shipping>Master</lastname_shipping>
+		<address1_shipping>5 Wall St</address1_shipping>
+		<address2_shipping>3th floor</address2_shipping>
+		<country_shipping>United States</country_shipping>
+		<statesState_shipping>Massachusetts</statesState_shipping>
+		<statesStateShort_shipping>MA</statesStateShort_shipping>
+		<city_shipping>Burlington</city_shipping>
+		<postalCode_shipping>01803</postalCode_shipping>
+		<phone_shipping>888-553-9216</phone_shipping>
+		<firstname_billing>Marty</firstname_billing>
+		<lastname_billing>McFly</lastname_billing>
+		<address1_billing>1921 Floor St.</address1_billing>
+		<address2_billing>cannot be empty during testing</address2_billing>
+		<country_billing>United States</country_billing>
+		<statesState_billing>Maine</statesState_billing>
+		<statesStateShort_billing>ME</statesStateShort_billing>
+		<city_billing>Portland</city_billing>
+		<postalCode_billing>04101</postalCode_billing>
+		<phone_billing>207-221-8711</phone_billing>
+		<paymentName>${storefront_creditCard_paymentName}</paymentName>
+		<owner>${firstname_billing} ${lastname_billing}</owner>
+		<number>${visaCreditCard_number}</number>
+		<type>${visaCreditCard_type}</type>
+		<typeShort>${visaCreditCard_typeShort}</typeShort>
+		<month>${visaCreditCard_month}</month>
+		<year>${visaCreditCard_year}</year>
+		<cvn>${visaCreditCard_cvn}</cvn>
+	</data-set>
+	
+	<data-set>
+		<productNumber>${productNumber_typeVariationProductColorSizeListPriceOnly}</productNumber>
+		<productQuantity>3</productQuantity>
+		
+		<firstname_shipping>Rene</firstname_shipping>
+		<lastname_shipping>Master</lastname_shipping>
+		<address1_shipping>5 Wall St</address1_shipping>
+		<address2_shipping>3th floor</address2_shipping>
+		<country_shipping>United States</country_shipping>
+		<statesState_shipping>Massachusetts</statesState_shipping>
+		<statesStateShort_shipping>MA</statesStateShort_shipping>
+		<city_shipping>Burlington</city_shipping>
+		<postalCode_shipping>01803</postalCode_shipping>
+		<phone_shipping>888-553-9216</phone_shipping>
+		
+		<firstname_billing>${firstname_shipping}</firstname_billing>
+		<lastname_billing>${lastname_shipping}</lastname_billing>
+		<address1_billing>${address1_shipping}</address1_billing>
+		<address2_billing>${address2_shipping}</address2_billing>
+		<country_billing>${country_shipping}</country_billing>
+		<statesState_billing>${statesState_shipping}</statesState_billing>
+		<statesStateShort_billing>${statesStateShort_shipping}</statesStateShort_billing>
+		<city_billing>${city_shipping}</city_billing>
+		<postalCode_billing>${postalCode_shipping}</postalCode_billing>
+		<phone_billing>${phone_shipping}</phone_billing>
+		
+		<paymentName>${storefront_creditCard_paymentName}</paymentName>
+		<owner>${firstname_billing} ${lastname_billing}</owner>
+		<number>${visaCreditCard_number}</number>
+		<type>${visaCreditCard_type}</type>
+		<typeShort>${visaCreditCard_typeShort}</typeShort>
+		<month>${visaCreditCard_month}</month>
+		<year>${visaCreditCard_year}</year>
+		<cvn>${visaCreditCard_cvn}</cvn>
+	</data-set>
+	
+	<data-set>
+		<productNumber>${productNumber_typeVariationProductColorSizeListPriceOnly}</productNumber>
+		<productQuantity>2</productQuantity>
+		
+		<firstname_shipping>Rene</firstname_shipping>
+		<lastname_shipping>Master</lastname_shipping>
+		<address1_shipping>5 Wall St</address1_shipping>
+		<address2_shipping>3th floor</address2_shipping>
+		<country_shipping>United States</country_shipping>
+		<statesState_shipping>Massachusetts</statesState_shipping>
+		<statesStateShort_shipping>MA</statesStateShort_shipping>
+		<city_shipping>Burlington</city_shipping>
+		<postalCode_shipping>01803</postalCode_shipping>
+		<phone_shipping>888-553-9216</phone_shipping>
+		
+		<firstname_billing>Marty</firstname_billing>
+		<lastname_billing>McFly</lastname_billing>
+		<address1_billing>1921 Floor St.</address1_billing>
+		<address2_billing>Key under carpet</address2_billing>
+		<country_billing>United States</country_billing>
+		<statesState_billing>Maine</statesState_billing>
+		<statesStateShort_billing>ME</statesStateShort_billing>
+		<city_billing>Portland</city_billing>
+		<postalCode_billing>04101</postalCode_billing>
+		<phone_billing>207-221-8711</phone_billing>
+		
+		<paymentName>${storefront_creditCard_paymentName}</paymentName>
+		<owner>${firstname_billing} ${lastname_billing}</owner>
+		<number>${visaCreditCard_number}</number>
+		<type>${visaCreditCard_type}</type>
+		<typeShort>${visaCreditCard_typeShort}</typeShort>
+		<month>${visaCreditCard_month}</month>
+		<year>${visaCreditCard_year}</year>
+		<cvn>${visaCreditCard_cvn}</cvn>
+	</data-set>
+	
+</data-sets>	
