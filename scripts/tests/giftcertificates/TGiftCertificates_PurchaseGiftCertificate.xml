@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>giftcerts,cart</tags>
+  <tags>giftcerts,cart,checkout,external</tags>
   <description># Setup
 
-- create an email for the receipient,with a short time mail program
+- create an email for the receipient using an external service
 - open the homepage and start the session
 - create an account for the buyer
 
 # Scope
 - go to gift certificates page and validate it
-- add it to the cart
+- add a gift certificate to the cart
 - go to the cart
-- validate the gift cert in the cart
-- purchase gift cart
-- validates is gift card sended
-- check balance of gift card in the storefront</description>
+- validate the gift certificate in the cart
+- purchase cart
+- validate if gift certificate was sent
+- check balance of gift certificates</description>
   <codecomment># Setup
 
 - generate short time email to recieve a gift code
@@ -56,8 +56,8 @@
 - add gift cert to cart
 - validate cart
 - purchase Gift Certificate
-- check if email with Gift Certificate is sendet
-- copy gift code and check balance of Gift Certificate</codecomment>
+- check if email with Gift Certificate was sent
+- copy gift code from email and check balance of Gift Certificate</codecomment>
   <action name="GotoGiftCertificates"/>
   <module name="modules.pages.homepage.MHomepage_clickGiftCertificates"/>
   <module name="modules.pages.giftcertificates.VGiftCertificates_validatePage"/>
@@ -108,7 +108,7 @@
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
   <action name="CheckoutPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
-  <codecomment>get back to mail page to catch the gift code</codecomment>
+  <codecomment>get back to mail page to fetch the gift certificate code</codecomment>
   <module name="modules.helper.external.FHelper_getGiftCertificateCodeFromExternal">
     <parameter name="giftcode_var" value="giftCodeMessage"/>
   </module>
