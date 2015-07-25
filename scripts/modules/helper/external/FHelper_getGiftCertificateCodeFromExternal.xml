@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Goes to the emailpage and get the email message with the gift code</description>
-  <parameter name="giftcode_var"/>
+  <tags>email,external,10minutemail</tags>
+  <description>Goes to 10 minute email and fetches the just arrived email to retrieve the gift certificate code.</description>
+  <parameter name="giftcode_var" desc="The gift certificate code retrieved."/>
   <action name="ReturnToMailer"/>
   <command name="open" value="${emailClientURL}"/>
   <action name="WaitForMail"/>

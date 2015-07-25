@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Goes to 10 minute Mail and colects an new unique email</description>
-  <parameter name="email_var"/>
+  <tags>email,external,10minutemail</tags>
+  <description>Goes to 10 minute Mail and fetches a fresh temporary email address for testing.</description>
+  <parameter name="email_var" desc="The email address fetched."/>
   <action name="OpenMailSite"/>
   <command name="open" value="${emailClientURL}"/>
   <codecomment>Delete cookies to get a new email</codecomment>

@@ -20,7 +20,7 @@
 - generate short time email to recieve a gift code
 - generate mail and password for buyer
 - create account for purchase</codecomment>
-  <module name="modules.helper.MHelper_getEmailFromOutside">
+  <module name="modules.helper.external.FHelper_getEmailAddressFromExternal">
     <parameter name="email_var" value="emailRecipient"/>
   </module>
   <module name="modules.helper.MHelper_Random_createEmail">
@@ -83,7 +83,7 @@
     <parameter name="emailRecipient" value="${emailRecipient}"/>
     <parameter name="giftCertificateValue" value="${giftCertificateValue}"/>
   </module>
-  <action name="GoToCheckout"/>
+  <action name="CheckoutAsNewCustomer"/>
   <module name="modules.pages.cart.MCart_clickGoToCheckoutLogin"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_BillingAddress_enterAddress">
     <parameter name="firstname" value="${firstNameBuyer}"/>
@@ -104,12 +104,12 @@
     <parameter name="year" value="${visaCreditCard_year}"/>
     <parameter name="cvn" value="${visaCreditCard_cvn}"/>
   </module>
-  <action name="GoToPurchase"/>
+  <action name="CheckoutBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
-  <action name="Purchase"/>
+  <action name="CheckoutPlaceOrder"/>
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
   <codecomment>get back to mail page to catch the gift code</codecomment>
-  <module name="modules.helper.MHelper_getGiftCodeMsg">
+  <module name="modules.helper.external.FHelper_getGiftCertificateCodeFromExternal">
     <parameter name="giftcode_var" value="giftCodeMessage"/>
   </module>
   <module name="modules.helper.MHelper_convertGiftCodeMessageToGiftCode">
