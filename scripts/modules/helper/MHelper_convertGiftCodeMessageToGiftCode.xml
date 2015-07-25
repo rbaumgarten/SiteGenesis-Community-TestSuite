@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>converts message with Gift Certificates, to Gift Certificates</description>
+  <parameter name="giftcode"/>
+  <parameter name="giftcode_var"/>
+  <command name="storeEval" target="&quot;@{giftcode}&quot;.indexOf(&quot;:&quot;)+1" value="position"/>
+  <command name="storeEval" target="&quot;@{giftcode}&quot;.substring(${position})" value="@{giftcode_var}"/>
+</scriptmodule>
