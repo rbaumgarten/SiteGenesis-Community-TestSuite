@@ -101,7 +101,7 @@
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateListIsEmpty"/>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
