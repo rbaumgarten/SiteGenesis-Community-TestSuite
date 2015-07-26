@@ -6,4 +6,5 @@
     <comment>We have seen that we need a moment here otherweise a login later on fails for some strange reasons.</comment>
   </command>
   <command name="clickAndWait" target="css=button[name=dwfrm_profile_confirm][type=submit]"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>

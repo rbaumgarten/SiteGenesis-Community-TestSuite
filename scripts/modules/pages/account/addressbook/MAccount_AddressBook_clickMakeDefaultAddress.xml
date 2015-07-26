@@ -3,4 +3,5 @@
   <description>Click make default address.</description>
   <parameter name="position" desc="position"/>
   <command name="clickAndWait" target="css=#primary #addresses .address-list li:nth-of-type(@{position}) a.address-make-default"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
