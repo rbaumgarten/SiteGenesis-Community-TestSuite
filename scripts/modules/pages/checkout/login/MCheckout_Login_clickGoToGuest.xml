@@ -2,4 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click go to guest on checkout login page.</description>
   <command name="clickAndWait" target="name=dwfrm_login_unregistered value=Checkout as a Guest"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>

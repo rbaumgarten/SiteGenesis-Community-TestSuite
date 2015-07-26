@@ -7,4 +7,5 @@
   <command name="type" target="id=dwfrm_profile_login_password" value="@{password}"/>
   <command name="type" target="id=dwfrm_profile_login_passwordconfirm" value="@{password}"/>
   <command name="clickAndWait" target="css=button[name=&quot;dwfrm_profile_confirm&quot;][type=&quot;submit&quot;]"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
