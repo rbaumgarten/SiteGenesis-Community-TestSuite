@@ -2,4 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click and go to homepage via logo in header.</description>
   <command name="clickAndWait" target="css=h1.primary-logo a img"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
