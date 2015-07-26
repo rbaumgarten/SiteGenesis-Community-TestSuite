@@ -65,7 +65,7 @@
     <parameter name="fixedProductNumber_varName" value="thirdProductNumber"/>
   </module>
   <action name="AddToCart"/>
-  <command name="click" target="id=add-all-to-cart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
   <codecomment>Quickview becomes invisible after add to cart</codecomment>
   <command name="waitForNotVisible" target="id=pdpMain"/>
   <action name="ViewCart"/>
@@ -108,7 +108,7 @@
     <parameter name="searchText" value="${productNumber}"/>
   </module>
   <action name="AddToCart"/>
-  <command name="click" target="id=add-all-to-cart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
