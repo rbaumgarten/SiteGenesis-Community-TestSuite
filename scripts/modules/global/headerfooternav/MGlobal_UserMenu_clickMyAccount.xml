@@ -2,5 +2,4 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Clicks on MyAccount in User Menu</description>
   <command name="clickAndWait" target="css=.menu-utility-user .user-info .user-panel .user-links a:first-of-type"/>
-  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>

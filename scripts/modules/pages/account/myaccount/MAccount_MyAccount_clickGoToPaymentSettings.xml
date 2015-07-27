@@ -4,5 +4,4 @@
   <command name="clickAndWait" target="css=.secondary-navigation div.content-asset ul:first-of-type li:nth-of-type(3) a">
     <comment>Goto personal data</comment>
   </command>
-  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
