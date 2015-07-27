@@ -5,4 +5,5 @@
   <command name="clickAndWait" target="css=#primary.primary-content div.section-header .no-hits-search-term-suggest">
     <comment>Click the did you mean suggestion.</comment>
   </command>
+  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
