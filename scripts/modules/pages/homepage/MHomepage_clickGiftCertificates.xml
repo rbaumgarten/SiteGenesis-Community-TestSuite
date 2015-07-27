@@ -2,5 +2,4 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Clciks on the Gift Certificatex Button in the Footer</description>
   <command name="clickAndWait" target="css=.footer-container div.footer-item div.content-asset .menu-footer.menu li a[title='Go to Gift Certificates']"/>
-  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>
