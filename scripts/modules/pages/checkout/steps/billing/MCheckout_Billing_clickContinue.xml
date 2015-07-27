@@ -2,5 +2,4 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click continue to next step.</description>
   <command name="clickAndWait" target="css=button[name=&quot;dwfrm_billing_save&quot;][type=&quot;submit&quot;]"/>
-  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>

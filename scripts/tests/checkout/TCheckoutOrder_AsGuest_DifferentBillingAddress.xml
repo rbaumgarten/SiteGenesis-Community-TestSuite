@@ -92,13 +92,13 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="shippingAddress_isGift" value="${storefront_shippingAddress_isGift}"/>
     <parameter name="shippingMethod_position" value="${storefront_shippingMethod_position}"/>
   </module>
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox"/>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductBasicDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
     <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
     <parameter name="productPriceTotal" value="${productPriceTotal_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateBox"/>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateProductColorSize">
     <parameter name="row" value="1"/>
     <parameter name="productColor" value="${productColor_varDynamic}"/>
@@ -210,7 +210,6 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   </module>
   <action name="CheckoutBilling"/>
   <module name="modules.pages.checkout.steps.billing.MCheckout_Billing_clickContinue"/>
-  <module name="modules.helper.MHelper_WaitFor_DOMState"/>
   <codecomment>Place Order
 
 - Validate page
