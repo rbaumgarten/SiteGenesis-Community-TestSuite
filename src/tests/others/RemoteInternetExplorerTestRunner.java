@@ -14,11 +14,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 
-public class TestRunnerRemoteInternetExplorer extends AbstractScriptTestCase
+public class RemoteInternetExplorerTestRunner extends AbstractScriptTestCase
 {
 	private WebDriver driver;
 
-	protected TestRunnerRemoteInternetExplorer()
+	protected RemoteInternetExplorerTestRunner()
 	{
 		final DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		caps.setCapability("version", "11.0");
