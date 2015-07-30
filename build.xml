@@ -408,73 +408,37 @@
 
     <target name="test.parallel" depends="test.init">
         <parallel threadsPerProcessor="1">
+		    <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/checkout"/>
+                <param name="namePattern" value="T*"/>
+            </antcall>
             <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TAccountAddressBook_CRUDAddresses"/>
+                <param name="pathPattern" value="**/account"/>
+				<param name="namePattern" value="T*"/>
+            </antcall>
+            <antcall target="test.parallel.pattern">
+                <param name="pathPattern" value="**/product"/>
+                <param name="namePattern" value="T*"/>
             </antcall>
             <antcall target="test.parallel.pattern">
                 <param name="pathPattern" value="**/catalog"/>
-                <param name="namePattern" value="TCatalogO"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**/catalog"/>
-                <param name="namePattern" value="TCatalogV"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TCheckoutGuestOrderProduct"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TCheckoutNewCustomerOrderProducts"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TCheckoutReturningCustomerOrderProduct"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TAccountLogin"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**/catalog"/>
-                <param name="namePattern" value="TCatalogR"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TAccountP"/>
+				<param name="namePattern" value="T*"/>
             </antcall>
             <antcall target="test.parallel.pattern">
                 <param name="pathPattern" value="**/cart"/>
-                <param name="namePattern" value="T"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TP"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TM"/>
+				<param name="namePattern" value="T*"/>
             </antcall>
             <antcall target="test.parallel.pattern">
                 <param name="pathPattern" value="**/search"/>
-                <param name="namePattern" value="TS"/>
+                <param name="namePattern" value="T*"/>
             </antcall>
             <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TH"/>
+                <param name="pathPattern" value="**/minicart"/>
+                <param name="namePattern" value="T*"/>
             </antcall>
             <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TestR"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TAccountWishList_AddRemoveProduct"/>
-            </antcall>
-            <antcall target="test.parallel.pattern">
-                <param name="pathPattern" value="**"/>
-                <param name="namePattern" value="TAccount_CreateAccount"/>
+                <param name="pathPattern" value="**/homepage"/>
+                <param name="namePattern" value="T*"/>
             </antcall>
         </parallel>
         <!--
