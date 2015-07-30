@@ -5,7 +5,7 @@
   <parameter name="lastname" desc="lastname"/>
   <parameter name="email" desc="email"/>
   <codecomment>Validate profile data</codecomment>
-  <command name="assertText" target="id=dwfrm_profile_customer_firstname" value="@{firstname}"/>
-  <command name="assertText" target="id=dwfrm_profile_customer_lastname" value="@{lastname}"/>
-  <command name="assertText" target="id=dwfrm_profile_customer_email" value="@{email}"/>
+  <command name="assertText" target="css=#dwfrm_profile_customer_firstname" value="@{firstname}"/>
+  <command name="assertText" target="css=#dwfrm_profile_customer_lastname" value="@{lastname}"/>
+  <command name="assertText" target="css=#dwfrm_profile_customer_email" value="@{email}"/>
 </scriptmodule>

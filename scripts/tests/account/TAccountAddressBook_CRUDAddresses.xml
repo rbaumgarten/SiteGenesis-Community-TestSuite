@@ -234,7 +234,6 @@
     <parameter name="position" value="2"/>
     <parameter name="title" value="${title_03}"/>
   </module>
-  <action name="TEST"/>
   <module name="modules.pages.account.addressbook.VAccount_AddressBook_validateAddress">
     <parameter name="position" value="2"/>
     <parameter name="title" value="${title_03}"/>

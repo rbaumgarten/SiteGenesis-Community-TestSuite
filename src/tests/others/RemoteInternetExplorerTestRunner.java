@@ -14,24 +14,32 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.xceptance.xlt.api.engine.scripting.AbstractScriptTestCase;
 
-public class TestRunnerRemoteInternetExplorer extends AbstractScriptTestCase {
-	WebDriver driver; 
-	protected TestRunnerRemoteInternetExplorer() {
-		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
+public class RemoteInternetExplorerTestRunner extends AbstractScriptTestCase
+{
+	private WebDriver driver;
+
+	protected RemoteInternetExplorerTestRunner()
+	{
+		final DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		caps.setCapability("version", "11.0");
 		caps.setCapability("platform", Platform.WIN8_1);
-		try {
+		try
+		{
 			driver = new RemoteWebDriver(
-			    new URL("http://YOUR_USERNAME:YOUR_ACCESS_KEY@ondemand.saucelabs.com:80/wd/hub"), caps);
-		} catch (MalformedURLException e) {
+					new URL("http://YOUR_USERNAME:YOUR_ACCESS_KEY@ondemand.saucelabs.com:80/wd/hub"), caps);
+		}
+		catch (final MalformedURLException e)
+		{
 			e.printStackTrace();
-		}		
+		}
 		setWebDriver(driver);
 	}
-		
+
+	@Override
 	@After
-	public void tearDown() {
+	public void tearDown()
+	{
 		driver.quit();
 	}
-	
+
 }

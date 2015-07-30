@@ -31,6 +31,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  */
 @ScriptName
 ("tests.checkout.TCheckoutGuestOrderProduct")
-public class TCheckoutGuestOrderProduct_RemoteInternetExplorer extends TestRunnerRemoteInternetExplorer
+public class TCheckoutGuestOrderProduct_RemoteInternetExplorer extends RemoteInternetExplorerTestRunner
 {
 }
