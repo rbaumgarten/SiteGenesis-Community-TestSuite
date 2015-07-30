@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>paging</tags>
+  <description>Use the page number to navigate to the next set of products.</description>
+  <parameter name="pageNumber" desc="What page page to jump to"/>
+  <command name="click" target="css=#primary .pagination a.page-@{pageNumber}"/>
+  <command name="waitForText" target="css=#primary .pagination .current-page" value="@{pageNumber}"/>
+</scriptmodule>

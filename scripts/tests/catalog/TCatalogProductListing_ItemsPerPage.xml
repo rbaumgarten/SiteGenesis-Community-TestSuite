@@ -104,7 +104,4 @@ Please ignore this message, it is a known script developer issue (https://lab.xc
     <parameter name="itemsPerPageLabel" value="${itemsPerPageLabel_ViewAll}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Option_validateItemsPerPageViewAll"/>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>

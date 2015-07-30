@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://xlt.xceptance.com/xlt-script-data">
+  <colorLabel_blue>Blue</colorLabel_blue>
+  <sorting>Price High To Low</sorting>
+  <pageSize>24</pageSize>
+  <pageNumber>2</pageNumber>
+</data>

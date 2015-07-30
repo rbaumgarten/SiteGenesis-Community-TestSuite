@@ -116,7 +116,4 @@
   <module name="modules.pages.catalog.VCatalog_Option_validateSortBy">
     <parameter name="sortByLabel" value="${sortByLabel_bestMatches}"/>
   </module>
-  <codecomment># Teardown
-
-- End session</codecomment>
 </testcase>
