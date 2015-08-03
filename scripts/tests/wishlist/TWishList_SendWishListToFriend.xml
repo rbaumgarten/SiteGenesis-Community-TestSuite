@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Send to wishlist to a friend. Does not validate the correctness of the sent email, only the success message is checked.
+
+# 1. Setup and preparation
+- create sender and receiver email
+- create sender account password
+- start session
+- create a new account but do not log out
+
+- search product
+
+# 2. Scope of test
+- open send wishlist to friend dialog
+- cancel dialog
+- open send wishlist to friend dialog again
+- fill out form, preview mail
+- send form data
+- close dialog
+- repeat but do not use preview, send immediately
+- logou</description>
+  <codecomment># Setup
+
+- Create mail for User and Searcher
+- Create password for User and Searcher
+- Start session
+- Create account
+- add product to wishlist</codecomment>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="email_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="password_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="email_receiver"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${firstName_sender}"/>
+    <parameter name="lastname" value="${lastName_sender}"/>
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="password" value="${password_sender}"/>
+  </module>
+  <action name="SearchProducts"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## WishList
+
+- Send to Friend</codecomment>
+  <action name="OpenSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
+  <action name="CancelSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_cancelDialogViaCancelButton"/>
+  <codecomment>send via preview</codecomment>
+  <action name="OpenSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
+    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
+    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
+    <parameter name="email_receiver" value="${email_receiver}"/>
+    <parameter name="massage_reciever" value="Please take a look at my wishlist"/>
+  </module>
+  <action name="PreviewSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickPreviewButton"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_SendToFriendDialog_validatePreviewDialog">
+    <parameter name="message_reciver" value="${firstName_receiver}*${lastName_receiver}*${email_receiver}"/>
+    <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
+  </module>
+  <action name="SendSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
+  <action name="CloseSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
+  <codecomment>send without preview</codecomment>
+  <action name="OpenSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
+    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
+    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
+    <parameter name="email_receiver" value="${email_receiver}"/>
+    <parameter name="massage_reciever" value="Look at my wishlist"/>
+  </module>
+  <action name="SendSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
+  <action name="CloseSendToFriend"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+</testcase>

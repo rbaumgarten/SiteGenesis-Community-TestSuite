@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Test add product to wishlist.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create new account
+- Search product 01
+- add product to wishlist 
+- make wishlist public 
+- logout
+
+# 2. Scope of test
+
+- create a new user
+- search for the previously created wishlist (public)
+
+ </description>
+  <codecomment># Setup
+
+- Create mail for User and Searcher
+- Create password for User and Searcher
+- Start session
+- Create account</codecomment>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListUser_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListUser_password"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListSearcher_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListSearcher_password"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${WishListUser_firstName}"/>
+    <parameter name="lastname" value="${WishListUser_lastName}"/>
+    <parameter name="email" value="${WishListUser_email}"/>
+    <parameter name="password" value="${WishListUser_password}"/>
+  </module>
+  <action name="SearchProduct"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <action name="Logout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Wishlist Search
+
+- create new User
+- search WishList from WischListUser</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${WishListSearcher_firstName}"/>
+    <parameter name="lastname" value="${WishListSearcher_lastName}"/>
+    <parameter name="email" value="${WishListSearcher_email}"/>
+    <parameter name="password" value="${WishListSearcher_password}"/>
+  </module>
+  <action name="ClickUserButton"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <codecomment>search wishlist on modify wishlist page</codecomment>
+  <action name="OpenWishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
+    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
+  <action name="ClickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
+  <codecomment>VALIDATE SEARCH RESULT HERE</codecomment>
+  <action name="ClickView"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <codecomment>search wishlist on search wishlist page</codecomment>
+  <action name="GOTOSearchWishList"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
+  <codecomment>THE PREVIOUSLY SEARCHED LIST IS STILL VISIBLE. VALIDATE IT, SEEMS TO BE A FEATURE. BESIDES THAT, it does not make sense to search for the same list again, because you are not going to know if the application really searched or just displayed the prev. result again.</codecomment>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
+    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
+  <action name="ClickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
+  <action name="ClickView"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+</testcase>

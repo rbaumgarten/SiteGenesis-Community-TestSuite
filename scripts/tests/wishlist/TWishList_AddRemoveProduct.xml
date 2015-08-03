@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
-  <description>Test add product to wishlist.
+  <tags>wishlist</tags>
+  <description>Test adding a product to a wishlist.
 
 # 1. Setup and preparation
 
@@ -16,13 +16,10 @@
 - Validate nav and page
 - Add product to wishlist
 - Validate product basic details
-- Remove product 01
+- Remove product 
 - Validate empty
-
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+- do it again for QV
+- log out</description>
   <codecomment># Setup
 
 - Create mail
@@ -34,16 +31,6 @@
   </module>
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <comment>Give the account first name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${firstname}"/>
-    <parameter name="returned_varString" value="firstname"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <comment>Give the account last name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${lastname}"/>
-    <parameter name="returned_varString" value="lastname"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
@@ -58,10 +45,11 @@
 - Search
 - Store product details
 - Add to wishlist</codecomment>
-  <action name="Search"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
+  <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -70,21 +58,12 @@
   <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
-  <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <codecomment>## Wishlist
-
-- Login
-- Validate nav and page
-- Validate product details
-- Remove product
-- Validate empty wishlist</codecomment>
   <action name="Login"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <action name="ViewWishList"/>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
     <parameter name="breadcrumbTitle" value="Wish List"/>
   </module>
@@ -101,7 +80,55 @@
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_validateListIsEmpty"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
+  <codecomment>## Catalog
+- goto product</codecomment>
+  <action name="GoToStartPage"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
+  <action name="CategoryLevel1"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
+    <parameter name="nameLevel1" value="${plainProductCategoryLevel1}"/>
+  </module>
+  <action name="CategoryLevel2"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
+    <parameter name="nameLevel2" value="${plainProductCategoryLevel2}"/>
+  </module>
+  <action name="SortByName"/>
+  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Product Name A - Z"/>
+  </module>
+  <action name="ProductQuickView"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
+    <parameter name="title" value="${plainProductName}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Wish List"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validatePage"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <action name="RemoveProductFromWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductListIsEmpty"/>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
