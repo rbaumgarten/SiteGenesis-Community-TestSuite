@@ -54,15 +54,15 @@
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <action name="LogOut"/>
+  <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <codecomment># Scope</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession">
     <comment>Start new session and make sure cookies are gone</comment>
   </module>
-  <action name="GoToLogIn"/>
+  <action name="GoToLogin"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
-  <action name="LogIn"/>
+  <action name="Login"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
     <comment>Enter email and wrong password.</comment>
     <parameter name="email" value="${email_varDynamic}"/>
@@ -70,7 +70,7 @@
   </module>
   <action name="GoToWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
-  <action name="AddToCartFromWishlist"/>
+  <action name="AddToCart"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickAddToCart">
     <parameter name="row" value="1"/>
   </module>

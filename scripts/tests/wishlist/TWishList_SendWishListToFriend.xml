@@ -43,7 +43,7 @@
     <parameter name="email" value="${email_sender}"/>
     <parameter name="password" value="${password_sender}"/>
   </module>
-  <action name="SearchProducts"/>
+  <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>

@@ -24,6 +24,22 @@
 - Create password for User and Searcher
 - Start session
 - Create account</codecomment>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${WishListUser_firstName}"/>
+    <parameter name="returned_varString" value="WishListUser_firstName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${WishListUser_lastName}"/>
+    <parameter name="returned_varString" value="WishListUser_lastName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${WishListSearcher_firstName}"/>
+    <parameter name="returned_varString" value="WishListSearcher_firstName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${WishListSearcher_lastName}"/>
+    <parameter name="returned_varString" value="WishListSearcher_lastName"/>
+  </module>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="WishListUser_email"/>
   </module>
@@ -43,7 +59,7 @@
     <parameter name="email" value="${WishListUser_email}"/>
     <parameter name="password" value="${WishListUser_password}"/>
   </module>
-  <action name="SearchProduct"/>
+  <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
@@ -84,9 +100,14 @@
   </module>
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
-  <codecomment>VALIDATE SEARCH RESULT HERE</codecomment>
+  <codecomment>validate search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${WishListUser_firstName}"/>
+    <parameter name="lastName" value="${WishListUser_lastName}"/>
+  </module>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <codecomment>validate content of search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
@@ -95,9 +116,15 @@
     <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
   </module>
   <codecomment>search wishlist on search wishlist page</codecomment>
+  <action name="Logout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${WishListSearcher_email}"/>
+    <parameter name="password" value="${WishListSearcher_password}"/>
+  </module>
   <action name="GOTOSearchWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
-  <codecomment>THE PREVIOUSLY SEARCHED LIST IS STILL VISIBLE. VALIDATE IT, SEEMS TO BE A FEATURE. BESIDES THAT, it does not make sense to search for the same list again, because you are not going to know if the application really searched or just displayed the prev. result again.</codecomment>
+  <codecomment>Please keep in mind: your search results will be stored until you logout</codecomment>
   <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
     <parameter name="user_firstName" value="${WishListUser_firstName}"/>
     <parameter name="user_lastName" value="${WishListUser_lastName}"/>
@@ -105,8 +132,14 @@
   </module>
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
+  <codecomment>validate search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${WishListUser_firstName}"/>
+    <parameter name="lastName" value="${WishListUser_lastName}"/>
+  </module>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <codecomment>validate content of search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_varDynamic}"/>
