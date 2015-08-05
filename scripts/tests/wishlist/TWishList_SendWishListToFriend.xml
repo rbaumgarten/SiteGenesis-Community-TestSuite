@@ -27,14 +27,30 @@
 - Start session
 - Create account
 - add product to wishlist</codecomment>
+  <module name="modules.helper.external.FHelper_getEmailAddressFromExternal">
+    <parameter name="email_var" value="email_recipient"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstName_sender}"/>
+    <parameter name="returned_varString" value="firstName_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${lastName_sender}"/>
+    <parameter name="returned_varString" value="lastName_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstName_recipient}"/>
+    <parameter name="returned_varString" value="firstName_recipient"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${lastName_recipient}"/>
+    <parameter name="returned_varString" value="lastName_recipient"/>
+  </module>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_sender"/>
   </module>
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_sender"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_createEmail">
-    <parameter name="email_varName" value="email_receiver"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
@@ -69,15 +85,15 @@
   <action name="OpenSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
-    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
-    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
-    <parameter name="email_receiver" value="${email_receiver}"/>
-    <parameter name="massage_reciever" value="Please take a look at my wishlist"/>
+    <parameter name="firstName_receiver" value="${firstName_recipient}"/>
+    <parameter name="lastName_receiver" value="${lastName_recipient}"/>
+    <parameter name="email_receiver" value="${email_recipient}"/>
+    <parameter name="massage_reciever" value="First Mesaage: Please take a look at my wishlist"/>
   </module>
   <action name="PreviewSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickPreviewButton"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_SendToFriendDialog_validatePreviewDialog">
-    <parameter name="message_reciver" value="${firstName_receiver}*${lastName_receiver}*${email_receiver}"/>
+    <parameter name="message_reciver" value="${firstName_recipient}*${lastName_recipient}*${email_recipient}"/>
     <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
   </module>
   <action name="SendSendToFriend"/>
@@ -88,10 +104,10 @@
   <action name="OpenSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
-    <parameter name="firstName_receiver" value="${firstName_receiver}"/>
-    <parameter name="lastName_receiver" value="${lastName_receiver}"/>
-    <parameter name="email_receiver" value="${email_receiver}"/>
-    <parameter name="massage_reciever" value="Look at my wishlist"/>
+    <parameter name="firstName_receiver" value="${firstName_recipient}"/>
+    <parameter name="lastName_receiver" value="${lastName_recipient}"/>
+    <parameter name="email_receiver" value="${email_recipient}"/>
+    <parameter name="massage_reciever" value="Second Message: Look at my wishlist"/>
   </module>
   <action name="SendSendToFriend"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
@@ -99,4 +115,25 @@
   <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>Goto external Mailer to validate the sended emails</codecomment>
+  <action name="OpenExternalMailer"/>
+  <module name="modules.helper.external.FHelper_openExternalMailer"/>
+  <module name="modules.helper.external.VHelper_validateMessage">
+    <parameter name="messageNr" value="msg_1"/>
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="msgText" value="Check out my Wish List"/>
+  </module>
+  <module name="modules.helper.external.VHelper_validateMessage">
+    <parameter name="messageNr" value="msg_2"/>
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="msgText" value="Check out my Wish List"/>
+  </module>
+  <module name="tests.wishlist.VHelper_openWishListSearch"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${firstName_sender}"/>
+    <parameter name="user_lastName" value="${lastName_sender}"/>
+    <parameter name="user_email" value="${email_sender}"/>
+  </module>
+  <action name="ClickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
 </testcase>

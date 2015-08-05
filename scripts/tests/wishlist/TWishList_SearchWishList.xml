@@ -15,7 +15,9 @@
 # 2. Scope of test
 
 - create a new user
-- search for the previously created wishlist (public)
+- search for the previously created wishlist (public) via modify wishlist
+- logout
+- login and search wishlist via search wishlist
 
  </description>
   <codecomment># Setup
@@ -81,7 +83,10 @@
   <codecomment>## Wishlist Search
 
 - create new User
-- search WishList from WischListUser</codecomment>
+- search WishList from WischListUser via modify wishlist
+- logout (this is nessesary because search results will be stored)
+- login 
+- search wishlist via search wishlist</codecomment>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
     <parameter name="firstname" value="${WishListSearcher_firstName}"/>
     <parameter name="lastname" value="${WishListSearcher_lastName}"/>

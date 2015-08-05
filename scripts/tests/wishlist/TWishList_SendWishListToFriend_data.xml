@@ -2,7 +2,7 @@
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <firstName_sender>${WishListUser_FirstName}</firstName_sender>
   <lastName_sender>${WishListUser_LastName}</lastName_sender>
-  <firstName_receiver>Tom</firstName_receiver>
-  <lastName_receiver>Receiver</lastName_receiver>
-  <productNumber>${productNumber_typeOptionProduct}</productNumber>
+  <firstName_recipient>Tom</firstName_recipient>
+  <lastName_recipient>Recipient</lastName_recipient>
+  <productNumber>${productNumber_typeProduct}</productNumber>
 </data>
