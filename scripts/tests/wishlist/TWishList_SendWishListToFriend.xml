@@ -64,9 +64,9 @@
     <parameter name="searchText" value="${productNumber}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productName_varName" value="productName"/>
+    <parameter name="productNumber_varName" value="productNumber"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales"/>
   </module>
   <module name="modules.pages.product.MProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
@@ -119,21 +119,21 @@
   <action name="OpenExternalMailer"/>
   <module name="modules.helper.external.FHelper_openExternalMailer"/>
   <module name="modules.helper.external.VHelper_validateMessage">
-    <parameter name="messageNr" value="msg_1"/>
+    <parameter name="messageNumber" value="msg_1"/>
     <parameter name="email" value="${email_sender}"/>
-    <parameter name="msgText" value="Check out my Wish List"/>
+    <parameter name="messageText" value="Check out my Wish List"/>
   </module>
   <module name="modules.helper.external.VHelper_validateMessage">
-    <parameter name="messageNr" value="msg_2"/>
+    <parameter name="messageNumber" value="msg_2"/>
     <parameter name="email" value="${email_sender}"/>
-    <parameter name="msgText" value="Check out my Wish List"/>
+    <parameter name="messageText" value="Check out my Wish List"/>
   </module>
   <module name="modules.helper.external.VHelper_openWishListSearch"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
-    <parameter name="user_firstName" value="${firstName_sender}"/>
-    <parameter name="user_lastName" value="${lastName_sender}"/>
-    <parameter name="user_email" value="${email_sender}"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName}"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPriceSales}"/>
   </module>
-  <action name="ClickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
 </testcase>
