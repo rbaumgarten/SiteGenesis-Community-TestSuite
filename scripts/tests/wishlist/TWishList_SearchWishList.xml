@@ -27,19 +27,19 @@
 - Start session
 - Create account</codecomment>
   <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${WishListUser_firstName}"/>
+    <parameter name="inputString" value="${fristname_user}"/>
     <parameter name="returned_varString" value="WishListUser_firstName"/>
   </module>
   <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${WishListUser_lastName}"/>
+    <parameter name="inputString" value="${lastname_user}"/>
     <parameter name="returned_varString" value="WishListUser_lastName"/>
   </module>
   <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${WishListSearcher_firstName}"/>
+    <parameter name="inputString" value="${firstname_searcher}"/>
     <parameter name="returned_varString" value="WishListSearcher_firstName"/>
   </module>
   <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${WishListSearcher_lastName}"/>
+    <parameter name="inputString" value="${lastname_searcher}"/>
     <parameter name="returned_varString" value="WishListSearcher_lastName"/>
   </module>
   <module name="modules.helper.MHelper_Random_createEmail">
@@ -56,8 +56,8 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${WishListUser_firstName}"/>
-    <parameter name="lastname" value="${WishListUser_lastName}"/>
+    <parameter name="firstname" value="${fristname_user}"/>
+    <parameter name="lastname" value="${lastname_user}"/>
     <parameter name="email" value="${WishListUser_email}"/>
     <parameter name="password" value="${WishListUser_password}"/>
   </module>
@@ -88,8 +88,8 @@
 - login 
 - search wishlist via search wishlist</codecomment>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${WishListSearcher_firstName}"/>
-    <parameter name="lastname" value="${WishListSearcher_lastName}"/>
+    <parameter name="firstname" value="${firstname_searcher}"/>
+    <parameter name="lastname" value="${lastname_searcher}"/>
     <parameter name="email" value="${WishListSearcher_email}"/>
     <parameter name="password" value="${WishListSearcher_password}"/>
   </module>
@@ -99,16 +99,16 @@
   <action name="OpenWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
-    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
-    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_firstName" value="${fristname_user}"/>
+    <parameter name="user_lastName" value="${lastname_user}"/>
     <parameter name="user_email" value="${WishListUser_email}"/>
   </module>
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <codecomment>validate search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
-    <parameter name="firstName" value="${WishListUser_firstName}"/>
-    <parameter name="lastName" value="${WishListUser_lastName}"/>
+    <parameter name="firstName" value="${fristname_user}"/>
+    <parameter name="lastName" value="${lastname_user}"/>
   </module>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
@@ -131,16 +131,16 @@
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
   <codecomment>Please keep in mind: your search results will be stored until you logout</codecomment>
   <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
-    <parameter name="user_firstName" value="${WishListUser_firstName}"/>
-    <parameter name="user_lastName" value="${WishListUser_lastName}"/>
+    <parameter name="user_firstName" value="${fristname_user}"/>
+    <parameter name="user_lastName" value="${lastname_user}"/>
     <parameter name="user_email" value="${WishListUser_email}"/>
   </module>
   <action name="ClickSearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <codecomment>validate search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
-    <parameter name="firstName" value="${WishListUser_firstName}"/>
-    <parameter name="lastName" value="${WishListUser_lastName}"/>
+    <parameter name="firstName" value="${fristname_user}"/>
+    <parameter name="lastName" value="${lastname_user}"/>
   </module>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>

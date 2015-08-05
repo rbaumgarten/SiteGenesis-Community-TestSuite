@@ -128,7 +128,7 @@
     <parameter name="email" value="${email_sender}"/>
     <parameter name="msgText" value="Check out my Wish List"/>
   </module>
-  <module name="tests.wishlist.VHelper_openWishListSearch"/>
+  <module name="modules.helper.external.VHelper_openWishListSearch"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
     <parameter name="user_firstName" value="${firstName_sender}"/>
     <parameter name="user_lastName" value="${lastName_sender}"/>
