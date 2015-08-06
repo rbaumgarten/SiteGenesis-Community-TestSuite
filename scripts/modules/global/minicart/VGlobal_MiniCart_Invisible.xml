@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>This is a very special module that ensures that the minicart is closed. It is not really a validation, hence it starts with a V, but does not claim to validate.</description>
+  <command name="waitForNotVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
+</scriptmodule>
