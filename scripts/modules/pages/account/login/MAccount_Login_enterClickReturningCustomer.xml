@@ -5,7 +5,7 @@
   <parameter name="password" desc="password"/>
   <codecomment>Enter login data and log on</codecomment>
   <command name="type" target="css= #dwfrm_login.clearfix fieldset div:first-of-type input" value="@{email}"/>
-  <command name="type" target="id=dwfrm_login_password" value="@{password}"/>
+  <command name="type" target="css=#dwfrm_login.clearfix fieldset div div input[id*=password_]" value="@{password}"/>
   <command name="clickAndWait" target="css=button[name=&quot;dwfrm_login_login&quot;][type=&quot;submit&quot;]"/>
   <module name="modules.helper.MHelper_WaitFor_DOMState"/>
 </scriptmodule>

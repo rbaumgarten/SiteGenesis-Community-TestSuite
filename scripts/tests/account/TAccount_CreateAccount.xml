@@ -61,7 +61,7 @@
   <module name="modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile"/>
   <codecomment>Account breadcrumb</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
-    <parameter name="breadcrumbTitle" value="My Account"/>
+    <parameter name="breadcrumbTitle" value="Go to My Account"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
     <parameter name="breadcrumbText" value="My Account"/>

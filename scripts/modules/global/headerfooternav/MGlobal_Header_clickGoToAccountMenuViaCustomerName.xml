@@ -3,5 +3,5 @@
   <description>Click and go to account via customer name in header.</description>
   <command name="click" target="css=#navigation .menu-utility-user .user-info .user-account"/>
   <command name="waitForVisible" target="css=#navigation .menu-utility-user .user-info .user-panel"/>
-  <command name="clickAndWait" target="css=#navigation .menu-utility-user .user-info .user-panel .user-links a[title='My Account']"/>
+  <command name="clickAndWait" target="css=#navigation ul.menu-utility-user li div.user-panel .user-links a[title='Go to: My Account']"/>
 </scriptmodule>
