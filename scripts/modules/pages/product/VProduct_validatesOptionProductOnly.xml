@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validates Elements that only occure on Option Product Pages</description>
-  <command name="assertElementPresent" target="css=#product-content .product-add-to-cart .pdpForm fieldset .product-options"/>
+  <command name="assertElementPresent" target="css=#product-content form fieldset .product-options ul li div.value select.product-option"/>
   <command name="assertText" target="css=#dwopt_nintendo-wii-console_consoleWarranty option[selected='selected']" value="[$0.00] None"/>
 </scriptmodule>

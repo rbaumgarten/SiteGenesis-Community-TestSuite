@@ -9,7 +9,7 @@
   <command name="storeAttribute" target="css=#main #secondary .refinement.Color ul.refinementColor li.swatch-${lowerCasedColorLabel}@class" value="classAttrValue">
     <comment>We get us the value of the class because it will change during the click process and hence we can wait until it changed to make sure the page finished doing all the magic.</comment>
   </command>
-  <command name="click" target="css=#main #secondary .refinement.Color ul.refinementColor li a[title=&quot;@{colorLabel}&quot;]"/>
+  <command name="click" target="css=#secondary .refinement.Color .refinementColor li a[title*=@{colorLabel}]"/>
   <command name="waitForNotAttribute" target="css=#main #secondary .refinement.Color ul.refinementColor li.swatch-${lowerCasedColorLabel}@class" value="${classAttrValue}">
     <comment>Wait until the class changed its value.</comment>
   </command>
