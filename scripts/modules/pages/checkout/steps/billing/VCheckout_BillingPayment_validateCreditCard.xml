@@ -10,11 +10,11 @@
   <command name="store" target="css=#dwfrm_billing_paymentMethods_creditCard" value="css_creditcard"/>
   <command name="assertChecked" target="css=.payment-method-options .form-row [value=&quot;CREDIT_CARD&quot;]"/>
   <command name="assertText" target="${css_creditcard}_owner" value="@{owner}"/>
-  <command name="assertNotText" target="${css_creditcard}_number" value="@{number}"/>
+  <command name="assertNotText" target="css=input[id*=dwfrm_billing_paymentMethods_creditCard_number]" value="@{number}"/>
   <module name="modules.helper.MHelper_Number_sliceLastFourDigits">
     <parameter name="number" value="@{number}"/>
     <parameter name="numberLastFourDigits_varName" value="numberLastFourDigits"/>
   </module>
-  <command name="assertText" target="${css_creditcard}_number" value="*${numberLastFourDigits}*"/>
-  <command name="assertText" target="${css_creditcard}_cvn" value="@{cvn}"/>
+  <command name="assertText" target="css=input[id*=dwfrm_billing_paymentMethods_creditCard_number]" value="*${numberLastFourDigits}*"/>
+  <command name="assertText" target="css=input[id*=dwfrm_billing_paymentMethods_creditCard_cvn]" value="@{cvn}"/>
 </scriptmodule>
