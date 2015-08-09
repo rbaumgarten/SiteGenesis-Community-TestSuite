@@ -16,6 +16,12 @@
         </fileset>
     </path>
 
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+      <classpath>
+        <pathelement location="${test.lib.dir}/ant-contrib-1.0b3.jar"/>
+      </classpath>
+    </taskdef>
+    
     <!--
         Builds the test suite class path for further reference.
     -->
@@ -117,6 +123,52 @@
             <report format="noframes" todir="${test.results.dir}"/>
         </junitreport>
     </target>
+
+    <target name="test.parallel2" depends="test.init">
+        <for param="file" keepgoing="true" parallel="true" threadCount="4">
+            <path>
+                <fileset dir="${test.src.dir}" includes="${test.cases.java}" />
+            </path>
+
+            <sequential>                 
+                <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}">
+                    <!-- build the class path -->
+                    <classpath refid="test.suite.class.path"/>
+
+                    <!-- configure the environment for XLT-based test cases -->
+                    <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
+                    <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
+                    <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
+                    <sysproperty key="xlt.webDriver" value="${webdriver}"/>
+
+                    <!-- configure the test result formatter -->
+                    <formatter type="xml"/>
+
+                    <!-- execute all configured tests -->
+                    <batchtest todir="${test.results.dir}" skipNonTests="true">
+                        <file id="scripts" file="@{file}" basedir="${test.src.dir}" />
+                    </batchtest>
+                </junit>                
+            </sequential>
+            
+        </for>
+        
+        <!--
+              Create a test report from the test results.
+          -->
+        <junitreport todir="${test.results.dir}">
+            <!-- determine the test result files -->
+            <fileset dir="${test.results.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+
+            <!-- generate the HTML report -->
+            <report format="noframes" todir="${test.results.dir}"/>
+        </junitreport>        
+    </target>
+    
+    
+
 
     <!--
         Performs a functional test by running the configured Java test cases.
