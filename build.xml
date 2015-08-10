@@ -81,12 +81,13 @@
     <macrodef name="macro.junit.run">
         <attribute name="file" />
         <attribute name="basepath" />
+        <attribute name="script" />
        
         <sequential>
             <echo>File to execute: @{file}</echo>
-            <echo>test.src.dir: ${test.src.dir}</echo>
+            <echo>test.src.dir: @{basepath}</echo>
     
-            <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}" showoutput="off">
+            <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}" showoutput="on">
                 <!-- build the class path -->
                 <classpath refid="test.suite.classpath"/>
                 
@@ -99,11 +100,16 @@
                 <!-- configure the test result formatter -->
                 <formatter type="xml"/>
 
-<!-- <test todir="${test.results.dir}" skipNonTests="true" name="tests.product.TProduct_Validate_VariationProductFunctionality" /> -->
+                <!-- configure the tests to run when we are a script test case -->
+                <sysproperty if:set="test.engine.script" key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" 
+                        value="@{script}"/>
                 
-
                 <!-- execute all configured tests -->
                 <batchtest todir="${test.results.dir}" skipNonTests="true">
+                    <javaresource if:set="test.engine.script" 
+                                name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
+                                classpathref="xlt.classpath" />
+                    
                     <file file="@{basepath}/@{file}" basedir="@{basepath}" />
                 </batchtest>
             </junit>        
@@ -111,13 +117,20 @@
     </macrodef>
     
         
-    <target name="modern" depends="test.init">
-        <!-- do we want parallel execution?, if not set count to 1 -->
+    <target name="test" depends="test.init">
         <script language="javascript">
             <![CDATA[
-            if (project.getProperty("parallelCount") == null) {
-                    project.setProperty("parallelCount", 1);
+            
+            // do we want parallel execution?, if not set count to 1
+            if (project.getProperty("parallel") == null) {
+                    project.setProperty("parallel", 1);
             }
+            
+            // if test.engine is not set to java or script, set it to java
+            if (project.getProperty("test.engine.java") == null && project.getProperty("test.engine.script") == null ) {
+                project.setProperty("test.engine.java", "true"); 
+            }
+            
             ]]>    
         </script>
         
@@ -126,23 +139,46 @@
             <![CDATA[
                 importClass(java.io.File);
             
+                println("test.engine.script:" + project.getProperty("test.engine.script"));
+                println("test.engine.java:" + project.getProperty("test.engine.java"));
+            
+                println("test.engine.java:" + project.getProperty("test.engine.java"));
+                println("test.engine.java:" + project.getProperty("test.engine.java"));
+                
                 // get the list of tests to be executed
                 fs = project.createDataType("fileset");
-                fs.setDir(new File(project.getProperty("test.src.dir")));
-                fs.setIncludes(project.getProperty("test.cases.java"));
+                
+                // configure the fileset dependend on the engine to use, java or scripting
+                if (project.getProperty("test.engine.java") != null) {
+                    project.setProperty("basepath", project.getProperty("test.src.dir"));
+                    
+                    fs.setDir(new File(project.getProperty("test.src.dir")));
+                    fs.setIncludes(project.getProperty("test.cases.java"));
+                }
+                else if (project.getProperty("test.engine.script") != null) {
+                    project.setProperty("basepath", project.getProperty("test.scripts.dir"));
+                
+                    fs.setDir(new File(project.getProperty("test.scripts.dir")));
+                    fs.setIncludes(project.getProperty("test.cases.script"));
+                    fs.setExcludes("**/*_data.xml **/*_datasets.xml"); // exclude the data files
+                }
                 
                 // setup parallel executor
                 parallel = project.createTask("parallel");
-                parallel.setThreadCount(project.getProperty("parallelCount"));
+                parallel.setThreadCount(project.getProperty("parallel"));
                 
                 // setup tasks
                 srcFiles = fs.getDirectoryScanner( project ).getIncludedFiles( );
                 for ( i = 0; i < srcFiles.length; i++ ) {
                     var filename = srcFiles[i];
-                
+                                
                     junit = project.createTask("macro.junit.run");
                     junit.setDynamicAttribute("file", filename);
-                    junit.setDynamicAttribute("basepath", project.getProperty("test.src.dir"));
+                    junit.setDynamicAttribute("basepath", project.getProperty("basepath"));
+                    
+                    // when we are a script test case, we need more data and got to strip
+                    // the extension, when java, it will be just ignored
+                    junit.setDynamicAttribute("script", filename.substr(0, filename.lastIndexOf(".")) || filename);
                     
                     parallel.addTask(junit);
                 }    
@@ -176,61 +212,39 @@
             <![CDATA[
                 var parallelCount = project.getProperty("parallel");
                 if (parallelCount == null || isNaN(parseInt(parallelCount))) {
-                    project.setProperty("parallelCount", project.getProperty("NUMBER_OF_PROCESSORS"));
+                    project.setProperty("parallel", project.getProperty("NUMBER_OF_PROCESSORS"));
                 } 
-                else {
-                    project.setProperty("parallelCount", parallelCount);
-                }
                 
                 println("Prop:" + project.getProperty("parallelCount"));
             ]]>
         </script>
 
         <!-- do to the build -->
-        <antcall target="modern" />
+        <antcall target="test" />
     </target>
 
-    <target name="test.parallel222" depends="test.init">
-        <for param="file" keepgoing="true" parallel="true" threadCount="4">
-            <path>
-                <fileset dir="${test.src.dir}" includes="${test.cases.java}" />
-            </path>
+    <!-- Start Java tests -->
+    <target name="test.java" depends="test.init">
+        <property name="test.engine.java" value="true" />
+        <!-- do to the build -->
+        <antcall target="test" />
+    </target>
 
-            <sequential>                 
-                <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}">
-                    <!-- build the class path -->
-                    <classpath refid="test.suite.classpath"/>
-
-                    <!-- configure the environment for XLT-based test cases -->
-                    <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
-                    <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
-                    <sysproperty key="log4j.configuration" value="file:${test.config.dir}/dev-log4j.properties"/>
-                    <sysproperty key="xlt.webDriver" value="${webdriver}"/>
-
-                    <!-- configure the test result formatter -->
-                    <formatter type="xml"/>
-
-                    <!-- execute all configured tests -->
-                    <batchtest todir="${test.results.dir}" skipNonTests="true">
-                        <file id="scripts" file="@{file}" basedir="${test.src.dir}" />
-                    </batchtest>
-                </junit>                
-            </sequential>
-            
-        </for>
+    <!-- Start Script tests -->
+    <target name="test.script" depends="test.init">
+        <property name="test.engine.script" value="true" />
         
-        <!--
-              Create a test report from the test results.
-          -->
-        <junitreport todir="${test.results.dir}">
-            <!-- determine the test result files -->
-            <fileset dir="${test.results.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-
-            <!-- generate the HTML report -->
-            <report format="noframes" todir="${test.results.dir}"/>
-        </junitreport>        
+        <fileset id="scripts"
+                 dir="${test.scripts.dir}"
+                 includes="${test.cases.script}"
+                 excludes="**/*_data.xml **/*_datasets.xml"
+                />
+        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
+            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
+        </pathconvert>
+        
+                
+        <!-- do to the build -->
+        <antcall target="test" /> 
     </target>
-    
 </project>
