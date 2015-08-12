@@ -4,4 +4,7 @@
   <parameter name="searchText" desc="The search phrase to enter."/>
   <command name="type" target="id=q" value="@{searchText}"/>
   <command name="submitAndWait" target="name=simpleSearch"/>
+  <module name="modules.helper.MHelper_WaitFor_DOMState">
+    <comment>This is used to prevent the tool from running over the redirect and getting pages that are visually ready but the JavaScript is still running.</comment>
+  </module>
 </scriptmodule>
