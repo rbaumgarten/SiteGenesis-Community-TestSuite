@@ -7,6 +7,6 @@
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_owner&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_type&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container div.form-row.required:nth-of-type(3) .required-indicator"/>
-  <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_month&quot;] .required-indicator"/>
-  <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_year&quot;] span.required-indicator"/>
+  <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_expiration_month&quot;] .required-indicator"/>
+  <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_paymentinstruments_creditcards_newcreditcard_expiration_year&quot;] span.required-indicator"/>
 </scriptmodule>
