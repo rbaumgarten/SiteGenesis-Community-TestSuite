@@ -15,7 +15,7 @@
             <include name="**/*.jar"/>
         </fileset>
     </path>
-    
+
     <!--
         Builds the test suite class path for further reference.
     -->
@@ -28,7 +28,7 @@
     </path>
 
     <!--
-        Deletes any result file from a previous test run.
+        Deletes any result and compiles.
     -->
     <target name="clean">
         <delete includeEmptyDirs="true" failonerror="false">
@@ -55,7 +55,7 @@
     </target>
 
     <!--
-        Prepares everything for testing.
+        Compiles all junit stubs or other classes.
     -->
     <target name="test.init" depends="compile">
         <mkdir dir="${test.results.dir}"/>
@@ -82,15 +82,15 @@
         <attribute name="file" />
         <attribute name="basepath" />
         <attribute name="script" />
-       
+
         <sequential>
             <echo>File to execute: @{file}</echo>
             <echo>test.src.dir: @{basepath}</echo>
-    
+
             <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}" showoutput="on">
                 <!-- build the class path -->
                 <classpath refid="test.suite.classpath"/>
-                
+
                 <!-- configure the environment for XLT-based test cases -->
                 <sysproperty key="com.xceptance.xlt.home" value="${basedir}"/>
                 <sysproperty key="com.xceptance.xlt.data.directory" value="${test.config.dir}/data"/>
@@ -101,97 +101,109 @@
                 <formatter type="xml"/>
 
                 <!-- configure the tests to run when we are a script test case -->
-                <sysproperty if:set="test.engine.script" key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases" 
+                <sysproperty if:set="test.engine.script" key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases"
                         value="@{script}"/>
-                
+
                 <!-- execute all configured tests -->
                 <batchtest todir="${test.results.dir}" skipNonTests="true">
-                    <javaresource if:set="test.engine.script" 
+                    <javaresource if:set="test.engine.script"
                                 name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
                                 classpathref="xlt.classpath" />
-                    
+
                     <file file="@{basepath}/@{file}" basedir="@{basepath}" />
                 </batchtest>
-            </junit>        
+            </junit>
         </sequential>
     </macrodef>
-    
-        
+
+
     <target name="test" depends="test.init">
         <script language="javascript">
             <![CDATA[
-            
+
             // do we want parallel execution?, if not set count to 1
             if (project.getProperty("parallel") == null) {
                     project.setProperty("parallel", 1);
             }
-            
+
             // if test.engine is not set to java or script, set it to java
             if (project.getProperty("test.engine.java") == null && project.getProperty("test.engine.script") == null ) {
-                project.setProperty("test.engine.java", "true"); 
+                project.setProperty("test.engine.java", "true");
             }
-            
-            ]]>    
+
+            ]]>
         </script>
-        
+
         <!-- get all test cases and run them-->
         <script language="javascript">
             <![CDATA[
                 importClass(java.io.File);
-            
+
                 println("test.engine.script:" + project.getProperty("test.engine.script"));
                 println("test.engine.java:" + project.getProperty("test.engine.java"));
-            
+
                 println("test.engine.java:" + project.getProperty("test.engine.java"));
                 println("test.engine.java:" + project.getProperty("test.engine.java"));
-                
+
                 // get the list of tests to be executed
                 fs = project.createDataType("fileset");
-                
+
                 // configure the fileset dependend on the engine to use, java or scripting
                 if (project.getProperty("test.engine.java") != null) {
                     project.setProperty("basepath", project.getProperty("test.src.dir"));
-                    
+
                     fs.setDir(new File(project.getProperty("test.src.dir")));
-                    fs.setIncludes(project.getProperty("test.cases.java"));
+
+                    // did someone ask for a single test case?
+                    if (project.getProperty("testcase") != null) {
+                        fs.setIncludes("**/" + project.getProperty("testcase") + ".java");
+                    }
+                    else {
+                        fs.setIncludes(project.getProperty("test.cases.java"));
+                    }
                 }
                 else if (project.getProperty("test.engine.script") != null) {
                     project.setProperty("basepath", project.getProperty("test.scripts.dir"));
-                
+
                     fs.setDir(new File(project.getProperty("test.scripts.dir")));
                     fs.setIncludes(project.getProperty("test.cases.script"));
                     fs.setExcludes("**/*_data.xml **/*_datasets.xml"); // exclude the data files
+
+                    // did someone ask for a single test case?
+                    if (project.getProperty("testcase") != null) {
+                        fs.setIncludes("**/" + project.getProperty("testcase") + ".xml");
+                    }
                 }
-                
+
                 // setup parallel executor
                 parallel = project.createTask("parallel");
                 parallel.setThreadCount(project.getProperty("parallel"));
-                
+
                 // setup tasks
                 srcFiles = fs.getDirectoryScanner( project ).getIncludedFiles( );
                 for ( i = 0; i < srcFiles.length; i++ ) {
                     var filename = srcFiles[i];
-                                
+
                     junit = project.createTask("macro.junit.run");
                     junit.setDynamicAttribute("file", filename);
                     junit.setDynamicAttribute("basepath", project.getProperty("basepath"));
-                    
+
                     // when we are a script test case, we need more data and got to strip
                     // the extension, when java, it will be just ignored
                     junit.setDynamicAttribute("script", filename.substr(0, filename.lastIndexOf(".")) || filename);
-                    
+
                     parallel.addTask(junit);
-                }    
-                
+                }
+
                 parallel.execute();
-            ]]>    
-        </script>        
-        
+            ]]>
+        </script>
+
         <macro.junit.report />
-        
+
         <script language="javascript">
             <![CDATA[
-            ]]>    
+            ]]>
         </script>
     </target>
 
@@ -204,7 +216,7 @@
             project.setProperty("NUMBER_OF_PROCESSORS", java.lang.Runtime.getRuntime().availableProcessors());
         </script>
 
-        <!-- 
+        <!--
             Check of parallel is given, if not, set threads to CPU Count.
             If given but no value, set CPU Count, otherwise use value
         -->
@@ -213,8 +225,8 @@
                 var parallelCount = project.getProperty("parallel");
                 if (parallelCount == null || isNaN(parseInt(parallelCount))) {
                     project.setProperty("parallel", project.getProperty("NUMBER_OF_PROCESSORS"));
-                } 
-                
+                }
+
                 println("Prop:" + project.getProperty("parallelCount"));
             ]]>
         </script>
@@ -233,18 +245,8 @@
     <!-- Start Script tests -->
     <target name="test.script" depends="test.init">
         <property name="test.engine.script" value="true" />
-        
-        <fileset id="scripts"
-                 dir="${test.scripts.dir}"
-                 includes="${test.cases.script}"
-                 excludes="**/*_data.xml **/*_datasets.xml"
-                />
-        <pathconvert pathsep=" " dirsep="/" property="scripts" refid="scripts">
-            <globmapper from="${test.scripts.dir}/*.xml" to="*" handledirsep="true"/>
-        </pathconvert>
-        
-                
+
         <!-- do to the build -->
-        <antcall target="test" /> 
+        <antcall target="test" />
     </target>
 </project>
