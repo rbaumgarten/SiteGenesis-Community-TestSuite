@@ -79,9 +79,9 @@
     </macrodef>
 
     <macrodef name="macro.junit.run">
-        <attribute name="file" />
+        <attribute name="files" />
         <attribute name="basepath" />
-        <attribute name="script" />
+        <attribute name="scripts" />
 
         <sequential>
             <echo>File to execute: @{file}</echo>
@@ -101,8 +101,10 @@
                 <formatter type="xml"/>
 
                 <!-- configure the tests to run when we are a script test case -->
-                <sysproperty if:set="test.engine.script" key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases"
-                        value="@{script}"/>
+                <sysproperty
+                    if:set="test.engine.script"
+                    key="com.xceptance.xlt.api.engine.scripting.ScriptTestCaseSuite.testCases"
+                    value="@{scripts}" />
 
                 <!-- execute all configured tests -->
                 <batchtest todir="${test.results.dir}" skipNonTests="true">
@@ -110,7 +112,7 @@
                                 name="com/xceptance/xlt/api/engine/scripting/ScriptTestCaseSuite.class"
                                 classpathref="xlt.classpath" />
 
-                    <file file="@{basepath}/@{file}" basedir="@{basepath}" />
+                    <filelist dir="${basepath}" files="@{files}"/>
                 </batchtest>
             </junit>
         </sequential>
@@ -138,6 +140,8 @@
         <script language="javascript">
             <![CDATA[
                 importClass(java.io.File);
+                importClass(org.apache.tools.ant.types.FileSet);
+                importClass(org.apache.tools.ant.types.selectors.FilenameSelector);
 
                 println("test.engine.script:" + project.getProperty("test.engine.script"));
                 println("test.engine.java:" + project.getProperty("test.engine.java"));
@@ -175,22 +179,55 @@
                     }
                 }
 
+                // all source files to consider
+                srcFiles = fs.getDirectoryScanner( project ).getIncludedFiles();
+
+                // the array with fileset for our later tasks
+                var files = [];
+                var scripts = [];
+
+                var parallelCount = project.getProperty("parallel");
+                var buckets = parallelCount;
+
+                // put filesets into our array
+                for ( i = 0; i < buckets; i++) {
+                    files[i] = "";
+                    scripts[i] = "";
+                }
+
+                // fill the sets equally
+                for ( i = 0; i < srcFiles.length; i++ ) {
+                    var filename = srcFiles[i];
+                    var filenameStripped = filename.substr(0, filename.lastIndexOf(".")) || filename;
+
+                    var list = files[i % buckets];
+                    var scriptlist = scripts[i % buckets];
+
+                    if (list != "") {
+                        list = list + ",";
+                        scriptlist = scriptlist + ",";
+                    }
+                    files[i % buckets] = list + filename;
+                    scripts[i % buckets] = scriptlist + filenameStripped;
+                }
+
+                for ( i = 0; i < buckets; i++) {
+                    // println(files[i]);
+                }
+
                 // setup parallel executor
                 parallel = project.createTask("parallel");
                 parallel.setThreadCount(project.getProperty("parallel"));
 
                 // setup tasks
-                srcFiles = fs.getDirectoryScanner( project ).getIncludedFiles( );
-                for ( i = 0; i < srcFiles.length; i++ ) {
-                    var filename = srcFiles[i];
+                for ( i = 0; i < files.length; i++ ) {
+                    var list = files[i];
+                    var scriplists = scripts[i];
 
                     junit = project.createTask("macro.junit.run");
-                    junit.setDynamicAttribute("file", filename);
+                    junit.setDynamicAttribute("files", list);
                     junit.setDynamicAttribute("basepath", project.getProperty("basepath"));
-
-                    // when we are a script test case, we need more data and got to strip
-                    // the extension, when java, it will be just ignored
-                    junit.setDynamicAttribute("script", filename.substr(0, filename.lastIndexOf(".")) || filename);
+                    junit.setDynamicAttribute("scripts", scriptlist);
 
                     parallel.addTask(junit);
                 }
