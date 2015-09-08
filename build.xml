@@ -136,6 +136,13 @@
         <!-- get all test cases and run them-->
         <script language="javascript">
             <![CDATA[
+                // make sure we can run with JDK8 or higher, when an older ANT version is in place
+                // https://bugs.openjdk.java.net/browse/JDK-8025132?focusedCommentId=13569345
+                var version = java.lang.System.getProperty("java.version");
+                if (version.startsWith("1.8.0")) {
+                    load("nashorn:mozilla_compat.js");
+                }
+            
                 importClass(java.io.File);
                 importClass(org.apache.tools.ant.types.FileSet);
                 importClass(org.apache.tools.ant.types.selectors.FilenameSelector);
