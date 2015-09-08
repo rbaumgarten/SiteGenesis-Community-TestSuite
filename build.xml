@@ -217,10 +217,6 @@
                     scripts[i % buckets] = scriptlist + filenameStripped;
                 }
 
-                for ( i = 0; i < buckets; i++) {
-                    // println(files[i]);
-                }
-
                 // setup parallel executor
                 parallel = project.createTask("parallel");
                 parallel.setThreadCount(project.getProperty("parallel"));
@@ -269,8 +265,6 @@
                 if (parallelCount == null || isNaN(parseInt(parallelCount))) {
                     project.setProperty("parallel", project.getProperty("NUMBER_OF_PROCESSORS"));
                 }
-
-                println("Prop:" + project.getProperty("parallelCount"));
             ]]>
         </script>
 
