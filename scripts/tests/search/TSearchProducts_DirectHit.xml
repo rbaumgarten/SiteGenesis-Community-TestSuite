@@ -31,5 +31,5 @@
   </module>
   <module name="modules.pages.product.VProduct_validatePDPandQVShared"/>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
-  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
+  <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations" disabled="true"/>
 </testcase>

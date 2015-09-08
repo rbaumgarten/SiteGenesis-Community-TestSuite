@@ -49,7 +49,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal" disabled="true">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
@@ -76,7 +76,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal" disabled="true">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>

@@ -53,36 +53,28 @@ By default no extra option should be selected, by changing from QV  to PDP the O
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
   <action name="SelectDefaultOption"/>
-  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
-    <parameter name="addToCartPrice_var" value="productPricePlain"/>
-  </module>
-  <command name="select" target="css=.product-add-to-cart form fieldset div.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
-  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
+  <command name="select" target="css=.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
+  <command name="assertText" target="css=.option-dropdown .value select option" value="${productOptionNone}"/>
   <action name="SelectSecondOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
-    <parameter name="addToCartPrice_var" value="productPriceOption2"/>
-  </module>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption1}"/>
   <action name="SelectLastOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
-    <parameter name="addToCartPrice_var" value="productPriceLastOption"/>
-  </module>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
   <action name="SelectFirstOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$0.00] None"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
-  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
   <action name="SelectLastOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
@@ -99,27 +91,26 @@ By default no extra option should be selected, by changing from QV  to PDP the O
   <codecomment>Prices for Options will not be stored again, because theprice should be the same as on QV</codecomment>
   <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
   <action name="SelectDefaultOption"/>
-  <command name="select" target="css=.product-add-to-cart form fieldset div.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
-  <command name="waitForText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
+  <command name="select" target="css=.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
   <action name="SelectSecondOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceOption2}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption1}"/>
   <action name="SelectLastOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
   <action name="SelectFirstOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$0.00] None"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPricePlain}"/>
-  <command name="assertNotText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
   <action name="SelectLastOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-add-to-cart form fieldset div.product-price span.price-sales" value="${productPriceLastOption}"/>
+  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
 </testcase>
