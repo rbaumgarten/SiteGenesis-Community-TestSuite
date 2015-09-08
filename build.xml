@@ -84,10 +84,7 @@
         <attribute name="scripts" />
 
         <sequential>
-            <echo>File to execute: @{file}</echo>
-            <echo>test.src.dir: @{basepath}</echo>
-
-            <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}" showoutput="on">
+            <junit fork="yes" forkmode="perBatch" printsummary="on" dir="${basedir}" showoutput="off">
                 <!-- build the class path -->
                 <classpath refid="test.suite.classpath"/>
 
@@ -143,11 +140,11 @@
                 importClass(org.apache.tools.ant.types.FileSet);
                 importClass(org.apache.tools.ant.types.selectors.FilenameSelector);
 
-                println("test.engine.script:" + project.getProperty("test.engine.script"));
-                println("test.engine.java:" + project.getProperty("test.engine.java"));
+                // println("test.engine.script:" + project.getProperty("test.engine.script"));
+                // println("test.engine.java:" + project.getProperty("test.engine.java"));
 
-                println("test.engine.java:" + project.getProperty("test.engine.java"));
-                println("test.engine.java:" + project.getProperty("test.engine.java"));
+                // println("test.engine.java:" + project.getProperty("test.engine.java"));
+                // println("test.engine.java:" + project.getProperty("test.engine.java"));
 
                 // get the list of tests to be executed
                 fs = project.createDataType("fileset");
@@ -158,9 +155,11 @@
 
                     fs.setDir(new File(project.getProperty("test.src.dir")));
 
-                    // did someone ask for a single test case?
+                    // did someone ask for a single test case or group of tests?
                     if (project.getProperty("testcase") != null) {
-                        fs.setIncludes("**/" + project.getProperty("testcase") + ".java");
+                        // make sure . is replaced by / to make up a correct path
+                        var testcases =  project.getProperty("testcase").replace('.', '/');
+                        fs.setIncludes("**/" + testcases + ".java");
                     }
                     else {
                         fs.setIncludes(project.getProperty("test.cases.java"));
