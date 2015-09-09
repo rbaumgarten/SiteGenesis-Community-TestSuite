@@ -59,21 +59,20 @@ The following steps explain what needs to be done to execute the test suite via 
 #### Prerequisites
 
 - XLT&reg; Framework v4.5 (or higher)
-- Apache Ant
+- Apache Ant 1.9.4 or higher
 
 #### Installation
 
 - [Download the XLT Framework](https://www.xceptance.com/en/xlt/download.html) and unzip it into a directory of your choice.
 - Configure ant build.properties by setting the base path of your local XLT installation as "xlt.home.dir" property (This can be done relative to your ant base directory).
-- Make sure that your test suite is running in the script developer (e.g. configure "storefront_url" via Manage Global Test Data ).
+- Make sure that your test suite is running in Script Developer (e.g. configure "storefront_url" via Manage Global Test Data ).
 
 #### Usage
-- Navigate into the base directory of this test suite with your console.
-- Start the test suite by calling "ant basic". This calls the basic target and will execute all java based test cases.
-- Start a single test case by calling "ant basic -Dtestname=[TTestcaseName]"
-- Start test cases with an other WebDriver than the one specified in your default.properties by calling "ant basic -Dwebdriver=[WebdriverName]" (Make sure that you have specified the pathToDriverServer for this WebDriver)
-- You can also start a single test with an other WebDriver by combining these options.
-- To run your Java test cases in a parallel way (one browser per core) just call "ant parallel". The Webdriver parameter also applies to this call. BTW: Make sure that your test cases are independent of each other when using this feature.
+- Navigate to the base directory of the test suite on the command line.
+- Start the test suite by calling "ant test". This will compile and execute all Java based test cases.
+- Start a single test case by calling "ant test -Dtestcase=[name]". You can also specify the full name such as **tests.account.TAccountLogin** or parts of the name, such as **TAccount***. This will include all matching test cases. 
+- Start test cases with different WebDriver than specified in your properties by adding "-Dwebdriver=[name]" to the command line. Make sure the path to the driver is specified in your properties or via the command line (needed for non-Firefox). Typical names for WebDrivers are `firefox`, `chrome`, and `ie`. See the property `xlt.webDriver`for more information.
+- To run your test cases in parallel, just add "-Dparallel=[count]". The count parameter identifies the number of parallel instances. Do not overload your machine. One browser per physical core (not hyperthreaded code) is normally enough. The test cases will be automatically distributed.
 
 ### XLT Framework for Grunt or Gulp based Execution
 
@@ -176,7 +175,7 @@ __Test Data__ or short __Data__ can be placed on global, package, module or test
 
 - Name: Demandware SiteGenesis Community TestSuite
 - Version: v15.1 or higher (matching SiteGenesis)
-- Release: March 2015
+- Release: September 2015
 - License: MIT License
 - License URI: http://opensource.org/licenses/MIT
 - Tags: xlt, testing, best practices, test automation, functional testing, regression test, selenium

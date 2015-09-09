@@ -30,7 +30,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * </ul>
  */
 @ScriptName
-("tests.checkout.TCheckoutGuestOrderProduct")
-public class TCheckoutGuestOrderProduct_RemoteInternetExplorer extends RemoteInternetExplorerTestRunner
+("tests.checkout.TCheckoutOrder_AsGuest")
+public class TCheckoutOrder_AsGuest_RemoteIE extends RemoteIETestRunner
 {
 }
