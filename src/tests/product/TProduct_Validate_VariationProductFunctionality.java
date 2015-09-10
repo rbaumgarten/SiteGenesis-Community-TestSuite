@@ -14,8 +14,8 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <p>Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes</p>
  * <ul>
  * <li>open QV</li>
- * <li>change color, verify that the product number changes</li>
- * <li>select a size, verify that the add2cart button becomes enabled</li>
+ * <li>change color, verify that something can be selected</li>
+ * <li>select something from the select box, verify that the add2cart button becomes enabled</li>
  * </ul>
  */
 @ScriptName
