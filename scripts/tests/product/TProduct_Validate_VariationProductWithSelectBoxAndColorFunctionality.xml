@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>product,pdp,quickview,qv,functionality,variations</tags>
+  <description>Verifies the functionality of an variation product on quickview (QV) and product details pages (PDP)
+
+# Setup
+Open the site and remove cookies
+
+#  Scope
+Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes
+
+- open QV
+- change color, verify that the product number changes
+- select a size, verify that the add2cart button becomes enabled</description>
+  <codecomment># Setup - Start Session</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>
+  <action name="CategoryLevel1"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
+    <parameter name="nameLevel1" value="${plainProductCategoryLevel1}"/>
+  </module>
+  <action name="CategoryLevel2"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
+    <parameter name="nameLevel2" value="${plainProductCategoryLevel2}"/>
+  </module>
+  <action name="SortByName"/>
+  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Product Name A - Z"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>--------------------------------</codecomment>
+  <codecomment>## Functional Product Test
+
+- Open QV for variation product
+- click colors validates if product number changes
+- click size validate if product button will become aavailable</codecomment>
+  <codecomment>--------------------------------</codecomment>
+  <codecomment>Hover over Product and click on quick view buttom</codecomment>
+  <action name="VariationProductQuickview"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
+    <parameter name="title" value="${variationProductWithSelectAndColorName}"/>
+  </module>
+  <codecomment>Verify quick view page</codecomment>
+  <codecomment>Caution: if you click on an product via QV usully a color is selected</codecomment>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
+  <command name="assertElementPresent" target="css=#product-content .product-price"/>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <command name="assertElementPresent" target="css=#product-content .product-variations ul.swatches.color"/>
+  <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
+  <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
+  <command name="storeText" target="css=.product-number span" value="ProductNumberMaster"/>
+  <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
+  <codecomment>Start SelectboxTest</codecomment>
+  <codecomment>If no memory size is selected the add2cart button should be disabled. also the price should change</codecomment>
+  <action name="SelectSize"/>
+  <module name="modules.pages.product.MProduct_selectVariationByLabel" disabled="true">
+    <parameter name="labelName" value=" 120 GB "/>
+  </module>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled" disabled="true"/>
+  <command name="assertNotText" disabled="true" target="css=#product-content .product-price" value="${ProductPrice}"/>
+  <command name="assertNotText" disabled="true" target="css=.product-number span" value="${ProductNumberMaster}"/>
+  <command name="storeText" disabled="true" target="css=#product-content .product-price" value="ProductPrice"/>
+  <command name="storeText" disabled="true" target="css=.product-number span" value="ProductNumber"/>
+  <action name="ProductDetailPageFromQV"/>
+  <codecomment>Go to PDP from QV</codecomment>
+  <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
+    <parameter name="productName" value="${variationProductWithSelectAndColorName}"/>
+  </module>
+  <codecomment>Verify product detail page</codecomment>
+  <codecomment>Caution: the Size stays selected after change from QV to PDP</codecomment>
+  <module name="modules.pages.product.VProduct_validatePricePattern">
+    <parameter name="pricePattern" value="${storefront_pricePattern}"/>
+  </module>
+  <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <module name="modules.pages.product.VProduct_validateAvailability">
+    <parameter name="availabilityMassage" value="In Stock"/>
+  </module>
+  <command name="assertElementPresent" target="css=#product-content .product-price"/>
+  <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
+  <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
+</testcase>
