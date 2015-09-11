@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Tests adding a product bundle from quickview and product detail pages to the cart.
+  <description>Test add product bundle to cart from quickview and product detail page.
 
 # Setup
 
