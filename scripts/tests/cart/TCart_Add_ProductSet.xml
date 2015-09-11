@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>cart,product,add</tags>
-  <description>Tests adding a set product to the cart from quickview and product detail pages.
+  <description>Test add product set to cart from quickview and product detail page.
 
 # Setup
 
@@ -70,7 +70,7 @@
   <command name="waitForNotVisible" target="id=pdpMain"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
-  <codecomment>The following modules are disabled and replaced by a less restrict version as workaround until the product set add to cart has been properly implemented aka order is important.</codecomment>
+  <codecomment>The following modules are disabled and replaced by a less restrict version as workaround. The basic product details are checked independently from the cart rows for now.</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${firstProductName}"/>
@@ -93,21 +93,18 @@
     <parameter name="productPriceSales" value="${thirdProductPrice}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="3"/>
     <parameter name="productName" value="${thirdProductName}"/>
     <parameter name="productNumber" value="${thirdProductNumber}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${thirdProductPrice}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="2"/>
     <parameter name="productName" value="${secondProductName}"/>
     <parameter name="productNumber" value="${secondProductNumber}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${secondProductPrice}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="1"/>
     <parameter name="productName" value="${firstProductName}"/>
     <parameter name="productNumber" value="${firstProductNumber}"/>
     <parameter name="productQuantity" value="1"/>
