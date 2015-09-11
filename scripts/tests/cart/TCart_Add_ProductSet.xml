@@ -30,35 +30,34 @@
     <parameter name="position" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
+  <codecomment>Store product data</codecomment>
   <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productNumber"/>
-  <codecomment>Store first product data</codecomment>
   <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="1"/>
     <parameter name="productName_varName" value="productName_01_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_fixItemNumber">
-    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
-    <parameter name="fixedProductNumber_varName" value="productNumber_01_varDynamic"/>
-  </module>
-  <codecomment>Store second product data</codecomment>
   <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="2"/>
     <parameter name="productName_varName" value="productName_02_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_02_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_fixItemNumber">
-    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
-    <parameter name="fixedProductNumber_varName" value="productNumber_02_varDynamic"/>
-  </module>
-  <codecomment>Store third product data</codecomment>
   <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="3"/>
     <parameter name="productName_varName" value="productName_03_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
+  </module>
+  <codecomment>Extract product numbers from stored data</codecomment>
+  <module name="modules.helper.MHelper_fixItemNumber">
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="fixedProductNumber_varName" value="productNumber_01_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_fixItemNumber">
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="fixedProductNumber_varName" value="productNumber_02_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_fixItemNumber">
     <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
@@ -149,7 +148,7 @@
     <parameter name="productName" value="${productName_03_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
 </testcase>
