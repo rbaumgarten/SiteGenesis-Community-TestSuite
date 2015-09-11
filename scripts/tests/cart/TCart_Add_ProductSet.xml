@@ -31,7 +31,7 @@
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>Store product data</codecomment>
-  <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productNumber"/>
+  <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productSetNumber"/>
   <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="1"/>
     <parameter name="productName_varName" value="productName_01_varDynamic"/>
@@ -125,7 +125,7 @@
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
   <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumber}"/>
+    <parameter name="searchText" value="${productSetNumber}"/>
   </module>
   <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
