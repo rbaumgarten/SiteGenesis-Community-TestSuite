@@ -114,9 +114,11 @@
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
