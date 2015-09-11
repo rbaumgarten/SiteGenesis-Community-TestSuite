@@ -69,6 +69,7 @@
   <command name="waitForNotVisible" target="id=pdpMain"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_validatePage"/>
   <codecomment>The following modules are disabled and replaced by a less restrict version as workaround. The basic product details are checked independently from the cart rows for now.</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
     <parameter name="row" value="1"/>
@@ -109,7 +110,6 @@
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePage"/>
   <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
