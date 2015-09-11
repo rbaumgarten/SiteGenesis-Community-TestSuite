@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the functionality of an variation product on quickview (QV) and product details pages (PDP)</p>
+ * <p>Verifies the functionality of an variation product with a select box on quickview (QV) and product details pages (PDP)</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>

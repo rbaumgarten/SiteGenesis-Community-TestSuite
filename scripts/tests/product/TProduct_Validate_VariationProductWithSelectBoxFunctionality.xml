@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview,qv,functionality,variations</tags>
-  <description>Verifies the functionality of an variation product on quickview (QV) and product details pages (PDP)
+  <description>Verifies the functionality of an variation product with a select box on quickview (QV) and product details pages (PDP)
 
 # Setup
 Open the site and remove cookies
@@ -14,7 +14,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
 - select a size, verify that the add2cart button becomes enabled</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>
+  <codecomment>Navigate to Electronics/Ipods &amp; Mp3 Players</codecomment>
   <action name="CategoryLevel1"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="${plainProductCategoryLevel1}"/>
@@ -32,8 +32,8 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <codecomment>--------------------------------</codecomment>
   <codecomment>## Functional Product Test
 
-- Open QV for variation product
-- click colors validates if product number changes
+- Open QV for variation product with selct box
+- Select different memory sizes
 - click size validate if product button will become aavailable</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
@@ -42,7 +42,6 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="title" value="${variationProductWithSelectName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
-  <codecomment>Caution: if you click on an product via QV usully a color is selected</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>

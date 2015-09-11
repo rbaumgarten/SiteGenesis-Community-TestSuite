@@ -7,15 +7,16 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the functionality of an variation product on quickview (QV) and product details pages (PDP)</p>
+ * <p>Verifize if the size of a select box can be changed after selecting a color, this is a test for a specific bug</p>
  * <h1 id="setup">Setup</h1>
  * <p>Open the site and remove cookies</p>
  * <h1 id="scope">Scope</h1>
  * <p>Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes</p>
  * <ul>
- * <li>open QV</li>
- * <li>change color, verify that the product number changes</li>
- * <li>select a size, verify that the add2cart button becomes enabled</li>
+ * <li>open PDP</li>
+ * <li>change size in select box</li>
+ * <li>select a color</li>
+ * <li>try to change size in select box</li>
  * </ul>
  */
 @ScriptName
