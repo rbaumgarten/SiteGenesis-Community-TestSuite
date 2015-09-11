@@ -23,7 +23,7 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
-  <codecomment>Go to QV of the first Game</codecomment>
+  <codecomment>Go to QV of product bundle</codecomment>
   <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="2"/>
