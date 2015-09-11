@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://xlt.xceptance.com/xlt-script-data">
+  <searchPhrase>Playstation</searchPhrase>
+  <optionPrice1>$9.99</optionPrice1>
+  <optionName1>[$9.99] 1 Year Warranty</optionName1>
+  <optionName2>[$19.99] 3 Year Warranty</optionName2>
+  <optionName3>[$29.99] 5 Year Warranty</optionName3>
+  <optionNameNone>[$0.00] None</optionNameNone>
+  <optionPrice2>$19.99</optionPrice2>
+  <optionPrice3>$29.99</optionPrice3>
+  <optionPriceNonn>$0.00</optionPriceNonn>
+</data>

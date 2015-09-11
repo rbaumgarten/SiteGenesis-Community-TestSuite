@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Test adds a Option Product with selected Option to the cart from PDP and updates the option in the cart</description>
+  <codecomment># Setup
+
+- Start Session</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Search for sony-ps3-console to get a option product</codecomment>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="sony-ps3-console"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Cart
+
+Validate Add 2 Cart from QV and PDP and check if the same product is added
+- First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
+- Second add product from PDP and verify if the same product in cart is shown</codecomment>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="${optionName1}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+    <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName"/>
+    <parameter name="productNumber_varName" value="productNumber"/>
+    <parameter name="productPriceSales_varName" value="productPrice"/>
+  </module>
+  <action name="AddToCart"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart"/>
+  <action name="GoToCartAfterQV"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName}"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPrice1}"/>
+  </module>
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="optionPrice" value="${optionPrice1}"/>
+    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePage"/>
+  <action name="ClickEditDetails"/>
+  <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
+    <parameter name="row" value="1"/>
+  </module>
+  <action name="SelectOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="${optionName2}"/>
+  </module>
+  <action name="ClickUpdate"/>
+  <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPrice2}"/>
+  </module>
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="optionPrice" value="${optionPrice2}"/>
+    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+  </module>
+  <action name="ClickEditDetails"/>
+  <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
+    <parameter name="row" value="1"/>
+  </module>
+  <action name="SelectOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="${optionName3}"/>
+  </module>
+  <action name="ClickUpdate"/>
+  <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPrice3}"/>
+  </module>
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="optionPrice" value="${optionPrice3}"/>
+    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+  </module>
+  <action name="ClickEditDetails"/>
+  <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
+    <parameter name="row" value="1"/>
+  </module>
+  <action name="SelectOption"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+    <parameter name="selectedLabel" value="${optionNameNone}"/>
+  </module>
+  <action name="ClickUpdate"/>
+  <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <codecomment>If no option ist selected the subtotal shuold be the sales price</codecomment>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${productPrice}"/>
+  </module>
+</testcase>
