@@ -53,13 +53,13 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
-  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
-    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
-    <parameter name="optionPrice" value="${optionPrice}"/>
-    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  <module name="modules.helper.MHelper_Price_addPriceToPrice">
+    <parameter name="price_1" value="${productPrice}"/>
+    <parameter name="price_2" value="${optionPrice}"/>
+    <parameter name="sum_varName" value="productPriceTotal"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+    <parameter name="totalsSubtotal" value="${productPriceTotal}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <action name="DeleteQVProduct"/>
@@ -89,10 +89,10 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
-  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
-    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
-    <parameter name="optionPrice" value="${optionPrice}"/>
-    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  <module name="modules.helper.MHelper_Price_addPriceToPrice">
+    <parameter name="price_1" value="${productPrice}"/>
+    <parameter name="price_2" value="${optionPrice}"/>
+    <parameter name="sum_varName" value="productPriceSubTotal"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
