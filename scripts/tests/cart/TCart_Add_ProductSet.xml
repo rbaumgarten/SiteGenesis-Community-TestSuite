@@ -131,6 +131,7 @@
   <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_validatePage"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_01_varDynamic}"/>
@@ -152,5 +153,4 @@
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePage"/>
 </testcase>
