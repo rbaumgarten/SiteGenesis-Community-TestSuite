@@ -32,33 +32,33 @@
   <codecomment># Scope</codecomment>
   <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productNumber"/>
   <codecomment>Store first product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="1"/>
-    <parameter name="productName_var" value="firstProductName"/>
-    <parameter name="productNumber_var" value="firstProductNumber"/>
-    <parameter name="productPrice_var" value="firstProductPrice"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_fixItemNumber">
     <parameter name="productNumber" value="${firstProductNumber}"/>
     <parameter name="fixedProductNumber_varName" value="firstProductNumber"/>
   </module>
   <codecomment>Store second product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="2"/>
-    <parameter name="productName_var" value="secondProductName"/>
-    <parameter name="productNumber_var" value="secondProductNumber"/>
-    <parameter name="productPrice_var" value="secondProductPrice"/>
+    <parameter name="productName_varName" value="productName_02_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_02_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_fixItemNumber">
     <parameter name="productNumber" value="${secondProductNumber}"/>
     <parameter name="fixedProductNumber_varName" value="secondProductNumber"/>
   </module>
   <codecomment>Store third product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="3"/>
-    <parameter name="productName_var" value="thirdProductName"/>
-    <parameter name="productNumber_var" value="thirdProductNumber"/>
-    <parameter name="productPrice_var" value="thirdProductPrice"/>
+    <parameter name="productName_varName" value="productName_03_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_fixItemNumber">
     <parameter name="productNumber" value="${thirdProductNumber}"/>
@@ -93,22 +93,22 @@
     <parameter name="productPriceSales" value="${thirdProductPrice}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="productName" value="${thirdProductName}"/>
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${thirdProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${secondProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="productName" value="${firstProductName}"/>
-    <parameter name="productNumber" value="${firstProductNumber}"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${firstProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <action name="RemoveProduct"/>
