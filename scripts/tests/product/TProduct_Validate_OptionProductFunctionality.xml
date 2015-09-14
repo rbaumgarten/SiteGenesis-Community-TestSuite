@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview,functionality,options</tags>
-  <description>Verifies the functionality of option products on quickview (QV) and product details pages (PDP) . This is basically interaction with the option boxes in comparison to the other test that is more layout.
+  <description>Verifies functionality of option products on quickview and product details pages. 
 
-# Setup
-Open the site and remove cookies
+# 1. Setup and preparation
 
-#  Scope
-Validate correct funtionality of the option field 
+- start session, open homepage and delete all visible cookies
+- search products
 
-- validate funtionality on QV
-- go to pdp
-- validate funtionality on PDP</description>
+# 2. Scope of test
+- open quickview
+- select option
+- open product detail page (Note: No option will be preselected there)
+- select option
+
+Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file.</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="SearchProducts"/>
@@ -19,15 +22,6 @@ Validate correct funtionality of the option field
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Functional Option Product Test
-
-- open QV and change the options several times, validate every time that the sales price changes
-- chang to PDP and change the options again, validate every time that the sales price changes</codecomment>
-  <codecomment>### Caution
-By default no extra option should be selected, by changing from QV  to PDP the Option should not be stored</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
