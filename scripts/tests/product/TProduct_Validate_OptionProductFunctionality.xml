@@ -35,7 +35,6 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption}"/>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
@@ -55,5 +54,4 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption}"/>
 </testcase>
