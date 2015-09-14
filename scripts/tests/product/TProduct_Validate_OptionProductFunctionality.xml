@@ -31,7 +31,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <action name="SelectOptionQuickview"/>
+  <action name="SelectOptionOnQuickview"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
@@ -50,7 +50,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <codecomment>Prices for Options will not be stored again, because theprice should be the same as on QV</codecomment>
   <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
-  <action name="SelectOptionPDP"/>
+  <action name="SelectOptionOnPDP"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
