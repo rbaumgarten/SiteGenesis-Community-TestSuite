@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://xlt.xceptance.com/xlt-script-data">
+  <firstName_sender>${WishListUser_FirstName}</firstName_sender>
+  <lastName_sender>${WishListUser_LastName}</lastName_sender>
+  <firstName_recipient>Tom</firstName_recipient>
+  <lastName_recipient>Recipient</lastName_recipient>
+  <productNumber>${productNumber_typeProduct}</productNumber>
+</data>
