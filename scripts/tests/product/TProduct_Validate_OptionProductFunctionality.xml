@@ -37,8 +37,7 @@ By default no extra option should be selected, by changing from QV  to PDP the O
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
-  <action name="SelectDefaultOption"/>
+  <action name="SelectOption"/>
   <command name="select" target="css=.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
   <command name="assertText" target="css=.option-dropdown .value select option" value="${productOptionNone}"/>
   <action name="SelectSecondOption"/>
