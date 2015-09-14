@@ -22,7 +22,8 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <action name="OpenQuickView"/>
+  <codecomment>Hover over product and click on quick view buttom</codecomment>
+  <action name="ProductQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
   </module>
@@ -31,11 +32,12 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <action name="SelectOptionOnQuickview"/>
+  <action name="OptionOnQuickview"/>
+  <codecomment>Select an option on Quickview</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
-  <action name="ProductDetailPageFromQV"/>
+  <action name="DisplayProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
     <parameter name="productName" value="${optionProductName}"/>
@@ -48,9 +50,8 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <codecomment>Prices for Options will not be stored again, because theprice should be the same as on QV</codecomment>
-  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
-  <action name="SelectOptionOnPDP"/>
+  <action name="OptionOnPDP"/>
+  <codecomment>Select an option on product detail page</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${productOption}"/>
   </module>
