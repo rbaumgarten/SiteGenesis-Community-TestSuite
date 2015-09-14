@@ -28,7 +28,7 @@ Validate correct funtionality of the option field
 By default no extra option should be selected, by changing from QV  to PDP the Option should not be stored</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <action name="OptionProductQuickview"/>
+  <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
   </module>
