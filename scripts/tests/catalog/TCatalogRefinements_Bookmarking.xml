@@ -63,12 +63,12 @@
     <parameter name="breadcrumbText" value="breadcrumbText"/>
   </module>
   <module name="modules.helper.SHelper_CurrentURL">
-    <parameter name="currentURL" value="url"/>
+    <parameter name="currentURL_varName" value="currentURL_varDynamic"/>
   </module>
   <codecomment>Destroy the state of the session and come back</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="ReopenProductListingPage"/>
-  <command name="open" value="${url}"/>
+  <command name="open" value="${currentURL_varDynamic}"/>
   <command name="waitForText" target="css=#primary .pagination .results-hits" value="${displayedPagingText}"/>
   <module name="modules.pages.catalog.VCatalog_ProductListingPage_State">
     <parameter name="pageNumber" value="${pageNumber}"/>
