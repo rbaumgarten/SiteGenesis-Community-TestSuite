@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <command name="open" value="${storefront_url}"/>
-  <command name="type" target="css=#q" value="Grand Theft Auto 4 (for X-Box 360)"/>
-  <command name="pause" value="10000"/>
-  <command name="type" target="id=q" value="Grand Theft Auto 4 (for X-Box 360)"/>
-  <command name="pause" value="10000"/>
-</testcase>
