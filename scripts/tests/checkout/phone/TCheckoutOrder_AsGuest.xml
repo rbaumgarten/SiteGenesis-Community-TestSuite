@@ -50,6 +50,8 @@
     <parameter name="returned_varString" value="lastname"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Close storefront toolkit if it is present. Relevant for webdriver execution to make it more stable.</codecomment>
+  <module name="modules.helper.JHelper_closeStorefrontToolkit"/>
   <module name="modules.pages.search.phone.FSearch_flowToAddProductWithColorSizeToCart_Phone">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber}"/>
