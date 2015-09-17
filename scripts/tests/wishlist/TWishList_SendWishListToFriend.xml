@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>wishlist</tags>
-  <description>Send to wishlist to a friend. Does not validate the correctness of the sent email, only the success message is checked.
+  <description>Opens Wishlist Link of a public and a non public list
 
 # 1. Setup and preparation
-- create sender and receiver email
+- create sender email
 - create sender account password
 - start session
 - create a new account but do not log out
@@ -12,14 +12,9 @@
 - search product
 
 # 2. Scope of test
-- open send wishlist to friend dialog
-- cancel dialog
-- open send wishlist to friend dialog again
-- fill out form, preview mail
-- send form data
-- close dialog
-- repeat but do not use preview, send immediately
-- logou</description>
+-  add product to wishlist and store wishlistl ink
+- open linke without making list public
+- and open wishlist link with make list public</description>
   <codecomment># Setup
 
 - Create mail for User and Searcher
@@ -27,8 +22,11 @@
 - Start session
 - Create account
 - add product to wishlist</codecomment>
-  <module name="modules.helper.external.FHelper_getEmailAddressFromExternal">
-    <parameter name="email_var" value="email_recipient"/>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="password_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="email_sender"/>
   </module>
   <module name="modules.helper.MHelper_Random_addRandomness">
     <parameter name="inputString" value="${firstName_sender}"/>
@@ -37,20 +35,6 @@
   <module name="modules.helper.MHelper_Random_addRandomness">
     <parameter name="inputString" value="${lastName_sender}"/>
     <parameter name="returned_varString" value="lastName_sender"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${firstName_recipient}"/>
-    <parameter name="returned_varString" value="firstName_recipient"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <parameter name="inputString" value="${lastName_recipient}"/>
-    <parameter name="returned_varString" value="lastName_recipient"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_createEmail">
-    <parameter name="email_varName" value="email_sender"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_createPassword">
-    <parameter name="password_varName" value="password_sender"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
@@ -69,7 +53,7 @@
     <parameter name="productPriceSales_varName" value="productPriceSales"/>
   </module>
   <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
@@ -77,63 +61,41 @@
   <codecomment>## WishList
 
 - Send to Friend</codecomment>
-  <action name="OpenSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
-  <action name="CancelSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_cancelDialogViaCancelButton"/>
-  <codecomment>send via preview</codecomment>
-  <action name="OpenSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
-    <parameter name="firstName_receiver" value="${firstName_recipient}"/>
-    <parameter name="lastName_receiver" value="${lastName_recipient}"/>
-    <parameter name="email_receiver" value="${email_recipient}"/>
-    <parameter name="massage_reciever" value="First Mesaage: Please take a look at my wishlist"/>
-  </module>
-  <action name="PreviewSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickPreviewButton"/>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_SendToFriendDialog_validatePreviewDialog">
-    <parameter name="message_reciver" value="${firstName_recipient}*${lastName_recipient}*${email_recipient}"/>
-    <parameter name="message_sender" value="${firstName_sender}*${lastName_sender}*${email_sender}"/>
-  </module>
-  <action name="SendSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
-  <action name="CloseSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
-  <codecomment>send without preview</codecomment>
-  <action name="OpenSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_enterData">
-    <parameter name="firstName_receiver" value="${firstName_recipient}"/>
-    <parameter name="lastName_receiver" value="${lastName_recipient}"/>
-    <parameter name="email_receiver" value="${email_recipient}"/>
-    <parameter name="massage_reciever" value="Second Message: Look at my wishlist"/>
-  </module>
-  <action name="SendSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickSendButton"/>
-  <action name="CloseSendToFriend"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_SendToFriendDialog_clickCloseButton"/>
-  <codecomment>Logout</codecomment>
-  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
-  <codecomment>Goto external Mailer to validate the sended emails</codecomment>
-  <action name="OpenExternalMailer"/>
-  <module name="modules.helper.external.FHelper_openExternalMailer"/>
-  <module name="modules.helper.external.VHelper_validateMessage">
-    <parameter name="messageNumber" value="msg_1"/>
+  <action name="ClickSharedLink"/>
+  <command name="click" target="css=.share-options .share-icon.share-link i.fa.fa-link"/>
+  <command name="waitForElementPresent" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active"/>
+  <command name="storeText" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active a" value="wishListLink"/>
+  <codecomment>Reopen clean site wis deleted cookies</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="OpenWishlistLink"/>
+  <codecomment>Changing First and Last Name to uppercase so that they would macht the pattern of a h2 title</codecomment>
+  <command name="storeEval" target="&quot;${firstName_sender}&quot;.toUpperCase()" value="FirstName"/>
+  <command name="storeEval" target="&quot;${lastName_sender}&quot;.toUpperCase()" value="LastName"/>
+  <codecomment>First time opening the wishlist, the wish list is private so nothing should be shown</codecomment>
+  <command name="open" value="${wishListLink}"/>
+  <codecomment>log In as user tzo make wishlist public</codecomment>
+  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
     <parameter name="email" value="${email_sender}"/>
-    <parameter name="messageText" value="Check out my Wish List"/>
+    <parameter name="password" value="${password_sender}"/>
   </module>
-  <module name="modules.helper.external.VHelper_validateMessage">
-    <parameter name="messageNumber" value="msg_2"/>
-    <parameter name="email" value="${email_sender}"/>
-    <parameter name="messageText" value="Check out my Wish List"/>
-  </module>
-  <module name="modules.helper.external.VHelper_openWishListSearch"/>
+  <action name="WishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <action name="MAkeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <codecomment>Reopen clean site wis deleted cookies</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="OpenWishlistLink"/>
+  <command name="open" value="${wishListLink}"/>
+  <codecomment>Second time opening the wishlist, the wish list is now public and the product can be ssen</codecomment>
+  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName}"/>
     <parameter name="productNumber" value="${productNumber}"/>
-    <parameter name="productQuantity" value="1"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
     <parameter name="productPriceSales" value="${productPriceSales}"/>
   </module>
 </testcase>
