@@ -28,7 +28,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+  <module name="modules.pages.product.SProduct_storeAddToCartPrice">
     <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
   </module>
   <module name="modules.pages.product.MProduct_storeBasicData">
