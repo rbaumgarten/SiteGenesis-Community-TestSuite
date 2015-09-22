@@ -39,7 +39,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <action name="AddToCart"/>
   <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <module name="modules.pages.product.productquickview.VProductQV_Invisible"/>
   <action name="GoToCartAfterQV"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
