@@ -74,7 +74,7 @@ By default no extra option should be selected</codecomment>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
+  <module name="modules.pages.product.SProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
   <action name="ProductDetailPageFromQV"/>
