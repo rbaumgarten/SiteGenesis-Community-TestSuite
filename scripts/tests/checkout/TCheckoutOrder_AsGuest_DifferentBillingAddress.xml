@@ -334,7 +334,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="productColor" value="${productColor_varDynamic}"/>
     <parameter name="productSize" value="${productSize_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation">
+  <module name="modules.pages.checkout.steps.confirmation.SCheckout_Confirmation_storeOrderInformation">
     <parameter name="orderNumber_varName" value="orderNumber_varDynamic"/>
     <parameter name="orderDate_varName" value="orderDate_varDynamic"/>
   </module>
