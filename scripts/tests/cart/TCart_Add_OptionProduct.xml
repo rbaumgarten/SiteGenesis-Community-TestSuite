@@ -31,7 +31,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <module name="modules.pages.product.SProduct_storeAddToCartPrice">
     <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>

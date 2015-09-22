@@ -69,7 +69,7 @@ By default no extra option should be selected</codecomment>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <module name="modules.pages.product.VProduct_validateWishlistAndGiftRegistry"/>
   <codecomment>Store product informations to check them later</codecomment>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
