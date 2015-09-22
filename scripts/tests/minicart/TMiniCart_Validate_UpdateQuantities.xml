@@ -118,7 +118,7 @@
     <parameter name="row" value="1"/>
     <parameter name="productQuantity" value="3"/>
   </module>
-  <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
+  <module name="modules.pages.cart.SCart_Row_storeProductPriceTotal">
     <parameter name="row" value="1"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_01_varDynamic"/>
   </module>
@@ -127,7 +127,7 @@
     <parameter name="row" value="2"/>
     <parameter name="productQuantity" value="4"/>
   </module>
-  <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
+  <module name="modules.pages.cart.SCart_Row_storeProductPriceTotal">
     <parameter name="row" value="2"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
