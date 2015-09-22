@@ -44,7 +44,7 @@ Caution: The product should have at least 5 elements</codecomment>
   <action name="AddToCart"/>
   <codecomment>After clicking the Add to Cart Button the QV should become invisible</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <module name="modules.pages.product.productquickview.VProductQV_Invisible"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
