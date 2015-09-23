@@ -5,7 +5,7 @@
 
 Note: The title often matches the product name.</description>
   <parameter name="title" desc="tilte of the product in catalog"/>
-  <command name="mouseOver" target="css=#search-result-items a[title~='@{title}']">
+  <command name="mouseOver" target="css=#search-result-items a[title*='@{title}']">
     <comment>Please note, that the target selects an element with a title attribute CONTAINING the word 'title'. </comment>
   </command>
   <command name="click" target="id=quickviewbutton"/>
