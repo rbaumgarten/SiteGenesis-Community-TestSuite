@@ -28,8 +28,8 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="title" value="${optionProductName}"/>
   </module>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
+    <parameter name="prevButtonState" value=""/>
+    <parameter name="nextButtonState" value=""/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
   <action name="OptionOnQuickview"/>
