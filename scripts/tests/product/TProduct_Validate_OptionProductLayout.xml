@@ -21,15 +21,6 @@ Validate displaying product data either via quickview or via product detail page
     <parameter name="searchText" value="${optionProductSearchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Option Product
-
-- Validate Quickview for option product
-- Validate PDP for option product
-- Check if product name, price, and product number are the same</codecomment>
-  <codecomment>### Caution
-By default no extra option should be selected</codecomment>
-  <codecomment>--------------------------------</codecomment>
   <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <action name="OptionProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
