@@ -36,8 +36,8 @@ Validate the displaying of product data either via quickview or via product deta
   <codecomment>Verify quick view page</codecomment>
   <codecomment>Caution: if you click on an product via QV usully a color is selected</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
+    <parameter name="prevButtonState" value=""/>
+    <parameter name="nextButtonState" value=""/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
