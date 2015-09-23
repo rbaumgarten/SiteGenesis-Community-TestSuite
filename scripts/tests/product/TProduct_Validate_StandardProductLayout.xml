@@ -35,8 +35,8 @@ Validate displaying product data either via quick view or via product detail pag
   </module>
   <codecomment>Verify quick view page</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
+    <parameter name="prevButtonState" value=""/>
+    <parameter name="nextButtonState" value=""/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
