@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,qv,layout,quickview,options</tags>
-  <description>Verifies the structure/layoout of quickview (QV) and product details pages (PDP) for option products
+  <description>Verifies the structure/layout of quickview (QV) and product details pages (PDP) for option products
 
 # Setup
 Open the site and remove cookies
