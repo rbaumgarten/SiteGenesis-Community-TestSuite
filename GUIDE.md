@@ -26,6 +26,7 @@ The `Area` defines the high-level test topic, such as search or catalog. The `Te
 - Validation Modules: `V{Page}_[PagePart]_{interaction}{Name}`
 - Flow Modules: `F{StartPage}_{interaction}{Name}`
 - Store Modules: `S{Page}_[PagePart]_{Name}`
+- Java Modules: `J{Page}_[PagePart]_{interaction}{Name}`
 
 ### Naming of Variables
 

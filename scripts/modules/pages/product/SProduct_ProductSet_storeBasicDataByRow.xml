@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Stores basic product data for a product set element selected by row</description>
+  <parameter name="row" desc="position of product set element"/>
+  <parameter name="productName_varName" desc="product name as var name"/>
+  <parameter name="productNumber_varName" desc="product number as var name"/>
+  <parameter name="productPriceSales_varName" desc="product sales price as var name"/>
+  <command name="storeText" target="css=.product-set-list div:nth-of-type(@{row}) div.product-set-details h1.product-name a.item-name" value="@{productName_varName}"/>
+  <command name="storeText" target="css=.product-set-list div:nth-of-type(@{row}) div.product-set-details .product-number" value="@{productNumber_varName}"/>
+  <command name="storeText" target="css=#product-set-list.product-set-list div:nth-of-type(@{row}) .block-add-to-cart form div.product-price span.price-sales" value="@{productPriceSales_varName}"/>
+</scriptmodule>

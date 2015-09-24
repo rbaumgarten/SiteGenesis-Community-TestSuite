@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>url</tags>
   <description>Gets the current url via JavaScript.</description>
-  <parameter name="currentURL" desc="The current url taking from the browser via JS"/>
-  <command name="storeEval" target="window.location.href" value="url"/>
+  <parameter name="currentURL_varName" desc="The current url taking from the browser via JS"/>
+  <command name="storeEval" target="window.location.href" value="@{currentURL_varName}"/>
 </scriptmodule>

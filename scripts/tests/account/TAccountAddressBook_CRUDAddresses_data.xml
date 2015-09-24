@@ -22,13 +22,13 @@
   <postalCode_02>${billingAddress_postalCode}</postalCode_02>
   <city_02>${billingAddress_city}</city_02>
   <phone_02>${billingAddress_phone}</phone_02>
-  <title_03>Jena</title_03>
-  <address1_03>Leutragraben</address1_03>
-  <address2_03>2</address2_03>
+  <title_03>Waimäa</title_03>
+  <address1_03>North Kaniku Drive</address1_03>
+  <address2_03>1</address2_03>
   <country_03>United States</country_03>
-  <statesState_03>Other</statesState_03>
-  <statesStateShort_03>OTHER</statesStateShort_03>
-  <city_03>Jena</city_03>
-  <postalCode_03>07743</postalCode_03>
-  <phone_03>03641-411111</phone_03>
+  <statesState_03>Hawaii</statesState_03>
+  <statesStateShort_03>HI</statesStateShort_03>
+  <city_03>Waimea</city_03>
+  <postalCode_03>96796</postalCode_03>
+  <phone_03>866-540-4474</phone_03>
 </data>

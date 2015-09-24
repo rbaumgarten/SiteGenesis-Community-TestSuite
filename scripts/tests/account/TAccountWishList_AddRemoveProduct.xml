@@ -62,12 +62,12 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
+  <module name="modules.pages.product.SProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
   <action name="AddToWishList"/>

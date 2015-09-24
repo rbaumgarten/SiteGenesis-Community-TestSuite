@@ -60,6 +60,9 @@
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal">
     <parameter name="totalsSubtotal" value="${productPriceTotal_varDynamic}"/>
   </module>
+  <module name="modules.global.minicart.VGlobal_MiniCart_Invisible">
+    <comment>Make sure the minicart is closed.</comment>
+  </module>
   <codecomment>Cart
 
 - Remove product

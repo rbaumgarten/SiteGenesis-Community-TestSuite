@@ -16,42 +16,24 @@ Validate the displaying of product data either via quickview or via product deta
 - search for product name and validate PDP again</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>
-  <action name="CategoryLevel1"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
-    <parameter name="nameLevel1" value="${variationProductCategoryLevel1}"/>
-  </module>
-  <action name="CategoryLevel2"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
-    <parameter name="nameLevel2" value="${variationProductCategoryLevel2}"/>
-  </module>
-  <action name="CategoryLevel3"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
-    <parameter name="nameLevel3" value="${variationProductCategoryLevel3}"/>
-  </module>
-  <action name="SortByName"/>
-  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
-  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
-    <parameter name="sortByLabel" value="Product Name A - Z"/>
+  <action name="SearchProducts"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${variationProductSearchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Variation Product
-
-- Validate Quickview for variation product
-- Validate PDP for variation product
-- Check if product name, price, and product number are the same</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Hover over Product and click on quick view buttom</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 1: Validate quickview</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="VariationProductQuickview"/>
+  <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${variationProductName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
   <codecomment>Caution: if you click on an product via QV usully a color is selected</codecomment>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
+    <parameter name="prevButtonState" value=""/>
+    <parameter name="nextButtonState" value=""/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
@@ -67,14 +49,17 @@ Validate the displaying of product data either via quickview or via product deta
   <module name="modules.pages.product.VProduct_validateThumbnails"/>
   <module name="modules.pages.product.VProduct_validateSozialSharing"/>
   <codecomment>Store product informations to check them later</codecomment>
-  <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName"/>
-    <parameter name="productNumber_varName" value="productNumber"/>
-    <parameter name="productPriceSales_varName" value="productPrice"/>
+  <module name="modules.pages.product.SProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPrice_varDynamic"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity"/>
+  <module name="modules.pages.product.SProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 2: Validate product detail page from quickview</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="ProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
@@ -83,7 +68,7 @@ Validate the displaying of product data either via quickview or via product deta
   <codecomment>Verify product detail page</codecomment>
   <codecomment>Caution: on the pdp ususlly no color is selected if there are more than one color</codecomment>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
@@ -99,24 +84,27 @@ Validate the displaying of product data either via quickview or via product deta
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
   <codecomment>Check are the stored values form QV the same on PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
-    <parameter name="productName" value="${productName}"/>
-    <parameter name="productNumber" value="${productNumber}"/>
-    <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productPrice" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesQuantity">
-    <parameter name="productQuantity" value="${productQuantity}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
   </module>
-  <codecomment>Go back to Homepage</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 3: Validate product detail page from search</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="BackToHomepage"/>
+  <codecomment>Go back to Homepage</codecomment>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
   <action name="SearchProductByName"/>
   <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
   <codecomment>Caution: even if there is only one color if you search for the variation master there will be no color selected</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productName}"/>
+    <parameter name="searchText" value="${productName_varDynamic}"/>
   </module>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumb">
-    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName}"/>
+    <parameter name="breadcrumbPath" value="*${variationProductCategoryLevel1} ${variationProductCategoryLevel2} ${variationProductCategoryLevel3} ${productName_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
@@ -132,11 +120,11 @@ Validate the displaying of product data either via quickview or via product deta
   <module name="modules.pages.product.productdetailpage.VProductDetailPage_validateRecommendations"/>
   <codecomment>Validate the stored values form QV on the PDP</codecomment>
   <module name="modules.pages.product.VProduct_validateBasicData">
-    <parameter name="productName" value="${productName}"/>
-    <parameter name="productNumber" value="${productNumber}"/>
-    <parameter name="productPrice" value="${productPrice}"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productPrice" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesQuantity">
-    <parameter name="productQuantity" value="${productQuantity}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
   </module>
 </testcase>
