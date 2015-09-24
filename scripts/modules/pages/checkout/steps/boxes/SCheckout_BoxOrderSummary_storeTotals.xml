@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Store box order summary totals shipping, sales tax and total.</description>
-  <parameter name="shippingMethod_name" desc="shipping method name"/>
   <parameter name="totalsShipping_varName" desc="totals shipping as var name"/>
   <parameter name="totalsSalesTax_varName" desc="totals sales tax as var name"/>
   <parameter name="totalsTotal_varName" desc="totals total as var name"/>
