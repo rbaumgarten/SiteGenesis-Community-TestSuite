@@ -21,15 +21,11 @@ Validate displaying product data either via quick view or via product detail pag
     <parameter name="searchText" value="${plainProductSearchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Plain Product
-
-- Validate Quickview for plain product
-- Validate PDP for plain product
-- Check if product name, price, and product number are the same</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Hover over Product and click on quick view buttom</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 1: Validate quickview</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="ProductQuickView"/>
+  <codecomment>Hover over Product and click on quick view buttom</codecomment>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${plainProductName}"/>
   </module>
@@ -60,6 +56,9 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.SProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
   </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 2: Validate product detail page from quickview</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="DisplayProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
@@ -89,8 +88,11 @@ Validate displaying product data either via quick view or via product detail pag
   <module name="modules.pages.product.VProduct_validatesQuantity">
     <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
   </module>
-  <codecomment>Go back to Homepage</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Step 3: Validate product detail page from search</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="BackToHomepage"/>
+  <codecomment>Go back to Homepage</codecomment>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
   <action name="SearchByName"/>
   <codecomment>Search product by name, ensure that the PDP found by search is identical to the PDP by navigation from QV.</codecomment>
