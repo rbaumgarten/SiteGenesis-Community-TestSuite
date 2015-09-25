@@ -9,7 +9,7 @@
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_lastname&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_address1&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_country&quot;] .required-indicator"/>
-  <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_states_state&quot;] .required-indicator"/>
+  <command name="assertElementPresent" disabled="true" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_states_state&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_city&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_postal&quot;] .required-indicator"/>
   <command name="assertElementPresent" target="css= #dialog-container label[for=&quot;dwfrm_profile_address_phone&quot;] .required-indicator"/>

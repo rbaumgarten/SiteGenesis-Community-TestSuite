@@ -228,7 +228,7 @@
     <parameter name="statesState" value="${statesState_03}"/>
     <parameter name="city" value="${city_03}"/>
     <parameter name="postalCode" value="${postalCode_03}"/>
-    <parameter name="phone" value="${phone_03}"/>
+    <parameter name="phone" value="${phone_02}"/>
   </module>
   <module name="modules.pages.account.addressbook.MAccount_AddressBook_Dialog_clickApply">
     <parameter name="position" value="2"/>
@@ -245,7 +245,7 @@
     <parameter name="statesStateShort" value="${statesStateShort_03}"/>
     <parameter name="city" value="${city_03}"/>
     <parameter name="postalCode" value="${postalCode_03}"/>
-    <parameter name="phone" value="${phone_03}"/>
+    <parameter name="phone" value="${phone_02}"/>
   </module>
   <codecomment>## Address Book
 
@@ -271,7 +271,7 @@
     <parameter name="statesStateShort" value="${statesStateShort_03}"/>
     <parameter name="city" value="${city_03}"/>
     <parameter name="postalCode" value="${postalCode_03}"/>
-    <parameter name="phone" value="${phone_03}"/>
+    <parameter name="phone" value="${phone_02}"/>
   </module>
   <action name="DeleteAddress"/>
   <module name="modules.pages.account.addressbook.MAccount_AddressBook_clickDeleteAddress">

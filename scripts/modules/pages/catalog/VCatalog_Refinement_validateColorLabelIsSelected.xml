@@ -3,5 +3,5 @@
   <description>Validiate color is selected by label.</description>
   <parameter name="colorLabel" desc="color label"/>
   <command name="assertText" target="css=#main .breadcrumb .breadcrumb-refinement" value="regexpi:Color.*@{colorLabel}.*"/>
-  <command name="assertElementPresent" target="css=#main #secondary .refinement.Color ul.refinementColor li.selected a[title=&quot;@{colorLabel}&quot;]"/>
+  <command name="assertElementPresent" target="css=#secondary .refinement .refinementColor li a[title*=@{colorLabel}]"/>
 </scriptmodule>

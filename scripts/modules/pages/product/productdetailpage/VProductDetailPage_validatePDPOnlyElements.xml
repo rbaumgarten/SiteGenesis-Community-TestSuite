@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Verify objects that are only shown on the PDP and not on the QV like product rating and descriptions.</description>
   <command name="assertElementPresent" target="css=#product-content .product-review"/>
-  <command name="assertElementPresent" target="css=#pdpMain div .product-tabs"/>
+  <command name="assertElementPresent" target="css=#pdpMain .product-info div.tabs"/>
 </scriptmodule>

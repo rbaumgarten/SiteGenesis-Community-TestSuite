@@ -10,6 +10,6 @@
   <command name="type" target="dwfrm_paymentinstruments_creditcards_newcreditcard_owner" value="@{owner}"/>
   <command name="select" target="id=dwfrm_paymentinstruments_creditcards_newcreditcard_type" value="@{type}"/>
   <command name="type" target="css=#CreditCardForm fieldset .form-row:nth-of-type(3) input" value="@{number}"/>
-  <command name="select" target="id=dwfrm_paymentinstruments_creditcards_newcreditcard_month" value="@{month}"/>
-  <command name="select" target="id=dwfrm_paymentinstruments_creditcards_newcreditcard_year" value="@{year}"/>
+  <command name="select" target="id=dwfrm_paymentinstruments_creditcards_newcreditcard_expiration_month" value="@{month}"/>
+  <command name="select" target="id=dwfrm_paymentinstruments_creditcards_newcreditcard_expiration_year" value="@{year}"/>
 </scriptmodule>

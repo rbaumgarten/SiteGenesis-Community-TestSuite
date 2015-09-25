@@ -6,11 +6,11 @@
   <command name="storeEval" target="&quot;@{colorLabel}&quot;.toLowerCase()" value="lowerCasedColorLabel">
     <comment>We need a lowercase value of the string for the class selector later.</comment>
   </command>
-  <command name="storeAttribute" target="css=#main #secondary .refinement.Color ul.refinementColor li.swatch-${lowerCasedColorLabel}@class" value="classAttrValue">
+  <command name="storeAttribute" target="css=#main #secondary.refinements .refinementColor .refinementColor li.swatch-${lowerCasedColorLabel}@class" value="classAttrValue">
     <comment>We get us the value of the class because it will change during the click process and hence we can wait until it changed to make sure the page finished doing all the magic.</comment>
   </command>
-  <command name="click" target="css=#main #secondary .refinement.Color ul.refinementColor li a[title=&quot;@{colorLabel}&quot;]"/>
-  <command name="waitForNotAttribute" target="css=#main #secondary .refinement.Color ul.refinementColor li.swatch-${lowerCasedColorLabel}@class" value="${classAttrValue}">
+  <command name="click" target="css=#main #secondary.refinements .refinementColor .refinementColor li.swatch-${lowerCasedColorLabel} a"/>
+  <command name="waitForNotAttribute" target="css=#main #secondary.refinements .refinementColor .refinementColor li.swatch-${lowerCasedColorLabel}@class" value="${classAttrValue}">
     <comment>Wait until the class changed its value.</comment>
   </command>
   <command name="waitForElementCount" target="css=#main .breadcrumb .breadcrumb-refinement .breadcrumb-refinement-value" value="@{breadcrumbRefinementValueCount}">

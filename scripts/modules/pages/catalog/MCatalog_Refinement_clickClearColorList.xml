@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click clear color list.</description>
-  <command name="click" target="css=#main #secondary .refinement.Color .clear-refinement a[title=&quot;Show all options&quot;]"/>
+  <command name="click" target="css=#secondary.refinements div.refinement.refinementColor div.clear-refinement a[title=&quot;Show all options&quot;]"/>
   <command name="waitForElementCount" target="css=#main .breadcrumb .breadcrumb-refinement-name" value="0">
     <comment>To make sure we have waited correctly until the refinement disappared. Sadly we do not have a refinement class indicator color, hence this is a little ugly, because we wait for now refinement here, despite that we remove color only.</comment>
   </command>

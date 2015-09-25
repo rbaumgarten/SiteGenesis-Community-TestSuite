@@ -2,9 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate account navigation.</description>
   <codecomment>Account secondary navigation</codecomment>
-  <command name="pause" disabled="true" value="500">
-    <comment>Normally we should not pause, but the DOM seems to be active in the background and we do not have a change to react to that.</comment>
-  </command>
   <command name="waitForElementPresent" target="css=#secondary.nav nav .secondary-navigation"/>
   <command name="waitForVisible" target="css=#secondary.nav nav .secondary-navigation ul li">
     <comment>This is collapse in the beginning, so we have to wai until we see it.</comment>
@@ -16,5 +13,5 @@
   <command name="assertText" target="css=#secondary.nav nav .secondary-navigation .content-asset .content-asset span.toggle:nth-of-type(1)" value="regexpi:Shop Confidently"/>
   <codecomment>Account secondary nav asset</codecomment>
   <command name="assertElementPresent" target="css=#secondary .account-nav-asset"/>
-  <command name="assertText" target="css=#secondary .account-nav-asset h2" value="Need Help?"/>
+  <command name="assertText" target="css=#secondary .account-nav-asset h2" value="NEED HELP?"/>
 </scriptmodule>

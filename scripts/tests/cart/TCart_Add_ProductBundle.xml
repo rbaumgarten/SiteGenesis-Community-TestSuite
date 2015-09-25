@@ -19,7 +19,6 @@
 
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Search for Mario to get a standart product</codecomment>
   <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
@@ -27,7 +26,7 @@
   <codecomment>Go to QV of the first Game</codecomment>
   <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="1"/>
+    <parameter name="position" value="2"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>Store the names of every bundled product 

@@ -2,5 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate that a breadcrumb with the given title exists.</description>
   <parameter name="breadcrumbTitle"/>
-  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title=&quot;@{breadcrumbTitle}&quot;]"/>
+  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title*=&quot;@{breadcrumbTitle}&quot;]"/>
 </scriptmodule>

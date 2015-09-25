@@ -26,7 +26,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
 - First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
 - Second add product from PDP and verify if the same product in cart is shown</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+    <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeAddToCartPrice">
     <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
@@ -49,6 +49,15 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
+  </module>
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
+    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
@@ -64,7 +73,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   </module>
   <action name="AddProductToCartPDP"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+    <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <action name="GoToCartAfterQV"/>
@@ -75,6 +84,15 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productNumber" value="${productNumber}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
+  </module>
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
+    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>

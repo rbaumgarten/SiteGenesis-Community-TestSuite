@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click logout on MyAccount page.</description>
-  <command name="waitForElementPresent" disabled="true" target="css=#primary.primary-content h1 span.account-logout a"/>
   <command name="clickAndWait" target="css=#primary.primary-content h1 span.account-logout a"/>
   <command name="pause" value="500">
     <comment>Needed because Analytics is delayed by 100ms. If we are faster than that, we miss the call and get problems with the cookies that are changed during login/logout.</comment>

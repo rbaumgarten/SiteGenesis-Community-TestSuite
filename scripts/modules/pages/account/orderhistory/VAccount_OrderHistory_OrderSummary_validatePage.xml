@@ -4,8 +4,8 @@
   <parameter name="orderNumber" desc="order number"/>
   <codecomment>Validate breadcrumb</codecomment>
   <command name="waitForText" target="css=#main .breadcrumb a.breadcrumb-element:last-of-type" value="@{orderNumber}"/>
-  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title=&quot;My Account&quot;]"/>
-  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title=&quot;Order History&quot;]"/>
+  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title*=&quot;My Account&quot;]"/>
+  <command name="assertElementPresent" target="css=#main .breadcrumb a.breadcrumb-element[title*=&quot;Order History&quot;]"/>
   <codecomment>Valdiate primary table order summary</codecomment>
   <command name="assertText" target="css=#main #primary h2" value="regexpi:Order Summary"/>
   <command name="assertText" target="css=#main #primary table.item-list th.section-header:nth-of-type(1)" value="regexpi:Order Information"/>

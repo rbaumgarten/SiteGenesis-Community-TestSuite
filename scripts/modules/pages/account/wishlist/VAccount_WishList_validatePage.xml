@@ -8,5 +8,11 @@
   <command name="assertElementPresent" target="css=#primary #dwfrm_wishlist_search button[name=&quot;dwfrm_wishlist_search_search&quot;][type=&quot;submit&quot;]"/>
   <command name="assertElementPresent" target="css=#primary #dwfrm_wishlist_shipping button[name=&quot;dwfrm_wishlist_addGiftCertificate&quot;]"/>
   <command name="assertElementPresent" target="css=#primary #dwfrm_wishlist_share button[name=&quot;dwfrm_wishlist_setListPublic&quot;]"/>
-  <command name="assertElementPresent" target="css=#primary #dwfrm_wishlist_share a#send-to-friend"/>
+  <codecomment>--- share buttons ---</codecomment>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-facebook-square"/>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-twitter-square"/>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-google-plus-square"/>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-pinterest-square"/>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-envelope-square"/>
+  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share div .fa-link"/>
 </scriptmodule>

@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate checkout start page.</description>
-  <codecomment>Validate browser check</codecomment>
-  <command name="waitForElementPresent" disabled="true" target="css=#main #browser-check"/>
-  <command name="waitForElementPresent" disabled="true" target="css=#primary .checkoutlogin"/>
-  <codecomment>Validate breadcrumb</codecomment>
-  <command name="assertElementPresent" disabled="true" target="css=#main .breadcrumb [title=&quot;Home&quot;]"/>
-  <command name="assertElementPresent" disabled="true" target="css=#main .breadcrumb [title=&quot;My Account&quot;]"/>
   <codecomment>Validate primary</codecomment>
-  <command name="assertElementPresent" disabled="true" target="css=#primary h1"/>
   <command name="assertElementPresent" target="css=#primary .col-1"/>
   <command name="assertElementPresent" target="css=#primary .col-2"/>
   <codecomment>Validate primary guest or new customers</codecomment>
@@ -24,11 +17,11 @@
   <codecomment>Validate primary returning customer</codecomment>
   <command name="assertElementPresent" target="css=#primary .checkoutlogin .col-2 .login-account h2"/>
   <codecomment>---</codecomment>
-  <command name="assertElementPresent" target="css=#dwfrm_login fieldset div:first-of-type label span:last-of-type"/>
-  <command name="assertElementPresent" target="css=#dwfrm_login.clearfix fieldset div.form-row.required input.email-input"/>
+  <command name="assertElementPresent" target="css=#dwfrm_login fieldset .username.required label span:last-of-type"/>
+  <command name="assertElementPresent" target="css=#dwfrm_login fieldset .username div input[id*=dwfrm_login_username]"/>
   <codecomment>---</codecomment>
-  <command name="assertElementPresent" target="css=#dwfrm_login.clearfix fieldset div:nth-of-type(2) label span:last-of-type"/>
-  <command name="assertElementPresent" target="css=#dwfrm_login_password"/>
+  <command name="assertElementPresent" target="css=#dwfrm_login fieldset .password.required label span:last-of-type"/>
+  <command name="assertElementPresent" target="css=#dwfrm_login fieldset .password div input[id*=dwfrm_login_password]"/>
   <codecomment>---</codecomment>
   <command name="assertElementPresent" target="css=#dwfrm_login [type=&quot;Submit&quot;]"/>
   <command name="assertElementPresent" target="css=#dwfrm_login_rememberme"/>

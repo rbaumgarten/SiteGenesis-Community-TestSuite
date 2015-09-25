@@ -8,7 +8,7 @@
   <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm #dwfrm_profile_customer_lastname"/>
   <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm #dwfrm_profile_customer_email"/>
   <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm #dwfrm_profile_customer_emailconfirm"/>
-  <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm #dwfrm_profile_login_password"/>
-  <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm #dwfrm_profile_login_passwordconfirm"/>
+  <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm input[id*=dwfrm_profile_login_password_]"/>
+  <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm input[id*=dwfrm_profile_login_passwordconfirm]"/>
   <command name="assertElementPresent" target="css=#main #secondary .login-box #RegistrationForm [type=submit]"/>
 </scriptmodule>

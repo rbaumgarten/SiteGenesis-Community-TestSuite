@@ -11,8 +11,8 @@
   <command name="check" target="css=.payment-method-options .form-row [value=&quot;CREDIT_CARD&quot;]"/>
   <command name="type" target="${css_creditcard}_owner" value="@{owner}"/>
   <command name="select" target="${css_creditcard}_type" value="@{type}"/>
-  <command name="type" target="${css_creditcard}_number" value="@{number}"/>
-  <command name="select" target="${css_creditcard}_month" value="@{month}"/>
-  <command name="select" target="${css_creditcard}_year" value="@{year}"/>
-  <command name="type" target="${css_creditcard}_cvn" value="@{cvn}"/>
+  <command name="type" target="css= input[id*=dwfrm_billing_paymentMethods_creditCard_number]" value="@{number}"/>
+  <command name="select" target="${css_creditcard}_expiration_month" value="@{month}"/>
+  <command name="select" target="${css_creditcard}_expiration_year" value="@{year}"/>
+  <command name="type" target="css=input[id*=dwfrm_billing_paymentMethods_creditCard_cvn]" value="@{cvn}"/>
 </scriptmodule>

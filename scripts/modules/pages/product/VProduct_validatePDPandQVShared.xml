@@ -10,6 +10,6 @@
   <command name="assertElementPresent" target="css=#pdpMain #product-content .product-price"/>
   <codecomment>Add2Cart</codecomment>
   <command name="assertElementPresent" target="css=#pdpMain #add-to-cart"/>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .inventory .quantity input[name='Quantity']"/>
-  <command name="assertElementPresent" target="css=#pdpMain #product-content .product-add-to-cart form .product-price"/>
+  <command name="assertElementPresent" target="id=Quantity"/>
+  <command name="assertElementPresent" disabled="true" target="css=#pdpMain #product-content .product-add-to-cart form .product-price"/>
 </scriptmodule>

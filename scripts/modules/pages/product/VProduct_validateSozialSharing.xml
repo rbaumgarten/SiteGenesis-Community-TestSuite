@@ -3,19 +3,19 @@
   <tags>productactions,pdp,sendtofriend,socialbuttons</tags>
   <description>Validates social sharing buttons</description>
   <codecomment>Social Sharing</codecomment>
-  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-facebook-official">
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-facebook-square">
     <comment>Facebook</comment>
   </command>
-  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-twitter">
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-twitter-square">
     <comment>Facebook</comment>
   </command>
-  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-google-plus">
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-google-plus-square">
     <comment>Facebook</comment>
   </command>
-  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-pinterest">
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-pinterest-square">
     <comment>Pinterest</comment>
   </command>
-  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-envelope">
+  <command name="assertElementPresent" target="css=.product-actions a.share-icon i.fa-envelope-square">
     <comment>Email</comment>
   </command>
 </scriptmodule>

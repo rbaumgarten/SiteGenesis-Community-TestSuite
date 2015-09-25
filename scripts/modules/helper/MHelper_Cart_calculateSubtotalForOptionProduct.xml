@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>adds the price for an option to the product price </description>
+  <parameter name="productPriceOptionProduct"/>
+  <parameter name="optionPrice"/>
+  <parameter name="subtotal_varName"/>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="@{productPriceOptionProduct}"/>
+    <parameter name="priceValue_varName" value="price_value_OptionProduct"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="@{optionPrice}"/>
+    <parameter name="priceValue_varName" value="price_value_Option"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <command name="storeEval" target="${price_value_OptionProduct}+${price_value_Option}" value="valueSubtotal"/>
+  <module name="modules.helper.MHelper_Price_convertValueToPrice">
+    <parameter name="priceValue" value="${valueSubtotal}"/>
+    <parameter name="price_varName" value="@{subtotal_varName}"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+</scriptmodule>

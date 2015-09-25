@@ -25,7 +25,7 @@
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel1">
     <parameter name="positionLevel1" value="1"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_validatePage"/>
+  <module name="modules.pages.catalog.VCatalog_validatePage" disabled="true"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel1">
     <parameter name="positionLevel1" value="2"/>
