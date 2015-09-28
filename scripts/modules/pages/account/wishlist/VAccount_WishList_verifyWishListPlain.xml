@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>verifies wishlist page for a private wishlist</description>
   <command name="assertText" target="css=#primary h1" value="glob:Find Someone's Wish List:"/>
   <codecomment>....</codecomment>
   <command name="assertText" target="css=#dwfrm_wishlist_search.wishlist-search fieldset div:nth-of-type(1) label span" value="Last Name"/>

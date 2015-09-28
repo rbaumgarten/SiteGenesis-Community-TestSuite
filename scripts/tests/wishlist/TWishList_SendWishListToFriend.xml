@@ -74,7 +74,7 @@
   <codecomment>First time opening the wishlist, the wish list is private so nothing should be shown</codecomment>
   <command name="open" value="${wishListLink}"/>
   <codecomment>log In as user tzo make wishlist public</codecomment>
-  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_verifyWishListPlain"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
   <action name="Login"/>
   <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
@@ -90,7 +90,7 @@
   <action name="OpenWishlistLink"/>
   <command name="open" value="${wishListLink}"/>
   <codecomment>Second time opening the wishlist, the wish list is now public and the product can be ssen</codecomment>
-  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_verifyWishListPlain"/>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName}"/>
