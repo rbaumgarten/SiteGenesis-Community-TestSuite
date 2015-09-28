@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Opens Wishlist Link of a public and a non public list
+
+# 1. Setup and preparation
+- create sender email
+- create sender account password
+- start session
+- create a new account but do not log out
+
+- search product
+
+# 2. Scope of test
+-  add product to wishlist and store wishlistl ink
+- open linke without making list public
+- and open wishlist link with make list public</description>
+  <codecomment># Setup
+
+- Create mail for User and Searcher
+- Create password for User and Searcher
+- Start session
+- Create account
+- add product to wishlist</codecomment>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="password_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="email_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstName_sender}"/>
+    <parameter name="returned_varString" value="firstName_sender"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${lastName_sender}"/>
+    <parameter name="returned_varString" value="lastName_sender"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${firstName_sender}"/>
+    <parameter name="lastname" value="${lastName_sender}"/>
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="password" value="${password_sender}"/>
+  </module>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName"/>
+    <parameter name="productNumber_varName" value="productNumber"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## WishList
+
+- Send to Friend</codecomment>
+  <action name="ClickSharedLink"/>
+  <command name="click" target="css=.share-options .share-icon.share-link i.fa.fa-link"/>
+  <command name="waitForElementPresent" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active"/>
+  <command name="storeText" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active a" value="wishListLink"/>
+  <codecomment>Reopen clean site wis deleted cookies</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="OpenWishlistLink"/>
+  <codecomment>Changing First and Last Name to uppercase so that they would macht the pattern of a h2 title</codecomment>
+  <command name="storeEval" target="&quot;${firstName_sender}&quot;.toUpperCase()" value="FirstName"/>
+  <command name="storeEval" target="&quot;${lastName_sender}&quot;.toUpperCase()" value="LastName"/>
+  <codecomment>First time opening the wishlist, the wish list is private so nothing should be shown</codecomment>
+  <command name="open" value="${wishListLink}"/>
+  <codecomment>log In as user tzo make wishlist public</codecomment>
+  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${email_sender}"/>
+    <parameter name="password" value="${password_sender}"/>
+  </module>
+  <action name="WishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <action name="MAkeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <codecomment>Reopen clean site wis deleted cookies</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="OpenWishlistLink"/>
+  <command name="open" value="${wishListLink}"/>
+  <codecomment>Second time opening the wishlist, the wish list is now public and the product can be ssen</codecomment>
+  <module name="modules.pages.account.wishlist.VWishList_verifyWishListPlain"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName}"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+    <parameter name="productPriceSales" value="${productPriceSales}"/>
+  </module>
+</testcase>

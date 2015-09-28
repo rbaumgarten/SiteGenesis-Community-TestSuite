@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Test add product to wishlist.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create new account
+- Search product 01
+- add product to wishlist 
+- make wishlist public 
+- logout
+
+# 2. Scope of test
+
+- create a new user
+- search for the previously created wishlist (public) via modify wishlist
+- logout
+- login and search wishlist via search wishlist
+
+ </description>
+  <codecomment># Setup
+
+- Create mail for User and Searcher
+- Create password for User and Searcher
+- Start session
+- Create account</codecomment>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${fristname_user}"/>
+    <parameter name="returned_varString" value="WishListUser_firstName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${lastname_user}"/>
+    <parameter name="returned_varString" value="WishListUser_lastName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${firstname_searcher}"/>
+    <parameter name="returned_varString" value="WishListSearcher_firstName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="${lastname_searcher}"/>
+    <parameter name="returned_varString" value="WishListSearcher_lastName"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListUser_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListUser_password"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="WishListSearcher_email"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="WishListSearcher_password"/>
+  </module>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${fristname_user}"/>
+    <parameter name="lastname" value="${lastname_user}"/>
+    <parameter name="email" value="${WishListUser_email}"/>
+    <parameter name="password" value="${WishListUser_password}"/>
+  </module>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${productNumber}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <action name="Logout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Wishlist Search
+
+- create new User
+- search WishList from WischListUser via modify wishlist
+- logout (this is nessesary because search results will be stored)
+- login 
+- search wishlist via search wishlist</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+    <parameter name="firstname" value="${firstname_searcher}"/>
+    <parameter name="lastname" value="${lastname_searcher}"/>
+    <parameter name="email" value="${WishListSearcher_email}"/>
+    <parameter name="password" value="${WishListSearcher_password}"/>
+  </module>
+  <action name="ClickUserButton"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <codecomment>search wishlist on modify wishlist page</codecomment>
+  <action name="OpenWishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${fristname_user}"/>
+    <parameter name="user_lastName" value="${lastname_user}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
+  <action name="ClickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
+  <codecomment>validate search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${fristname_user}"/>
+    <parameter name="lastName" value="${lastname_user}"/>
+  </module>
+  <action name="ClickView"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <codecomment>validate content of search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <codecomment>search wishlist on search wishlist page</codecomment>
+  <action name="Logout"/>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${WishListSearcher_email}"/>
+    <parameter name="password" value="${WishListSearcher_password}"/>
+  </module>
+  <action name="GOTOSearchWishList"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
+  <codecomment>Please keep in mind: your search results will be stored until you logout</codecomment>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
+    <parameter name="user_firstName" value="${fristname_user}"/>
+    <parameter name="user_lastName" value="${lastname_user}"/>
+    <parameter name="user_email" value="${WishListUser_email}"/>
+  </module>
+  <action name="ClickSearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
+  <codecomment>validate search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${fristname_user}"/>
+    <parameter name="lastName" value="${lastname_user}"/>
+  </module>
+  <action name="ClickView"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <codecomment>validate content of search result</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+</testcase>
