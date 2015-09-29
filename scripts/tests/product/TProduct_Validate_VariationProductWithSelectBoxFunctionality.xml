@@ -7,11 +7,21 @@
 Open the site and remove cookies
 
 #  Scope
-Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes
+Validates the change of the product numbers and enabling of the add2cart button when changing the size, checks also if the availability changes
+
+## QV
 
 - open QV
-- change color, verify that the product number changes
-- select a size, verify that the add2cart button becomes enabled</description>
+- change size, verify if price and product nuber are changed
+- try to select default option
+- change to pdp
+
+## PDP
+
+- change selected option validate if price and procuct nuber changes
+- try to select default option
+- search to get the variation master page
+- verify variation master on pdp</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Navigate to Electronics/Ipods &amp; Mp3 Players</codecomment>
@@ -47,10 +57,12 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <codecomment>------------</codecomment>
   <command name="assertElementPresent" target="css=#product-content .product-price"/>
   <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
   <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=.product-number span" value="ProductNumberMaster"/>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <codecomment>Start SelectboxTest</codecomment>
@@ -60,8 +72,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value=" 8 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumberMaster}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
   <action name="SelectSecondSize"/>
@@ -69,8 +83,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value=" 16 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
   <action name="SelectThirdSize"/>
@@ -78,10 +94,13 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value=" 32 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
+  <codecomment>The default option shouldn't be selectable</codecomment>
   <action name="TryToSelectDefaultOption"/>
   <command name="select" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select" value="Select Memory Size"/>
   <command name="assertText" target="css=#product-content .product-price" value="${ProductPrice}"/>
@@ -93,8 +112,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value="8 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
   <action name="ProductDetailPageFromQV"/>
@@ -117,8 +138,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value=" 16 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
   <action name="SelectThirdSize"/>
@@ -128,8 +151,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
+  <codecomment>------------</codecomment>
   <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <command name="storeText" target="css=.product-number span" value="ProductNumber"/>
+  <codecomment>The default option shouldn't be selectable</codecomment>
   <action name="TryToSelectDefaultOption"/>
   <command name="select" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select" value="Select Memory Size"/>
   <command name="assertText" target="css=#product-content .product-price" value="${ProductPrice}"/>
@@ -141,10 +166,11 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="labelName" value="8 GB "/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
+  <codecomment>------------</codecomment>
   <command name="assertNotText" target="css=#product-content .product-price" value="${ProductPrice}"/>
   <command name="assertNotText" target="css=.product-number span" value="${ProductNumber}"/>
   <action name="Search"/>
-  <codecomment>Search for Product to get the variation master</codecomment>
+  <codecomment>Search for Product to get the variation master, on pdp because whenever you go from qv to pdp the site rembers your prevously choosen variations</codecomment>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${ProductNumberMaster}"/>
   </module>

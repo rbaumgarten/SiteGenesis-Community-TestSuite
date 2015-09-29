@@ -24,6 +24,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>## Functional Product Test
+Caution this is a testcase design for a special bug
 
 - Open PDP for variation product with select box and color
 - select a memory size
