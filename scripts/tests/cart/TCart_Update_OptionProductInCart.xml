@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adds a Option Product with selected Option to the cart from PDP and updates the option in the cart</description>
+  <description>Test adds an option product with selected option changes the option several times and deselects all options. 
+
+# Setup and preparation
+
+- Start session, open homepage and delete all visible cookies.
+- put an option product with selecte option into the cart 
+- goto cart overview
+
+# Scope
+
+## first option
+
+- validate if option is shown in cart overview
+- validate if subtotal is calculate correct.
+
+## second option
+
+- select a new option via edit details
+- validate if displayed option price will change
+- calculate subtotal new and validate if correct displayed
+
+## third option
+
+- select a new option via edit details
+- validate if displayed option price will change
+- calculate subtotal new and validate if correct displayed
+
+## default option
+
+- select the default option via edit details
+- validate if no option price is displayed
+- validate if subtotal is only the product price</description>
   <codecomment># Setup
 
-- Start Session</codecomment>
+- Start Session
+- search for Option product
+- select an option
+- add to cart
+- go to cart overview</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Search for sony-ps3-console to get a option product</codecomment>
+  <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="sony-ps3-console"/>
   </module>
-  <codecomment># Scope</codecomment>
-  <codecomment>## Cart
-
-Validate Add 2 Cart from QV and PDP and check if the same product is added
-- First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
-- Second add product from PDP and verify if the same product in cart is shown</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionName1}"/>
   </module>
@@ -26,10 +56,20 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
-  <action name="AddToCart"/>
+  <action name="Add2Cart"/>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <action name="GoToCartAfterQV"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Update option product in Cart
+Caution: the option data are stored in dthe testcase data
+
+- validate cart wit selected option
+- calculate subtotal for selected option
+- validate subtotal
+- select another option on qv
+- validate if subtotal will change</codecomment>
+  <module name="modules.pages.cart.VCart_validatePage"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName}"/>
@@ -37,19 +77,22 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
+  <codecomment>The option price is only displayed if an option is selected</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice1}"/>
   </module>
+  <codecomment>the option price should be added to the sales price</codecomment>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
     <parameter name="optionPrice" value="${optionPrice1}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
+  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePage"/>
+  <codecomment>after clicking on the edit button, a quick view window will be opend</codecomment>
   <action name="ClickEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
@@ -60,18 +103,22 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   </module>
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice2}"/>
   </module>
+  <codecomment>--------------</codecomment>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
     <parameter name="optionPrice" value="${optionPrice2}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
+  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
+  <codecomment>after clicking on the edit button, a quick view window will be opend</codecomment>
   <action name="ClickEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
@@ -82,15 +129,18 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   </module>
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice3}"/>
   </module>
+  <codecomment>--------------</codecomment>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
     <parameter name="optionPrice" value="${optionPrice3}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
+  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
@@ -105,6 +155,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
   <codecomment>If no option ist selected the subtotal shuold be the sales price</codecomment>
+  <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option"/>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPrice}"/>
   </module>
