@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="title"/>
+  <command name="click" target="css=#secondary.refinements div:nth-of-type(5) ul li  a[title*=@{label}]"/>
+  <command name="waitForElementPresent" target="css=#secondary.refinements div:nth-of-type(5) ul li.selected"/>
+</scriptmodule>
