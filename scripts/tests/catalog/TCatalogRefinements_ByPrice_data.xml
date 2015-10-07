@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <priceTitle01>$0 - $19.99</priceTitle01>
-  <priceTitle02>$100 - $499.99</priceTitle02>
+  <priceTitle01>$19.99</priceTitle01>
+  <priceTitle02>$49.99</priceTitle02>
+  <priceTitle03>$99.99</priceTitle03>
+  <priceTitle04>$499.99</priceTitle04>
 </data>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="title"/>
   <command name="waitForElementPresent" target="css=#main.clearfix div.breadcrumb span.breadcrumb-refinement span.breadcrumb-refinement-name"/>
-  <command name="assertText" target="css=#main span.breadcrumb-refinement .breadcrumb-refinement-value" value="@{label}"/>
+  <command name="assertText" target="css=#main span.breadcrumb-refinement .breadcrumb-refinement-value" value="*@{title}*"/>
 </scriptmodule>
