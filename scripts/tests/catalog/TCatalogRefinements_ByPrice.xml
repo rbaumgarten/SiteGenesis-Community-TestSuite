@@ -284,8 +284,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange04}"/>
   </module>
   <action name="ClearPriceRefinments"/>
-  <command name="click" target="css=#secondary.refinements div.refinement  .clear-refinement a"/>
-  <command name="waitForNotClass" target="css=#secondary.refinements div:nth-of-type(5) ul li " value="selected"/>
+  <module name="modules.pages.catalog.MCatalog_Refinments_deletePriceRefinmentByBredcrumb"/>
   <action name="SortProductsPriceLowToHigh"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price High To Low"/>
