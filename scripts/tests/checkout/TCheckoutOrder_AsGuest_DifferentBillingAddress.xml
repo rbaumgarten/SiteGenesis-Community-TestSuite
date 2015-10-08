@@ -35,22 +35,22 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
   <codecomment>No randomness to make the test data sets more effective.</codecomment>
-  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+  <module name="modules.helper.MHelper_Random_addRandomness">
     <comment>Give the account first name some extra flavor for test data variation.</comment>
     <parameter name="inputString" value="${firstname_shipping}"/>
     <parameter name="returned_varString" value="firstname_shipping"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+  <module name="modules.helper.MHelper_Random_addRandomness">
     <comment>Give the account last name some extra flavor for test data variation.</comment>
     <parameter name="inputString" value="${lastname_shipping}"/>
     <parameter name="returned_varString" value="lastname_shipping"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+  <module name="modules.helper.MHelper_Random_addRandomness">
     <comment>Give the account first name some extra flavor for test data variation.</comment>
     <parameter name="inputString" value="${firstname_billing}"/>
     <parameter name="returned_varString" value="firstname_billing"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
+  <module name="modules.helper.MHelper_Random_addRandomness">
     <comment>Give the account last name some extra flavor for test data variation.</comment>
     <parameter name="inputString" value="${lastname_shipping}"/>
     <parameter name="returned_varString" value="lastname_shipping"/>

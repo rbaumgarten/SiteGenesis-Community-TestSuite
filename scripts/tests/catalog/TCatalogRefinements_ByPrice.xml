@@ -45,37 +45,71 @@
 - Validate color unselected</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
-    <parameter name="title" value="${priceTitle01}"/>
+    <parameter name="title" value="${priceRange01}"/>
   </module>
+  <codecomment>----------</codecomment>
+  <command name="storeText" target="css=#search-result-items  li:first-of-type .product-tile div.product-pricing span.product-sales-price" value="productPrice"/>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice}"/>
+    <parameter name="priceValue_varName" value="priceValue_varName"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange00}"/>
+    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="priceValue" value="${priceValue_varName}"/>
+  </module>
+  <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
-    <parameter name="title" value="${priceTitle01}"/>
+    <parameter name="title" value="${priceRange01}"/>
   </module>
   <action name="RemovePrice"/>
   <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
   <codecomment>## Catalog
 
-- Select three random colors
-- Valdiate colors</codecomment>
+- Select the other three price options
+- validate shown prices and braedcrumb</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
-    <parameter name="title" value="${priceTitle02}"/>
+    <parameter name="title" value="${priceRange02}"/>
   </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.SCatalog_Refinements_storeFirstProductPrice">
+    <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice_varDynamic}"/>
+    <parameter name="priceValue_varName" value="priceValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange01}"/>
+    <parameter name="upperBorder" value="${priceRange02}"/>
+    <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
+  <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
-    <parameter name="title" value="${priceTitle02}"/>
+    <parameter name="title" value="${priceRange02}"/>
   </module>
   <action name="RefineColorByPostion"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
-    <parameter name="title" value="${priceTitle03}"/>
+    <parameter name="title" value="${priceRange03}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
-    <parameter name="title" value="${priceTitle03}"/>
+    <parameter name="title" value="${priceRange03}"/>
   </module>
   <action name="RefineColorByPostion"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
-    <parameter name="title" value="${priceTitle04}"/>
+    <parameter name="title" value="${priceRange04}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
-    <parameter name="title" value="${priceTitle04}"/>
+    <parameter name="title" value="${priceRange04}"/>
   </module>
   <codecomment>## Catalog
 
@@ -88,7 +122,7 @@
   <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
   <action name="ClearColors"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
-    <parameter name="title" value="${priceTitle04}"/>
+    <parameter name="title" value="${priceRange04}"/>
   </module>
   <command name="click" target="css=#secondary.refinements div.refinement  .clear-refinement a"/>
   <command name="waitForNotClass" target="css=#secondary.refinements div:nth-of-type(5) ul li " value="selected"/>
