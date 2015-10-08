@@ -90,9 +90,14 @@ Caution: only one price refinement could be activ
 - Select the other three price options
 - validate shown prices and braedcrumb
 - validate if shown products are in price range after sorting</codecomment>
+  <codecomment>Price Range: $20 -$49.99</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange02}"/>
+  </module>
+  <action name="SortProductsPriceLowToHigh"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
@@ -107,10 +112,12 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange01}"/>
+    <parameter name="upperBorder" value="${priceRange02}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
+  <codecomment>----------</codecomment>
+  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
@@ -124,14 +131,15 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange01}"/>
+    <parameter name="upperBorder" value="${priceRange02}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
     <parameter name="title" value="${priceRange02}"/>
   </module>
+  <codecomment>Price Range: $50 -$99.99</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange03}"/>
@@ -152,10 +160,12 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange02}"/>
+    <parameter name="upperBorder" value="${priceRange03}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
+  <codecomment>----------</codecomment>
+  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
@@ -169,11 +179,11 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange02}"/>
+    <parameter name="upperBorder" value="${priceRange03}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
-  <codecomment>----------</codecomment>
+  <codecomment>Price Range: $100 -$499.99</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange04}"/>
@@ -194,9 +204,13 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange03}"/>
+    <parameter name="upperBorder" value="${priceRange04}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
+    <parameter name="itemsPerPageLabel" value="View All (16)"/>
   </module>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
@@ -211,22 +225,108 @@ Caution: only one price refinement could be activ
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
-    <parameter name="lowerBorder" value="${priceRange00}"/>
-    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="lowerBorder" value="${priceRange03}"/>
+    <parameter name="upperBorder" value="${priceRange04}"/>
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
   <codecomment>## Catalog
 
-- remove refinement by clicking on it
+- remove refinement by clicking on the breadcrumb
 - select a new refinment 
 - clear all</codecomment>
-  <action name="RemoveFilter"/>
-  <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
-  <action name="ClearPriceRefinments"/>
+  <action name="RemoveFilterbyBreadcrumb"/>
+  <module name="modules.pages.catalog.MCatalog_Refinments_removePriceRefinmentByClickingOnBreadcrumb"/>
+  <action name="SortProductsPriceLowToHigh"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price High To Low"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":first-of-type"/>
+    <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice_varDynamic}"/>
+    <parameter name="priceValue_varName" value="priceValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange03}"/>
+    <parameter name="upperBorder" value="${priceRange04}"/>
+    <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <command name="pause" value="500"/>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":last-of-type"/>
+    <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice_varDynamic}"/>
+    <parameter name="priceValue_varName" value="priceValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange00}"/>
+    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange04}"/>
   </module>
+  <action name="ClearPriceRefinments"/>
   <command name="click" target="css=#secondary.refinements div.refinement  .clear-refinement a"/>
   <command name="waitForNotClass" target="css=#secondary.refinements div:nth-of-type(5) ul li " value="selected"/>
+  <action name="SortProductsPriceLowToHigh"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price High To Low"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":first-of-type"/>
+    <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice_varDynamic}"/>
+    <parameter name="priceValue_varName" value="priceValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange03}"/>
+    <parameter name="upperBorder" value="${priceRange04}"/>
+    <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
+  <codecomment>----------</codecomment>
+  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <command name="pause" value="500">
+    <comment>because of the large amount of product it least long to filter the products</comment>
+  </command>
+  <codecomment>----------</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":last-of-type"/>
+    <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${productPrice_varDynamic}"/>
+    <parameter name="priceValue_varName" value="priceValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinments_validatePriceRange">
+    <parameter name="lowerBorder" value="${priceRange00}"/>
+    <parameter name="upperBorder" value="${priceRange01}"/>
+    <parameter name="priceValue" value="${priceValue_varDynamic}"/>
+  </module>
 </testcase>
