@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Clicks on a price refinement at secondry navigation by some parts of the title</description>
   <parameter name="title"/>
   <command name="click" target="css=#secondary div:nth-of-type(5) ul li a[title*='@{title}']"/>
   <command name="waitForText" target="css=#main span.breadcrumb-refinement .breadcrumb-refinement-value" value="*@{title}*"/>

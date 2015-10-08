@@ -10,16 +10,12 @@
 # 2. Scope of test
 
 - Browse to category
-- Select, validate and remove color via name
-- Select three colors via position
-- Remove one color via breadcrumb
-- Remove two colors clear
-- Validate empty color list
+- Select, validate and remove price via tile
+- Select three prices via title
+- Remove price via breadcrumb
+- Remove all prices
+- Validate empty price list
 - Validate empty refinement list in breadcrumbs
-
-# 3. Clean up
-
-- End session and clean up created cookies
 </description>
   <codecomment># Setup
 
@@ -54,7 +50,7 @@ Caution: only one price refinement could be activ
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -71,7 +67,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -99,7 +95,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange02}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -116,7 +112,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -144,7 +140,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange03}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -161,7 +157,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -186,7 +182,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange04}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -203,7 +199,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProduct">
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
