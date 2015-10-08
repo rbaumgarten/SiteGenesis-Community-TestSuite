@@ -28,7 +28,7 @@
   <codecomment># Scope</codecomment>
   <codecomment>## Catalog
 
-- Go to catalog page
+- Go to catalog page (womens/clothing)
 - Validate page</codecomment>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
@@ -38,15 +38,18 @@
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <codecomment>## Catalog
+Caution: only one price refinement could be activ
 
-- Select color by clicking
-- Valdiate color selected
-- Unselect color by clicking again
-- Validate color unselected</codecomment>
+- select all price refinements 
+- stars with the lowest price refinement
+- remove it
+- select ohter price refinmens one by another
+- clear al refinements</codecomment>
   <action name="RefinePriceByTitle"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange01}"/>
   </module>
+  <codecomment>Sort Product to validate: Is shown product price in chosen price range?</codecomment>
   <action name="SortProductsPriceLowToHigh"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
@@ -138,7 +141,7 @@
 - Validate refinement list is empty</codecomment>
   <action name="RemoveFilter"/>
   <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
-  <action name="ClearColors"/>
+  <action name="ClearPriceRefinments"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByTitle">
     <parameter name="title" value="${priceRange04}"/>
   </module>
