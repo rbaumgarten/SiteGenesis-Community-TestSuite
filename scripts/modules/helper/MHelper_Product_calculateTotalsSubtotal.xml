@@ -24,6 +24,9 @@
     <parameter name="priceDigitGroupSeparators" value="@{priceDigitGroupSeparators}"/>
   </module>
   <command name="storeEval" target=" ${priceValue_01} * @{productQuantity_01} + ${priceValue_02} * @{productQuantity_02}" value="totalsSubtotalValue"/>
+  <command name="pause" value="100">
+    <comment>it seems the the module nee this pause when big numbers where added</comment>
+  </command>
   <module name="modules.helper.MHelper_Price_convertValueToPrice">
     <parameter name="priceValue" value="${totalsSubtotalValue}"/>
     <parameter name="price_varName" value="@{totalsSubtotal_varName}"/>
