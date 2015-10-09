@@ -25,7 +25,7 @@
   </module>
   <command name="storeEval" target=" ${priceValue_01} * @{productQuantity_01} + ${priceValue_02} * @{productQuantity_02}" value="totalsSubtotalValue"/>
   <command name="pause" value="100">
-    <comment>it seems the the module nee this pause when big numbers where added</comment>
+    <comment>it seems that the the module need this pause, because otherwise sometimes the result is mixed up. This only occures on high test speed</comment>
   </command>
   <module name="modules.helper.MHelper_Price_convertValueToPrice">
     <parameter name="priceValue" value="${totalsSubtotalValue}"/>
