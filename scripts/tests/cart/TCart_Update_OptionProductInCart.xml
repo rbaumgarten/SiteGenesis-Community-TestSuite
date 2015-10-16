@@ -51,6 +51,8 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
+  <codecomment>Validate that the option price is not shown</codecomment>
+  <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(1) td.item-total .price-option"/>
   <codecomment># Scope</codecomment>
   <codecomment>Add an option</codecomment>
   <action name="CartRowEditDetails"/>
@@ -84,8 +86,9 @@
     <parameter name="selectedLabel" value="${optionNameNone}"/>
   </module>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <codecomment>Validate that the option price is not shown</codecomment>
   <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(1) td.item-total .price-option"/>
-  <codecomment>If no option ist selected the subtotal should be the sales price</codecomment>
+  <codecomment>Validate: subtotal = product price</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPrice}"/>
   </module>
