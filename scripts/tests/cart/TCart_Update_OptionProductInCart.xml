@@ -45,8 +45,8 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="sony-ps3-console"/>
   </module>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="${optionName1}"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel" disabled="true">
+    <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.product.MProduct_storeAddToCartPrice">
     <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
@@ -78,18 +78,18 @@ Caution: the option data are stored in dthe testcase data
     <parameter name="productPriceSales" value="${productPrice}"/>
   </module>
   <codecomment>The option price is only displayed if an option is selected</codecomment>
-  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice" disabled="true">
     <parameter name="row" value="1"/>
-    <parameter name="optionPrice" value="${optionPrice1}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
   <codecomment>the option price should be added to the sales price</codecomment>
-  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct" disabled="true">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
-    <parameter name="optionPrice" value="${optionPrice1}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
   <codecomment>--------------</codecomment>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal" disabled="true">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
   <codecomment>after clicking on the edit button, a quick view window will be opend</codecomment>
@@ -99,19 +99,19 @@ Caution: the option data are stored in dthe testcase data
   </module>
   <action name="SelectOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="${optionName2}"/>
+    <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
   <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
-    <parameter name="optionPrice" value="${optionPrice2}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
   <codecomment>--------------</codecomment>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
-    <parameter name="optionPrice" value="${optionPrice2}"/>
+    <parameter name="optionPrice" value="${optionPrice}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
   <codecomment>--------------</codecomment>
@@ -119,44 +119,44 @@ Caution: the option data are stored in dthe testcase data
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
   <codecomment>after clicking on the edit button, a quick view window will be opend</codecomment>
-  <action name="ClickEditDetails"/>
-  <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
+  <action name="ClickEditDetails" disabled="true"/>
+  <module name="modules.pages.cart.MCart_Row_clickUpdateButton" disabled="true">
     <parameter name="row" value="1"/>
   </module>
-  <action name="SelectOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+  <action name="SelectOption" disabled="true"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel" disabled="true">
     <parameter name="selectedLabel" value="${optionName3}"/>
   </module>
-  <action name="ClickUpdate"/>
-  <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <action name="ClickUpdate" disabled="true"/>
+  <module name="modules.pages.cart.MCart_QV_clickUpdateCart" disabled="true"/>
   <codecomment>--------------</codecomment>
-  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice" disabled="true">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice3}"/>
   </module>
   <codecomment>--------------</codecomment>
-  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
+  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct" disabled="true">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
     <parameter name="optionPrice" value="${optionPrice3}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
   <codecomment>--------------</codecomment>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal" disabled="true">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
-  <action name="ClickEditDetails"/>
-  <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
+  <action name="ClickEditDetails" disabled="true"/>
+  <module name="modules.pages.cart.MCart_Row_clickUpdateButton" disabled="true">
     <parameter name="row" value="1"/>
   </module>
-  <action name="SelectOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
+  <action name="SelectOption" disabled="true"/>
+  <module name="modules.pages.product.MProduct_selectOptionByLabel" disabled="true">
     <parameter name="selectedLabel" value="${optionNameNone}"/>
   </module>
-  <action name="ClickUpdate"/>
-  <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
+  <action name="ClickUpdate" disabled="true"/>
+  <module name="modules.pages.cart.MCart_QV_clickUpdateCart" disabled="true"/>
   <codecomment>If no option ist selected the subtotal shuold be the sales price</codecomment>
-  <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option"/>
-  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+  <command name="assertNotElementPresent" disabled="true" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option"/>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal" disabled="true">
     <parameter name="totalsSubtotal" value="${productPrice}"/>
   </module>
 </testcase>
