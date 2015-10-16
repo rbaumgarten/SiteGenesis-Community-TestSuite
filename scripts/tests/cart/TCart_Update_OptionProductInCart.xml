@@ -52,6 +52,7 @@
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
+  <codecomment>Add an option</codecomment>
   <action name="ClickEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
@@ -74,6 +75,7 @@
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
+  <codecomment>Remove option</codecomment>
   <action name="ClickEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
@@ -84,8 +86,8 @@
   </module>
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
-  <codecomment>If no option ist selected the subtotal shuold be the sales price</codecomment>
   <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option"/>
+  <codecomment>If no option ist selected the subtotal should be the sales price</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPrice}"/>
   </module>
