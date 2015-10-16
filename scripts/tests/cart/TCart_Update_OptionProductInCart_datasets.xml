@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data-sets>
   <data-set>
-    <searchPhrase>Playstation</searchPhrase>
     <optionName>[$9.99] 1 Year Warranty</optionName>
     <optionPrice>$9.99</optionPrice>
   </data-set>
   <data-set>
-    <searchPhrase>Playstation</searchPhrase>
     <optionName>[$19.99] 3 Year Warranty</optionName>
     <optionPrice>$19.99</optionPrice>
   </data-set>
   <data-set>
-    <searchPhrase>Playstation</searchPhrase>
     <optionName>[$29.99] 5 Year Warranty</optionName>
     <optionPrice>$29.99</optionPrice>
   </data-set>
