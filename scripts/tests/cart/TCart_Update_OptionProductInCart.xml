@@ -35,16 +35,15 @@
   <codecomment># Setup
 
 - Start Session
-- search for Option product
-- select an option
-- add to cart
-- go to cart overview</codecomment>
+- Add option product to cart
+- Go to cart
+- Validate no option selected</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Add option product to cart</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber}"/>
-    <parameter name="productQuantity" value="1"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
     <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
@@ -69,7 +68,7 @@
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
-    <parameter name="productPriceOptionProduct" value="${productPrice}"/>
+    <parameter name="productPriceOptionProduct" value="${productPriceTotal_varDynamic}"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
@@ -90,6 +89,6 @@
   <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(1) td.item-total .price-option"/>
   <codecomment>Validate: subtotal = product price</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPrice}"/>
+    <parameter name="totalsSubtotal" value="${productPriceTotal_varDynamic}"/>
   </module>
 </testcase>
