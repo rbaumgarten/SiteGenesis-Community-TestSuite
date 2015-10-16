@@ -53,15 +53,14 @@
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>Add an option</codecomment>
-  <action name="ClickEditDetails"/>
+  <action name="CartRowEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
   </module>
-  <action name="SelectOption"/>
+  <action name="CartOverlayUpdateOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
-  <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
@@ -76,15 +75,14 @@
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
   <codecomment>Remove option</codecomment>
-  <action name="ClickEditDetails"/>
+  <action name="CartRowEditDetails"/>
   <module name="modules.pages.cart.MCart_Row_clickUpdateButton">
     <parameter name="row" value="1"/>
   </module>
-  <action name="SelectOption"/>
+  <action name="CartOverlayUpdateOption"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionNameNone}"/>
   </module>
-  <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
   <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option"/>
   <codecomment>If no option ist selected the subtotal should be the sales price</codecomment>
