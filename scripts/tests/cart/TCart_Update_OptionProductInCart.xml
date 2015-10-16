@@ -41,25 +41,35 @@
 - go to cart overview</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Search for sony-ps3-console to get a option product</codecomment>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+  <module name="modules.pages.search.FSearch_flowToAddProductToCart">
+    <parameter name="cartRow" value="1"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
+  </module>
+  <action name="Search" disabled="true"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit" disabled="true">
     <parameter name="searchText" value="sony-ps3-console"/>
   </module>
   <module name="modules.pages.product.MProduct_selectOptionByLabel" disabled="true">
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeAddToCartPrice">
+  <module name="modules.pages.product.MProduct_storeAddToCartPrice" disabled="true">
     <parameter name="addToCartPrice_var" value="productPriceSubTotal"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.MProduct_storeBasicData" disabled="true">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
   </module>
-  <action name="Add2Cart"/>
-  <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <action name="GoToCartAfterQV"/>
-  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <action name="Add2Cart" disabled="true"/>
+  <module name="modules.pages.product.MProduct_clickAddToCart" disabled="true"/>
+  <action name="GoToCartAfterQV" disabled="true"/>
+  <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink" disabled="true"/>
   <codecomment># Scope</codecomment>
   <codecomment>## Update option product in Cart
 Caution: the option data are stored in dthe testcase data

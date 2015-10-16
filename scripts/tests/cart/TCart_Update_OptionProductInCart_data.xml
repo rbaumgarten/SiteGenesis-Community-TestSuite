@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <searchPhrase>Playstation</searchPhrase>
+  <productNumber>sony-ps3-console</productNumber>
   <optionName>[$9.99] 1 Year Warranty</optionName>
   <optionPrice>$9.99</optionPrice>
   <optionNameNone>[$0.00] None</optionNameNone>
