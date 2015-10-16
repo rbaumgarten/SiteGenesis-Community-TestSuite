@@ -40,7 +40,7 @@
 - add to cart
 - go to cart overview</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Search for sony-ps3-console to get a option product</codecomment>
+  <codecomment>Add option product to cart</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToCart">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber}"/>
@@ -62,18 +62,15 @@
   </module>
   <action name="ClickUpdate"/>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
-  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
-  <codecomment>--------------</codecomment>
   <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
     <parameter name="productPriceOptionProduct" value="${productPrice}"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
     <parameter name="subtotal_varName" value="productPriceSubTotal"/>
   </module>
-  <codecomment>--------------</codecomment>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
   </module>
