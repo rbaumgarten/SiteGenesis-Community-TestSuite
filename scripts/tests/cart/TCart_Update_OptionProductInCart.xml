@@ -67,13 +67,13 @@
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
-  <module name="modules.helper.MHelper_Cart_calculateSubtotalForOptionProduct">
-    <parameter name="productPriceOptionProduct" value="${productPriceTotal_varDynamic}"/>
-    <parameter name="optionPrice" value="${optionPrice}"/>
-    <parameter name="subtotal_varName" value="productPriceSubTotal"/>
+  <module name="modules.helper.MHelper_Price_addPriceToPrice">
+    <parameter name="price_1" value="${productPriceTotal_varDynamic}"/>
+    <parameter name="price_2" value="${optionPrice}"/>
+    <parameter name="sum_varName" value="productPriceSubtotal_varDynamic"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+    <parameter name="totalsSubtotal" value="${productPriceSubtotal_varDynamic}"/>
   </module>
   <codecomment>Remove option</codecomment>
   <action name="CartRowEditDetails"/>
