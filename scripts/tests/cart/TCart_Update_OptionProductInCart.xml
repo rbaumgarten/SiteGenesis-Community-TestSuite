@@ -63,14 +63,25 @@
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.cart.MCart_QV_clickUpdateCart"/>
-  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
-    <parameter name="row" value="1"/>
-    <parameter name="optionPrice" value="${optionPrice}"/>
+  <codecomment>Option price total:= product quantity * option price</codecomment>
+  <module name="modules.helper.MHelper_Product_calculateProductPriceTotal">
+    <parameter name="productPriceSales" value="${optionPrice}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+    <parameter name="productPriceTotal_varName" value="optionPriceTotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
+  <codecomment>Subtotal := product price total + option price total</codecomment>
   <module name="modules.helper.MHelper_Price_addPriceToPrice">
     <parameter name="price_1" value="${productPriceTotal_varDynamic}"/>
-    <parameter name="price_2" value="${optionPrice}"/>
+    <parameter name="price_2" value="${optionPriceTotal_varDynamic}"/>
     <parameter name="sum_varName" value="productPriceSubtotal_varDynamic"/>
+  </module>
+  <codecomment>Validate calculated option total and subtotal</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
+    <parameter name="row" value="1"/>
+    <parameter name="optionPrice" value="${optionPriceTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${productPriceSubtotal_varDynamic}"/>
