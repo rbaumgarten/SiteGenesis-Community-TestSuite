@@ -1,37 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adds an option product with selected option changes the option several times and deselects all options. 
+  <description>Test add and remove product option in cart.
 
 # Setup and preparation
 
-- Start session, open homepage and delete all visible cookies.
-- put an option product with selecte option into the cart 
-- goto cart overview
+- Start session, open homepage and delete all visible cookies
+- Add option product with configured quantity and no selected option to cart 
+- Go to cart
 
 # Scope
 
-## first option
+- Add product option
+- Validate calculated option price (product quantity * option price)
+- Validate calculated subtotal (product price total + option price total) 
+- Remove option and validate it
 
-- validate if option is shown in cart overview
-- validate if subtotal is calculate correct.
-
-## second option
-
-- select a new option via edit details
-- validate if displayed option price will change
-- calculate subtotal new and validate if correct displayed
-
-## third option
-
-- select a new option via edit details
-- validate if displayed option price will change
-- calculate subtotal new and validate if correct displayed
-
-## default option
-
-- select the default option via edit details
-- validate if no option price is displayed
-- validate if subtotal is only the product price</description>
+Note: Different options are handled as data driven test configured in a dataset file. Please execute the generated wrapper class as JUnit test for testing all options.</description>
   <codecomment># Setup
 
 - Start Session
