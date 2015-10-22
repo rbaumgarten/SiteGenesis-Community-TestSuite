@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click edit details link via cart row.
+</description>
+  <parameter name="row"/>
+  <command name="click" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) .item-details .item-edit-details a"/>
+  <command name="waitForVisible" target="css=.ui-dialog-titlebar"/>
+</scriptmodule>

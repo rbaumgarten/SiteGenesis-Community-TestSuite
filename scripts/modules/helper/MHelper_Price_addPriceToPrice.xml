@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Calculate sum of two prices.</description>
+  <parameter name="price_1"/>
+  <parameter name="price_2"/>
+  <parameter name="sum_varName"/>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="@{price_1}"/>
+    <parameter name="priceValue_varName" value="price_value_1"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="@{price_2}"/>
+    <parameter name="priceValue_varName" value="price_value_2"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <command name="storeEval" target="${price_value_1}+${price_value_2}" value="calculatedSum"/>
+  <module name="modules.helper.MHelper_Price_convertValueToPrice">
+    <parameter name="priceValue" value="${calculatedSum}"/>
+    <parameter name="price_varName" value="@{sum_varName}"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+</scriptmodule>
