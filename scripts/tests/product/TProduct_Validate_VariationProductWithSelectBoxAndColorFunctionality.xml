@@ -23,6 +23,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
   </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
+  <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
@@ -35,7 +36,6 @@ Caution this is a testcase design for a special bug
 - try to select a  nother memory size</codecomment>
   <codecomment>--------------------------------</codecomment>
   <command name="assertElementPresent" target="css=#product-content .product-price"/>
-  <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
   <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <codecomment>Start SelectboxTest</codecomment>
   <action name="SelectSize"/>
