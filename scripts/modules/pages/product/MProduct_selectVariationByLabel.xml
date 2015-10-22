@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Select an variation from a SelectBox by Label</description>
-  <parameter name="labelName"/>
-  <command name="select" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select" value="@{labelName}"/>
-  <command name="waitForText" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select option[selected='selected']" value="@{labelName}"/>
-</scriptmodule>
