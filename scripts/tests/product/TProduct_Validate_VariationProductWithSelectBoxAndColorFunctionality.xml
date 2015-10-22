@@ -37,8 +37,6 @@ Caution this is a testcase design for a special bug
   <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
   <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
-  <command name="storeText" target="css=.product-number span" value="ProductNumberMaster"/>
-  <command name="storeText" target="css=#product-content .product-price" value="ProductPrice"/>
   <codecomment>Start SelectboxTest</codecomment>
   <action name="SelectSize"/>
   <module name="modules.pages.product.MProduct_selectVariationByLabel">
