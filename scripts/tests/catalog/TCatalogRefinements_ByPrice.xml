@@ -117,6 +117,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
+  <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
@@ -165,6 +166,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
+  <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
@@ -209,6 +211,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
+  <action name="SelectAllItems"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="View All (16)"/>
   </module>
@@ -259,6 +262,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
+  <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <command name="pause" value="500"/>
   <codecomment>----------</codecomment>
@@ -307,6 +311,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
+  <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <command name="pause" value="500">
     <comment>because of the large amount of product it least long to filter the products</comment>
