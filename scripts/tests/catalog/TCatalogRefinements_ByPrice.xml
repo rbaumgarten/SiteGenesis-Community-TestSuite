@@ -117,7 +117,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
@@ -165,7 +165,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
@@ -259,7 +259,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <command name="pause" value="500"/>
   <codecomment>----------</codecomment>
   <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
@@ -307,7 +307,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="tests.catalog.MCatalog_clickOnGoToLastPage"/>
+  <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <command name="pause" value="500">
     <comment>because of the large amount of product it least long to filter the products</comment>
   </command>
