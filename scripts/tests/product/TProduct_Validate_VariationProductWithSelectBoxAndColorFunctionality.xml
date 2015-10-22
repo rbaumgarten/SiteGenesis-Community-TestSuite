@@ -35,7 +35,6 @@ Caution this is a testcase design for a special bug
 - try to select a  nother memory size</codecomment>
   <codecomment>--------------------------------</codecomment>
   <command name="assertElementPresent" target="css=#product-content .product-price"/>
-  <command name="assertElementPresent" target="css=#product-content .product-variations ul.swatches.color"/>
   <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
   <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <codecomment>Start SelectboxTest</codecomment>
