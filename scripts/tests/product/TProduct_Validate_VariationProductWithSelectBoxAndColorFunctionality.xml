@@ -22,6 +22,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="searchText" value="${variationProductWithSelectAndColorName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
+  <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
