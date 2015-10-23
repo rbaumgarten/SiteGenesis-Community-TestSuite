@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview,qv,functionality,variations</tags>
-  <description>Verifize if the size of a select box can be changed after selecting a color, this is a test for a specific bug
+  <description>Verifies if a value of a variation dropdown can be changed after selecting a color. It retests a known issue.
 
+# 1. Setup and preparation
 
-# Setup
-Open the site and remove cookies
+- Start session, open homepage and delete all visible cookies
+- Search product leads to pdp
+- Validate preconditions
 
 #  Scope
-Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes
 
-- open PDP
-- change size in select box
-- select a color
-- try to change size in select box</description>
+- Select variation from dropdown
+- Select color
+- Select another variation from dropdown</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Search for specific product having variant dropdown and color</codecomment>
