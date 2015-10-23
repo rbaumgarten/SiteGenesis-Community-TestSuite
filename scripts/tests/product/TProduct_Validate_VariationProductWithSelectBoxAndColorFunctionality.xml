@@ -26,7 +26,6 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
-  <command name="assertElementPresent" target="css=#product-content .product-price"/>
   <module name="modules.pages.product.VProduct_validateAvailabilityVariationIsNotSelected"/>
   <codecomment># Scope</codecomment>
   <codecomment>## Retest a known issue</codecomment>
