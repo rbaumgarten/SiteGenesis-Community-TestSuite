@@ -16,11 +16,12 @@ Validates the change of the product numbers and enabling of the add2cart button 
 - try to change size in select box</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Search for specific product witrh a select box and color</codecomment>
+  <codecomment>Search for specific product having variant dropdown and color</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${variationProductWithDropdownAndColorName}"/>
   </module>
+  <codecomment>Validate preconditions ...</codecomment>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
@@ -28,16 +29,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <command name="assertElementPresent" target="css=#product-content .product-price"/>
   <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Functional Product Test
-Caution this is a testcase design for a special bug
-
-- Open PDP for variation product with select box and color
-- select a memory size
-- select a color
-- try to select a  nother memory size</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Start SelectboxTest</codecomment>
+  <codecomment>## Retest a known issue</codecomment>
   <action name="SelectVariantDropdown"/>
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
     <parameter name="labelName" value="${variationProductWithDropdownAndColorLabel1}"/>
