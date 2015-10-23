@@ -19,12 +19,14 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <codecomment>Search for specific product witrh a select box and color</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${variationProductWithSelectAndColorName}"/>
+    <parameter name="searchText" value="${variationProductWithDropdownAndColorName}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
+  <command name="assertElementPresent" target="css=#product-content .product-price"/>
+  <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <codecomment># Scope</codecomment>
   <codecomment>--------------------------------</codecomment>
   <codecomment>## Functional Product Test
@@ -35,12 +37,10 @@ Caution this is a testcase design for a special bug
 - select a color
 - try to select a  nother memory size</codecomment>
   <codecomment>--------------------------------</codecomment>
-  <command name="assertElementPresent" target="css=#product-content .product-price"/>
-  <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
   <codecomment>Start SelectboxTest</codecomment>
-  <action name="SelectSize"/>
-  <module name="modules.pages.product.MProduct_selectVariationByLabel">
-    <parameter name="labelName" value=" 1 GB "/>
+  <action name="SelectVariantDropdown"/>
+  <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
+    <parameter name="labelName" value="${variationProductWithDropdownAndColorLabel1}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <action name="SelectColor"/>
@@ -48,8 +48,8 @@ Caution this is a testcase design for a special bug
     <parameter name="MProductColorPosition" value="1"/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <action name="SelectSize"/>
-  <module name="modules.pages.product.MProduct_selectVariationByLabel">
-    <parameter name="labelName" value=" 2 GB "/>
+  <action name="SelectVariantDropdown"/>
+  <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
+    <parameter name="labelName" value="${variationProductWithDropdownAndColorLabel2}"/>
   </module>
 </testcase>
