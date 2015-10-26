@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Select variation from dropdown by empty text label. It deselects the previously selected value but cannot wait that the option is internally marked as selected, because it is shown to the user but not marked as selected internally.</description>
+  <parameter name="emptyText" desc="empty text value"/>
+  <command name="select" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select" value="@{emptyText}"/>
+</scriptmodule>
