@@ -21,14 +21,14 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${variationProductWithDropdownAndColorName}"/>
   </module>
-  <codecomment>Validate preconditions ...</codecomment>
+  <codecomment>Validate preconditions</codecomment>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.VProduct_validateColorIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <module name="modules.pages.product.VProduct_validateAvailabilityVariationIsNotSelected"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Retest a known issue</codecomment>
+  <codecomment>## Retest known issue</codecomment>
   <action name="SelectVariantDropdown"/>
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
     <parameter name="labelName" value="${variationProductWithDropdownAndColorLabel1}"/>
