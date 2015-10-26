@@ -38,8 +38,11 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateAvailabilityVariationIsNotSelected"/>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
   <codecomment># Scope</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>## 1. Quickview</codecomment>
-  <action name="SelectFirstSize"/>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <action name="SelectVariantDropdown"/>
+  <codecomment>Store product data, select first variation via dropdown</codecomment>
   <module name="modules.pages.product.SProduct_storeBasicDataWithPriceRange">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -48,16 +51,18 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
     <parameter name="labelName" value=" 8 GB "/>
   </module>
+  <codecomment>Verify result: 
+- add to cart button is enabled
+- price / product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <codecomment>Validate price and product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validatePriceIsChanged">
     <parameter name="productPriceBefore" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductNumberIsChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
-  <codecomment>The default option shouldn't be selectable</codecomment>
-  <action name="TryToSelectDefaultOption"/>
+  <action name="DeselectVariantDropdown"/>
+  <codecomment>Store product data, deselect variation via dropdown</codecomment>
   <module name="modules.pages.product.SProduct_storeBasicDataWithPriceRange">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -66,6 +71,9 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabelEmptyText">
     <parameter name="emptyText" value="${variationProductWithDropdownEmptyText}"/>
   </module>
+  <codecomment>Verify result: 
+- add to cart button is enabled
+- price / product number are NOT changed</codecomment>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validatePriceIsNotChanged">
     <parameter name="productPriceBefore" value="${productPrice_varDynamic}"/>
@@ -73,7 +81,8 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateProductNumberIsNotChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
-  <action name="SelectFirstSize"/>
+  <action name="SelectVariantDropdown"/>
+  <codecomment>Store product data, select last variation via dropdown</codecomment>
   <module name="modules.pages.product.SProduct_storeBasicDataWithPriceRange">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -82,21 +91,24 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
     <parameter name="labelName" value="32 GB "/>
   </module>
+  <codecomment>Verify result: 
+- add to cart button is enabled
+- price / product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <codecomment>Validate price and product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validatePriceIsChanged">
     <parameter name="productPriceBefore" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductNumberIsChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
+  <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>## 2. Product Detail Page</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
   <action name="ProductDetailPageFromQV"/>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
     <parameter name="productName" value="${variationProductWithDropdownOnlyName}"/>
   </module>
   <codecomment>Verify product detail page</codecomment>
-  <codecomment>Caution: the Size stays selected after change from QV to PDP</codecomment>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
@@ -105,7 +117,8 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateAvailability">
     <parameter name="availabilityMassage" value="In Stock"/>
   </module>
-  <action name="SelectSecondSize"/>
+  <action name="SelectVariantDropdown"/>
+  <codecomment>Store product data, select first variation via dropdown</codecomment>
   <module name="modules.pages.product.SProduct_storeBasicDataWithPriceRange">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -114,16 +127,18 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
     <parameter name="labelName" value="8 GB "/>
   </module>
+  <codecomment>Verify result: 
+- add to cart button is enabled
+- price / product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <codecomment>Validate price and product number are changed</codecomment>
   <module name="modules.pages.product.VProduct_validatePriceIsChanged">
     <parameter name="productPriceBefore" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductNumberIsChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
-  <codecomment>The default option shouldn't be selectable</codecomment>
-  <action name="TryToSelectDefaultOption"/>
+  <action name="DeelectVariantDropdown"/>
+  <codecomment>Store product data, deselect variation via dropdown</codecomment>
   <module name="modules.pages.product.SProduct_storeBasicDataWithPriceRange">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -132,11 +147,14 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabelEmptyText">
     <parameter name="emptyText" value="${variationProductWithDropdownEmptyText}"/>
   </module>
+  <codecomment>Verify result: 
+- add to cart button is enabled
+- price / product number are NOT changed</codecomment>
+  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
   <module name="modules.pages.product.VProduct_validatePriceIsNotChanged">
     <parameter name="productPriceBefore" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateProductNumberIsNotChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
-  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
 </testcase>
