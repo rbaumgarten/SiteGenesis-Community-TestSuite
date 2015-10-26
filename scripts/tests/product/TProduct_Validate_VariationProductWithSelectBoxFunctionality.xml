@@ -26,7 +26,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${variationProductWithDropdownSearchText}"/>
+    <parameter name="searchText" value="${variationProductWithDropdownOnlySearchText}"/>
   </module>
   <action name="VariationProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
@@ -49,7 +49,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
-    <parameter name="labelName" value=" 8 GB "/>
+    <parameter name="labelName" value="${variationProductWithDropdownOnlyLabel1}"/>
   </module>
   <codecomment>Verify result: 
 - add to cart button is enabled
@@ -89,7 +89,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
-    <parameter name="labelName" value="32 GB "/>
+    <parameter name="labelName" value="${variationProductWithDropdownOnlyLabel2}"/>
   </module>
   <codecomment>Verify result: 
 - add to cart button is enabled
@@ -125,7 +125,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
   <module name="modules.pages.product.MProduct_selectVariantDropdownByLabel">
-    <parameter name="labelName" value="8 GB "/>
+    <parameter name="labelName" value="${variationProductWithDropdownOnlyLabel1}"/>
   </module>
   <codecomment>Verify result: 
 - add to cart button is enabled
