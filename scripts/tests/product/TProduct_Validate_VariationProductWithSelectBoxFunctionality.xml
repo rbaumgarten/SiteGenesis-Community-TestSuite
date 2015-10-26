@@ -108,7 +108,10 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
     <parameter name="productName" value="${variationProductWithDropdownOnlyName}"/>
   </module>
-  <codecomment>Verify product detail page</codecomment>
+  <codecomment>Verify product detail page, dropdown should be preselected</codecomment>
+  <module name="modules.pages.product.VProduct_validateDropdownLabel">
+    <parameter name="labelName" value="${variationProductWithDropdownOnlyLabel2}"/>
+  </module>
   <module name="modules.pages.product.VProduct_validatePricePattern">
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
