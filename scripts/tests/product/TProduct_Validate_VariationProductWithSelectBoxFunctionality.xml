@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview,qv,functionality,variations</tags>
-  <description>Verifies the functionality of an variation product with a select box on quickview (QV) and product details pages (PDP)
+  <description>Verifies variant dropdown selection updates product price and number on quickview and product detail page.
 
-# Setup
-Open the site and remove cookies
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Search leads to search result page
+- Open quickview
+- Validate preconditions
 
 #  Scope
-Validates the change of the product numbers and enabling of the add2cart button when changing the size, checks also if the availability changes
 
-## QV
+## Quickview
+- Select first variation from dropdown
+- Verify that price and product number are changed
+- Deselect variation from dropdown
+- Verify that price and product number are NOT changed
+- Select last variation from dropdown
+- Verify that price and product number are changed
 
-- open QV
-- change size, verify if price and product nuber are changed
-- try to select default option
-- change to pdp
+## Product details page
+- Open pdp from quickview
+- Verify that dropdown value is preselected with same value
+- Select variation from dropdown
+- Verify that price and product number are changed
+- Deselect variation from dropdown
+- Verify that price and product number are NOT changed
 
-## PDP
-
-- change selected option validate if price and procuct nuber changes
-- try to select default option
-- search to get the variation master page
-- verify variation master on pdp</description>
+</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="Search"/>
