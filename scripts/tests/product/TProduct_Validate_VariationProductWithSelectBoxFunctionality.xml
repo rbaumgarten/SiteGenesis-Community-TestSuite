@@ -39,14 +39,7 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="sortByLabel" value="Product Name A - Z"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Functional Product Test
-
-- Open QV for variation product with selct box
-- Select different memory sizes
-- click size validate if product button will become aavailable</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Hover over Product and click on quick view buttom</codecomment>
+  <codecomment>## 1. Quickview</codecomment>
   <action name="VariationProductQuickview"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${variationProductWithDropdownOnlyName}"/>
@@ -113,8 +106,8 @@ Validates the change of the product numbers and enabling of the add2cart button 
   <module name="modules.pages.product.VProduct_validateProductNumberIsChanged">
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
+  <codecomment>## 2. Product Detail Page</codecomment>
   <action name="ProductDetailPageFromQV"/>
-  <codecomment>Go to PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
     <parameter name="productName" value="${variationProductWithDropdownOnlyName}"/>
   </module>
