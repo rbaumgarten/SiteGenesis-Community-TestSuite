@@ -162,15 +162,4 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="productNumberBefore" value="${productNumber_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsEnabled"/>
-  <action name="Search"/>
-  <codecomment>Search for Product to get the variation master, on pdp because whenever you go from qv to pdp the site rembers your prevously choosen variations</codecomment>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${ProductNumberMaster}"/>
-  </module>
-  <codecomment>validate master on PDP</codecomment>
-  <module name="modules.pages.product.VProduct_validateProductVariations"/>
-  <command name="assertElementPresent" target="css=#product-content .product-price"/>
-  <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute.variant-dropdown .value select"/>
-  <command name="assertText" target="css=#product-content form fieldset .product-add-to-cart .availability-web .availability-novariation" value="Select Styles for Availability"/>
-  <module name="modules.pages.product.VProduct_validateAdd2CartButtonIsDisabled"/>
 </testcase>
