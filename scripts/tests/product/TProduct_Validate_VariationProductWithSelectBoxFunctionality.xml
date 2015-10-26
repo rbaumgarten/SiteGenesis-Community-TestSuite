@@ -45,10 +45,6 @@ Validates the change of the product numbers and enabling of the add2cart button 
     <parameter name="title" value="${variationProductWithDropdownOnlyName}"/>
   </module>
   <codecomment>Verify quick view page</codecomment>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
-  </module>
   <module name="modules.pages.product.VProduct_validateProductVariations"/>
   <module name="modules.pages.product.VProduct_validateVariantDropdown"/>
   <module name="modules.pages.product.VProduct_validateAvailabilityVariationIsNotSelected"/>
