@@ -50,7 +50,7 @@ Caution: only one price refinement could be activ
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -67,7 +67,7 @@ Caution: only one price refinement could be activ
     <parameter name="priceValue" value="${priceValue_varDynamic}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -100,7 +100,7 @@ Caution: only one price refinement could be activ
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -120,7 +120,7 @@ Caution: only one price refinement could be activ
   <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -149,7 +149,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange03}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -169,7 +169,7 @@ Caution: only one price refinement could be activ
   <action name="GoToLastPage"/>
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -194,7 +194,7 @@ Caution: only one price refinement could be activ
     <parameter name="title" value="${priceRange04}"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -216,7 +216,7 @@ Caution: only one price refinement could be activ
     <parameter name="itemsPerPageLabel" value="View All (16)"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -245,7 +245,7 @@ Caution: only one price refinement could be activ
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -266,7 +266,7 @@ Caution: only one price refinement could be activ
   <module name="modules.pages.catalog.MCatalog_clickOnGoToLastPage"/>
   <command name="pause" value="500"/>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -294,7 +294,7 @@ Caution: only one price refinement could be activ
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>
@@ -317,7 +317,7 @@ Caution: only one price refinement could be activ
     <comment>because of the large amount of product it least long to filter the products</comment>
   </command>
   <codecomment>----------</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="productPrice_varDynamic"/>
   </module>

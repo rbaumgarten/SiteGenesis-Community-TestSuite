@@ -24,7 +24,7 @@
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
   <codecomment>---</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="firstProductPriceLow_varDynamic"/>
   </module>
@@ -35,7 +35,7 @@
     <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":nth-of-type(2)"/>
     <parameter name="productPrice_varName" value="secondProductPriceLow_varDynamic"/>
   </module>
@@ -51,7 +51,7 @@
     <parameter name="valueTwo" value="${secondProductPriceLowValue_varDynamic}"/>
   </module>
   <codecomment>---</codecomment>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":nth-of-type(23)"/>
     <parameter name="productPrice_varName" value="firstProductPriceHigh_varDynamic"/>
   </module>
@@ -62,7 +62,7 @@
     <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
-  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+  <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice_varName" value="secondProductPriceHigh_varDynamic"/>
   </module>
