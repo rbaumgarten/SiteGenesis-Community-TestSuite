@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <tags>product,pdp,quickview,qv,functionality,variations</tags>
-  <description>Verifies if a value of a variation dropdown can be changed after selecting a color. It retests a known issue.
+  <tags>product,pdp,functionality,variations,rap,RAP-4413</tags>
+  <description>Verifies if a value of a variation dropdown can be changed after selecting a color. It retests a known issue (RAP-4413).
 
 # 1. Setup and preparation
 
