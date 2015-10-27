@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>opens a via email send wishlist link by clicking on it</description>
+  <action name="OpenMail"/>
+  <command name="click" target="css=#msg_1"/>
+  <command name="waitForElementPresent" target="css=#previewPanel.previewpanel div div div a"/>
+  <action name="ClickLinkToWishlist"/>
+  <command name="clickAndWait" target="css=#previewPanel.previewpanel div div div a"/>
+</scriptmodule>
