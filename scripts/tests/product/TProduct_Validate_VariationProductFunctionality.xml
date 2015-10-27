@@ -10,8 +10,8 @@ Open the site and remove cookies
 Validates the change of the product numbers and enabling of the add2cart button when changing color and size, checks also if the availability changes
 
 - open QV
-- change color, verify that the product number changes
-- select a size, verify that the add2cart button becomes enabled</description>
+- change color, verify that something can be selected
+- select something from the select box, verify that the add2cart button becomes enabled</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Navigate to Womens/Clothing/Dresses</codecomment>

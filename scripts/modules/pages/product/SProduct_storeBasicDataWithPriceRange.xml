@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Stores basic product data. Takes them from PDP or QV. 
+
+Note: It stores the product price based on class **product-price** instead of class **price-sales** which does not exist when a price range is shown.</description>
+  <parameter name="productName_varName" desc="product name as var name"/>
+  <parameter name="productNumber_varName" desc="product numbe as var name"/>
+  <parameter name="productPrice_varName" desc="product price as var name"/>
+  <command name="storeText" target="css=#pdpMain .product-name" value="@{productName_varName}"/>
+  <command name="storeText" target="css=.product-number span" value="@{productNumber_varName}"/>
+  <command name="storeText" target="css=#product-content .product-price" value="@{productPrice_varName}"/>
+</scriptmodule>

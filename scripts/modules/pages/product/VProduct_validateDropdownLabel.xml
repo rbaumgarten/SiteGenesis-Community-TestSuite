@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates selected dropdown value.</description>
+  <parameter name="labelName" desc="expected dropdown value"/>
+  <command name="waitForText" target="css=#product-content .product-variations ul .attribute.variant-dropdown .variation-select option[selected='selected']" value="@{labelName}"/>
+</scriptmodule>

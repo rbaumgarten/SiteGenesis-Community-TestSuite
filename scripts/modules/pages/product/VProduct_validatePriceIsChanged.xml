@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates current price is different from previous price.</description>
+  <parameter name="productPriceBefore" desc="previous product price"/>
+  <command name="assertNotText" target="css=#product-content .product-price" value="@{productPriceBefore}"/>
+</scriptmodule>
