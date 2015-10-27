@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <codecomment># Setup
+
+- Start session
+- Serch for Product Set
+- Change Product Listing</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase}"/>
+  </module>
+  <action name="ProductListing"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
+    <parameter name="itemsPerPageLabel" value="24"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Catalog SortByPrice
+
+- sort low to high 
+- validate if prices are in correct order</codecomment>
+  <action name="ProductSorting"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price Low To High"/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":first-of-type"/>
+    <parameter name="productPrice_varName" value="firstProductPriceLow_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${firstProductPriceLow_varDynamic}"/>
+    <parameter name="priceValue_varName" value="firstProductPriceLowValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":nth-of-type(2)"/>
+    <parameter name="productPrice_varName" value="secondProductPriceLow_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${secondProductPriceLow_varDynamic}"/>
+    <parameter name="priceValue_varName" value="secondProductPriceLowValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.helper.VHelper_compare2Values">
+    <parameter name="valueOne" value="${firstProductPriceLowValue_varDynamic}"/>
+    <parameter name="valueTwo" value="${secondProductPriceLowValue_varDynamic}"/>
+  </module>
+  <codecomment>---</codecomment>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":nth-of-type(23)"/>
+    <parameter name="productPrice_varName" value="firstProductPriceHigh_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${firstProductPriceHigh_varDynamic}"/>
+    <parameter name="priceValue_varName" value="firstProductPriceHighValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.SCatatlog_storeProductPriceFromProductByProductPosition">
+    <parameter name="position" value=":last-of-type"/>
+    <parameter name="productPrice_varName" value="secondProductPriceHigh_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Price_convertPriceToValue">
+    <parameter name="price" value="${secondProductPriceHigh_varDynamic}"/>
+    <parameter name="priceValue_varName" value="secondProductPriceHighValue_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.helper.VHelper_compare2Values">
+    <parameter name="valueOne" value="${firstProductPriceHighValue_varDynamic}"/>
+    <parameter name="valueTwo" value="${secondProductPriceHighValue_varDynamic}"/>
+  </module>
+  <codecomment>validate that the second price is smaller than the penultimate price</codecomment>
+  <module name="modules.helper.VHelper_compare2Values">
+    <parameter name="valueOne" value="${secondProductPriceLowValue_varDynamic}"/>
+    <parameter name="valueTwo" value="${firstProductPriceHighValue_varDynamic}"/>
+  </module>
+  <action name="ProductSorting"/>
+</testcase>

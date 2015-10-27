@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <module name="modules.pages.search.FSearch_flowToAddProductToCart">
+    <parameter name="cartRow" value="1"/>
+    <parameter name="productNumber" value="kodak-c1013"/>
+    <parameter name="productQuantity" value="2"/>
+    <parameter name="productName_varName" value="productName_dyn"/>
+    <parameter name="productNumber_varName" value="productNumber_dyn"/>
+    <parameter name="productQuantity_varName" value="productQuantity_dyn"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_dyn"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_dyn"/>
+  </module>
+</testcase>
