@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Test validate the Sort By Price Rule
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- search for a product set
+- show all results on one page
+
+# 2. Scope of test
+
+- Sort By Price - low to high
+- validate that the first price is smaller than the second one
+- validate that the penultimate price is smaller than the last one
+- validate that the second price is smaller than the penultimate
+
+- Sort By Price - High To Low
+- validate that Highest Price is now the first one
+- validate that smalles price is now the last one
+
+- Sort By Price - Low To High
+- validat that highest price is the last one and lowest is the first one </description>
   <codecomment># Setup
 
 - Start session
@@ -23,7 +44,7 @@
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
-  <codecomment>---</codecomment>
+  <codecomment>validates that the frist price is smaller than the second price</codecomment>
   <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice_varName" value="firstProductPriceLow_varDynamic"/>
@@ -50,7 +71,7 @@
     <parameter name="valueOne" value="${firstProductPriceLowValue_varDynamic}"/>
     <parameter name="valueTwo" value="${secondProductPriceLowValue_varDynamic}"/>
   </module>
-  <codecomment>---</codecomment>
+  <codecomment>validates that the penultimate price is smaller than the last price</codecomment>
   <module name="modules.pages.catalog.SCatalog_storeProductPriceFromProductByProductPosition">
     <parameter name="position" value=":nth-of-type(23)"/>
     <parameter name="productPrice_varName" value="firstProductPriceHigh_varDynamic"/>
@@ -86,7 +107,7 @@
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
-  <codecomment>---</codecomment>
+  <codecomment>is the last price now the first one? the penultimate price the second one? and so one</codecomment>
   <module name="modules.pages.catalog.VCatalog_validateProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice" value="${secondProductPriceHigh_varDynamic}"/>
@@ -107,7 +128,7 @@
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
-  <codecomment>---</codecomment>
+  <codecomment>last check is the lowes price again the first one and the highgest price the last one?</codecomment>
   <module name="modules.pages.catalog.VCatalog_validateProductPriceFromProductByProductPosition">
     <parameter name="position" value=":first-of-type"/>
     <parameter name="productPrice" value="${firstProductPriceLow_varDynamic}"/>
