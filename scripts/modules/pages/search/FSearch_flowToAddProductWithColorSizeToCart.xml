@@ -62,7 +62,7 @@
 - Store product price total</codecomment>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
-  <module name="modules.pages.cart.MCart_Row_storeProductPriceTotal">
+  <module name="modules.pages.cart.SCart_Row_storeProductPriceTotal">
     <parameter name="row" value="@{cartRow}"/>
     <parameter name="productPriceTotal_varName" value="@{productPriceTotal_varName}"/>
   </module>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate that a given price value is between a upper an a lower border</description>
+  <parameter name="lowerBorder"/>
+  <parameter name="upperBorder"/>
+  <parameter name="priceValue"/>
+  <command name="assertEval" target="@{lowerBorder} &lt; @{priceValue} " value="true"/>
+  <command name="assertEval" target="@{priceValue} &lt;= @{upperBorder} " value="true"/>
+</scriptmodule>
