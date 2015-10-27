@@ -31,7 +31,7 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
-  <action name="ProductListing"/>
+  <action name="SelectItemsPerPage24"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageByLabel">
     <parameter name="itemsPerPageLabel" value="24"/>
   </module>
@@ -40,7 +40,7 @@
 
 - sort low to high 
 - validate if prices are in correct order</codecomment>
-  <action name="ProductSorting"/>
+  <action name="SelectSortByPriceHighToLow"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
@@ -103,7 +103,7 @@
     <parameter name="valueOne" value="${secondProductPriceLowValue_varDynamic}"/>
     <parameter name="valueTwo" value="${firstProductPriceHighValue_varDynamic}"/>
   </module>
-  <action name="ProductSorting"/>
+  <action name="SelectSortByPriceLowToHigh"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
@@ -124,7 +124,7 @@
     <parameter name="position" value=":last-of-type"/>
     <parameter name="productPrice" value="${firstProductPriceLow_varDynamic}"/>
   </module>
-  <action name="ProductSorting"/>
+  <action name="SelectSortByPriceHighToLow"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
