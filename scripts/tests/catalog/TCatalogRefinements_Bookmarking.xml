@@ -26,7 +26,7 @@
 - Go to catalog page
 - Validate page</codecomment>
   <action name="GoToCategoryPage"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3" disabled="true">
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
     <parameter name="positionLevel1" value="2"/>
     <parameter name="positionLevel2" value="1"/>
     <parameter name="positionLevel3" value="2"/>

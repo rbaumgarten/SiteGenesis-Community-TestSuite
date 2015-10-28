@@ -9,7 +9,7 @@
   <parameter name="breadcrumbText_varName" desc="The full breadcrumb as text"/>
   <command name="storeText" target="css=#primary .sort-by option[selected]" value="@{sorting_varName}"/>
   <command name="storeText" target="css=#primary .items-per-page option[selected]" value="@{pageSize_varName}"/>
-  <command name="storeText" disabled="true" target="css=#main .breadcrumb" value="@{breadcrumbText_varName}"/>
+  <command name="storeText" target="css=#main .breadcrumb" value="@{breadcrumbText_varName}"/>
   <command name="storeText" target="css=#primary .pagination .results-hits" value="@{displayedPagingText_varName}"/>
   <command name="storeText" target="css=#primary .pagination .current-page" value="@{pageNumber_varName}"/>
 </scriptmodule>
