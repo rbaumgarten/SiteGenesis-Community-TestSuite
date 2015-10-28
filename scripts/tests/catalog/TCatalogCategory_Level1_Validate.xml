@@ -25,22 +25,22 @@
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
     <parameter name="nameLevel1" value="New Arrivals"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_validateCategoryLevel1"/>
+  <module name="modules.pages.catalog.VCatalog_validateCategoryLevel1"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel1">
     <parameter name="positionLevel1" value="2"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_validateCategoryLevel1"/>
+  <module name="modules.pages.catalog.VCatalog_validateCategoryLevel1"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel1">
     <parameter name="positionLevel1" value="3"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_validateCategoryLevel1"/>
+  <module name="modules.pages.catalog.VCatalog_validateCategoryLevel1"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel1">
     <parameter name="positionLevel1" value="4"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_validateCategoryLevel1"/>
+  <module name="modules.pages.catalog.VCatalog_validateCategoryLevel1"/>
   <action name="GoToCategoryPage"/>
   <codecomment>Please keep in mind that the Top Sellers Button do not lead to a main category page it leads to a category level 2 page</codecomment>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
