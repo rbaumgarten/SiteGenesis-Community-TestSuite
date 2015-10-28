@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates all prices on product grid fit into price range.</description>
   <parameter name="lowerBoundary" desc="lower boundary of price range"/>
   <parameter name="upperBoundary" desc="upper boundary of price range"/>
   <command name="assertXpathCount" target="//span[contains(@class,'product-sales-price') and ((number(substring-after(text(), '$'))&gt;=@{lowerBoundary} and number(substring-after(text(), '$'))&lt;=@{upperBoundary}) or (number(substring-after(text(), '- $'))&gt;=@{lowerBoundary} and number(substring-after(text(), '- $'))&lt;=@{upperBoundary})) != true()]" value="0"/>
