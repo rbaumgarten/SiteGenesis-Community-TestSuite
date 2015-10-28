@@ -26,7 +26,7 @@
 - Go to catalog page
 - Validate page</codecomment>
   <action name="GoToCategoryPage"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3" disabled="true">
     <parameter name="positionLevel1" value="2"/>
     <parameter name="positionLevel2" value="1"/>
     <parameter name="positionLevel3" value="2"/>
@@ -56,11 +56,11 @@
     <parameter name="pageNumber" value="${pageNumber}"/>
   </module>
   <module name="modules.pages.catalog.SCatalog_ProductListingPage_State">
-    <parameter name="pageNumber" value="pageNumber"/>
-    <parameter name="sorting" value="sorting"/>
-    <parameter name="pageSize" value="pageSize"/>
-    <parameter name="displayedPagingText" value="displayedPagingText"/>
-    <parameter name="breadcrumbText" value="breadcrumbText"/>
+    <parameter name="pageNumber_varName" value="pageNumber"/>
+    <parameter name="sorting_varName" value="sorting"/>
+    <parameter name="pageSize_varName" value="pageSize"/>
+    <parameter name="displayedPagingText_varName" value="displayedPagingText"/>
+    <parameter name="breadcrumbText_varName" value="breadcrumbText"/>
   </module>
   <module name="modules.helper.SHelper_CurrentURL">
     <parameter name="currentURL" value="url"/>
