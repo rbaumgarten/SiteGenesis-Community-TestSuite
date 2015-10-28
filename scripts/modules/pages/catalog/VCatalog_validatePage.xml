@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validiate catalog page.</description>
-  <command name="waitForElementPresent" target="css=#main a.breadcrumb-element:first-of-type"/>
   <command name="assertElementPresent" target="css=#primary.primary-content"/>
   <command name="assertElementPresent" target="css=#secondary"/>
 </scriptmodule>
