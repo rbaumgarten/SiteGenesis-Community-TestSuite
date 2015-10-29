@@ -79,7 +79,7 @@
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
   </module>
   <action name="ClearPriceRefinment"/>
-  <module name="modules.pages.catalog.MCatalog_Refinments_deletePriceRefinmentByBredcrumb"/>
+  <module name="modules.pages.catalog.MCatalog_Refinements_clearPriceRefinement"/>
   <codecomment>## Change page, refine price by random position, *Remove* price refinement via breadcrumb</codecomment>
   <action name="SelectPageRandomly"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
