@@ -51,7 +51,7 @@
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
   </module>
   <module name="modules.helper.VHelper_ProductGrid_validatePriceRange">
@@ -78,7 +78,7 @@
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
   </module>
   <module name="modules.helper.VHelper_ProductGrid_validatePriceRange">
@@ -105,7 +105,7 @@
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validatePriceInBreadcrumb">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
   </module>
   <module name="modules.helper.VHelper_ProductGrid_validatePriceRange">
