@@ -7,20 +7,29 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test select, remove and clear color refinement on catalog page.</p>
+ * <p>Test select, deselect, clear price and remove refinement on catalog page.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
+ * <li>Navigate to category page</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>Browse to category</li>
- * <li>Select, validate and remove price via tile</li>
- * <li>Select three prices via title</li>
- * <li>Remove price via breadcrumb</li>
- * <li>Remove all prices</li>
- * <li>Validate empty price list</li>
- * <li>Validate empty refinement list in breadcrumbs</li>
+ * <li>Select price refinement by random position</li>
+ * <li>Validate shown products fit into selected price range</li>
+ * <li><em>Deselect</em> price refinement </li>
+ * </ul>
+ * <ul>
+ * <li>Change items per page by random position</li>
+ * <li>Select price refinement by random position</li>
+ * <li>Validate shown products fit into selected price range</li>
+ * <li><em>Clear</em> price refinement</li>
+ * </ul>
+ * <ul>
+ * <li>Change items per page by random position</li>
+ * <li>Select price refinement by random position</li>
+ * <li>Validate shown products fit into selected price range</li>
+ * <li><em>Remove</em> price refinement via breadcrumb</li>
  * </ul>
  */
 @ScriptName
