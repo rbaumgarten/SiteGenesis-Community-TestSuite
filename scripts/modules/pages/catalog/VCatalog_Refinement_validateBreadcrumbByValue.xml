@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Validate that price in breadcrumb is the same as in parameter
+  <description>Validate refinement value in breadcrumb.
 </description>
-  <parameter name="title"/>
+  <parameter name="title" desc="expected refinement value in breadcrumb"/>
   <command name="waitForElementPresent" target="css=#main div.breadcrumb span.breadcrumb-refinement span.breadcrumb-refinement-name"/>
   <command name="assertText" target="css=#main span.breadcrumb-refinement .breadcrumb-refinement-value" value="*@{title}*"/>
 </scriptmodule>
