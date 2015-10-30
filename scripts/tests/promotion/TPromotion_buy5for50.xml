@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Verifies the functionality of an buy5for50 promotion.
+
+# Setup
+Open the site and remove cookies
+Put four promotion product in cart
+Validate that no promotion is shown
+
+#  Scope
+Validate correct funtionality of the promotion
+
+- change quanitiy to five
+- validate that promotion is shown correct
+- change quanitiy to six
+- validate that promotion is shown correct 
+- change quanitiy to ten
+- validate that promotion is shown correct
+- change quanitiy back to 4
+- validate that no promotion is shown</description>
   <codecomment># Setup
 
 - Start Session
