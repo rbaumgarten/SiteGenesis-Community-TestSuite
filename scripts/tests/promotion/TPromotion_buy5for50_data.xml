@@ -2,4 +2,7 @@
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <productNumber>nikon-d60-wlens</productNumber>
   <productQuantity>4</productQuantity>
+  <promotionPrice>$50.00</promotionPrice>
+  <promotionPriceDoublt>$100.00</promotionPriceDoublt>
+  <promotionName>Buy5for50</promotionName>
 </data>

@@ -31,18 +31,28 @@
   </module>
   <module name="modules.pages.cart.TCart_validateSalesPromotion">
     <parameter name="row" value="1"/>
-    <parameter name="promoName" value="Buy5for50"/>
-    <parameter name="promoPrice" value="$50.00"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${promotionPrice}"/>
   </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
     <parameter name="productQuantity" value="6"/>
   </module>
+  <module name="modules.helper.MHelper_Product_calculateTotalsSubtotal">
+    <parameter name="productPriceSales_01" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity_01" value="1"/>
+    <parameter name="productPriceSales_02" value="${promotionPrice}"/>
+    <parameter name="productQuantity_02" value="1"/>
+    <parameter name="totalsSubtotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
   <module name="modules.pages.cart.TCart_validateSalesPromotion">
     <parameter name="row" value="1"/>
-    <parameter name="promoName" value="Buy5for50"/>
-    <parameter name="promoPrice" value="$50.00"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${subtotal_varDynamic}"/>
   </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
@@ -51,8 +61,8 @@
   </module>
   <module name="modules.pages.cart.TCart_validateSalesPromotion">
     <parameter name="row" value="1"/>
-    <parameter name="promoName" value="Buy5for50"/>
-    <parameter name="promoPrice" value="$50.00"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${promotionPriceDoublt}"/>
   </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
