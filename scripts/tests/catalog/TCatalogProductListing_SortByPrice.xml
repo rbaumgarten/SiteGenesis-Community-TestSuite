@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test validate the Sort By Price Rule
+  <description>(JAVA)-Test sort by price.  
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
-- search for a product set
-- show all results on one page
+- Search for products
+- Select items per page randomly
 
 # 2. Scope of test
 
-- Sort By Price - low to high
-- validate that the first price is smaller than the second one
-- validate that the penultimate price is smaller than the last one
-- validate that the second price is smaller than the penultimate
+- Sort by price low to high
+- Validate sorting order 
+- Sort by price high to low
+- Validate sorting order 
 
-- Sort By Price - High To Low
-- validate that Highest Price is now the first one
-- validate that smalles price is now the last one
-
-- Sort By Price - Low To High
-- validat that highest price is the last one and lowest is the first one </description>
+Notes:
+- Validating sorting order is implemented as java module which is not executed in script developer. 
+- There is a data set configured for multiple data driven executions via JUnit.</description>
   <codecomment># Setup
 
 - Start session
