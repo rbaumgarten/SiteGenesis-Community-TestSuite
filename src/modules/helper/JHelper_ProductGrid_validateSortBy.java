@@ -4,7 +4,6 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -23,55 +22,67 @@ public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
         final String substringBeforeLowerBoundary = parameters[2].trim();
         final String substringBeforeUpperBoundary = parameters[3].trim();
 
+        final String sortOrderAsc  = "asc";
+        final String sortOrderDesc = "desc";
+        
         String priceText;
-        double priceValueLast = 0;
-        double priceValueNext = 0;
+        double priceValuePrev = 0;
+        double priceValue = 0;
       
-        System.out.println("substringBeforeLowerBoundary:" + substringBeforeLowerBoundary);
-        System.out.println("substringBeforeUpperBoundary:" + substringBeforeUpperBoundary);
-        System.out.print(sortOrder);
+        // Check given sort order
+        System.out.println("check sort order: " + sortOrder);
+        Assert.assertTrue("Wrong sorting order, expected '" + sortOrderAsc + "' or '" + sortOrderDesc + "'", 
+        		         (sortOrder.equals(sortOrderAsc) || sortOrder.equals(sortOrderDesc)));
+
         List<WebElement> priceList = webDriver.findElements(By.xpath(xpath));
         
+        // loop through price list based on given xpath
         for(WebElement resultItem  : priceList){
         	priceText = resultItem.getText();
-        	System.out.println("priceText: " + priceText);
+        	System.out.println("price item: " + priceText);
+        	
+        	// extract price from price range or single price text        	
         	// price range handling
         	if(priceText.contains(substringBeforeUpperBoundary)){
         		// if sorting order is ascending
-        		if (sortOrder.contains("asc")){        
+        		if (sortOrder.contains(sortOrderAsc)){        
         			// extract first part of the price range
             		priceText = priceText.substring(priceText.indexOf(substringBeforeLowerBoundary) + substringBeforeLowerBoundary.length(),
             				                        priceText.indexOf(substringBeforeUpperBoundary));            		
             	}        
         		// if sorting order is descending
-        		if (sortOrder.contains("desc")){
+        		if (sortOrder.contains(sortOrderDesc)){
         			// extract second part of the price range
         			priceText = priceText.substring(priceText.indexOf(substringBeforeUpperBoundary) + substringBeforeUpperBoundary.length());
         		}
         	}
-        	// price handling
+        	// single price handling
         	else {
         		// replace currency shown in front of the price
     			priceText = priceText.replace(substringBeforeLowerBoundary, "");
     		}
         	
-        	System.out.println("priceText: " + priceText);
-       	    // parse price text to type double 
-        	priceValueNext = Double.parseDouble(priceText);
+        	// parse price text to type double
+        	System.out.println("price substring: " + priceText);
+        	priceValue = Double.parseDouble(priceText);
         	
         	// first price handling
-        	if (priceValueLast == 0) {
-        		// initialize last price value with the current price value
-        		priceValueLast = priceValueNext;
+        	if (priceValuePrev == 0) {
+        		// initialize previous price value with the current price value
+        		priceValuePrev = priceValue;
         	}
         	
-        	// compare last price with current price
-        	if (sortOrder.contains("asc")){
-        		Assert.assertTrue("Wrong sorting, expected " + priceValueNext + " >= " + priceValueLast, priceValueNext >= priceValueLast);
+        	// compare previous price with current price
+        	System.out.println("Compare price " + priceValue + " with previous price " + priceValuePrev);
+        	if (sortOrder.contains(sortOrderAsc)){
+        		Assert.assertTrue("Wrong sorting, expected " + priceValue + " >= " + priceValuePrev, priceValue >= priceValuePrev);
         	}       
-        	if (sortOrder.contains("desc")){
-        		Assert.assertTrue("Wrong sorting, expected " + priceValueNext + " <= " + priceValueLast, priceValueNext <= priceValueLast);
+        	if (sortOrder.contains(sortOrderDesc)){
+        		Assert.assertTrue("Wrong sorting, expected " + priceValue + " <= " + priceValuePrev, priceValue <= priceValuePrev);
         	}
+        	
+        	// set previous price for next iteration
+        	priceValuePrev = priceValue;
         }
     }
 }    
