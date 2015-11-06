@@ -1,6 +1,7 @@
 package modules.helper;
 
 import java.util.List;
+
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.xceptance.xlt.api.engine.scripting.WebDriverCustomModule;
+import com.xceptance.xlt.api.util.XltLogger;
 
 public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
 {
@@ -30,7 +32,7 @@ public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
         double priceValue = 0;
       
         // Check given sort order
-        System.out.println("check sort order: " + sortOrder);
+        XltLogger.runTimeLogger.info("check sort order: " + sortOrder);        
         Assert.assertTrue("Wrong sorting order, expected '" + sortOrderAsc + "' or '" + sortOrderDesc + "'", 
         		         (sortOrder.equals(sortOrderAsc) || sortOrder.equals(sortOrderDesc)));
 
@@ -39,7 +41,7 @@ public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
         // loop through price list based on given xpath
         for(WebElement resultItem  : priceList){
         	priceText = resultItem.getText();
-        	System.out.println("price item: " + priceText);
+        	XltLogger.runTimeLogger.info("price item: " + priceText);
         	
         	// extract price from price range or single price text        	
         	// price range handling
@@ -63,7 +65,7 @@ public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
     		}
         	
         	// parse price text to type double
-        	System.out.println("price substring: " + priceText);
+        	XltLogger.runTimeLogger.info("price substring: " + priceText);
         	priceValue = Double.parseDouble(priceText);
         	
         	// first price handling
@@ -73,7 +75,7 @@ public class JHelper_ProductGrid_validateSortBy implements WebDriverCustomModule
         	}
         	
         	// compare previous price with current price
-        	System.out.println("Compare price " + priceValue + " with previous price " + priceValuePrev);
+        	XltLogger.runTimeLogger.info("Compare price " + priceValue + " with previous price " + priceValuePrev);
         	if (sortOrder.contains(sortOrderAsc)){
         		Assert.assertTrue("Wrong sorting, expected " + priceValue + " >= " + priceValuePrev, priceValue >= priceValuePrev);
         	}       
