@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the &gt;&gt; button to go to the last page</description>
-  <command name="click" target="css=#primary .search-result-options .pagination ul li.first-last a.page-last i"/>
-  <command name="waitForNotElementPresent" target="#primary.primary-content div.search-result-options div.pagination ul li.first-last"/>
-</scriptmodule>
