@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>(JAVA)-Test sort by price.  
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Search for products
+- Select items per page randomly
+
+# 2. Scope of test
+
+- Sort by price low to high
+- Validate sorting order 
+- Sort by price high to low
+- Validate sorting order 
+
+Notes:
+- Validating sorting order is implemented as java module which is not executed in script developer. 
+- There is a data set configured for multiple data driven executions via JUnit.</description>
+  <codecomment># Setup
+
+- Start session
+- Search
+- Select page</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase}"/>
+  </module>
+  <action name="SelectPageRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
+    <parameter name="itemsPerPageLabel_varName" value="itemsPerPageLabel_varDynamic"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>Sort by price low to high and validate order</codecomment>
+  <action name="SelectSortByPriceLowToHigh"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price Low To High"/>
+  </module>
+  <module name="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
+    <parameter name="xpath" value="${xpathProductGridPrices}"/>
+    <parameter name="sortOrder" value="asc"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+  </module>
+  <codecomment>Sort by price high to low and validate order</codecomment>
+  <action name="SelectSortByPriceHighToLow"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
+    <parameter name="sortByLabel" value="Price High To Low"/>
+  </module>
+  <module name="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
+    <parameter name="xpath" value="${xpathProductGridPrices}"/>
+    <parameter name="sortOrder" value="desc"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+  </module>
+</testcase>

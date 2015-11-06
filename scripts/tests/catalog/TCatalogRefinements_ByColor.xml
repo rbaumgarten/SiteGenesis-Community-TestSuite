@@ -16,10 +16,6 @@
 - Remove two colors clear
 - Validate empty color list
 - Validate empty refinement list in breadcrumbs
-
-# 3. Clean up
-
-- End session and clean up created cookies
 </description>
   <codecomment># Setup
 

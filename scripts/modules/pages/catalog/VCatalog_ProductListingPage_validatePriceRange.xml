@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates all prices on product grid fit into price range.</description>
+  <parameter name="lowerBoundary" desc="lower boundary of price range"/>
+  <parameter name="upperBoundary" desc="upper boundary of price range"/>
+  <parameter name="substringBeforeLowerBoundary" desc="substring shown before lower boundary of a price range"/>
+  <parameter name="substringBeforeUpperBoundary" desc="substring shown before upper boundary of a price range"/>
+  <command name="assertXpathCount" target="//span[contains(@class,'product-sales-price') and ((number(substring-after(text(), &quot;@{substringBeforeLowerBoundary}&quot;))&gt;=@{lowerBoundary} and number(substring-after(text(), &quot;@{substringBeforeLowerBoundary}&quot;))&lt;=@{upperBoundary}) or (number(substring-after(text(), &quot;@{substringBeforeUpperBoundary}&quot;))&gt;=@{lowerBoundary} and number(substring-after(text(), &quot;@{substringBeforeUpperBoundary}&quot;))&lt;=@{upperBoundary})) != true()]" value="0">
+    <comment>1. Lowest price must fit into price range OR
+2. Highest price must fit into price range
+3. If there is a product having a price outside these conditions -&gt; xpath count will be greater than 0 which leads to a failed assert</comment>
+  </command>
+</scriptmodule>
