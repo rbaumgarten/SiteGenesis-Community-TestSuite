@@ -38,7 +38,7 @@ Notes:
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price Low To High"/>
   </module>
-  <module name="modules.helper.JHelper_ProductGrid_validateSortBy">
+  <module name="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
     <parameter name="xpath" value="${xpathProductGridPrices}"/>
     <parameter name="sortOrder" value="asc"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
@@ -49,7 +49,7 @@ Notes:
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
     <parameter name="sortByLabel" value="Price High To Low"/>
   </module>
-  <module name="modules.helper.JHelper_ProductGrid_validateSortBy">
+  <module name="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
     <parameter name="xpath" value="${xpathProductGridPrices}"/>
     <parameter name="sortOrder" value="desc"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
