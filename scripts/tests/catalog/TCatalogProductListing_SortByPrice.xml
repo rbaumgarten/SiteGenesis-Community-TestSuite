@@ -43,6 +43,7 @@ Notes:
     <parameter name="sortOrder" value="asc"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <codecomment>Sort by price high to low and validate order</codecomment>
   <action name="SelectSortByPriceHighToLow"/>
@@ -54,5 +55,6 @@ Notes:
     <parameter name="sortOrder" value="desc"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
 </testcase>
