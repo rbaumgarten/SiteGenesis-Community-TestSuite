@@ -5,4 +5,5 @@
   <parameter name="sortOrder" desc="expected sort order &quot;asc&quot; or &quot;desc&quot;"/>
   <parameter name="substringBeforeLowerBoundary" desc="text which is displayed in front of the price"/>
   <parameter name="substringBeforeUpperBoundary" desc="text which is displayed between a price range"/>
+  <parameter name="priceDigitGroupSeparators" desc="price digit group separators"/>
 </javamodule>
