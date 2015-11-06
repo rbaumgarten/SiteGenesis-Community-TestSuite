@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<javamodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" class="modules.helper.JHelper_ProductGrid_validateSortBy">
+<javamodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" class="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
   <description>Validate sorting order based on given xpath, sort order (asc/desc) and boundaries of displayed price ranges.</description>
   <parameter name="xpath" desc="xpath which leads to all prices for comparison"/>
   <parameter name="sortOrder" desc="expected sort order &quot;asc&quot; or &quot;desc&quot;"/>
