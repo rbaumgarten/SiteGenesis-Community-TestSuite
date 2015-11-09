@@ -32,10 +32,9 @@
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
   <action name="GoToCategoryPage"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
     <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
-    <parameter name="positionLevel3" value="${positionCategoryLevel3}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <codecomment># Scope</codecomment>

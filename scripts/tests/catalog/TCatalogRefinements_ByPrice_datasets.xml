@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-sets>
+	<data-set>
+    	<positionCategoryLevel1>2</positionCategoryLevel1>
+        <positionCategoryLevel2>1</positionCategoryLevel2>
+    </data-set>
+	<data-set>
+    	<positionCategoryLevel1>4</positionCategoryLevel1>
+        <positionCategoryLevel2>1</positionCategoryLevel2>
+    </data-set>	
+</data-sets>
