@@ -33,9 +33,9 @@
   <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
-    <parameter name="positionLevel1" value="2"/>
-    <parameter name="positionLevel2" value="1"/>
-    <parameter name="positionLevel3" value="2"/>
+    <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
+    <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
+    <parameter name="positionLevel3" value="${positionCategoryLevel3}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <codecomment># Scope</codecomment>
