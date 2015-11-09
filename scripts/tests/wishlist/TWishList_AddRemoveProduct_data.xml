@@ -3,4 +3,5 @@
   <firstname>${WishListUser_FirstName}</firstname>
   <lastname>${WishListUser_LastName}</lastname>
   <productNumber>${productNumber_typeOptionProduct}</productNumber>
+  <productQuantity>${RANDOM.Number(2,4)}</productQuantity>
 </data>

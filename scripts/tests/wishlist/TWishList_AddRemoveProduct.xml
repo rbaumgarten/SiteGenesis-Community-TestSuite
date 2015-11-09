@@ -49,6 +49,9 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
+  <module name="modules.pages.product.MProduct_enterQuantity">
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>
