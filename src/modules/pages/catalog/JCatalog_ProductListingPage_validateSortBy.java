@@ -17,12 +17,13 @@ public class JCatalog_ProductListingPage_validateSortBy implements WebDriverCust
     @Override
     public void execute(final WebDriver webDriver, String... parameters)
     {
-        Assert.assertEquals("Invalid number of parameters", 4, parameters.length);
+        Assert.assertEquals("Invalid number of parameters", 5, parameters.length);
 
         final String xpath = parameters[0].trim();
         final String sortOrder = parameters[1].trim();
         final String substringBeforeLowerBoundary = parameters[2].trim();
         final String substringBeforeUpperBoundary = parameters[3].trim();
+        final String priceDigitGroupSeparators = parameters[4].trim();
 
         final String sortOrderAsc  = "asc";
         final String sortOrderDesc = "desc";
@@ -64,7 +65,10 @@ public class JCatalog_ProductListingPage_validateSortBy implements WebDriverCust
     			priceText = priceText.replace(substringBeforeLowerBoundary, "");
     		}
         	
-        	// parse price text to type double
+        	// remove price digit group separators
+        	priceText = priceText.replace(priceDigitGroupSeparators,"");
+        	
+        	// parse price text to type double       	
         	XltLogger.runTimeLogger.info("price substring: " + priceText);
         	priceValue = Double.parseDouble(priceText);
         	

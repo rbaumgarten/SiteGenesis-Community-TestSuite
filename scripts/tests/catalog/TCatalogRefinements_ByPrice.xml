@@ -32,10 +32,9 @@
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
   <action name="GoToCategoryPage"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel3">
-    <parameter name="positionLevel1" value="2"/>
-    <parameter name="positionLevel2" value="1"/>
-    <parameter name="positionLevel3" value="2"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
+    <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
+    <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <codecomment># Scope</codecomment>
@@ -50,6 +49,7 @@
     <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
@@ -59,6 +59,7 @@
     <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <action name="DeselectRefinement"/>
   <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
@@ -77,6 +78,7 @@
     <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
@@ -86,6 +88,7 @@
     <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <action name="ClearPriceRefinement"/>
   <module name="modules.pages.catalog.MCatalog_Refinements_clearPriceRefinement"/>
@@ -104,6 +107,7 @@
     <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${priceRange_varDynamic}"/>
@@ -113,6 +117,7 @@
     <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
     <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
     <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <action name="RemoveFilterViaBreadcrumb"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterByPosition">
