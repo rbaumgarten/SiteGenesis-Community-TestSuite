@@ -6,12 +6,13 @@
   <parameter name="upperBoundary_varName" desc="upper boundary of selected price range as var name"/>
   <parameter name="substringBeforeLowerBoundary" desc="substring shown before lower boundary of a price range"/>
   <parameter name="substringBeforeUpperBoundary" desc="substring shown before upper boundary of a price range"/>
+  <parameter name="priceDigitGroupSeparators" desc="price digit group separators"/>
   <codecomment>lower boundary is between "$" and "- $"</codecomment>
-  <command name="storeEval" target="&quot;@{priceRange}&quot;.substring(&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeLowerBoundary}&quot;)+1,&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeUpperBoundary}&quot;)-1);" value="@{lowerBoundary_varName}">
+  <command name="storeEval" target="&quot;@{priceRange}&quot;.substring(&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeLowerBoundary}&quot;)+1,&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeUpperBoundary}&quot;)-1).replace(&quot;@{priceDigitGroupSeparators}&quot;,&quot;&quot;);" value="@{lowerBoundary_varName}">
     <comment>lower boundary is between "$" and "- $"</comment>
   </command>
   <codecomment>upper boundary is between "- $" and length of price range string</codecomment>
-  <command name="storeEval" target="&quot;@{priceRange}&quot;.substring(&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeUpperBoundary}&quot;)+&quot;@{substringBeforeUpperBoundary}&quot;.length,&quot;@{priceRange}&quot;.length);" value="@{upperBoundary_varName}">
+  <command name="storeEval" target="&quot;@{priceRange}&quot;.substring(&quot;@{priceRange}&quot;.indexOf(&quot;@{substringBeforeUpperBoundary}&quot;)+&quot;@{substringBeforeUpperBoundary}&quot;.length,&quot;@{priceRange}&quot;.length).replace(&quot;@{priceDigitGroupSeparators}&quot;,&quot;&quot;);" value="@{upperBoundary_varName}">
     <comment>upper boundary is between "- $" and length of price range string</comment>
   </command>
 </scriptmodule>
