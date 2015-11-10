@@ -8,7 +8,7 @@
   <parameter name="priceDigitGroupSeparators" desc="price digit group separators"/>
   <command name="storeEval" target="&quot;@{priceValue}&quot;.length" value="digitsLength"/>
   <command name="storeEval" target="(&quot;00&quot; + &quot;@{priceValue}&quot;).slice(-2)" value="digitsAfterMark"/>
-  <command name="storeEval" target="&quot;@{priceValue}&quot;.substring(0, (&quot;${digitsLength}&quot;-3))" value="digitsBeforeMark"/>
+  <command name="storeEval" target="&quot;@{priceValue}&quot;.substring(0, (&quot;${digitsLength}&quot;-2))" value="digitsBeforeMark"/>
   <command name="storeEval" target="&quot;${digitsBeforeMark}&quot;.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, &quot;$1@{priceDigitGroupSeparators}&quot;)" value="digitsGroups">
     <comment>Splits any length digit string into groups of three elements beginning from end of line separated by given delimiter.
 
