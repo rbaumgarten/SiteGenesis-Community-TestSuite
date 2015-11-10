@@ -25,7 +25,7 @@
 
 - Set quantity
 - Store product basics
-- Add product to cart</codecomment>
+- Add product to wishlist</codecomment>
   <action name="ConfigureProduct"/>
   <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
