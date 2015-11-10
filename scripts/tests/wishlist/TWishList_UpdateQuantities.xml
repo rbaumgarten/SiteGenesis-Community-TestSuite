@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>wishlist</tags>
-  <description>Test add product to wishlist.
+  <description>Test update product quantity on wishlist.
 
 # 1. Setup and preparation
 
@@ -10,10 +10,10 @@
 
 # 2. Scope of test
 
-- add three different products and store the product data
-- change the quantity three times
-- logout and log in
-- remove products</description>
+- add two random products to cart
+- update quantities using random number 
+- logout and login 
+- validate wishlist</description>
   <codecomment># Setup
 
 - Create mail
