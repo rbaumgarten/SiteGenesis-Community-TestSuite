@@ -74,7 +74,7 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
   </module>
-  <module name="modules.pages.cart.MCart_storeTotalsSubtotal">
+  <module name="modules.pages.cart.SCart_storeTotalsSubtotal">
     <parameter name="totalsSubtotal" value="totalSubtotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
