@@ -53,15 +53,6 @@
     <parameter name="productQuantity_varName" value="productQuantity_02_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
-  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
-    <parameter name="wishlistRow" value="3"/>
-    <parameter name="searchText" value="${searchTextProducts_03}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productName_varName" value="productName_03_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
-    <parameter name="productQuantity_varName" value="productQuantity_03_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
-  </module>
   <codecomment>Validate wishlist rows</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
@@ -77,14 +68,23 @@
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
-    <parameter name="row" value="3"/>
-    <parameter name="productName" value="${productName_03_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  <codecomment>Update quantities</codecomment>
+  <action name="UpdateQuantity"/>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="5"/>
+    <parameter name="number_varName" value="productQuantity_03_varDynamic"/>
   </module>
-  <codecomment>Update quantities row 2 and 3</codecomment>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+    <parameter name="row" value="1"/>
+    <parameter name="quantity" value="${productQuantity_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
   <action name="UpdateQuantity"/>
   <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="5"/>
@@ -101,68 +101,31 @@
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <action name="UpdateQuantity"/>
-  <module name="modules.helper.MHelper_Random_createNumber">
-    <parameter name="numberMax" value="5"/>
-    <parameter name="number_varName" value="productQuantity_03_varDynamic"/>
-  </module>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
-    <parameter name="row" value="3"/>
-    <parameter name="quantity" value="${productQuantity_03_varDynamic}"/>
-  </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
-    <parameter name="row" value="3"/>
-    <parameter name="productName" value="${productName_03_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
-  </module>
   <codecomment>## Change login state
 - logout
 - login
 - goto wishlist</codecomment>
-  <action name="LogOut"/>
-  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
-  <action name="GoToLogIn"/>
-  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
-  <action name="LogIn"/>
-  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
-    <comment>Enter email and wrong password.</comment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogoutLogin">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
   <action name="GoToWishList"/>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
-  <codecomment>## WishList
-
-- remove products</codecomment>
-  <action name="RemoveProductFromWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
-  </module>
+  <codecomment>Validate wishlist rows</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="${secondProductQuantity}"/>
-    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
-  <action name="RemoveProductFromWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="2"/>
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="${secondProductQuantity}"/>
-    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
-  </module>
-  <action name="RemoveProductFromWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
-  </module>
-  <module name="modules.pages.account.wishlist.VAccount_WishList_validateListIsEmpty"/>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
 </testcase>
