@@ -74,7 +74,7 @@
     <parameter name="numberMax" value="5"/>
     <parameter name="number_varName" value="productQuantity_03_varDynamic"/>
   </module>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
     <parameter name="quantity" value="${productQuantity_01_varDynamic}"/>
   </module>
@@ -90,7 +90,7 @@
     <parameter name="numberMax" value="5"/>
     <parameter name="number_varName" value="productQuantity_02_varDynamic"/>
   </module>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterUpdateProductQuantity">
     <parameter name="row" value="2"/>
     <parameter name="quantity" value="${productQuantity_02_varDynamic}"/>
   </module>
