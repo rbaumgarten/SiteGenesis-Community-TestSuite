@@ -56,11 +56,11 @@
     <parameter name="pageNumber" value="${pageNumber}"/>
   </module>
   <module name="modules.pages.catalog.SCatalog_ProductListingPage_State">
-    <parameter name="pageNumber" value="pageNumber"/>
-    <parameter name="sorting" value="sorting"/>
-    <parameter name="pageSize" value="pageSize"/>
-    <parameter name="displayedPagingText" value="displayedPagingText"/>
-    <parameter name="breadcrumbText" value="breadcrumbText"/>
+    <parameter name="pageNumber_varName" value="pageNumber"/>
+    <parameter name="sorting_varName" value="sorting"/>
+    <parameter name="pageSize_varName" value="pageSize"/>
+    <parameter name="displayedPagingText_varName" value="displayedPagingText"/>
+    <parameter name="breadcrumbText_varName" value="breadcrumbText"/>
   </module>
   <module name="modules.helper.SHelper_CurrentURL">
     <parameter name="currentURL" value="url"/>
