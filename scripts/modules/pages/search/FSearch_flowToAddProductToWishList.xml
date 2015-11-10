@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Flow to add (basic) product with quantity to wishlist.
+
+- Start on search
+- Search products via text
+- Select product randomly from search result page
+- Set quantity on PDP
+- Store basic details on PDP
+- Add to wishlist on PDP
+- End depends on authentication state of user</description>
+  <parameter name="wishlistRow" desc="wishlist row"/>
+  <parameter name="searchText" desc="search phrase to enter"/>
+  <parameter name="productQuantity" desc="product quantity"/>
+  <parameter name="productName_varName" desc="product name as var name"/>
+  <parameter name="productNumber_varName" desc="product number as var name"/>
+  <parameter name="productQuantity_varName" desc="product quantity as var name"/>
+  <parameter name="productPriceSales_varName" desc="product price sales as var name"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="@{searchText}"/>
+  </module>
+  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandomly"/>
+  <codecomment># PDP
+
+- Set quantity
+- Store product basics
+- Add product to cart</codecomment>
+  <action name="ConfigureProduct"/>
+  <module name="modules.pages.product.MProduct_enterQuantity">
+    <parameter name="productQuantity" value="@{productQuantity}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeBasicData">
+    <parameter name="productName_varName" value="@{productName_varName}"/>
+    <parameter name="productNumber_varName" value="@{productNumber_varName}"/>
+    <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
+  </module>
+  <module name="modules.pages.product.MProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+</scriptmodule>
