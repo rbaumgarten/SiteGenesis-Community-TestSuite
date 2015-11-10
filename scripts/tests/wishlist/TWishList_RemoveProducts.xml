@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>wishlist</tags>
+  <description>Test remove and resorting rows in wishlist.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create new account
+- Add four products to wishlist (1, 2, 3, 4)
+
+# 2. Scope of test
+
+- Remove last item in cart (4)
+- Remove middle item (2)
+- Remove first item (1)
+- Remove the last item (3)
+
+</description>
   <codecomment># Setup
 
 - Create mail
@@ -14,12 +31,11 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="firstname" value="${WishListUser_FirstName}"/>
+    <parameter name="lastname" value="${WishListUser_LastName}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <codecomment># Scope</codecomment>
   <codecomment>Add products to wishlist</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
     <parameter name="wishlistRow" value="1"/>
@@ -48,7 +64,16 @@
     <parameter name="productQuantity_varName" value="productQuantity_03_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
   </module>
-  <codecomment>Validate wishlist rows</codecomment>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="4"/>
+    <parameter name="searchText" value="${searchTextProducts_04}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_04_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_04_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_04_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_04_varDynamic"/>
+  </module>
+  <codecomment>Validate wishlist rows before we remove anything</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_01_varDynamic}"/>
@@ -70,20 +95,40 @@
     <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <codecomment>------------------------------------------------------------</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="4"/>
+    <parameter name="productName" value="${productName_04_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_04_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_04_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_04_varDynamic}"/>
+  </module>
+  <codecomment># Scope</codecomment>
   <codecomment>## Remove last in list</codecomment>
   <action name="RemoveProductFromWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
-    <parameter name="row" value="1"/>
+    <parameter name="row" value="4"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="${secondProductQuantity}"/>
-    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
-  <codecomment>------------------------------------------------------------</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="3"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
   <codecomment>## Remove middle item</codecomment>
   <action name="RemoveProductFromWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
@@ -91,12 +136,31 @@
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="${secondProductQuantity}"/>
-    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
+  <codecomment>## Remove first item</codecomment>
   <action name="RemoveProductFromWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
+  <codecomment>## Remove last in list</codecomment>
   <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
