@@ -39,72 +39,57 @@
 - Search
 - Store product details
 - Add to wishlist</codecomment>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumberFirst}"/>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="1"/>
+    <parameter name="searchText" value="${searchTextProducts_01}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
   </module>
-  <action name="AddToWishList"/>
-  <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="firstProductName"/>
-    <parameter name="productNumber_varName" value="firstProductNumber"/>
-    <parameter name="productPriceSales_varName" value="firstProductPriceSales"/>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="2"/>
+    <parameter name="searchText" value="${searchTextProducts_02}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_02_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_02_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_02_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="firstProductQuantity"/>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="3"/>
+    <parameter name="searchText" value="${searchTextProducts_03}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_03_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_03_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
   </module>
-  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumberSecond}"/>
-  </module>
-  <action name="AddToWishList"/>
-  <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="secondProductName"/>
-    <parameter name="productNumber_varName" value="secondProductNumber"/>
-    <parameter name="productPriceSales_varName" value="secondProductPriceSales"/>
-  </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="secondProductQuantity"/>
-  </module>
-  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumberThird}"/>
-  </module>
-  <action name="AddToWishList"/>
-  <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="thirdProductName"/>
-    <parameter name="productNumber_varName" value="thirdProductNumber"/>
-    <parameter name="productPriceSales_varName" value="thirdProductPriceSales"/>
-  </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="thirdProductQuantity"/>
-  </module>
-  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
   <codecomment>## WishList
 
 - validate product data
 - change quantity</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${firstProductName}"/>
-    <parameter name="productNumber" value="${firstProductNumber}"/>
-    <parameter name="productQuantity" value="${firstProductQuantity}"/>
-    <parameter name="productPriceSales" value="${firstProductPriceSales}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="2"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="${secondProductQuantity}"/>
-    <parameter name="productPriceSales" value="${secondProductPriceSales}"/>
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="3"/>
-    <parameter name="productName" value="${thirdProductName}"/>
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
-    <parameter name="productQuantity" value="${thirdProductQuantity}"/>
-    <parameter name="productPriceSales" value="${thirdProductPriceSales}"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_03_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
   <action name="UpdateQuantity"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_updateQuantiy">
