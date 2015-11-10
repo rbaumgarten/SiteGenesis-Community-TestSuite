@@ -28,8 +28,8 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="firstname" value="${WishListUser_FirstName}"/>
+    <parameter name="lastname" value="${WishListUser_LastName}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
