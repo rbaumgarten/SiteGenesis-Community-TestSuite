@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <firstname>${WishListUser_FirstName}</firstname>
-  <lastname>${WishListUser_LastName}</lastname>
   <productNumber>${productNumber_typeOptionProduct}</productNumber>
   <productQuantity>${RANDOM.Number(2,4)}</productQuantity>
 </data>
