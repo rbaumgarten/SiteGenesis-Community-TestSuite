@@ -33,7 +33,6 @@
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <codecomment># Scope</codecomment>
   <codecomment>Add products to wishlist</codecomment>
   <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
     <parameter name="wishlistRow" value="1"/>
@@ -68,6 +67,7 @@
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
+  <codecomment># Scope</codecomment>
   <codecomment>Update quantities</codecomment>
   <action name="UpdateQuantity"/>
   <module name="modules.helper.MHelper_Random_createNumber">
@@ -101,10 +101,7 @@
     <parameter name="productQuantity" value="${productQuantity_02_varDynamic}"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <codecomment>## Change login state
-- logout
-- login
-- goto wishlist</codecomment>
+  <codecomment>Logout and login again</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogoutLogin">
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
