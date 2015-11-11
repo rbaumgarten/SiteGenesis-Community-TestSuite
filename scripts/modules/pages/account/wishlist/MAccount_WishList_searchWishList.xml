@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Enter and submit search data.</description>
+  <parameter name="firstname" desc="firstname"/>
+  <parameter name="lastname" desc="lastname"/>
+  <parameter name="email" desc="email"/>
+  <command name="type" target="id=dwfrm_wishlist_search_lastname" value="@{lastname}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_firstname" value="@{firstname}"/>
+  <command name="type" target="id=dwfrm_wishlist_search_email" value="@{email}"/>
+  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
+</scriptmodule>
