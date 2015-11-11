@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on search wishlist button on the wishlist pages</description>
-  <command name="clickAndWait" target="css=#dwfrm_wishlist_search fieldset div button[name=dwfrm_wishlist_search_search]"/>
-</scriptmodule>
