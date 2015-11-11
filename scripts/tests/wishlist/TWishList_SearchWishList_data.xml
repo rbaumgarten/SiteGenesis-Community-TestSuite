@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <fristname_user>${WishListUser_FirstName}</fristname_user>
-  <lastname_user>${WishListUser_LastName}</lastname_user>
-  <firstname_searcher>Jane</firstname_searcher>
-  <lastname_searcher>Searcher</lastname_searcher>
+  <wishlistSearcher_fristname>Jane</wishlistSearcher_fristname>
+  <wishlistSearcher_lastname>WishListSearcher</wishlistSearcher_lastname>
   <productNumber>${productNumber_typeOptionProduct}</productNumber>
 </data>
