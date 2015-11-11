@@ -42,7 +42,7 @@
     <parameter name="firstname_varName" value="wishlistSearcher_fristname_varDynamic"/>
     <parameter name="lastname_varName" value="wishlistSearcher_lastname_varDynamic"/>
     <parameter name="email_varName" value="wishlistSearcher_email_varDynamic"/>
-    <parameter name="password_varName" value="passwordWishlistUser_varDynamic"/>
+    <parameter name="password_varName" value="wishlistSearcher_password_varDynamic"/>
   </module>
   <codecomment>Add product to owners wishlist</codecomment>
   <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
@@ -71,10 +71,28 @@
     <parameter name="productQuantity_varName" value="productQuantity_02_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
-  <action name="MakeWishListPublic"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <codecomment># Scope</codecomment>
+  <codecomment>Verify wishlist is not searchable by default</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
+    <parameter name="email" value="${wishlistSearcher_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistSearcher_password_varDynamic}"/>
+  </module>
+  <action name="GoToWishList"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
+  <action name="SearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResultEmpty">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+  </module>
+  <codecomment>Make list public and one item public</codecomment>
+  <codecomment>Search wishlist. verify public item is visible</codecomment>
   <codecomment>## Wishlist Search
 
 - create new User
@@ -82,24 +100,11 @@
 - logout (this is nessesary because search results will be stored)
 - login 
 - search wishlist via search wishlist</codecomment>
-  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${wishlistSearcher_fristname}"/>
-    <parameter name="lastname" value="${wishlistSearcher_lastname}"/>
-    <parameter name="email" value="${WishListSearcher_email}"/>
-    <parameter name="password" value="${WishListSearcher_password}"/>
-  </module>
   <action name="ClickUserButton"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
   <codecomment>search wishlist on modify wishlist page</codecomment>
   <action name="GoToWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
-    <parameter name="user_firstName" value="${wishlistOwner_fristname}"/>
-    <parameter name="user_lastName" value="${wishlistOwner_lastname}"/>
-    <parameter name="user_email" value="${WishListUser_email}"/>
-  </module>
-  <action name="ClickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <codecomment>validate search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
     <parameter name="firstName" value="${wishlistOwner_fristname}"/>
@@ -123,15 +128,8 @@
     <parameter name="password" value="${WishListSearcher_password}"/>
   </module>
   <action name="GoToSearchWishList"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
   <codecomment>Please keep in mind: your search results will be stored until you logout</codecomment>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_enterDataForWishListSearch">
-    <parameter name="user_firstName" value="${wishlistOwner_fristname}"/>
-    <parameter name="user_lastName" value="${wishlistOwner_lastname}"/>
-    <parameter name="user_email" value="${WishListUser_email}"/>
-  </module>
   <action name="ClickSearchWishList"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickSearchWishList"/>
   <codecomment>validate search result</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
     <parameter name="firstName" value="${wishlistOwner_fristname}"/>
@@ -149,4 +147,6 @@
   </module>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
 </testcase>
