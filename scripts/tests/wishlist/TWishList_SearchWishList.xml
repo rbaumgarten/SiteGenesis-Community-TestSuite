@@ -158,7 +158,7 @@ Notes:
     <parameter name="lastName" value="${wishlistOwner_lastname_varDynamic}"/>
   </module>
   <action name="ClickView"/>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SearchResults_clickView"/>
   <codecomment>Verify public item is shown</codecomment>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
