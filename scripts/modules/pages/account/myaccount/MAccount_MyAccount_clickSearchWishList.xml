@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the search wish list link in the my account menu</description>
+  <description>Click on search wish list link in my account secondary navigation.</description>
   <command name="clickAndWait" target="css=#secondary.nav nav div.secondary-navigation div.content-asset ul:nth-of-type(3) li:nth-of-type(2) a"/>
 </scriptmodule>
