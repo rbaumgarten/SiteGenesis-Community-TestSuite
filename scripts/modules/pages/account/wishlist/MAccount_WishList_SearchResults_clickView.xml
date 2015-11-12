@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the view button from the search wish list result list</description>
+  <description>Click on view link of wishlist search result.</description>
   <command name="click" target="css=#primary table.item-list tbody tr td.view a span"/>
   <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
 </scriptmodule>
