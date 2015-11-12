@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>wishlist</tags>
-  <description>Test add product to wishlist.
+  <description>Test search wishlist by name and email.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
-- Create new account
-- Search product 01
-- add product to wishlist 
-- make wishlist public 
-- logout
+- Create accounts for wishlist owner and searcher
+- Add two products to owners wishlist
+- Logout
 
 # 2. Scope of test
 
-- create a new user
-- search for the previously created wishlist (public) via modify wishlist
-- logout
-- login and search wishlist via search wishlist
+- Verify wishlist is not searchable by default
+- Make wishlist public and one item private
+- Search wishlist by firstname and lastname
+- Search wishlist by email
+
+Notes:
+- Test navigates to the wishlist via account menu, secondary navigation and header user menu.
+- Test is not splitted into more than one case for now, because setup is expensive.
+
 
  </description>
   <codecomment># Setup
@@ -143,7 +146,7 @@
   <action name="GoToWishList"/>
   <codecomment>Go to search wishlist via account secondary navigation</codecomment>
   <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
-  <codecomment>Search owners wishlist</codecomment>
+  <codecomment>Search owners wishlist by firstname and lastname only</codecomment>
   <action name="SearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
     <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
@@ -154,7 +157,6 @@
     <parameter name="firstName" value="${wishlistOwner_fristname_varDynamic}"/>
     <parameter name="lastName" value="${wishlistOwner_lastname_varDynamic}"/>
   </module>
-  <codecomment>Go to wishlist and validate results</codecomment>
   <action name="ClickView"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_clickViewWishListOnWishListSearchResults"/>
   <codecomment>Verify public item is shown</codecomment>
@@ -175,8 +177,9 @@
   <codecomment>Go to wishlist via user in header section</codecomment>
   <action name="ClickHeaderUser"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
-  <action name="GoToWishListViaUserMenu"/>
+  <action name="GoToWishList"/>
   <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <codecomment>Search owners wishlist by email only</codecomment>
   <action name="SearchWishList"/>
   <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
     <parameter name="firstname" value=""/>
