@@ -2,4 +2,5 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click on the make wish list public button</description>
   <command name="clickAndWait" target="css=#dwfrm_wishlist_share.list-share button.share-option"/>
+  <command name="waitForElementPresent" target="//button[@name='dwfrm_wishlist_setListPrivate']"/>
 </scriptmodule>
