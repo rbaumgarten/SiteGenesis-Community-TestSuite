@@ -7,22 +7,25 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test add product to wishlist.</p>
+ * <p>Test search wishlist by name and email.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
- * <li>Create new account</li>
- * <li>Search product 01</li>
- * <li>add product to wishlist </li>
- * <li>make wishlist public </li>
- * <li>logout</li>
+ * <li>Create accounts for wishlist owner and searcher</li>
+ * <li>Add two products to owners wishlist</li>
+ * <li>Logout</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
- * <li>create a new user</li>
- * <li>search for the previously created wishlist (public) via modify wishlist</li>
- * <li>logout</li>
- * <li>login and search wishlist via search wishlist</li>
+ * <li>Verify wishlist is not searchable by default</li>
+ * <li>Make wishlist public and one item private</li>
+ * <li>Search wishlist by firstname and lastname</li>
+ * <li>Search wishlist by email</li>
+ * </ul>
+ * <p>Notes:</p>
+ * <ul>
+ * <li>Test navigates to the wishlist via account menu, secondary navigation and header user menu.</li>
+ * <li>Test is not splitted into more than one case for now, because setup is expensive.</li>
  * </ul>
  */
 @ScriptName
