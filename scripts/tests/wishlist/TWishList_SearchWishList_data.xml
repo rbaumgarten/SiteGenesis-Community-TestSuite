@@ -2,5 +2,4 @@
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <wishlistSearcher_fristname>Jane</wishlistSearcher_fristname>
   <wishlistSearcher_lastname>WishListSearcher</wishlistSearcher_lastname>
-  <productNumber>${productNumber_typeOptionProduct}</productNumber>
 </data>
