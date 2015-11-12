@@ -28,8 +28,8 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${WishListUser_FirstName}"/>
-    <parameter name="lastname" value="${WishListUser_LastName}"/>
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
@@ -74,9 +74,12 @@
     <parameter name="numberMax" value="5"/>
     <parameter name="number_varName" value="productQuantity_03_varDynamic"/>
   </module>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterUpdateProductQuantity">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterProductQuantity">
     <parameter name="row" value="1"/>
     <parameter name="quantity" value="${productQuantity_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickUpdateProduct">
+    <parameter name="row" value="2"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="1"/>
@@ -90,9 +93,12 @@
     <parameter name="numberMax" value="5"/>
     <parameter name="number_varName" value="productQuantity_02_varDynamic"/>
   </module>
-  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterUpdateProductQuantity">
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_enterProductQuantity">
     <parameter name="row" value="2"/>
     <parameter name="quantity" value="${productQuantity_02_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickUpdateProduct">
+    <parameter name="row" value="2"/>
   </module>
   <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
     <parameter name="row" value="2"/>
