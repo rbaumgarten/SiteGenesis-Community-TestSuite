@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Enter product quantity.</description>
+  <parameter name="row" desc="wishlist row"/>
+  <parameter name="quantity" desc="product quantity"/>
+  <command name="storeEval" target="@{row}+1" value="position"/>
+  <command name="type" target="css=#primary .item-list tbody tr:nth-of-type(${position}) td form fieldset .form-row.option-quantity-desired div input" value="@{quantity}"/>
+</scriptmodule>
