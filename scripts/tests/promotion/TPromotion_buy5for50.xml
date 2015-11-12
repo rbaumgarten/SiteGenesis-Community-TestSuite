@@ -52,6 +52,9 @@ Validate correct funtionality of the promotion
     <parameter name="promoName" value="${promotionName}"/>
     <parameter name="promoPrice" value="${promotionPrice}"/>
   </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${promotionPrice}"/>
+  </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
@@ -72,22 +75,49 @@ Validate correct funtionality of the promotion
     <parameter name="promoName" value="${promotionName}"/>
     <parameter name="promoPrice" value="${subtotal_varDynamic}"/>
   </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
+  </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
     <parameter name="productQuantity" value="10"/>
+  </module>
+  <module name="modules.helper.MHelper_Product_calculateTotalsSubtotal">
+    <parameter name="productPriceSales_01" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity_01" value="0"/>
+    <parameter name="productPriceSales_02" value="${promotionPrice}"/>
+    <parameter name="productQuantity_02" value="2"/>
+    <parameter name="totalsSubtotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <module name="modules.pages.cart.VCart_validateSalesPromotion">
     <parameter name="row" value="1"/>
     <parameter name="promoName" value="${promotionName}"/>
     <parameter name="promoPrice" value="${promotionPriceDoublt}"/>
   </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
+  </module>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
     <parameter name="productQuantity" value="4"/>
   </module>
+  <module name="modules.helper.MHelper_Product_calculateProductPriceTotal">
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity" value="4"/>
+    <parameter name="productPriceTotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
   <module name="modules.pages.cart.VCart_validateNoPromoIsShown">
     <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
   </module>
 </testcase>
