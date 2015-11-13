@@ -20,13 +20,13 @@
 </description>
   <codecomment># Setup
 
-- Create mail
+- Create email
 - Create password
 - Start session
 - Create account
-- Search Product
-- Add Product to WishList
-- Logout</codecomment>
+- Add product to wishlist
+- Logout
+- Start a new session and delete cookies</codecomment>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="email_varDynamic"/>
   </module>
@@ -49,12 +49,12 @@
     <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
     <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
   </module>
-  <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
-  <codecomment># Scope</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession">
     <comment>Start new session and make sure cookies are gone</comment>
   </module>
+  <action name="Logout"/>
+  <codecomment># Scope</codecomment>
   <action name="GoToLogin"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
   <action name="Login"/>
