@@ -35,25 +35,20 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
-    <parameter name="firstname" value="${firstName}"/>
-    <parameter name="lastname" value="${lastName}"/>
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumber}"/>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="1"/>
+    <parameter name="searchText" value="${searchTextProducts_01}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
   </module>
-  <action name="AddToWishList"/>
-  <module name="modules.pages.product.MProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName_varDynamic"/>
-    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
-    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
-  </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
-    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
-  </module>
-  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
   <action name="Logout"/>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
   <codecomment># Scope</codecomment>
@@ -78,10 +73,10 @@
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName_varDynamic}"/>
-    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
-    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
-    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
   <codecomment>Logout</codecomment>
   <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
