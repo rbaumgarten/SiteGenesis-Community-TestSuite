@@ -34,8 +34,8 @@
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
-    <parameter name="firstname" value="${WishListUser_FirstName}"/>
-    <parameter name="lastname" value="${WishListUser_LastName}"/>
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
