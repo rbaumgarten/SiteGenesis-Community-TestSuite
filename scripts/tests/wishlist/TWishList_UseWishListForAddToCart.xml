@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>wishlist,addtocart</tags>
-  <description>Adds a product to the cart from a wishlist
+  <description>Test add product to cart from wishlist.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
 - Create new account
-- Search product
-- add it to the wishlist
-- logout
+- Add product to wishlist
+- Logout
+- Start new session and delete all visible cookies
 
 # 2. Scope of test
 
 - Login
-- Access wishlist
-- add product in wishlist to cart
+- Go to wishlist
+- Add product to cart
+- Validate cart
 - Logout
 </description>
   <codecomment># Setup
