@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>email,external,10minutemail</tags>
   <description>Goes to 10 minute email and fetches the just arrived email to retrieve the gift certificate code.</description>
-  <parameter name="giftcode_var" desc="The gift certificate code retrieved."/>
+  <parameter name="giftcode_varName" desc="The gift certificate code retrieved."/>
   <action name="ReturnToMailer"/>
   <command name="open" value="${emailClientURL}"/>
   <action name="WaitForMail"/>
@@ -12,5 +12,5 @@
   <command name="click" target="css=html body div.container-narrow table#table_dea_messages.table.table-hover.table-bordered tbody tr#msg_1"/>
   <codecomment>There is sometimes a loading screen after opening the message.</codecomment>
   <command name="waitForText" target="css=html body div#modalMessage.modal.hide.fade.in div.modal-body p:last-of-type" value="To redeem your gift certificate*"/>
-  <command name="storeText" target="css=html body div#modalMessage.modal.hide.fade.in div.modal-body p:last-of-type" value="@{giftcode_var}"/>
+  <command name="storeText" target="css=html body div#modalMessage.modal.hide.fade.in div.modal-body p:last-of-type" value="@{giftcode_varName}"/>
 </scriptmodule>

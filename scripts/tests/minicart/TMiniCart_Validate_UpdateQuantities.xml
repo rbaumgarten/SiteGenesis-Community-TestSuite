@@ -65,7 +65,7 @@
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
   <module name="modules.pages.cart.SCart_storeTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="totalsSubtotal_varDynamic"/>
+    <parameter name="totalsSubtotal_varName" value="totalsSubtotal_varDynamic"/>
   </module>
   <codecomment># Scope</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
@@ -132,7 +132,7 @@
     <parameter name="productPriceTotal_varName" value="productPriceTotal_02_varDynamic"/>
   </module>
   <module name="modules.pages.cart.SCart_storeTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="totalsSubtotal_varDynamic"/>
+    <parameter name="totalsSubtotal_varName" value="totalsSubtotal_varDynamic"/>
   </module>
   <codecomment>Mini Cart
 
@@ -177,7 +177,7 @@
     <parameter name="row" value="2"/>
   </module>
   <module name="modules.pages.cart.SCart_storeTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="totalsSubtotal_varDynamic"/>
+    <parameter name="totalsSubtotal_varName" value="totalsSubtotal_varDynamic"/>
   </module>
   <codecomment>Mini Cart
 
