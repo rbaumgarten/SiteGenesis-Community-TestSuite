@@ -41,7 +41,7 @@
   <module name="modules.pages.product.MProduct_clickSizeByPosition">
     <parameter name="productSizePosition" value="3"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeColorAndSize">
+  <module name="modules.pages.product.SProduct_storeColorAndSize">
     <parameter name="productColor_varName" value="productColor"/>
     <parameter name="productSize_varName" value="productSize"/>
   </module>
