@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Clicks on a size refinement by position</description>
+  <parameter name="position"/>
+  <command name="click" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(@{position}) a"/>
+  <command name="waitForClass" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(@{position}) " value="selected"/>
+</scriptmodule>

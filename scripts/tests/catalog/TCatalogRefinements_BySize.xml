@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6"/>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
+  <action name="GoToCategoryPage"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
+    <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
+    <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_validatePage"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Refine price by random position, *Deselect* refinement</codecomment>
+  <action name="RefineSize"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
+    <parameter name="position" value="2"/>
+  </module>
+  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
+    <parameter name="position" value="2"/>
+    <parameter name="size_varName" value="size_varDynamic"/>
+  </module>
+  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductByPosition">
+    <parameter name="MProductPosition" value="1"/>
+  </module>
+  <command name="assertText" target="css=#product-content .product-variations ul li.attribute .value ul.size li.selectable a[title='Select Size: ${size_varDynamic}']" value="${size_varDynamic}"/>
+</testcase>
