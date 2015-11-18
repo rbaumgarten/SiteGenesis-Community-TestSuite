@@ -18,8 +18,11 @@
     <parameter name="position" value="2"/>
     <parameter name="size_varName" value="size_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductByPosition">
-    <parameter name="MProductPosition" value="1"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
+    <parameter name="position" value="1"/>
   </module>
-  <command name="assertText" target="css=#product-content .product-variations ul li.attribute .value ul.size li.selectable a[title='Select Size: ${size_varDynamic}']" value="${size_varDynamic}"/>
+  <module name="modules.pages.product.VProduct_verifySizeIsPresent">
+    <parameter name="size" value="${size_varDynamic}"/>
+  </module>
+  <action name="RefineSize"/>
 </testcase>

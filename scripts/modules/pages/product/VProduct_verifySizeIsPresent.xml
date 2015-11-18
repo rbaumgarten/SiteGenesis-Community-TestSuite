@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="size"/>
+  <command name="assertText" target="css=#product-content .product-variations ul li.attribute .value ul.size li.selectable a[title='Select Size: @{size}']" value="@{size}"/>
+</scriptmodule>
