@@ -70,13 +70,13 @@ The following steps explain what needs to be done to execute the test suite via 
 #### Usage
 - Navigate to the base directory of the test suite on the command line.
 - Start the test suite by calling "ant test". This will compile and execute all Java based test cases.
-- Start a single test case by calling "ant test -Dtestcase=[name]". You can also specify the full name such as **tests.account.TAccountLogin** or parts of the name, such as **TAccount***. This will include all matching test cases. 
+- Start a single test case by calling "ant test -Dtestcase=[name]". You can also specify the full name such as **tests.account.TAccountLogin** or parts of the name, such as **TAccount***. This will include all matching test cases.
 - Start test cases with different WebDriver than specified in your properties by adding "-Dwebdriver=[name]" to the command line. Make sure the path to the driver is specified in your properties or via the command line (needed for non-Firefox). Typical names for WebDrivers are `firefox`, `chrome`, and `ie`. See the property `xlt.webDriver`for more information.
 - To run your test cases in parallel, just add "-Dparallel=[count]". The count parameter identifies the number of parallel instances. Do not overload your machine. One browser per physical core (not hyperthreaded code) is normally enough. The test cases will be automatically distributed.
 
 ### XLT Framework for Grunt or Gulp based Execution
 
-The following steps explain how you can execute the test suite using grunt or gulp. 
+The following steps explain how you can execute the test suite using grunt or gulp.
 
 #### Prerequisites
 
@@ -114,7 +114,7 @@ This test suite features several SiteGenesis version branches. The __master__ is
 
 ### General
 
-We have already build a __foundation__ of over __200 modules__ structured in over __30 packages__. Our __test set__ consists of over __20 tests__ based on empirical knowledge from our daily business projects. The aim is to cover standard functions of the shop system. This means all tests have to cover a wide variety of different test pathes. The modules can be used as building bricks to enlarge the current test set quickly.
+We have already build a __foundation__ of over __250 modules__ structured in over __40 packages__. Our __test set__ consists of over __30 tests__ based on empirical knowledge from our daily business projects. The aim is to cover standard functions of the shop system. This means all tests have to cover a wide variety of different test pathes. The modules can be used as building bricks to enlarge the current test set quickly.
 
     .
     |-- config                             # XLT framework configuration
@@ -141,14 +141,14 @@ We have already build a __foundation__ of over __200 modules__ structured in ove
     |       \-- search                     # tests for search area
     |-- src
     |   |-- tests                          # XLT java wrapper classes
-	|       \-- others                     # other sample tests
+    |       \-- others                     # other sample tests
     |-- build.properties                   # XLT ant build properties
     |-- build.xml                          # XLT ant build configuration
     |-- xlt-scriptdeveloper.properties     # XLT Script Developer settings
     \-- global_testdata.properties         # global testdata properties
 
-Please note that there is a special folder src/others to collect java based test examples e.g. testing via RemoteWebDriver against [Sauce Labs](https://saucelabs.com/).
-	
+Please note that there is a special folder src/tests/others to collect java based test examples e.g. testing via RemoteWebDriver against [Sauce Labs](https://saucelabs.com/).
+
 ### Packages
 
 __Packages__ form the main structure of the test suite (project tree). Each package may consist of other sub packages (layers) and contains test cases (named `tests.subpackage`), script modules (named `modules.subpackage`) or optional Java modules. The file system implements them as folders.
@@ -159,13 +159,13 @@ A __Test Case__ or short __Test__ (named `T...`) simulates a shop visit of a cus
 
 ### Modules
 
-A __Script Module__ or short __Module__ (named `M...`), contains actions, commands and comments. Most modules interact with elements of a specific webpage. Thus it makes sense to structured them by their according pages. Each module can be reused by different tests.
+A __Script Module__ or short __Module__ (named `M...`), contains actions, commands and comments. Most modules interact with elements of a specific webpage. Thus it makes sense to structure them by their according pages. Each module can be reused by different tests.
 
 __Validation Modules__ (named `V...`): Validation of webpage elements and dynamic data is a very essential part of testing. Hence these special modules evaluate that a needed fit criterion is met (mostly via assertions).
 
 __Flow Modules__ (named `F...`): Some modules mimic more sophisticated shopping behaviors by interacting with several pages in a flow. The achieved specific goal at the end of the process is of most importance (in contrast to the taken singular steps). Flows often reuse other modules and allow a compact test structure. Examples: Add a basic product to cart; Create a new customer; Add an address to a customer; Check order status in order history.
 
-There are also several __global modules__ for interactions with elements in header, footer or nav (placed in `modules.global`) and some __helper modules__ for converting text, generating random values and other auxiliaries (placed in `modules.helper`).
+There are also several __global modules__ for interactions with elements in header, footer or navigation (placed in `modules.global`) and some __helper modules__ for converting text, generating random values and other auxiliaries (placed in `modules.helper`).
 
 ### Test Data
 
