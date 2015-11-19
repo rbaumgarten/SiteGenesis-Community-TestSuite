@@ -106,7 +106,7 @@ The following steps explain how you can execute the test suite using grunt or gu
 
 ## Test Suite Structure
 
-This section gives a small introduction to the test suite structure. Please visit the generated [ScriptDoc](http://xceptance.github.io/SiteGenesis-Community-TestSuite/scriptdoc/index.html) for extended information on test data, packages, test cases and modules. The provided [Guide](https://github.com/dataduke/xlt-testsuite-documentation/blob/gh-pages/GUIDE.md) delivers conventions for test suite namings, instructions for test suite development, examples of test suite commands and links to additional resources. All planned features are publicly tracked as [GitHub issues](https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues). Feel free to add feature requests!
+This section gives a small introduction to the test suite structure. Please visit the generated [ScriptDoc](http://xceptance.github.io/SiteGenesis-Community-TestSuite/scriptdoc/index.html) for extended information on test data, packages, test cases and modules. The provided [Guide](GUIDE.md) delivers conventions for test suite namings, instructions for test suite development, examples of test suite commands and links to additional resources. All planned features are publicly tracked as [GitHub issues](https://github.com/Xceptance/SiteGenesis-Community-TestSuite/issues). Feel free to add feature requests!
 
 ### Branches
 
