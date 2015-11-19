@@ -11,18 +11,80 @@
   <codecomment># Scope</codecomment>
   <codecomment>## Refine price by random position, *Deselect* refinement</codecomment>
   <action name="RefineSize"/>
+  <codecomment>counting the elements in the size refinement</codecomment>
+  <command name="storeXpathCount" target="id('secondary')/div[4]/ul/li" value="sizeCount"/>
+  <codecomment>creating a random number</codecomment>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${sizeCount}"/>
+    <parameter name="number_varName" value="position_varDynamic"/>
+  </module>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="2"/>
+    <parameter name="position" value="${position_varDynamic}"/>
   </module>
   <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="2"/>
+    <parameter name="position" value="${position_varDynamic}"/>
     <parameter name="size_varName" value="size_varDynamic"/>
   </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${size_varDynamic}"/>
+  </module>
+  <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="1"/>
   </module>
   <module name="modules.pages.product.VProduct_verifySizeIsPresent">
     <parameter name="size" value="${size_varDynamic}"/>
   </module>
+  <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
+  <action name="DeleteRefinment"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
+    <parameter name="position" value="${position_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
+  <action name="DeleteRefinment"/>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${sizeCount}"/>
+    <parameter name="number_varName" value="positionFirst_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${sizeCount}"/>
+    <parameter name="number_varName" value="positionSecond_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${sizeCount}"/>
+    <parameter name="number_varName" value="positionThird_varDynamic"/>
+  </module>
   <action name="RefineSize"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
+    <parameter name="position" value="${refinementPositonFirst}"/>
+  </module>
+  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
+    <parameter name="position" value="${refinementPositonFirst}"/>
+    <parameter name="size_varName" value="sizeFirst_varDynamic"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${refinementPositonFirst}"/>
+  </module>
+  <action name="RefineSize"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
+    <parameter name="position" value="${refinementPositonSecond}"/>
+  </module>
+  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
+    <parameter name="position" value="${refinementPositionSecond}"/>
+    <parameter name="size_varName" value="sizeSecond_varDynamic"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${sizeSecond_varDynamic}"/>
+  </module>
+  <action name="RefineSize"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
+    <parameter name="position" value="${position_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
+    <parameter name="position" value="${positionThird_varDynamic}"/>
+    <parameter name="size_varName" value="sizeThird_varDynamic"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="${sizeThird_varDynamic}"/>
+  </module>
 </testcase>

@@ -63,7 +63,7 @@
     <parameter name="breadcrumbText_varName" value="breadcrumbText"/>
   </module>
   <module name="modules.helper.SHelper_CurrentURL">
-    <parameter name="currentURL" value="url"/>
+    <parameter name="currentURL_varName" value="url"/>
   </module>
   <codecomment>Destroy the state of the session and come back</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>

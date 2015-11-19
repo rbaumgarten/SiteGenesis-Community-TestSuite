@@ -2,4 +2,7 @@
 <data xmlns="http://xlt.xceptance.com/xlt-script-data">
   <positionCategoryLevel1>3</positionCategoryLevel1>
   <positionCategoryLevel2>3</positionCategoryLevel2>
+  <refinementPositionFirst>3</refinementPositionFirst>
+  <refinementPositionSecond>5</refinementPositionSecond>
+  <refinementPostionThrid>8</refinementPostionThrid>
 </data>
