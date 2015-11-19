@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies the functionality of an buy5for50 promotion.
+  <description>Verifies the functionality of a buy5for50 promotion.
 
 # Setup
-Open the site and remove cookies
-Put four promotion product in cart
-Validate that no promotion is shown
+- Open the homepage and remove cookies
+- Put four promotion products into the cart
+- Validate that no promotion is shown
 
 #  Scope
 Validate correct funtionality of the promotion
 
-- change quanitiy to five
-- validate that promotion is shown correct
-- change quanitiy to six
-- validate that promotion is shown correct 
-- change quanitiy to ten
-- validate that promotion is shown correct
-- change quanitiy back to 4
+- change quantity to five
+- validate that promotion is shown correctly
+- change quantity to six
+- validate that promotion is shown correctly
+- change quantity to ten
+- validate that promotion is shown correctly
+- change quantity back to 4
 - validate that no promotion is shown</description>
   <codecomment># Setup
 
@@ -41,7 +41,7 @@ Validate correct funtionality of the promotion
     <parameter name="row" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>Change Quantitiy so that Promotion will be shown</codecomment>
+  <codecomment>Change quantity to five so that promotion will be shown</codecomment>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
@@ -55,6 +55,7 @@ Validate correct funtionality of the promotion
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${promotionPrice}"/>
   </module>
+  <codecomment>Change quantity to six so that promotion is still shown</codecomment>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
@@ -78,6 +79,7 @@ Validate correct funtionality of the promotion
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
   </module>
+  <codecomment>Change quantity to ten so that promotion will be shown</codecomment>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
@@ -101,6 +103,7 @@ Validate correct funtionality of the promotion
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
     <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
   </module>
+  <codecomment>Change quantity to four so that no promotion will be shown</codecomment>
   <action name="updateQuantity"/>
   <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
     <parameter name="row" value="1"/>
