@@ -12,8 +12,9 @@
   <codecomment>counting the elements in the size refinement</codecomment>
   <command name="storeXpathCount" target="id('secondary')/div[4]/ul/li" value="sizeCount"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## Refine price by random position, *Deselect* refinement</codecomment>
-  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <codecomment>## validat that no size is selected</codecomment>
+  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <codecomment>## choose random refinement, validate it on QV and delete it</codecomment>
   <action name="RefineSize"/>
   <codecomment>creating a random number</codecomment>
   <module name="modules.helper.MHelper_Random_createNumber">
@@ -31,8 +32,13 @@
     <parameter name="title" value="${sizeRandom_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
+  <command name="storeXpathCount" target="//*[@id=&quot;search-result-items&quot;]/li/div[@class=&quot;product-tile&quot;]" value="itemsPerPage"/>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${itemsPerPage}"/>
+    <parameter name="number_varName" value="randomProduct_varDynamic"/>
+  </module>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="1"/>
+    <parameter name="position" value="${randomProduct_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_verifySizeIsPresent">
     <parameter name="size" value="${sizeRandom_varDynamic}"/>
@@ -42,11 +48,12 @@
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
     <parameter name="position" value="${positionRandom_varDynamic}"/>
   </module>
-  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
-  <codecomment>##Caution
+  <codecomment>###Caution
 while the position of the breadcrumb is unclear, this part of the test is runned with fixed parameters
 the parameters are stored in the test datas</codecomment>
+  <codecomment>## Choose three different size refinements, and validate them on a random QV( PDP isn't possible because refinements weren't stored)</codecomment>
   <action name="RefineSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
     <parameter name="position" value="${refinementPositionFirst}"/>
@@ -84,8 +91,15 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="value" value="${sizeThird_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
+  <module name="tests.catalog.SCatalog_storeItemsPerPage">
+    <parameter name="itemsPerPage_varName" value="itemsPerPage_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${itemsPerPage_varDynamic}"/>
+    <parameter name="number_varName" value="randomProduct_varDynamic"/>
+  </module>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="1"/>
+    <parameter name="position" value="${randomProduct_varDynamic}"/>
   </module>
   <module name="modules.pages.product.VProduct_verifySizeIsPresent">
     <parameter name="size" value="${sizeFirst_varDynamic}"/>
@@ -97,9 +111,11 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="size" value="${sizeThird_varDynamic}"/>
   </module>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
+  <codecomment>## delete all size refinements by clicking on Clear</codecomment>
   <action name="ClearSize"/>
-  <module name="tests.catalog.MCatalog_clickClearSizeRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_clickClearSizeRefinement"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
+  <codecomment>## select a new refinement to delete it by breadcrumb</codecomment>
   <action name="RefineSize"/>
   <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${sizeCount}"/>
@@ -120,6 +136,6 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="position" value="1"/>
     <parameter name="breadcrumbRefinementValueCount" value="0"/>
   </module>
-  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
 </testcase>

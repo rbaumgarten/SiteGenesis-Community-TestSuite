@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <parameter name="itemsPerPage_varName"/>
+  <command name="storeXpathCount" target="//*[@id=&quot;search-result-items&quot;]/li/div[@class=&quot;product-tile&quot;]" value="@{itemsPerPage_varName}"/>
+</scriptmodule>
