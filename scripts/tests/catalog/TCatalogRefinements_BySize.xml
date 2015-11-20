@@ -62,7 +62,7 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="position" value="${refinementPositionFirst}"/>
     <parameter name="size_varName" value="sizeFirst_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinements_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="value" value="${sizeFirst_varDynamic}"/>
   </module>
@@ -74,7 +74,7 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="position" value="${refinementPositionSecond}"/>
     <parameter name="size_varName" value="sizeSecond_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinements_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="value" value="${sizeSecond_varDynamic}"/>
   </module>
@@ -86,7 +86,7 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="position" value="${refinementPostionThird}"/>
     <parameter name="size_varName" value="sizeThird_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinements_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
     <parameter name="position" value=":nth-of-type(3)"/>
     <parameter name="value" value="${sizeThird_varDynamic}"/>
   </module>
