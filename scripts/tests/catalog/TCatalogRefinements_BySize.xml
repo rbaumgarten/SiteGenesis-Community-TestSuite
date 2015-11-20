@@ -13,6 +13,7 @@
   <command name="storeXpathCount" target="id('secondary')/div[4]/ul/li" value="sizeCount"/>
   <codecomment># Scope</codecomment>
   <codecomment>## Refine price by random position, *Deselect* refinement</codecomment>
+  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
   <action name="RefineSize"/>
   <codecomment>creating a random number</codecomment>
   <module name="modules.helper.MHelper_Random_createNumber">
@@ -41,6 +42,7 @@
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
     <parameter name="position" value="${positionRandom_varDynamic}"/>
   </module>
+  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
   <codecomment>##Caution
 while the position of the breadcrumb is unclear, this part of the test is runned with fixed parameters
@@ -96,8 +98,8 @@ the parameters are stored in the test datas</codecomment>
   </module>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
   <action name="ClearSize"/>
-  <command name="click" target="css=#secondary.refinements .refinement.size .clear-refinement a"/>
-  <command name="waitForNotElementPresent" target="css=#main .breadcrumb .breadcrumb-refinement"/>
+  <module name="tests.catalog.MCatalog_clickClearSizeRefinement"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
   <action name="RefineSize"/>
   <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${sizeCount}"/>
@@ -114,6 +116,10 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="title" value="${sizeRandom_varDynamic}"/>
   </module>
   <action name="DeleteRefinement"/>
-  <command name="click" target="css=#main .breadcrumb span.breadcrumb-refinement span.breadcrumb-refinement-value a.breadcrumb-relax"/>
-  <command name="waitForNotElementPresent" target="css=#main .breadcrumb .breadcrumb-refinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterByPosition">
+    <parameter name="position" value="1"/>
+    <parameter name="breadcrumbRefinementValueCount" value="0"/>
+  </module>
+  <module name="tests.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
 </testcase>
