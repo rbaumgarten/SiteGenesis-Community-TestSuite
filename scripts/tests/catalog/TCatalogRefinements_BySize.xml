@@ -13,7 +13,7 @@
   <command name="storeXpathCount" target="id('secondary')/div[4]/ul/li" value="sizeCount"/>
   <codecomment># Scope</codecomment>
   <codecomment>## validat that no size is selected</codecomment>
-  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalalog_Refinement_validateNoSizeRefinementIsSelected"/>
   <codecomment>## choose random refinement, validate it on QV and delete it</codecomment>
   <action name="RefineSize"/>
   <codecomment>creating a random number</codecomment>
@@ -48,7 +48,7 @@
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
     <parameter name="position" value="${positionRandom_varDynamic}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalalog_Refinement_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
   <codecomment>###Caution
 while the position of the breadcrumb is unclear, this part of the test is runned with fixed parameters
@@ -136,6 +136,6 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="position" value="1"/>
     <parameter name="breadcrumbRefinementValueCount" value="0"/>
   </module>
-  <module name="modules.pages.catalog.VCatalalog_validateNoSizeRefinementIsSelected"/>
+  <module name="modules.pages.catalog.VCatalalog_Refinement_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
 </testcase>
