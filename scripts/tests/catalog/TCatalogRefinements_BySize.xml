@@ -91,7 +91,7 @@ the parameters are stored in the test datas</codecomment>
     <parameter name="value" value="${sizeThird_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
-  <module name="tests.catalog.SCatalog_storeItemsPerPage">
+  <module name="modules.pages.catalog.SCatalog_storeItemsPerPage">
     <parameter name="itemsPerPage_varName" value="itemsPerPage_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_Random_createNumber">
@@ -113,7 +113,7 @@ the parameters are stored in the test datas</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
   <codecomment>## delete all size refinements by clicking on Clear</codecomment>
   <action name="ClearSize"/>
-  <module name="modules.pages.catalog.MCatalog_clickClearSizeRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickClearSizeRefinement"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
   <codecomment>## select a new refinement to delete it by breadcrumb</codecomment>
   <action name="RefineSize"/>
