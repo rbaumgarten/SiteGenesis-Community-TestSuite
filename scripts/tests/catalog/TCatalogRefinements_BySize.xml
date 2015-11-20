@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Test select, remove and clear color refinement on catalog page.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Browse to category
+- store number of size refinements
+
+# 2. Scope of test
+
+- Select, validate and remove size randomly by position
+- Select three sizes by position
+- Remove three sizes clear
+- Validate empty size list
+- Validate empty refinement list in breadcrumbs
+- Select one Size randomly
+- Remove one size by breadcrumb</description>
   <codecomment># Setup</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
