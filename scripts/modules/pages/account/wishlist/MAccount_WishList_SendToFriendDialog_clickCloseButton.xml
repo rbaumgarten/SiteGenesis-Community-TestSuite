@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the send to friend button from the sendtofriend dialog</description>
-  <command name="click" target="css=#send-to-friend-dialog button.close-button"/>
-  <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
-</scriptmodule>

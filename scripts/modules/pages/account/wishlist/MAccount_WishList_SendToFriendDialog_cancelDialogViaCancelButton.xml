@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the cancel button from the send to friend dialog</description>
-  <command name="click" target="css=#send-to-friend-main fieldset div button.cancel"/>
-  <command name="waitForNotVisible" target="id=send-to-friend-dialog"/>
-</scriptmodule>
