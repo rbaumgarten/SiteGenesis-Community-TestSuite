@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Test open shared private/public wishlist url.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create account for wishlist owner
+- Add product to owners wishlist
+
+# 2. Scope
+
+- Share and store wishlist url
+- Start new session and open wishlist url
+- Validate private wishlist is NOT shown
+- Make wishlist public
+- Start new session and open wishlist url
+- Validate public wishlist is shown
+</description>
+  <codecomment># Setup
+
+- Start session
+- Create account for wishlist owner
+- Add product to owners wishlist</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Create account for wishlist owner</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountAddRandomness">
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
+    <parameter name="firstname_varName" value="wishlistOwner_fristname_varDynamic"/>
+    <parameter name="lastname_varName" value="wishlistOwner_lastname_varDynamic"/>
+    <parameter name="email_varName" value="wishlistOwner_email_varDynamic"/>
+    <parameter name="password_varName" value="wishlistOwner_password_varDynamic"/>
+  </module>
+  <codecomment>Add product to owners wishlist</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistOwner_password_varDynamic}"/>
+  </module>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="1"/>
+    <parameter name="searchText" value="${searchTextProducts_01}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment># Scope</codecomment>
+  <codecomment>Share and store wishlist link</codecomment>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_shareWishListLink">
+    <parameter name="wishListLink_varName" value="wishListLink_varDynamic"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Start new session, open wishlist url</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSessionAndOpenURL">
+    <parameter name="url" value="${wishListLink_varDynamic}"/>
+  </module>
+  <codecomment>Validate shared private wishlist is empty</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSharedListIsEmpty">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Make wishlist public</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistOwner_password_varDynamic}"/>
+  </module>
+  <action name="GoToWishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Start new session, open wishlist url</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSessionAndOpenURL">
+    <parameter name="url" value="${wishListLink_varDynamic}"/>
+  </module>
+  <codecomment>Validate shared public wishlist row</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+</testcase>
