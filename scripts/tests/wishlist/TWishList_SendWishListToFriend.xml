@@ -17,46 +17,80 @@
 - and open wishlist link with make list public</description>
   <codecomment># Setup
 
+- Start session
+- Create accounts for wishlist owner and searcher
+- Add products to owners wishlist
+- Logout</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Create accounts for wishlist owner and searcher</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountAddRandomness">
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
+    <parameter name="firstname_varName" value="wishlistOwner_fristname_varDynamic"/>
+    <parameter name="lastname_varName" value="wishlistOwner_lastname_varDynamic"/>
+    <parameter name="email_varName" value="wishlistOwner_email_varDynamic"/>
+    <parameter name="password_varName" value="wishlistOwner_password_varDynamic"/>
+  </module>
+  <codecomment>Add product to owners wishlist</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistOwner_password_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+  </module>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="1"/>
+    <parameter name="searchText" value="${searchTextProducts_01}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
+  </module>
+  <codecomment># Setup
+
 - Create mail for User and Searcher
 - Create password for User and Searcher
 - Start session
 - Create account
 - add product to wishlist</codecomment>
-  <module name="modules.helper.MHelper_Random_createPassword">
+  <module name="modules.helper.MHelper_Random_createPassword" disabled="true">
     <parameter name="password_varName" value="password_sender"/>
   </module>
-  <module name="modules.helper.MHelper_Random_createEmail">
+  <module name="modules.helper.MHelper_Random_createEmail" disabled="true">
     <parameter name="email_varName" value="email_sender"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
     <parameter name="inputString" value="${firstName_sender}"/>
     <parameter name="returned_varString" value="firstName_sender"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
+  <module name="modules.helper.MHelper_Random_addRandomness" disabled="true">
     <parameter name="inputString" value="${lastName_sender}"/>
     <parameter name="returned_varString" value="lastName_sender"/>
   </module>
-  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout">
+  <module name="modules.helper.FHelper_Session_flowToStartSession" disabled="true"/>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountWithoutLogout" disabled="true">
     <parameter name="firstname" value="${firstName_sender}"/>
     <parameter name="lastname" value="${lastName_sender}"/>
     <parameter name="email" value="${email_sender}"/>
     <parameter name="password" value="${password_sender}"/>
   </module>
-  <action name="Search"/>
-  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+  <action name="Search" disabled="true"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit" disabled="true">
     <parameter name="searchText" value="${productNumber}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.MProduct_storeBasicData" disabled="true">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPriceSales"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
+  <module name="modules.pages.product.MProduct_storeQuantity" disabled="true">
     <parameter name="productQuantity_varName" value="productQuantity"/>
   </module>
-  <action name="AddToWishList"/>
-  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="AddToWishList" disabled="true"/>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist" disabled="true"/>
   <codecomment># Scope</codecomment>
   <codecomment>## WishList
 
