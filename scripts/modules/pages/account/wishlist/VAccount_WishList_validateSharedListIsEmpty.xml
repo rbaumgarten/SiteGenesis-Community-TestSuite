@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>verifies wishlist page for a private wishlist</description>
+  <description>Validate wishlist page for private wishlist is empty.</description>
+  <parameter name="firstname" desc="firstname"/>
+  <parameter name="lastname" desc="lastname"/>
   <command name="assertText" target="css=#primary h1" value="glob:Find Someone's Wish List:"/>
   <codecomment>....</codecomment>
   <command name="assertText" target="css=#dwfrm_wishlist_search.wishlist-search fieldset div:nth-of-type(1) label span" value="Last Name"/>
@@ -12,6 +14,11 @@
   <codecomment>....</codecomment>
   <command name="assertElementPresent" target="css=#dwfrm_wishlist_search.wishlist-search fieldset div.form-row.form-row-button button"/>
   <codecomment>....</codecomment>
-  <command name="assertText" target="css=#dwfrm_wishlist_share.list-share h2.list-title" value="${FirstName} ${LastName} 'S WISH LIST"/>
+  <command name="storeEval" target="&quot;@{firstname}&quot;.toUpperCase()" value="firstnameUpperCase"/>
+  <command name="storeEval" target="&quot;@{lastname}&quot;.toUpperCase()" value="lastnameUpperCase"/>
+  <command name="assertText" target="css=#dwfrm_wishlist_share.list-share h2.list-title" value="${firstnameUpperCase} ${lastnameUpperCase} 'S WISH LIST"/>
   <command name="assertElementPresent" target="css=#dwfrm_wishlist_share.list-share button.print-page"/>
+  <codecomment>....</codecomment>
+  <codecomment>check no item list is visible</codecomment>
+  <command name="assertNotVisible" target="css= .item-list tr"/>
 </scriptmodule>
