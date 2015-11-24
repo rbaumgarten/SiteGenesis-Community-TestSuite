@@ -3,12 +3,12 @@
   <tags>wishlist</tags>
   <description>Test add and remove product in wishlist.
 
-# Setup and preparation
+# 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
 - Create new account
 
-# Scope
+# 2. Scope of test
 
 ## Product Detail Page:
 - Search product
