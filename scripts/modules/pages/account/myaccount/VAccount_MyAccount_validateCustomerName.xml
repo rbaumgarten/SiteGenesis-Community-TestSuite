@@ -3,5 +3,5 @@
   <description>Validate customer name on MyAccount page.</description>
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
-  <command name="waitForText" target="css=#primary h1" value="*My Account |*@{firstname}*@{lastname}*"/>
+  <command name="assertText" target="css=#primary h1" value="*My Account |*@{firstname}*@{lastname}*"/>
 </scriptmodule>
