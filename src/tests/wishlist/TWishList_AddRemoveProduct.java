@@ -7,24 +7,33 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test adding a product to a wishlist.</p>
+ * <p>Test add and remove product in wishlist.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
  * <li>Create new account</li>
- * <li>Search product 01</li>
  * </ul>
  * <h1 id="2-scope-of-test">2. Scope of test</h1>
+ * <h2 id="product-detail-page-">Product Detail Page:</h2>
  * <ul>
+ * <li>Search product</li>
+ * <li>Open product detail page randomly</li>
+ * <li>Enter quantity</li>
  * <li>Store product details and add to wishlist</li>
  * <li>Login</li>
- * <li>Validate nav and page</li>
- * <li>Add product to wishlist</li>
- * <li>Validate product basic details</li>
+ * <li>Validate wishlist</li>
  * <li>Remove product </li>
- * <li>Validate empty</li>
- * <li>do it again for QV</li>
- * <li>log out</li>
+ * <li>Validate empty wishlist</li>
+ * </ul>
+ * <h2 id="quickview-">Quickview:</h2>
+ * <ul>
+ * <li>Search product</li>
+ * <li>Open quickview randomly</li>
+ * <li>Store product details and add to wishlist</li>
+ * <li>Validate wishlist</li>
+ * <li>Remove product </li>
+ * <li>Validate empty wishlist</li>
+ * <li>Logout</li>
  * </ul>
  */
 @ScriptName

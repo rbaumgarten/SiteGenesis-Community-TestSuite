@@ -14,7 +14,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Create account for wishlist owner</li>
  * <li>Add product to owners wishlist</li>
  * </ul>
- * <h1 id="2-scope">2. Scope</h1>
+ * <h1 id="2-scope-of-test">2. Scope of test</h1>
  * <ul>
  * <li>Share and store wishlist url</li>
  * <li>Start new session and open wishlist url</li>
