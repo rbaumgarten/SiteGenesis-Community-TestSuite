@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>QV,Quickview</tags>
+  <description>Click on the QV button via random product position.</description>
+  <command name="storeXpathCount" target="id('search-result-items')/li" value="productCount"/>
+  <module name="modules.helper.MHelper_Random_createNumber">
+    <parameter name="numberMax" value="${productCount}"/>
+    <parameter name="number_varName" value="productRandomPosition"/>
+  </module>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
+    <parameter name="position" value="${productRandomPosition}"/>
+  </module>
+</scriptmodule>
