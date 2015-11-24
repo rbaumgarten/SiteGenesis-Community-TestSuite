@@ -58,7 +58,7 @@
     <parameter name="searchText" value="${searchTextProducts_04}"/>
   </module>
   <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandomly"/>
-  <module name="modules.pages.product.MProduct_enterQuantity">
+  <module name="modules.pages.product.MProduct_enterQuantity" disabled="true">
     <parameter name="productQuantity" value="${productQuantity}"/>
   </module>
   <action name="AddToWishList"/>
