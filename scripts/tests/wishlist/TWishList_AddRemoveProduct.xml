@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>wishlist</tags>
-  <description>Test adding a product to a wishlist.
+  <description>Test add and remove product in wishlist.
 
-# 1. Setup and preparation
+# Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
 - Create new account
-- Search product 01
 
-# 2. Scope of test
+# Scope
 
+## Product Detail Page:
+- Search product
+- Open product detail page randomly
+- Enter quantity
 - Store product details and add to wishlist
 - Login
-- Validate nav and page
-- Add product to wishlist
-- Validate product basic details
+- Validate wishlist
 - Remove product 
-- Validate empty
-- do it again for QV
-- log out</description>
+- Validate empty wishlist
+
+## Quickview:
+- Search product
+- Open quickview randomly
+- Store product details and add to wishlist
+- Validate wishlist
+- Remove product 
+- Validate empty wishlist
+- Logout</description>
   <codecomment># Setup
 
 - Create mail
