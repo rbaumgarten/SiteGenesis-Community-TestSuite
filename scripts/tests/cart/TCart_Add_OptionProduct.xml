@@ -51,7 +51,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <command name="waitForNotVisible" target="id=pdpMain"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
@@ -73,21 +73,21 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="totalsSubtotal" value="${productPriceSubTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
-  <action name="DeleteQVProduct"/>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
-  <action name="SerchProductviaStoredProductNumber"/>
+  <action name="SearchProduct"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber_varDynamic}"/>
   </module>
-  <action name="AddProductToCartPDP"/>
+  <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <action name="GoToCartAfterQV"/>
+  <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
