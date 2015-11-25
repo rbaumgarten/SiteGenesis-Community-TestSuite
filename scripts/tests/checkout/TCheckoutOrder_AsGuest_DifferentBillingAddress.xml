@@ -128,12 +128,14 @@ Note: This test is prepared as data driven test. Running it as junit test will e
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">
     <parameter name="positon" value="${shippingMethod_position}"/>
   </module>
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateShippingMethod">
+    <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
+  </module>
   <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateTotalsPricePattern">
     <comment>Price pattern validation before store values, because tax was recalculated based on shipping address.</comment>
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals">
-    <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
+  <module name="modules.pages.checkout.steps.boxes.SCheckout_BoxOrderSummary_storeTotals">
     <parameter name="totalsShipping_varName" value="totalsShipping_varDynamic"/>
     <parameter name="totalsSalesTax_varName" value="totalsSalesTax_varDynamic"/>
     <parameter name="totalsTotal_varName" value="totalsTotal_varDynamic"/>
@@ -334,7 +336,7 @@ Note: This test is prepared as data driven test. Running it as junit test will e
     <parameter name="productColor" value="${productColor_varDynamic}"/>
     <parameter name="productSize" value="${productSize_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation">
+  <module name="modules.pages.checkout.steps.confirmation.SCheckout_Confirmation_storeOrderInformation">
     <parameter name="orderNumber_varName" value="orderNumber_varDynamic"/>
     <parameter name="orderDate_varName" value="orderDate_varDynamic"/>
   </module>

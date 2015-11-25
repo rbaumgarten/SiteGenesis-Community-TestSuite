@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Tests adding a product bundle from quickview and product detail pages to the cart.</p>
+ * <p>Test add product bundle to cart from quickview and product detail page.</p>
  * <h1 id="setup">Setup</h1>
  * <ul>
  * <li>open the session</li>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>validatedes the price of an option on the cart overview page</description>
+  <description>Validate row with product option price.</description>
   <parameter name="row"/>
   <parameter name="optionPrice"/>
   <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-total .price-option .label" value="glob:Option:*"/>

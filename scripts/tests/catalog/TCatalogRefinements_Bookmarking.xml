@@ -56,25 +56,25 @@
     <parameter name="pageNumber" value="${pageNumber}"/>
   </module>
   <module name="modules.pages.catalog.SCatalog_ProductListingPage_State">
-    <parameter name="pageNumber" value="pageNumber"/>
-    <parameter name="sorting" value="sorting"/>
-    <parameter name="pageSize" value="pageSize"/>
-    <parameter name="displayedPagingText" value="displayedPagingText"/>
-    <parameter name="breadcrumbText" value="breadcrumbText"/>
+    <parameter name="pageNumber_varName" value="pageNumber_varDynamic"/>
+    <parameter name="sorting_varName" value="sorting_varDynamic"/>
+    <parameter name="pageSize_varName" value="pageSize_varDynamic"/>
+    <parameter name="displayedPagingText_varName" value="displayedPagingText_varDynamic"/>
+    <parameter name="breadcrumbText_varName" value="breadcrumbText_varDynamic"/>
   </module>
   <module name="modules.helper.SHelper_CurrentURL">
-    <parameter name="currentURL" value="url"/>
+    <parameter name="currentURL_varName" value="currentURL_varDynamic"/>
   </module>
   <codecomment>Destroy the state of the session and come back</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <action name="ReopenProductListingPage"/>
-  <command name="open" value="${url}"/>
-  <command name="waitForText" target="css=#primary .pagination .results-hits" value="${displayedPagingText}"/>
+  <command name="open" value="${currentURL_varDynamic}"/>
+  <command name="waitForText" target="css=#primary .pagination .results-hits" value="${displayedPagingText_varDynamic}"/>
   <module name="modules.pages.catalog.VCatalog_ProductListingPage_State">
-    <parameter name="pageNumber" value="${pageNumber}"/>
-    <parameter name="sorting" value="${sorting}"/>
-    <parameter name="pageSize" value="${pageSize}"/>
-    <parameter name="displayedPagingText" value="${displayedPagingText}"/>
-    <parameter name="breadcrumbText" value="${breadcrumbText}"/>
+    <parameter name="pageNumber" value="${pageNumber_varDynamic}"/>
+    <parameter name="sorting" value="${sorting_varDynamic}"/>
+    <parameter name="pageSize" value="${pageSize_varDynamic}"/>
+    <parameter name="displayedPagingText" value="${displayedPagingText_varDynamic}"/>
+    <parameter name="breadcrumbText" value="${breadcrumbText_varDynamic}"/>
   </module>
 </testcase>

@@ -30,7 +30,7 @@
     <parameter name="position" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
@@ -38,7 +38,7 @@
   <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <codecomment>Quickview becomes invisible after add to cart</codecomment>
-  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <module name="modules.pages.product.productquickview.VProductQV_Invisible"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>qv</tags>
+  <description>Validates that quickview is invisible.</description>
+  <command name="waitForNotVisible" target="id=pdpMain"/>
+</scriptmodule>

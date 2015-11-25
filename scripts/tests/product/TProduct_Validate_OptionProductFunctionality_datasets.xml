@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-sets>
+	<data-set>
+		<!-- data from the original data set is here too, because we want to execute it with
+			ANT as well -->
+		<searchPhrase>Console</searchPhrase>	
+		<productOption>[$0.00] None</productOption>
+    </data-set>
+    <data-set>
+	    <searchPhrase>Console</searchPhrase> 
+	    <productOption>[$9.99] 1 Year Warranty</productOption>
+	</data-set>
+	<data-set>
+	    <searchPhrase>Console</searchPhrase>
+	    <productOption>[$19.99] 3 Year Warranty</productOption>
+	</data-set>
+	<data-set>
+	    <searchPhrase>Console</searchPhrase>
+	    <productOption>[$29.99] 5 Year Warranty</productOption>
+	</data-set>  
+</data-sets>  

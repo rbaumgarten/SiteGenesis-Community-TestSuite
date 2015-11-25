@@ -35,12 +35,12 @@
   <module name="modules.pages.product.MProduct_enterQuantity">
     <parameter name="productQuantity" value="@{productQuantity}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="@{productName_varName}"/>
     <parameter name="productNumber_varName" value="@{productNumber_varName}"/>
     <parameter name="productPriceSales_varName" value="@{productPriceSales_varName}"/>
   </module>
-  <module name="modules.pages.product.MProduct_storeQuantity">
+  <module name="modules.pages.product.SProduct_storeQuantity">
     <parameter name="productQuantity_varName" value="@{productQuantity_varName}"/>
   </module>
   <action name="AddToCart"/>
