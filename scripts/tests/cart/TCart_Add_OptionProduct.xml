@@ -34,11 +34,12 @@
     <parameter name="title" value="${productContainTitle}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>## Cart
-
-Validate Add 2 Cart from QV and PDP and check if the same product is added
-- First add a product from QV and verify that the QV will be set to inviseble after clicking add to cart
-- Second add product from PDP and verify if the same product in cart is shown</codecomment>
+  <codecomment>## Quickview
+- select option
+- add to cart 
+- open cart
+- validate product details and calculated subtotal
+- remove from cart</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
@@ -48,7 +49,6 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="productPriceSales_varName" value="productPrice_varDynamic"/>
   </module>
   <action name="AddToCart"/>
-  <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
   <command name="waitForNotVisible" target="id=pdpMain"/>
   <action name="ViewCart"/>
@@ -78,6 +78,12 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
+  <codecomment>## PDP
+- search product
+- select option
+- add to cart 
+- open cart
+- validate product details and calculated subtotal</codecomment>
   <action name="SearchProduct"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${productNumber_varDynamic}"/>
