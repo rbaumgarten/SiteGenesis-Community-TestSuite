@@ -6,11 +6,11 @@
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Search for Mario to get a standart product</codecomment>
-  <action name="SearchForStandartProduct"/>
+  <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
-  <action name="GoToQuickView"/>
+  <action name="ProductQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${productContainTitle}"/>
   </module>
