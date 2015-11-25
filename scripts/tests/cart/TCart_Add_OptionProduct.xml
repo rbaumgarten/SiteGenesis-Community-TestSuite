@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test adds a Option Product with selected Option to the cart from QV and PDP</description>
+  <description>Test add option product to cart from QV and PDP.
+
+# Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Search products
+- Open option product quickview
+
+# Scope
+
+- Select option and store product details
+- Add product to cart
+- Go to cart
+- Validate product details and calculated subtotal (product price + option price)
+- Remove product
+- Search same product using stored product number
+- Select option
+- Add product to cart
+- Go to cart
+- Validate product details and calculated subtotal (product price + option price)
+</description>
   <codecomment># Setup
 
 - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Search for Mario to get a standart product</codecomment>
   <action name="SearchProducts"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
