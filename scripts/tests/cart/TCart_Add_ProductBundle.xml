@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Tests adding a product bundle from quickview and product detail pages to the cart.
+  <description>Test add product bundle to cart from quickview and product detail page.
 
 # Setup
 
@@ -23,7 +23,7 @@
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
     <parameter name="searchText" value="${searchPhrase}"/>
   </module>
-  <codecomment>Go to QV of the first Game</codecomment>
+  <codecomment>Go to QV of product bundle</codecomment>
   <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="2"/>
@@ -36,7 +36,7 @@ Caution: The product should have at least 5 elements</codecomment>
   <command name="storeText" target="css=.product-set form div:nth-of-type(3) div.product-set-details h1.product-name a.item-name" value="thirdProductName"/>
   <command name="storeText" target="css=.product-set form div:nth-of-type(4) div.product-set-details h1.product-name a.item-name" value="fourthProductName"/>
   <command name="storeText" target="css=.product-set form div:nth-of-type(5) div.product-set-details h1.product-name a.item-name" value="fifthProductName"/>
-  <module name="modules.pages.product.MProduct_storeBasicData">
+  <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName"/>
     <parameter name="productNumber_varName" value="productNumber"/>
     <parameter name="productPriceSales_varName" value="productPrice"/>
@@ -44,7 +44,7 @@ Caution: The product should have at least 5 elements</codecomment>
   <action name="AddToCart"/>
   <codecomment>After clicking the Add to Cart Button the QV should become invisible</codecomment>
   <module name="modules.pages.product.MProduct_clickAddToCart"/>
-  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <module name="modules.pages.product.productquickview.VProductQV_Invisible"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">

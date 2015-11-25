@@ -7,16 +7,20 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Verifies the functionality of option products on quickview (QV) and product details pages (PDP) . This is basically interaction with the option boxes in comparison to the other test that is more layout.</p>
- * <h1 id="setup">Setup</h1>
- * <p>Open the site and remove cookies</p>
- * <h1 id="scope">Scope</h1>
- * <p>Validate correct funtionality of the option field </p>
+ * <p>Verifies functionality of option products on quickview and product details pages. </p>
+ * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
- * <li>validate funtionality on QV</li>
- * <li>go to pdp</li>
- * <li>validate funtionality on PDP</li>
+ * <li>start session, open homepage and delete all visible cookies</li>
+ * <li>search products</li>
  * </ul>
+ * <h1 id="2-scope-of-test">2. Scope of test</h1>
+ * <ul>
+ * <li>open quickview</li>
+ * <li>select option</li>
+ * <li>open product detail page (Note: No option will be preselected there)</li>
+ * <li>select option</li>
+ * </ul>
+ * <p>Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file.</p>
  */
 @ScriptName
 ("tests.product.TProduct_Validate_OptionProductFunctionality")
