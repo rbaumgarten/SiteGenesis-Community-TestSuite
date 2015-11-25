@@ -24,9 +24,9 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
     <parameter name="selectedLabel" value="${optionName}"/>
   </module>
   <module name="modules.pages.product.SProduct_storeBasicData">
-    <parameter name="productName_varName" value="productName"/>
-    <parameter name="productNumber_varName" value="productNumber"/>
-    <parameter name="productPriceSales_varName" value="productPrice"/>
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPrice_varDynamic"/>
   </module>
   <action name="AddToCart"/>
   <codecomment>After clicking the Add to Cart Button the QV should be invisble</codecomment>
@@ -36,22 +36,22 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName}"/>
-    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${productPrice}"/>
+    <parameter name="productPriceSales" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
   <module name="modules.helper.MHelper_Price_addPriceToPrice">
-    <parameter name="price_1" value="${productPrice}"/>
+    <parameter name="price_1" value="${productPrice_varDynamic}"/>
     <parameter name="price_2" value="${optionPrice}"/>
-    <parameter name="sum_varName" value="productPriceSubTotal"/>
+    <parameter name="sum_varName" value="productPriceSubTotal_varDynamic"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+    <parameter name="totalsSubtotal" value="${productPriceSubTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <action name="DeleteQVProduct"/>
@@ -61,7 +61,7 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
   <action name="SerchProductviaStoredProductNumber"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumber}"/>
+    <parameter name="searchText" value="${productNumber_varDynamic}"/>
   </module>
   <action name="AddProductToCartPDP"/>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
@@ -72,22 +72,22 @@ Validate Add 2 Cart from QV and PDP and check if the same product is added
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${productName}"/>
-    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${productPrice}"/>
+    <parameter name="productPriceSales" value="${productPrice_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateOptionPrice">
     <parameter name="row" value="1"/>
     <parameter name="optionPrice" value="${optionPrice}"/>
   </module>
   <module name="modules.helper.MHelper_Price_addPriceToPrice">
-    <parameter name="price_1" value="${productPrice}"/>
+    <parameter name="price_1" value="${productPrice_varDynamic}"/>
     <parameter name="price_2" value="${optionPrice}"/>
-    <parameter name="sum_varName" value="productPriceSubTotal"/>
+    <parameter name="sum_varName" value="productPriceSubTotal_varDynamic"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
-    <parameter name="totalsSubtotal" value="${productPriceSubTotal}"/>
+    <parameter name="totalsSubtotal" value="${productPriceSubTotal_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
 </testcase>
