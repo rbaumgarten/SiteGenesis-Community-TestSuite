@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <parameter name="messageNumber"/>
-  <parameter name="email"/>
-  <parameter name="messageText"/>
-  <command name="assertElementPresent" target="css=#@{messageNumber}"/>
-  <command name="assertText" target="css=#@{messageNumber} td:nth-of-type(2)" value="@{email}"/>
-  <command name="assertText" target="css=#@{messageNumber} td:nth-of-type(3)" value="@{messageText}"/>
-</scriptmodule>
