@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>QV,Quickview</tags>
-  <description>Click on the QV button of a product via product title
+  <description>Click on the QV button of a product via product title. It selects a product CONTAINING the input parameter word 'title'.
 
-The title often matches the name</description>
+Note: The title often matches the product name.</description>
   <parameter name="title" desc="tilte of the product in catalog"/>
-  <command name="mouseOver" target="css=#search-result-items a[title='@{title}']"/>
+  <command name="mouseOver" target="css=#search-result-items a[title*='@{title}']">
+    <comment>Please note, that the target selects an element with a title attribute CONTAINING the word 'title'. </comment>
+  </command>
   <command name="click" target="id=quickviewbutton"/>
   <command name="waitForElementPresent" target="id=pdpMain"/>
 </scriptmodule>

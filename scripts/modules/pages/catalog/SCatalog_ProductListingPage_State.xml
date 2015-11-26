@@ -2,14 +2,14 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>save,productlisting</tags>
   <description>Saves all state data of a product listing page.</description>
-  <parameter name="pageNumber" desc="The page number selected in the pagination"/>
-  <parameter name="sorting" desc="The current active sorting"/>
-  <parameter name="pageSize" desc="The currently set page size"/>
-  <parameter name="displayedPagingText" desc="The text that shows which part of the product listing we show"/>
-  <parameter name="breadcrumbText" desc="The full breadcrumb as text"/>
-  <command name="storeText" target="css=#primary .sort-by option[selected]" value="sorting"/>
-  <command name="storeText" target="css=#primary .items-per-page option[selected]" value="pageSize"/>
-  <command name="storeText" target="css=#main .breadcrumb" value="breadcrumbText"/>
-  <command name="storeText" target="css=#primary .pagination .results-hits" value="displayedPagingText"/>
-  <command name="storeText" target="css=#primary .pagination .current-page" value="pageNumber"/>
+  <parameter name="pageNumber_varName" desc="The page number selected in the pagination"/>
+  <parameter name="sorting_varName" desc="The current active sorting"/>
+  <parameter name="pageSize_varName" desc="The currently set page size"/>
+  <parameter name="displayedPagingText_varName" desc="The text that shows which part of the product listing we show"/>
+  <parameter name="breadcrumbText_varName" desc="The full breadcrumb as text"/>
+  <command name="storeText" target="css=#primary .sort-by option[selected]" value="@{sorting_varName}"/>
+  <command name="storeText" target="css=#primary .items-per-page option[selected]" value="@{pageSize_varName}"/>
+  <command name="storeText" target="css=#main .breadcrumb" value="@{breadcrumbText_varName}"/>
+  <command name="storeText" target="css=#primary .pagination .results-hits" value="@{displayedPagingText_varName}"/>
+  <command name="storeText" target="css=#primary .pagination .current-page" value="@{pageNumber_varName}"/>
 </scriptmodule>

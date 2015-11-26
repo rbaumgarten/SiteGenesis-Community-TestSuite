@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Verifies the functionality of a buy5for50 promotion.
+
+# Setup
+- Open the homepage and remove cookies
+- Put four promotion products into the cart
+- Validate that no promotion is shown
+
+#  Scope
+Validate correct funtionality of the promotion
+
+- change quantity to five
+- validate that promotion is shown correctly
+- change quantity to six
+- validate that promotion is shown correctly
+- change quantity to ten
+- validate that promotion is shown correctly
+- change quantity back to 4
+- validate that no promotion is shown</description>
+  <codecomment># Setup
+
+- Start Session
+- Add option product to cart
+- Go to cart
+- Validate no option selected</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Add promotion product to cart</codecomment>
+  <module name="modules.pages.search.FSearch_flowToAddProductToCart">
+    <parameter name="cartRow" value="1"/>
+    <parameter name="productNumber" value="${productNumber}"/>
+    <parameter name="productQuantity" value="${productQuantity}"/>
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+    <parameter name="productPriceTotal_varName" value="productPriceTotal_varDynamic"/>
+  </module>
+  <codecomment>Validate that the promotion price is not shown</codecomment>
+  <module name="modules.pages.cart.VCart_validateNoPromoIsShown">
+    <parameter name="row" value="1"/>
+  </module>
+  <codecomment># Scope</codecomment>
+  <codecomment>Change quantity to five so that promotion will be shown</codecomment>
+  <action name="updateQuantity"/>
+  <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
+    <parameter name="row" value="1"/>
+    <parameter name="productQuantity" value="5"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateSalesPromotion">
+    <parameter name="row" value="1"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${promotionPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${promotionPrice}"/>
+  </module>
+  <codecomment>Change quantity to six so that promotion is still shown</codecomment>
+  <action name="updateQuantity"/>
+  <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
+    <parameter name="row" value="1"/>
+    <parameter name="productQuantity" value="6"/>
+  </module>
+  <module name="modules.helper.MHelper_Product_calculateTotalsSubtotal">
+    <parameter name="productPriceSales_01" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity_01" value="1"/>
+    <parameter name="productPriceSales_02" value="${promotionPrice}"/>
+    <parameter name="productQuantity_02" value="1"/>
+    <parameter name="totalsSubtotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateSalesPromotion">
+    <parameter name="row" value="1"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${subtotal_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
+  </module>
+  <codecomment>Change quantity to ten so that promotion will be shown</codecomment>
+  <action name="updateQuantity"/>
+  <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
+    <parameter name="row" value="1"/>
+    <parameter name="productQuantity" value="10"/>
+  </module>
+  <module name="modules.helper.MHelper_Product_calculateTotalsSubtotal">
+    <parameter name="productPriceSales_01" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity_01" value="0"/>
+    <parameter name="productPriceSales_02" value="${promotionPrice}"/>
+    <parameter name="productQuantity_02" value="2"/>
+    <parameter name="totalsSubtotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateSalesPromotion">
+    <parameter name="row" value="1"/>
+    <parameter name="promoName" value="${promotionName}"/>
+    <parameter name="promoPrice" value="${promotionPriceDoublt}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
+  </module>
+  <codecomment>Change quantity to four so that no promotion will be shown</codecomment>
+  <action name="updateQuantity"/>
+  <module name="modules.pages.cart.MCart_Row_enterUpdateProductQuantity">
+    <parameter name="row" value="1"/>
+    <parameter name="productQuantity" value="4"/>
+  </module>
+  <module name="modules.helper.MHelper_Product_calculateProductPriceTotal">
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+    <parameter name="productQuantity" value="4"/>
+    <parameter name="productPriceTotal_varName" value="subtotal_varDynamic"/>
+    <parameter name="priceCurrency" value="${storefront_priceCurrency}"/>
+    <parameter name="priceDecimalMark" value="${storefront_priceDecimalMark}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validateNoPromoIsShown">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.cart.VCart_validatePageTotalsSubtotal">
+    <parameter name="totalsSubtotal" value="${subtotal_varDynamic}"/>
+  </module>
+</testcase>

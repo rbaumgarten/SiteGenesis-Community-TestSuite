@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>smoke</tags>
+  <description>Test select, deselect, clear price and remove refinement on catalog page.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Navigate to category page
+
+# 2. Scope of test
+
+- Select price refinement by random position
+- Validate shown products fit into selected price range
+- *Deselect* price refinement 
+
+
+- Change items per page by random position
+- Select price refinement by random position
+- Validate shown products fit into selected price range
+- *Clear* price refinement
+
+
+- Change items per page by random position
+- Select price refinement by random position
+- Validate shown products fit into selected price range
+- *Remove* price refinement via breadcrumb
+</description>
+  <codecomment># Setup
+
+- Start session</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
+  <action name="GoToCategoryPage"/>
+  <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
+    <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
+    <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_validatePage"/>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Refine price by random position, *Deselect* refinement</codecomment>
+  <action name="RefinePriceRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByPositionRandom">
+    <parameter name="priceRange_varName" value="priceRange_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_PriceRange_extractBoundaries">
+    <parameter name="priceRange" value="${priceRange_varDynamic}"/>
+    <parameter name="lowerBoundary_varName" value="lowerBoundary_varDynamic"/>
+    <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${priceRange_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_ProductListingPage_validatePriceRange">
+    <parameter name="lowerBoundary" value="${lowerBoundary_varDynamic}"/>
+    <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <action name="DeselectRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinements_removeSelectedPrice"/>
+  <codecomment>## Change page, refine price by random position, *Clear* price refinement</codecomment>
+  <action name="SelectPageRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
+    <parameter name="itemsPerPageLabel_varName" value="itemsPerPageLabel_varDynamic"/>
+  </module>
+  <action name="RefinePriceRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByPositionRandom">
+    <parameter name="priceRange_varName" value="priceRange_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_PriceRange_extractBoundaries">
+    <parameter name="priceRange" value="${priceRange_varDynamic}"/>
+    <parameter name="lowerBoundary_varName" value="lowerBoundary_varDynamic"/>
+    <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${priceRange_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_ProductListingPage_validatePriceRange">
+    <parameter name="lowerBoundary" value="${lowerBoundary_varDynamic}"/>
+    <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <action name="ClearPriceRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinements_clearPriceRefinement"/>
+  <codecomment>## Change page, refine price by random position, *Remove* price refinement via breadcrumb</codecomment>
+  <action name="SelectPageRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
+    <parameter name="itemsPerPageLabel_varName" value="itemsPerPageLabel_varDynamic"/>
+  </module>
+  <action name="RefinePriceRandomly"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickPriceByPositionRandom">
+    <parameter name="priceRange_varName" value="priceRange_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_PriceRange_extractBoundaries">
+    <parameter name="priceRange" value="${priceRange_varDynamic}"/>
+    <parameter name="lowerBoundary_varName" value="lowerBoundary_varDynamic"/>
+    <parameter name="upperBoundary_varName" value="upperBoundary_varDynamic"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${priceRange_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_ProductListingPage_validatePriceRange">
+    <parameter name="lowerBoundary" value="${lowerBoundary_varDynamic}"/>
+    <parameter name="upperBoundary" value="${upperBoundary_varDynamic}"/>
+    <parameter name="substringBeforeLowerBoundary" value="${storefront_priceCurrency}"/>
+    <parameter name="substringBeforeUpperBoundary" value="${storefront_priceRangeSeparators}"/>
+    <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
+  </module>
+  <action name="RemoveFilterViaBreadcrumb"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterByPosition">
+    <parameter name="position" value="1"/>
+    <parameter name="breadcrumbRefinementValueCount" value="0"/>
+  </module>
+</testcase>

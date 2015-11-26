@@ -22,10 +22,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Validate empty color list</li>
  * <li>Validate empty refinement list in breadcrumbs</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  */
 @ScriptName
 ("tests.catalog.TCatalogRefinements_ByColor")

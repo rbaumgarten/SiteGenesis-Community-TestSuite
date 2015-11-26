@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Cut of the first charakters of a stored ItemNumber when item number is not clean available eg a product of a product set</description>
+  <description>Cut of the first characters of a stored product number. This is necessary when the item number is not clean e.g. when it was stored from a product set page.</description>
   <parameter name="productNumber"/>
   <parameter name="fixedProductNumber_varName"/>
   <command name="storeEval" target="&quot;@{productNumber}&quot;.substring(6)" value="@{fixedProductNumber_varName}"/>
