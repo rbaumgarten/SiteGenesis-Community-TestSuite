@@ -48,7 +48,7 @@ Notes:
   <codecomment>Sort by price high to low and validate order</codecomment>
   <action name="SelectSortByPriceHighToLow"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
-    <parameter name="sortByLabel" value="Price High To Low"/>
+    <parameter name="sortByLabel" value="Price High to Low"/>
   </module>
   <module name="modules.pages.catalog.JCatalog_ProductListingPage_validateSortBy">
     <parameter name="xpath" value="${xpathProductGridPrices}"/>
