@@ -83,7 +83,7 @@
     <parameter name="totalsQuantity" value="3"/>
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <action name="VIewMiniCart"/>
+  <action name="ViewMiniCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_hoverBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBody"/>
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodyProduct">
@@ -101,9 +101,7 @@
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <module name="modules.global.minicart.VGlobal_MiniCart_Invisible">
-    <comment>Make sure the minicart is closed.</comment>
-  </module>
+  <module name="modules.global.minicart.MGlobal_MiniCart_hoverOutBody"/>
   <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>## Product 01 and 02 - Change quantities</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
@@ -162,9 +160,7 @@
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <module name="modules.global.minicart.VGlobal_MiniCart_Invisible">
-    <comment>Make sure the minicart is closed before going into the other activites. It might hover over other elements otherwise and break clicking.</comment>
-  </module>
+  <module name="modules.global.minicart.MGlobal_MiniCart_hoverOutBody"/>
   <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>Product 01 and 02 - Remove and resort rows</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
@@ -200,9 +196,7 @@
   <module name="modules.global.minicart.VGlobal_MiniCart_validateBodySubtotal">
     <parameter name="totalsSubtotal" value="${totalsSubtotal_varDynamic}"/>
   </module>
-  <module name="modules.global.minicart.VGlobal_MiniCart_Invisible">
-    <comment>Make sure the minicart is closed.</comment>
-  </module>
+  <module name="modules.global.minicart.MGlobal_MiniCart_hoverOutBody"/>
   <codecomment>Cart
 
 - Remove product 01
