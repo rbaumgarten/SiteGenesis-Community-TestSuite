@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click create new address.</description>
-  <command name="click" target="css=#primary #addresses .section-header a.address-create"/>
+  <command name="click" target="css=#primary #addresses .address-create.button"/>
   <command name="waitForVisible" target="css=#dialog-container #edit-address-form">
     <comment>The overlay with the form should appear. This is async JavaScript triggered, hence we have to wait until we see it.</comment>
   </command>

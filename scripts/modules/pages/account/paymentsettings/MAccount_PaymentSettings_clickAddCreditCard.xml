@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click add credit card on payment settings page.</description>
-  <command name="waitForElementPresent" target="css=#primary .section-header a.add-card"/>
+  <command name="waitForElementPresent" target="css=#primary .add-card.button"/>
   <module name="modules.helper.MHelper_WaitFor_DOMState"/>
-  <command name="click" target="css=#primary .section-header a.add-card"/>
+  <command name="click" target="css=#primary .add-card.button"/>
+  <command name="waitForText" target="css=#dialog-container h1" value="*Add Credit Card*"/>
 </scriptmodule>

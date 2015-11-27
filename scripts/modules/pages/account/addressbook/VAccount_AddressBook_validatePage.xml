@@ -2,6 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validate address book page.</description>
   <command name="assertText" target="css=#primary #addresses h1" value="Addresses"/>
-  <command name="assertText" target="css=#primary #addresses .section-header" value="ADDRESSES*"/>
-  <command name="assertText" target="css=#primary #addresses .section-header a.address-create" value="Create New Address"/>
+  <command name="assertText" target="css= #addresses .address-create.button" value="Create New Address "/>
+  <command name="assertText" disabled="true" target="css=#primary #addresses .section-header" value="ADDRESSES*"/>
+  <command name="assertAttribute" disabled="true" target="css=#primary #addresses a@title" value="Create New Address"/>
 </scriptmodule>

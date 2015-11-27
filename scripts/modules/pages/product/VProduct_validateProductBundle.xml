@@ -14,21 +14,21 @@
   <codecomment>First Product</codecomment>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-name"/>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .availability"/>
+  <command name="assertElementPresent" disabled="true" target="css=#product-set-list div:first-of-type .product-set-details .availability"/>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details .attribute"/>
   <codecomment>Second Product</codecomment>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .product-name"/>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2).product-set-details .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .availability"/>
+  <command name="assertElementPresent" disabled="true" target="css=#product-set-list div:nth-of-type(2) .product-set-details .availability"/>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-set-details .attribute"/>
   <codecomment>Third Product</codecomment>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .product-name"/>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .availability"/>
+  <command name="assertElementPresent" disabled="true" target="css=#product-set-list div:nth-of-type(3) .product-set-details .availability"/>
   <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-set-details .attribute"/>
   <codecomment>Forth Product</codecomment>
   <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .product-name"/>
   <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .availability"/>
+  <command name="assertElementPresent" disabled="true" target="css=#product-set-list div:last-of-type .product-set-details .availability"/>
   <command name="assertElementPresent" target="css=#product-set-list div:last-of-type .product-set-details .attribute"/>
 </scriptmodule>
