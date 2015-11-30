@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click share wishlist and store link.</description>
+  <parameter name="wishListLink_varName" desc="wishlist link as var name"/>
+  <action name="ClickShareWishList"/>
+  <command name="click" target="css=.share-options .share-icon.share-link i.fa.fa-link"/>
+  <command name="waitForElementPresent" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active"/>
+  <command name="storeText" target="css=#dwfrm_wishlist_share.list-share div.share-link-content.active a" value="@{wishListLink_varName}"/>
+</scriptmodule>

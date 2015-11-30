@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Flow to start session and open url.
+
+- Start with open browser tab
+- Open homepage
+- Delete cookies
+- Open homepage
+- Open url
+- End on url-page</description>
+  <parameter name="url" desc="url"/>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <action name="OpenURL"/>
+  <command name="open" value="@{url}"/>
+</scriptmodule>
