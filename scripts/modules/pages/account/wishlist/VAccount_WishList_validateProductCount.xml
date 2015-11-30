@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate expected number of products on wishlist</description>
+  <parameter name="expectedProductCount" desc="expected number of products on wishlist"/>
+  <command name="assertXpathCount" target="//*[@id='primary']/table[contains(@class,'item-list')]//td[contains(@class,'item-image')]" value="1"/>
+</scriptmodule>

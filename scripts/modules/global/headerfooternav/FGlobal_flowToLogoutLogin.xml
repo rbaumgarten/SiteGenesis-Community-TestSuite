@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Flow to logout and login again.
+
+- Logout
+- Delete all visible cookies
+- Login again
+- End on account page</description>
+  <parameter name="email" desc="email"/>
+  <parameter name="password" desc="password"/>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>Delete cookies in current context</codecomment>
+  <command name="deleteAllVisibleCookies"/>
+  <codecomment>Login again</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogin"/>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="@{email}"/>
+    <parameter name="password" value="@{password}"/>
+  </module>
+</scriptmodule>

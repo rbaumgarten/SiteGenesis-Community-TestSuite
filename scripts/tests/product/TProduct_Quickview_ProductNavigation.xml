@@ -1,121 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>qv,quickview,navigation</tags>
-  <description>Validates product navigation on quickview
+  <description>Verifies product navigation on quickview
 
-# Setup
-Open the site and remove cookies
+# 1. Setup and preparation
 
-#  Scope
-Validate the previous and next functionality of the quickview
+- start session, open homepage and delete all visible cookies
+- search products
+- refine by color
+- sort by randomly
 
-- open first product
-- browse to last product, while saving the product names of the seen products
-- browse back to first product and verify if the saved product names are seen again
+# 2. Scope of test
+- store some product positions and names used for validation of navigation
+- open quickview for first product
+- navigate to next quickview product
 - close quickview
-- reopen the last product and verify the product name
-- close quickview again</description>
+- open quickview for last product
+- navigate to previous product
+</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Mens/Accessories/Luggage</codecomment>
-  <action name="CategoryLevel1"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
-    <parameter name="nameLevel1" value="${NavigationCategoryLevel1}"/>
+  <action name="SearchProducts"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchText}"/>
   </module>
-  <action name="CategoryLevel2"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
-    <parameter name="nameLevel2" value="${NavigationCategoryLevel2}"/>
+  <action name="RefineColorByLabel"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickColorByLabel">
+    <parameter name="colorLabel" value="${colorLabel}"/>
+    <parameter name="breadcrumbRefinementValueCount" value="1"/>
   </module>
-  <action name="CategoryLevel3"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
-    <parameter name="nameLevel3" value="${NavigationCategoryLevel3}"/>
+  <action name="SelectSortByViaRandom"/>
+  <module name="modules.pages.catalog.MCatalog_Option_selectSortByRandomly">
+    <parameter name="sortByLabel_varName" value="sortByLabel_random"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Product Navigation on Quickview
-
-- open first product quickview
-- browse to the last product and save product names using next button
-- browse back to the first product and verify the stored product names
-- close Quickview
-- open last Product and verify stored name
-- close Quickview again</codecomment>
-  <codecomment>### Caution
-Test data requirement: The 3rd Level Category must have exactly four products.</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <action name="OpenQuickViewForFirstProduct"/>
+  <codecomment>store product positions of last and before last from search result items</codecomment>
+  <command name="storeElementCount" target="css=#search-result-items .grid-tile" value="positionLastProduct_varDynamic"/>
+  <command name="storeEval" target="${positionLastProduct_varDynamic}-1" value="positionLastBeforeProduct_varDynamic"/>
+  <codecomment>store product names of first, second, last and before last</codecomment>
+  <command name="storeText" target="css=#search-result-items .grid-tile:nth-of-type(1) .product-name" value="productNameFirst_varDynamic"/>
+  <command name="storeText" target="css=#search-result-items .grid-tile:nth-of-type(2) .product-name" value="productNameSecond_varDynamic"/>
+  <command name="storeText" target="css=#search-result-items .grid-tile:nth-of-type(${positionLastProduct_varDynamic}) .product-name" value="productNameLast_varDynamic"/>
+  <command name="storeText" target="css=#search-result-items .grid-tile:nth-of-type(${positionLastBeforeProduct_varDynamic}) .product-name" value="productNameLastBefore_varDynamic"/>
+  <action name="ProductQuickView"/>
+  <codecomment>open quickview first product, validate name and button states</codecomment>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
     <parameter name="position" value="1"/>
   </module>
-  <codecomment>--------------------------------</codecomment>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${productNameFirst_varDynamic}"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value="[disabled='disabled']"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
-  <command name="storeText" target="css=#pdpMain .product-name" value="firstProductName"/>
-  <action name="OpenSecondProduct"/>
+  <action name="ProductQuickViewNext"/>
+  <codecomment>navigate to next quickview product, validate name and button states</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${firstProductName}"/>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${productNameSecond_varDynamic}"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value=":not([disabled])"/>
   </module>
-  <command name="storeText" target="css=#pdpMain .product-name" value="secondProductName"/>
-  <action name="OpenThirdProduct"/>
-  <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${secondProductName}"/>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
-  </module>
-  <command name="storeText" target="css=#pdpMain .product-name" value="thirdProductName"/>
-  <action name="OpenLastProduct"/>
-  <module name="modules.pages.product.productquickview.MProductQV_clickNext"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForNotText" target="css=#pdpMain .product-name" value="${thirdProductName}"/>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value="[disabled='disabled']"/>
-  </module>
-  <command name="storeText" target="css=#pdpMain .product-name" value="lastProductName"/>
-  <action name="OpenThirdProductAgain"/>
-  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForText" target="css=#pdpMain .product-name" value="${thirdProductName}"/>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
-  </module>
-  <action name="OpenSecondProductAgain"/>
-  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForText" target="css=#pdpMain .product-name" value="${secondProductName}"/>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
-  </module>
-  <action name="OpenFirstProductAgain"/>
-  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForText" target="css=#pdpMain .product-name" value="${firstProductName}"/>
-  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value="[disabled='disabled']"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
-  </module>
-  <action name="CloseQuickView"/>
+  <action name="ProductQuickViewClose"/>
+  <codecomment>close quickview</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
-  <action name="OpenQuickViewFromLastProduct"/>
+  <action name="ProductQuickView"/>
+  <codecomment>open quickview last product, validate name and button states</codecomment>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="4"/>
+    <parameter name="position" value="${positionLastProduct_varDynamic}"/>
   </module>
-  <codecomment>--------------------------------</codecomment>
-  <command name="waitForText" target="css=#pdpMain .product-name" value="${lastProductName}"/>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${productNameLast_varDynamic}"/>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
     <parameter name="prevButtonState" value=":not([disabled])"/>
     <parameter name="nextButtonState" value="[disabled='disabled']"/>
   </module>
-  <action name="CloseQuickViewAgain"/>
-  <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
+  <action name="ProductQuickViewPrevious"/>
+  <codecomment>open quickview previous product, validate name and button states</codecomment>
+  <module name="modules.pages.product.productquickview.MProductQV_clickPrev"/>
+  <command name="waitForText" target="css=#pdpMain .product-name" value="${productNameLastBefore_varDynamic}"/>
+  <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
+    <parameter name="prevButtonState" value=":not([disabled])"/>
+    <parameter name="nextButtonState" value=":not([disabled])"/>
+  </module>
 </testcase>

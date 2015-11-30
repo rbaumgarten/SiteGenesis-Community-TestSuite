@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Hover out mini cart link to ensure that body is closed.</description>
+  <command name="mouseOut" target="css=#mini-cart .mini-cart-total a.mini-cart-link">
+    <comment>Mouse out the mini cart link to make sure that the mini cart will be closed.</comment>
+  </command>
+  <command name="waitForNotVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
+</scriptmodule>

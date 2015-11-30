@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Click on wishlist in user menu.</description>
+  <command name="click" target="css=#navigation ul.menu-utility-user li.user-info div.user-panel div.user-links a[title*='Wish List']"/>
+  <command name="waitForElementPresent" target="id=dwfrm_wishlist_share"/>
+</scriptmodule>

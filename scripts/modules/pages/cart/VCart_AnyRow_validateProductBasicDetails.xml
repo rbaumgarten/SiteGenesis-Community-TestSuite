@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>workaround</tags>
-  <description>Validate any row with product name, number, quantity, price sales. It is a basic validation which should work for all kind of product variations.
-Important difference to VCart_Row_validateProductBasicDetails is that it does not insists on a certain row. It just checks that this is in the cart. Very fuzzy kind of and hence only a workaround for instable test cases.
-
-Row parameter is not used, but stays in to ensure compatibility with  VCart_Row_validateProductBasicDetails.</description>
-  <parameter name="row" desc="row (unused)"/>
+  <description>Validate all rows with product name, number, quantity and price sales. It is a basic validation which should work for all kind of product variations. Important difference to VCart_Row_validateProductBasicDetails is that it does not insists on a certain row. It just checks that the item is in the cart.</description>
   <parameter name="productName" desc="product name"/>
   <parameter name="productNumber" desc="product number"/>
   <parameter name="productQuantity" desc="product quantity"/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validates that in a given row no promotion is shown.</description>
+  <parameter name="row"/>
+  <command name="assertNotElementPresent" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) .item-total .promo-adjustment"/>
+  <command name="assertNotElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) .item-details .product-list-item .promo.first"/>
+</scriptmodule>

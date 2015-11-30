@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate shown sales promotion</description>
+  <parameter name="row"/>
+  <parameter name="promoName"/>
+  <parameter name="promoPrice"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) .item-details div.product-list-item div.promo.first" value="- @{promoName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) td.item-total span.price-unadjusted" value="List Price*"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) td.item-total div.promo-adjustment" value="*@{promoName}"/>
+  <command name="assertText" target="css=#cart-table.item-list tbody tr:nth-of-type(@{row}) td.item-total span.price-adjusted-total" value="Item Total @{promoPrice}"/>
+</scriptmodule>
