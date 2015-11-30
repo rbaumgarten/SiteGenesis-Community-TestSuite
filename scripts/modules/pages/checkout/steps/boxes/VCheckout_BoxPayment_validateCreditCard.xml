@@ -19,7 +19,7 @@
     <parameter name="number" value="@{number}"/>
     <parameter name="numberLastFourDigits_varName" value="numberLastFourDigits"/>
   </module>
-  <command name="assertText" target="${css_box_mini_payment}" value="*${numberLastFourDigits}*"/>
+  <command name="assertText" target="${css_box_mini_payment} .cc-number" value="*${numberLastFourDigits}*"/>
   <codecomment>Validate creditcard date as number format</codecomment>
   <module name="modules.helper.MHelper_Date_convertIntoMonthNumberShort">
     <parameter name="monthName" value="@{month}"/>
@@ -29,6 +29,6 @@
     <parameter name="number" value="${monthNumberShort}"/>
     <parameter name="numberLastTwoDigits_varName" value="monthNumber"/>
   </module>
-  <command name="assertText" target="${css_box_mini_payment}" value="*${monthNumber}.@{year}*"/>
-  <command name="assertText" target="${css_box_mini_payment} div:nth-of-type(2)" value="*@{paymentAmount}*"/>
+  <command name="assertText" target="${css_box_mini_payment} .cc-exp" value="*${monthNumber}.@{year}*"/>
+  <command name="assertText" target="${css_box_mini_payment} div:nth-of-type(6)" value="*@{paymentAmount}*"/>
 </scriptmodule>
