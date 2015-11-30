@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
+  <tags>wishlist</tags>
+  <description>Test search wishlist by name and email.
+
+# 1. Setup and preparation
+
+- Start session, open homepage and delete all visible cookies
+- Create accounts for wishlist owner and searcher
+- Add two products to owners wishlist
+- Logout
+
+# 2. Scope of test
+
+- Verify wishlist is not searchable by default
+- Make wishlist public and one item private
+- Search wishlist by firstname and lastname
+- Search wishlist by email
+
+Notes:
+- Test navigates to the wishlist via account menu, secondary navigation and header user menu.
+- Test is not splitted into more than one case for now, because setup is expensive.
+
+
+ </description>
+  <codecomment># Setup
+
+- Start session
+- Create accounts for wishlist owner and searcher
+- Add products to owners wishlist
+- Logout</codecomment>
+  <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Create accounts for wishlist owner and searcher</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountAddRandomness">
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
+    <parameter name="firstname_varName" value="wishlistOwner_fristname_varDynamic"/>
+    <parameter name="lastname_varName" value="wishlistOwner_lastname_varDynamic"/>
+    <parameter name="email_varName" value="wishlistOwner_email_varDynamic"/>
+    <parameter name="password_varName" value="wishlistOwner_password_varDynamic"/>
+  </module>
+  <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccountAddRandomness">
+    <parameter name="firstname" value="${wishlistSearcher_fristname}"/>
+    <parameter name="lastname" value="${wishlistSearcher_lastname}"/>
+    <parameter name="firstname_varName" value="wishlistSearcher_fristname_varDynamic"/>
+    <parameter name="lastname_varName" value="wishlistSearcher_lastname_varDynamic"/>
+    <parameter name="email_varName" value="wishlistSearcher_email_varDynamic"/>
+    <parameter name="password_varName" value="wishlistSearcher_password_varDynamic"/>
+  </module>
+  <codecomment>Add product to owners wishlist</codecomment>
+  <module name="modules.pages.homepage.FHomepage_flowToLoginAccount">
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistOwner_password_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+  </module>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="1"/>
+    <parameter name="searchText" value="${searchTextProducts_01}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
+  </module>
+  <module name="modules.pages.search.FSearch_flowToAddProductToWishList">
+    <parameter name="wishlistRow" value="2"/>
+    <parameter name="searchText" value="${searchTextProducts_02}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productName_varName" value="productName_02_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_02_varDynamic"/>
+    <parameter name="productQuantity_varName" value="productQuantity_02_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
+  </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment># Scope</codecomment>
+  <codecomment>## Verify wishlist is not searchable by default</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${wishlistSearcher_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistSearcher_password_varDynamic}"/>
+  </module>
+  <codecomment>Go to wishlist via account menu</codecomment>
+  <action name="GoToWishList"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickGoToWishList"/>
+  <action name="SearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResultEmpty">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+  </module>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Make list public and one item private</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistOwner_password_varDynamic}"/>
+  </module>
+  <codecomment>Navigate to owners wishlist via modify link in account secondary navigation</codecomment>
+  <action name="ModifyWishlist"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickModifyWishList"/>
+  <codecomment>Make wishlist public</codecomment>
+  <action name="MakeWishListPublic"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_clickMakeListPublic"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateItemIsPublic">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateItemIsPublic">
+    <parameter name="row" value="2"/>
+  </module>
+  <codecomment>Make one wishlist product private</codecomment>
+  <action name="UpdateWishlistProduct"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickItemPublicCheckbox">
+    <parameter name="row" value="2"/>
+  </module>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickUpdateProduct">
+    <parameter name="row" value="2"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateItemIsPublic">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateItemIsPrivate">
+    <parameter name="row" value="2"/>
+  </module>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Search wishlist by firstname and lastname only</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${wishlistSearcher_email_varDynamic}"/>
+    <parameter name="password" value="${wishlistSearcher_password_varDynamic}"/>
+  </module>
+  <action name="GoToWishList"/>
+  <codecomment>Go to search wishlist via account secondary navigation</codecomment>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickSearchWishList"/>
+  <codecomment>Search owners wishlist by firstname and lastname only</codecomment>
+  <action name="SearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
+    <parameter name="firstname" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname_varDynamic}"/>
+    <parameter name="email" value=""/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastName" value="${wishlistOwner_lastname_varDynamic}"/>
+  </module>
+  <action name="ClickView"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_SearchResults_clickView"/>
+  <codecomment>Verify public item is shown</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+  <codecomment>Verify private item is not shown</codecomment>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateProductCount">
+    <parameter name="expectedProductCount" value="1"/>
+  </module>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>## Search wishlist by email only</codecomment>
+  <codecomment>------------------------------------------------------------</codecomment>
+  <codecomment>Go to wishlist via user in header section</codecomment>
+  <action name="ClickHeaderUser"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <action name="GoToWishList"/>
+  <module name="modules.global.headerfooternav.MGlobal_clickWishListOnUserMenu"/>
+  <codecomment>Search owners wishlist by email only</codecomment>
+  <action name="SearchWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_searchWishList">
+    <parameter name="firstname" value=""/>
+    <parameter name="lastname" value=""/>
+    <parameter name="email" value="${wishlistOwner_email_varDynamic}"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateSearchResult">
+    <parameter name="firstName" value="${wishlistOwner_fristname_varDynamic}"/>
+    <parameter name="lastName" value="${wishlistOwner_lastname_varDynamic}"/>
+  </module>
+  <codecomment>Logout</codecomment>
+  <module name="modules.global.headerfooternav.FGlobal_flowToLogout"/>
+</testcase>

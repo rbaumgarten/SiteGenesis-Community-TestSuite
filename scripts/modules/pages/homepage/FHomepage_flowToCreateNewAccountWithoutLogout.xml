@@ -5,7 +5,6 @@
 - Start on homepage
 - Create account via global register in header
 - Validate profile data
-- Logout via global header link
 - End on homepage</description>
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
@@ -31,12 +30,8 @@
     <parameter name="firstname" value="@{firstname}"/>
     <parameter name="lastname" value="@{lastname}"/>
   </module>
-  <codecomment># Global
-
-- Logout
+  <codecomment>#Global
 - Go to homepage</codecomment>
-  <action name="Logout"/>
-  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
   <action name="GoToHomepage"/>
   <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
 </scriptmodule>
