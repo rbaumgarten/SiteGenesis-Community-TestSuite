@@ -7,7 +7,7 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Test select, deselect, clear price and remove refinement on catalog page.</p>
+ * <p>Test select, deselect, clear and remove price refinement on catalog page.</p>
  * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
  * <li>Start session, open homepage and delete all visible cookies</li>
