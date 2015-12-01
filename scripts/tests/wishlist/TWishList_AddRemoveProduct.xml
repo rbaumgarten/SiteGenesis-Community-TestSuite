@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
-  <tags>smoke</tags>
-  <description>Test add product to wishlist.
+<testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <tags>wishlist</tags>
+  <description>Test add and remove product in wishlist.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
 - Create new account
-- Search product 01
 
 # 2. Scope of test
 
+## Product Detail Page:
+- Search product
+- Open product detail page randomly
+- Enter quantity
 - Store product details and add to wishlist
 - Login
-- Validate nav and page
-- Add product to wishlist
-- Validate product basic details
-- Remove product 01
-- Validate empty
+- Validate wishlist
+- Remove product 
+- Validate empty wishlist
 
-# 3. Clean up
-
-- Logout
-- End session and clean up created cookies</description>
+## Quickview:
+- Search product
+- Open quickview randomly
+- Store product details and add to wishlist
+- Validate wishlist
+- Remove product 
+- Validate empty wishlist
+- Logout</description>
   <codecomment># Setup
 
 - Create mail
@@ -35,20 +40,10 @@
   <module name="modules.helper.MHelper_Random_createPassword">
     <parameter name="password_varName" value="password_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <comment>Give the account first name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${firstname}"/>
-    <parameter name="returned_varString" value="firstname"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_addRandomness">
-    <comment>Give the account last name some extra flavor for test data variation.</comment>
-    <parameter name="inputString" value="${lastname}"/>
-    <parameter name="returned_varString" value="lastname"/>
-  </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <module name="modules.pages.homepage.FHomepage_flowToCreateNewAccount">
-    <parameter name="firstname" value="${firstname}"/>
-    <parameter name="lastname" value="${lastname}"/>
+    <parameter name="firstname" value="${wishlistOwner_fristname}"/>
+    <parameter name="lastname" value="${wishlistOwner_lastname}"/>
     <parameter name="email" value="${email_varDynamic}"/>
     <parameter name="password" value="${password_varDynamic}"/>
   </module>
@@ -60,8 +55,54 @@
 - Add to wishlist</codecomment>
   <action name="Search"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumber}"/>
+    <parameter name="searchText" value="${searchTextProducts_04}"/>
   </module>
+  <module name="modules.pages.catalog.MCatalog_Results_clickGoToProductRandomly"/>
+  <module name="modules.pages.product.MProduct_enterQuantity" disabled="true">
+    <parameter name="productQuantity" value="${productQuantity}"/>
+  </module>
+  <action name="AddToWishList"/>
+  <module name="modules.pages.product.SProduct_storeBasicData">
+    <parameter name="productName_varName" value="productName_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.SProduct_storeQuantity">
+    <parameter name="productQuantity_varName" value="productQuantity_varDynamic"/>
+  </module>
+  <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
+  <action name="Login"/>
+  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
+    <parameter name="email" value="${email_varDynamic}"/>
+    <parameter name="password" value="${password_varDynamic}"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
+    <parameter name="breadcrumbTitle" value="Wish List"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validatePage"/>
+  <module name="modules.pages.account.VAccount_Navigation_validate"/>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_Row_validateProductDetails">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${productName_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_varDynamic}"/>
+    <parameter name="productQuantity" value="${productQuantity_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_varDynamic}"/>
+  </module>
+  <action name="RemoveProductFromWishList"/>
+  <module name="modules.pages.account.wishlist.MAccount_WishList_Row_clickRemoveProduct">
+    <parameter name="row" value="1"/>
+  </module>
+  <module name="modules.pages.account.wishlist.VAccount_WishList_validateListIsEmpty"/>
+  <codecomment>## Catalog
+- goto product</codecomment>
+  <action name="GoToStartPage"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
+  <action name="Search"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchTextProducts_03}"/>
+  </module>
+  <action name="ProductQuickView"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewRandomly"/>
   <module name="modules.pages.product.SProduct_storeBasicData">
     <parameter name="productName_varName" value="productName_varDynamic"/>
     <parameter name="productNumber_varName" value="productNumber_varDynamic"/>
@@ -72,19 +113,6 @@
   </module>
   <action name="AddToWishList"/>
   <module name="modules.pages.product.MProduct_clickAddToWishlist"/>
-  <codecomment>## Wishlist
-
-- Login
-- Validate nav and page
-- Validate product details
-- Remove product
-- Validate empty wishlist</codecomment>
-  <action name="Login"/>
-  <module name="modules.pages.account.login.MAccount_Login_enterClickReturningCustomer">
-    <parameter name="email" value="${email_varDynamic}"/>
-    <parameter name="password" value="${password_varDynamic}"/>
-  </module>
-  <action name="ViewWishList"/>
   <module name="modules.global.headerfooternav.VNavigation_validateBreadcrumbByTitle">
     <parameter name="breadcrumbTitle" value="Wish List"/>
   </module>

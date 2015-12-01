@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>cart,product,add</tags>
-  <description>Tests adding a set product to the cart from quickview and product detail pages.
+  <description>Test add product set to cart from quickview and product detail page.
 
 # Setup
 
@@ -30,129 +30,127 @@
     <parameter name="position" value="1"/>
   </module>
   <codecomment># Scope</codecomment>
-  <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productNumber"/>
-  <codecomment>Store first product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <codecomment>Store product data</codecomment>
+  <command name="storeText" target="css=#pdpMain.pdp-main div.product-col-2.product-set div.product-number span" value="productSetNumber"/>
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="1"/>
-    <parameter name="productName_var" value="firstProductName"/>
-    <parameter name="productNumber_var" value="firstProductNumber"/>
-    <parameter name="productPrice_var" value="firstProductPrice"/>
+    <parameter name="productName_varName" value="productName_01_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_01_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_fixItemNumber">
-    <parameter name="productNumber" value="${firstProductNumber}"/>
-    <parameter name="fixedProductNumber_varName" value="firstProductNumber"/>
-  </module>
-  <codecomment>Store second product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="2"/>
-    <parameter name="productName_var" value="secondProductName"/>
-    <parameter name="productNumber_var" value="secondProductNumber"/>
-    <parameter name="productPrice_var" value="secondProductPrice"/>
+    <parameter name="productName_varName" value="productName_02_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_02_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_02_varDynamic"/>
   </module>
-  <module name="modules.helper.MHelper_fixItemNumber">
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="fixedProductNumber_varName" value="secondProductNumber"/>
-  </module>
-  <codecomment>Store third product data</codecomment>
-  <module name="modules.pages.product.MProduct_ProductSet_StoreBasicProductDataByRow">
+  <module name="modules.pages.product.SProduct_ProductSet_storeBasicDataByRow">
     <parameter name="row" value="3"/>
-    <parameter name="productName_var" value="thirdProductName"/>
-    <parameter name="productNumber_var" value="thirdProductNumber"/>
-    <parameter name="productPrice_var" value="thirdProductPrice"/>
+    <parameter name="productName_varName" value="productName_03_varDynamic"/>
+    <parameter name="productNumber_varName" value="productNumber_03_varDynamic"/>
+    <parameter name="productPriceSales_varName" value="productPriceSales_03_varDynamic"/>
+  </module>
+  <codecomment>Extract product numbers from stored data</codecomment>
+  <module name="modules.helper.MHelper_fixItemNumber">
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="fixedProductNumber_varName" value="productNumber_01_varDynamic"/>
   </module>
   <module name="modules.helper.MHelper_fixItemNumber">
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
-    <parameter name="fixedProductNumber_varName" value="thirdProductNumber"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="fixedProductNumber_varName" value="productNumber_02_varDynamic"/>
+  </module>
+  <module name="modules.helper.MHelper_fixItemNumber">
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="fixedProductNumber_varName" value="productNumber_03_varDynamic"/>
   </module>
   <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
   <codecomment>Quickview becomes invisible after add to cart</codecomment>
-  <command name="waitForNotVisible" target="id=pdpMain"/>
+  <module name="modules.pages.product.productquickview.VProductQV_Invisible"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
-  <codecomment>The following modules are disabled and replaced by a less restrict version as workaround until the product set add to cart has been properly implemented aka order is important.</codecomment>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${firstProductName}"/>
-    <parameter name="productNumber" value="${firstProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${firstProductPrice}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
-    <parameter name="row" value="2"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${secondProductPrice}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
-    <parameter name="row" value="3"/>
-    <parameter name="productName" value="${thirdProductName}"/>
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${thirdProductPrice}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="3"/>
-    <parameter name="productName" value="${thirdProductName}"/>
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${thirdProductPrice}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="2"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${secondProductPrice}"/>
-  </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
-    <parameter name="row" value="1"/>
-    <parameter name="productName" value="${firstProductName}"/>
-    <parameter name="productNumber" value="${firstProductNumber}"/>
-    <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${firstProductPrice}"/>
-  </module>
   <module name="modules.pages.cart.VCart_validatePage"/>
+  <codecomment>The following modules are disabled and replaced by a less restrict version as workaround. The basic product details are checked independently from the cart rows for now.</codecomment>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
+    <parameter name="row" value="1"/>
+    <parameter name="productName" value="${firstProductName}"/>
+    <parameter name="productNumber" value="${firstProductNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${firstProductPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
+    <parameter name="row" value="2"/>
+    <parameter name="productName" value="${secondProductName}"/>
+    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${secondProductPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
+    <parameter name="row" value="3"/>
+    <parameter name="productName" value="${thirdProductName}"/>
+    <parameter name="productNumber" value="${thirdProductNumber}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${thirdProductPrice}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
+  </module>
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
+    <parameter name="productQuantity" value="1"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
+  </module>
   <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
+  <action name="RemoveProduct"/>
   <module name="modules.pages.cart.MCart_Row_clickRemoveProduct">
     <parameter name="row" value="1"/>
   </module>
   <module name="modules.pages.cart.VCart_validateCartIsEmpty"/>
   <action name="SearchProductBySKU"/>
   <module name="modules.pages.search.MSearch_enterTextAndSubmit">
-    <parameter name="searchText" value="${productNumber}"/>
+    <parameter name="searchText" value="${productSetNumber}"/>
   </module>
   <action name="AddToCart"/>
   <module name="modules.pages.product.MProduct_clickAddToCartForSet"/>
   <action name="ViewCart"/>
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
+  <module name="modules.pages.cart.VCart_validatePage"/>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="1"/>
-    <parameter name="productName" value="${firstProductName}"/>
-    <parameter name="productNumber" value="${firstProductNumber}"/>
+    <parameter name="productName" value="${productName_01_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${firstProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="2"/>
-    <parameter name="productName" value="${secondProductName}"/>
-    <parameter name="productNumber" value="${secondProductNumber}"/>
+    <parameter name="productName" value="${productName_02_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${secondProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="3"/>
-    <parameter name="productName" value="${thirdProductName}"/>
-    <parameter name="productNumber" value="${thirdProductNumber}"/>
+    <parameter name="productName" value="${productName_03_varDynamic}"/>
+    <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${thirdProductPrice}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_validatePage"/>
 </testcase>

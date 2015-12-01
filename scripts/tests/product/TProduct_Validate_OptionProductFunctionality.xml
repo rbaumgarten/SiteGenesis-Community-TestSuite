@@ -1,81 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>product,pdp,quickview,functionality,options</tags>
-  <description>Verifies the functionality of option products on quickview (QV) and product details pages (PDP) . This is basically interaction with the option boxes in comparison to the other test that is more layout.
+  <description>Verifies functionality of option products on quickview and product details pages. 
 
-# Setup
-Open the site and remove cookies
+# 1. Setup and preparation
 
-#  Scope
-Validate correct funtionality of the option field 
+- start session, open homepage and delete all visible cookies
+- search products
 
-- validate funtionality on QV
-- go to pdp
-- validate funtionality on PDP</description>
+# 2. Scope of test
+- open quickview
+- select option
+- open product detail page (Note: No option will be preselected there)
+- select option
+
+Note: This test is prepared as data driven test. Running it as junit test will execute the test multiple times using the set of test data in the _datasets.xml file.</description>
   <codecomment># Setup - Start Session</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Navigate to Electronics/Gaming/Game Consoles</codecomment>
-  <action name="CategoryLevel1"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel1ByName">
-    <parameter name="nameLevel1" value="${optionProductCategoryLevel1}"/>
-  </module>
-  <action name="CategoryLevel2"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel2ByName">
-    <parameter name="nameLevel2" value="${optionProductCategoryLevel2}"/>
-  </module>
-  <action name="CategoryLevel3"/>
-  <module name="modules.global.headerfooternav.MGlobal_Nav_clickCategoryLevel3ByName">
-    <parameter name="nameLevel3" value="${optionProductCategoryLevel3}"/>
-  </module>
-  <action name="SortByName"/>
-  <codecomment>Sort products to ensure, that the needed product is on the catalog page</codecomment>
-  <module name="modules.pages.catalog.MCatalog_Option_selectSortByByLabel">
-    <parameter name="sortByLabel" value="Product Name A - Z"/>
+  <action name="SearchProducts"/>
+  <module name="modules.pages.search.MSearch_enterTextAndSubmit">
+    <parameter name="searchText" value="${searchPhrase}"/>
   </module>
   <codecomment># Scope</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>## Functional Option Product Test
-
-- open QV and change the options several times, validate every time that the sales price changes
-- chang to PDP and change the options again, validate every time that the sales price changes</codecomment>
-  <codecomment>### Caution
-By default no extra option should be selected, by changing from QV  to PDP the Option should not be stored</codecomment>
-  <codecomment>--------------------------------</codecomment>
-  <codecomment>Hover over Product and click on quick view buttom</codecomment>
-  <action name="OptionProductQuickview"/>
+  <codecomment>Hover over product and click on quick view buttom</codecomment>
+  <action name="ProductQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductTitle">
     <parameter name="title" value="${optionProductName}"/>
   </module>
   <module name="modules.pages.product.productquickview.VProductQV_validateHeader">
-    <parameter name="prevButtonState" value=":not([disabled])"/>
-    <parameter name="nextButtonState" value=":not([disabled])"/>
+    <parameter name="prevButtonState" value=""/>
+    <parameter name="nextButtonState" value=""/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
-  <action name="SelectDefaultOption"/>
-  <command name="select" target="css=.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
-  <command name="assertText" target="css=.option-dropdown .value select option" value="${productOptionNone}"/>
-  <action name="SelectSecondOption"/>
+  <action name="OptionOnQuickview"/>
+  <codecomment>Select an option on Quickview</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+    <parameter name="selectedLabel" value="${productOption}"/>
   </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption1}"/>
-  <action name="SelectLastOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
-  <action name="SelectFirstOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$0.00] None"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
-  <action name="SelectLastOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
-  <action name="ProductDetailPageFromQV"/>
+  <action name="DisplayProductDetailPageFromQV"/>
   <codecomment>Goto PDP from QV</codecomment>
   <module name="modules.pages.product.productquickview.MProductQV_clickViewFullDetails">
     <parameter name="productName" value="${optionProductName}"/>
@@ -88,29 +50,9 @@ By default no extra option should be selected, by changing from QV  to PDP the O
     <parameter name="pricePattern" value="${storefront_pricePattern}"/>
   </module>
   <module name="modules.pages.product.VProduct_validatesOptionProductOnly"/>
-  <codecomment>Prices for Options will not be stored again, because theprice should be the same as on QV</codecomment>
-  <codecomment>Selects the default option to check if nothing changes when selected</codecomment>
-  <action name="SelectDefaultOption"/>
-  <command name="select" target="css=.product-options ul li.attribute.option-dropdown div.value select" value="label=[$0.00] None"/>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
-  <action name="SelectSecondOption"/>
+  <action name="OptionOnPDP"/>
+  <codecomment>Select an option on product detail page</codecomment>
   <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$9.99] 1 Year Warranty"/>
+    <parameter name="selectedLabel" value="${productOption}"/>
   </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption1}"/>
-  <action name="SelectLastOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
-  <action name="SelectFirstOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$0.00] None"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOptionNone}"/>
-  <action name="SelectLastOption"/>
-  <module name="modules.pages.product.MProduct_selectOptionByLabel">
-    <parameter name="selectedLabel" value="[$29.99] 5 Year Warranty"/>
-  </module>
-  <command name="assertSelectedLabel" target="css=.product-options ul .option-dropdown .value select.product-option" value="${productOption3}"/>
 </testcase>

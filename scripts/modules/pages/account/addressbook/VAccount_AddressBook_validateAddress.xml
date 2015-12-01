@@ -20,5 +20,5 @@
   <command name="assertText" target="${css_address} .mini-address-location address" value="*@{address2}*"/>
   <command name="assertText" target="${css_address} .mini-address-location address" value="*@{city}, @{statesStateShort} @{postalCode}*"/>
   <command name="assertText" target="${css_address} .mini-address-location address" value="*@{country}*"/>
-  <command name="assertText" target="${css_address} .mini-address-location address" value="*@{phone}"/>
+  <command name="assertText" target="${css_address} .mini-address-location address" value="*@{phone}*"/>
 </scriptmodule>

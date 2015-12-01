@@ -5,7 +5,7 @@
   <command name="waitForElementPresent" disabled="true" target="css=#main #primary h1"/>
   <command name="waitForElementPresent" disabled="true" target="css=#cart-table.item-list"/>
   <codecomment>Validate progress indicators</codecomment>
-  <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-1.inactive" value="*Shipping*"/>
+  <command name="waitForElementPresent" target="css=#main #primary .checkout-progress-indicator .step-1.inactive"/>
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-2.inactive" value="*Billing*"/>
   <command name="assertText" target="css=#main #primary .checkout-progress-indicator .step-3.active" value="*Place Order*"/>
   <codecomment>Validate cart table head</codecomment>

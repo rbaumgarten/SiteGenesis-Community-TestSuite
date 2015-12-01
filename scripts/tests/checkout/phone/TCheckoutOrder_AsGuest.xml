@@ -50,6 +50,8 @@
     <parameter name="returned_varString" value="lastname"/>
   </module>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
+  <codecomment>Close storefront toolkit if it is present. Relevant for webdriver execution to make it more stable.</codecomment>
+  <module name="modules.helper.JHelper_closeStorefrontToolkit"/>
   <module name="modules.pages.search.phone.FSearch_flowToAddProductWithColorSizeToCart_Phone">
     <parameter name="cartRow" value="1"/>
     <parameter name="productNumber" value="${productNumber}"/>
@@ -126,8 +128,10 @@
   <module name="modules.pages.checkout.steps.shipping.MCheckout_ShippingMethod_checkPosition">
     <parameter name="positon" value="${shippingMethod_position}"/>
   </module>
-  <module name="modules.pages.checkout.steps.boxes.MCheckout_BoxOrderSummary_storeTotals">
+  <module name="modules.pages.checkout.steps.boxes.VCheckout_BoxOrderSummary_validateShippingMethod">
     <parameter name="shippingMethod_name" value="${shippingMethod_name}"/>
+  </module>
+  <module name="modules.pages.checkout.steps.boxes.SCheckout_BoxOrderSummary_storeTotals">
     <parameter name="totalsShipping_varName" value="totalsShipping_varDynamic"/>
     <parameter name="totalsSalesTax_varName" value="totalsSalesTax_varDynamic"/>
     <parameter name="totalsTotal_varName" value="totalsTotal_varDynamic"/>
@@ -312,7 +316,7 @@
     <parameter name="productColor" value="${productColor_varDynamic}"/>
     <parameter name="productSize" value="${productSize_varDynamic}"/>
   </module>
-  <module name="modules.pages.checkout.steps.confirmation.MCheckout_Confirmation_storeOrderInformation">
+  <module name="modules.pages.checkout.steps.confirmation.SCheckout_Confirmation_storeOrderInformation">
     <parameter name="orderNumber_varName" value="orderNumber_varDynamic"/>
     <parameter name="orderDate_varName" value="orderDate_varDynamic"/>
   </module>

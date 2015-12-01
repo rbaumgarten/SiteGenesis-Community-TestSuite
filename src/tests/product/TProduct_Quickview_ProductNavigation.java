@@ -7,18 +7,22 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
 
 
 /**
- * <p>Validates product navigation on quickview</p>
- * <h1 id="setup">Setup</h1>
- * <p>Open the site and remove cookies</p>
- * <h1 id="scope">Scope</h1>
- * <p>Validate the previous and next functionality of the quickview</p>
+ * <p>Verifies product navigation on quickview</p>
+ * <h1 id="1-setup-and-preparation">1. Setup and preparation</h1>
  * <ul>
- * <li>open first product</li>
- * <li>browse to last product, while saving the product names of the seen products</li>
- * <li>browse back to first product and verify if the saved product names are seen again</li>
+ * <li>start session, open homepage and delete all visible cookies</li>
+ * <li>search products</li>
+ * <li>refine by color</li>
+ * <li>sort by randomly</li>
+ * </ul>
+ * <h1 id="2-scope-of-test">2. Scope of test</h1>
+ * <ul>
+ * <li>store some product positions and names used for validation of navigation</li>
+ * <li>open quickview for first product</li>
+ * <li>navigate to next quickview product</li>
  * <li>close quickview</li>
- * <li>reopen the last product and verify the product name</li>
- * <li>close quickview again</li>
+ * <li>open quickview for last product</li>
+ * <li>navigate to previous product</li>
  * </ul>
  */
 @ScriptName

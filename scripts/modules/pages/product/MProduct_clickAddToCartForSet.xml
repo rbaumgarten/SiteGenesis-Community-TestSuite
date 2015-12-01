@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Click add product to cart.</description>
+  <description>Click add product set to cart.</description>
   <command name="click" target="id=add-all-to-cart"/>
   <command name="waitForVisible" target="css=.mini-cart-content .mini-cart-totals .mini-cart-link-cart"/>
 </scriptmodule>

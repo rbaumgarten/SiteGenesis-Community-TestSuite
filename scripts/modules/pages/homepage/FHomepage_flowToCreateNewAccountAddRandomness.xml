@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Flow to create a new customer with profile data. It adds randomness to firstname and lastname.
+
+- Start on homepage
+- Add randomness to firstname and lastname
+- Create account via global register in header
+- Validate profile data
+- Logout via global header link
+- End on homepage</description>
+  <parameter name="firstname" desc="firstname"/>
+  <parameter name="lastname" desc="lastname"/>
+  <parameter name="firstname_varName" desc="firstname with added randomness"/>
+  <parameter name="lastname_varName" desc="lastname with added randomness"/>
+  <parameter name="email_varName" desc="email"/>
+  <parameter name="password_varName" desc="password"/>
+  <codecomment># Account
+
+- Register new customer
+- Enter profile data
+- Validate profile data</codecomment>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="@{firstname}"/>
+    <parameter name="returned_varString" value="@{firstname_varName}"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_addRandomness">
+    <parameter name="inputString" value="@{lastname}"/>
+    <parameter name="returned_varString" value="@{lastname_varName}"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createEmail">
+    <parameter name="email_varName" value="@{email_varName}"/>
+  </module>
+  <module name="modules.helper.MHelper_Random_createPassword">
+    <parameter name="password_varName" value="@{password_varName}"/>
+  </module>
+  <action name="GoToRegister"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickUserButton"/>
+  <module name="modules.pages.account.login.MAccount_Login_clickGoToNewCustomer"/>
+  <action name="Register"/>
+  <module name="modules.pages.account.personaldata.MAccount_PersonalData_enterProfile">
+    <parameter name="firstname" value="${@{firstname_varName}}"/>
+    <parameter name="lastname" value="${@{lastname_varName}}"/>
+    <parameter name="email" value="${@{email_varName}}"/>
+    <parameter name="password" value="${@{password_varName}}"/>
+  </module>
+  <module name="modules.pages.account.personaldata.MAccount_PersonalData_clickSubmitProfile"/>
+  <module name="modules.pages.account.myaccount.VAccount_MyAccount_validateCustomerName">
+    <parameter name="firstname" value="${@{firstname_varName}}"/>
+    <parameter name="lastname" value="${@{lastname_varName}}"/>
+  </module>
+  <codecomment># Global
+
+- Logout
+- Go to homepage</codecomment>
+  <action name="Logout"/>
+  <module name="modules.pages.account.myaccount.MAccount_MyAccount_clickLogout"/>
+  <action name="GoToHomepage"/>
+  <module name="modules.global.headerfooternav.MGlobal_Header_clickGoToHomepageViaLogo"/>
+</scriptmodule>

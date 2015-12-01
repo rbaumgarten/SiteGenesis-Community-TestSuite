@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Flow to create a new customer with profile data.
 
-- Start on homepagee
+- Start on homepage
 - Create account via global register in header
 - Validate profile data
 - Logout via global header link
