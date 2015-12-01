@@ -16,9 +16,6 @@
 - Select Items per page via all labels
 - Validate result page
 
-# 3. Clean up
-
-- End session and clean up created cookies
 
 ## Note 
 Executing this test case using script developer leads to the following message: 

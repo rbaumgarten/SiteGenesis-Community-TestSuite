@@ -21,10 +21,6 @@ import com.xceptance.xlt.api.engine.scripting.ScriptName;
  * <li>Select Items per page via all labels</li>
  * <li>Validate result page</li>
  * </ul>
- * <h1 id="3-clean-up">3. Clean up</h1>
- * <ul>
- * <li>End session and clean up created cookies</li>
- * </ul>
  * <h2 id="note">Note</h2>
  * <p>Executing this test case using script developer leads to the following message: 
  * &quot;The following test data placeholders could not be resolved: itemsPerPageCount Replay the script anyway?&quot; </p>

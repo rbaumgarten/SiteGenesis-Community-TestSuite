@@ -26,17 +26,26 @@
     <parameter name="positionLevel1" value="1"/>
     <parameter name="positionLevel2" value="1"/>
   </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category1Position1}"/>
+  </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="1"/>
     <parameter name="positionLevel2" value="2"/>
   </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category1Position2}"/>
+  </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="1"/>
     <parameter name="positionLevel2" value="3"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category1Position3}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <codecomment>## Category Four
@@ -48,11 +57,17 @@
     <parameter name="positionLevel1" value="4"/>
     <parameter name="positionLevel2" value="1"/>
   </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category4Position1}"/>
+  </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="4"/>
     <parameter name="positionLevel2" value="2"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category4Position2}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
@@ -60,17 +75,26 @@
     <parameter name="positionLevel1" value="4"/>
     <parameter name="positionLevel2" value="3"/>
   </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category4Position3}"/>
+  </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="4"/>
     <parameter name="positionLevel2" value="4"/>
   </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category4Position4}"/>
+  </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="4"/>
     <parameter name="positionLevel2" value="5"/>
+  </module>
+  <module name="modules.global.headerfooternav.VNavigation_validateLastBreadcrumbsText">
+    <parameter name="breadcrumbText" value="${category4Position5}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
 </testcase>

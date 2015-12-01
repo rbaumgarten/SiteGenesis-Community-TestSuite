@@ -2,7 +2,7 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <tags>email,external,10minutemail</tags>
   <description>Goes to 10 minute Mail and fetches a fresh temporary email address for testing.</description>
-  <parameter name="email_var" desc="The email address fetched."/>
+  <parameter name="email_varName" desc="The email address fetched."/>
   <action name="OpenExternalMailer"/>
   <command name="open" value="${emailClientURL}"/>
   <codecomment>Delete cookies to get a new email</codecomment>
@@ -10,5 +10,5 @@
   <action name="OpenExternalMailerAgain"/>
   <command name="open" value="${emailClientURL}"/>
   <codecomment>Get the email address from the page</codecomment>
-  <command name="storeText" target="css=html body div.container-narrow div.jumbotron p.lead" value="@{email_var}"/>
+  <command name="storeText" target="css=html body div.container-narrow div.jumbotron p.lead" value="@{email_varName}"/>
 </scriptmodule>
