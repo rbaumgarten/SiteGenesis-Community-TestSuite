@@ -23,7 +23,6 @@
 - *Deselect* size refinement via breadcrumb</description>
   <codecomment># Setup</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
-  <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
   <action name="GoToCategoryPage"/>
   <module name="modules.global.headerfooternav.MGlobal_Nav_clickGoToCategoryLevel2">
     <parameter name="positionLevel1" value="${positionCategoryLevel1}"/>
