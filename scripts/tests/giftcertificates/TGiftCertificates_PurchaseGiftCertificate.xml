@@ -21,7 +21,7 @@
 - generate mail and password for buyer
 - create account for purchase</codecomment>
   <module name="modules.helper.external.FHelper_getEmailAddressFromExternal">
-    <parameter name="email_var" value="emailRecipient"/>
+    <parameter name="email_varName" value="emailRecipient"/>
   </module>
   <module name="modules.helper.MHelper_Random_createEmail">
     <parameter name="email_varName" value="emailBuyer"/>
@@ -110,11 +110,11 @@
   <module name="modules.pages.checkout.steps.placeorder.MCheckout_PlaceOrder_clickSubmit"/>
   <codecomment>get back to mail page to fetch the gift certificate code</codecomment>
   <module name="modules.helper.external.FHelper_getGiftCertificateCodeFromExternal">
-    <parameter name="giftcode_var" value="giftCodeMessage"/>
+    <parameter name="giftcode_varName" value="giftCodeMessage"/>
   </module>
   <module name="modules.helper.MHelper_convertGiftCodeMessageToGiftCode">
     <parameter name="giftcode" value="${giftCodeMessage}"/>
-    <parameter name="giftcode_var" value="giftCode"/>
+    <parameter name="giftcode_varName" value="giftCode"/>
   </module>
   <codecomment>get back to homepage to check the balance of the gift card</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>

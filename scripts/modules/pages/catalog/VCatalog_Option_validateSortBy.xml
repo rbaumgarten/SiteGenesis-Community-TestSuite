@@ -2,6 +2,6 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Validiate sort by option.</description>
   <parameter name="sortByLabel" desc="sort by label"/>
-  <command name="waitForText" target="css=#main .breadcrumb .breadcrumb-refined-by" value="Sorted by"/>
-  <command name="waitForText" target="css=#main .breadcrumb .breadcrumb-refinement" value="regexpi:@{sortByLabel}"/>
+  <command name="assertText" target="css=#main .breadcrumb .breadcrumb-refined-by" value="Sorted by"/>
+  <command name="assertText" target="css=#main .breadcrumb .breadcrumb-refinement" value="regexpi:@{sortByLabel}"/>
 </scriptmodule>

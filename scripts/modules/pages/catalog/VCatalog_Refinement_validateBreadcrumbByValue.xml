@@ -3,6 +3,6 @@
   <description>Validate refinement value in breadcrumb.
 </description>
   <parameter name="title" desc="expected refinement value in breadcrumb"/>
-  <command name="waitForElementPresent" target="css=#main div.breadcrumb span.breadcrumb-refinement span.breadcrumb-refinement-name"/>
+  <command name="assertElementPresent" target="css=#main div.breadcrumb span.breadcrumb-refinement span.breadcrumb-refinement-name"/>
   <command name="assertText" target="css=#main span.breadcrumb-refinement .breadcrumb-refinement-value" value="*@{title}*"/>
 </scriptmodule>
