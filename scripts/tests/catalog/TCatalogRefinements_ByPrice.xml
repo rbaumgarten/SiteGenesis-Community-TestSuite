@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6" junit-test="true">
   <tags>smoke</tags>
-  <description>Test select, deselect, clear price and remove refinement on catalog page.
+  <description>Test select, deselect, clear and remove price refinement on catalog page.
 
 # 1. Setup and preparation
 
@@ -62,7 +62,7 @@
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <action name="DeselectRefinement"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_removeSelectedPrice"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_removeFirstSelected"/>
   <codecomment>## Change page, refine price by random position, *Clear* price refinement</codecomment>
   <action name="SelectPageRandomly"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
