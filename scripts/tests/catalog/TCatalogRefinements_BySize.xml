@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Test select, remove and clear color refinement on catalog page.
+  <description>Test select, deselect, clear and remove size refinement on catalog page.
 
 # 1. Setup and preparation
 
 - Start session, open homepage and delete all visible cookies
-- Browse to category
-- store number of size refinements
+- Browse to category page
 
 # 2. Scope of test
 
-- Select, validate and remove size randomly by position
-- Select three sizes by position
-- Remove three sizes clear
-- Validate empty size list
-- Validate empty refinement list in breadcrumbs
-- Select one Size randomly
-- Remove one size by breadcrumb</description>
+- Select size refinement by random position
+- Validate that refined size is selectable on random quickview
+- *Deselect* size refinement
+
+
+- Select two size refinements by random position
+- Validate that refined sizes are selectable on random quickview
+- *Clear* size refinement
+
+ 
+- Select size refinement by random position
+- *Deselect* size refinement via breadcrumb</description>
   <codecomment># Setup</codecomment>
   <module name="modules.helper.FHelper_Session_flowToStartSession"/>
   <codecomment>Go to catalog page (womens/clothing) and validate page</codecomment>
@@ -26,129 +30,64 @@
     <parameter name="positionLevel2" value="${positionCategoryLevel2}"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_validatePage"/>
-  <codecomment>counting the elements in the size refinement</codecomment>
-  <command name="storeXpathCount" target="id('secondary')/div[4]/ul/li" value="sizeCount"/>
   <codecomment># Scope</codecomment>
-  <codecomment>## validat that no size is selected</codecomment>
+  <codecomment>## Validate that no size is selected</codecomment>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateNoSizeRefinementIsSelected"/>
-  <codecomment>## choose random refinement, validate it on QV and delete it</codecomment>
+  <codecomment>## Refine size by random position, check quickview, *Deselect* refinement</codecomment>
   <action name="RefineSize"/>
-  <codecomment>creating a random number</codecomment>
-  <module name="modules.helper.MHelper_Random_createNumber">
-    <parameter name="numberMax" value="${sizeCount}"/>
-    <parameter name="number_varName" value="positionRandom_varDynamic"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
+    <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${positionRandom_varDynamic}"/>
-  </module>
-  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="${positionRandom_varDynamic}"/>
-    <parameter name="size_varName" value="sizeRandom_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
-    <parameter name="title" value="${sizeRandom_varDynamic}"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+    <parameter name="position" value=":last-of-type"/>
+    <parameter name="value" value="${sizeRandom_01_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
-  <command name="storeXpathCount" target="//*[@id=&quot;search-result-items&quot;]/li/div[@class=&quot;product-tile&quot;]" value="itemsPerPage"/>
-  <module name="modules.helper.MHelper_Random_createNumber">
-    <parameter name="numberMax" value="${itemsPerPage}"/>
-    <parameter name="number_varName" value="randomProduct_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="${randomProduct_varDynamic}"/>
-  </module>
-  <module name="modules.pages.product.VProduct_verifySizeIsPresent">
-    <parameter name="size" value="${sizeRandom_varDynamic}"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewRandomly"/>
+  <module name="modules.pages.product.VProduct_validateSizeIsSelectable">
+    <parameter name="size_01" value="${sizeRandom_01_varDynamic}"/>
+    <parameter name="size_02" value=""/>
   </module>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
-  <action name="DeleteRefinment"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${positionRandom_varDynamic}"/>
-  </module>
+  <action name="DeselectSizeRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_removeFirstSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateNoSizeRefinementIsSelected"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
-  <codecomment>###Caution
-while the position of the breadcrumb is unclear, this part of the test is runned with fixed parameters
-the parameters are stored in the test datas</codecomment>
-  <codecomment>## Choose three different size refinements, and validate them on a random QV( PDP isn't possible because refinements weren't stored)</codecomment>
+  <codecomment>## Refine by two random positions, check quickview, *Clear* refinement</codecomment>
   <action name="RefineSize"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${refinementPositionFirst}"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
+    <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="${refinementPositionFirst}"/>
-    <parameter name="size_varName" value="sizeFirst_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
-    <parameter name="position" value=":last-of-type"/>
-    <parameter name="value" value="${sizeFirst_varDynamic}"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${sizeRandom_01_varDynamic}"/>
   </module>
   <action name="RefineSize"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${refinementPositionSecond}"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
+    <parameter name="size_varName" value="sizeRandom_02_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="${refinementPositionSecond}"/>
-    <parameter name="size_varName" value="sizeSecond_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
-    <parameter name="position" value=":last-of-type"/>
-    <parameter name="value" value="${sizeSecond_varDynamic}"/>
-  </module>
-  <action name="RefineSize"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${refinementPostionThird}"/>
-  </module>
-  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="${refinementPostionThird}"/>
-    <parameter name="size_varName" value="sizeThird_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
-    <parameter name="position" value=":nth-of-type(3)"/>
-    <parameter name="value" value="${sizeThird_varDynamic}"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
+    <parameter name="title" value="${sizeRandom_02_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
-  <module name="modules.pages.catalog.SCatalog_storeItemsPerPage">
-    <parameter name="itemsPerPage_varName" value="itemsPerPage_varDynamic"/>
-  </module>
-  <module name="modules.helper.MHelper_Random_createNumber">
-    <parameter name="numberMax" value="${itemsPerPage_varDynamic}"/>
-    <parameter name="number_varName" value="randomProduct_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.MCatalog_clickQuickViewByProductPosition">
-    <parameter name="position" value="${randomProduct_varDynamic}"/>
-  </module>
-  <module name="modules.pages.product.VProduct_verifySizeIsPresent">
-    <parameter name="size" value="${sizeFirst_varDynamic}"/>
-  </module>
-  <module name="modules.pages.product.VProduct_verifySizeIsPresent">
-    <parameter name="size" value="${sizeSecond_varDynamic}"/>
-  </module>
-  <module name="modules.pages.product.VProduct_verifySizeIsPresent">
-    <parameter name="size" value="${sizeThird_varDynamic}"/>
+  <module name="modules.pages.catalog.MCatalog_clickQuickViewRandomly"/>
+  <module name="modules.pages.product.VProduct_validateSizeIsSelectable">
+    <parameter name="size_01" value="${sizeRandom_01_varDynamic}"/>
+    <parameter name="size_02" value="${sizeRandom_02_varDynamic}"/>
   </module>
   <module name="modules.pages.product.productquickview.MProductQV_closeQuickview"/>
-  <codecomment>## delete all size refinements by clicking on Clear</codecomment>
   <action name="ClearSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickClearSizeRefinement"/>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateRefinementListIsEmpty"/>
-  <codecomment>## select a new refinement to delete it by breadcrumb</codecomment>
+  <codecomment>## Refine size by random position, *Deselect* via breadcrumb</codecomment>
   <action name="RefineSize"/>
-  <module name="modules.helper.MHelper_Random_createNumber">
-    <parameter name="numberMax" value="${sizeCount}"/>
-    <parameter name="number_varName" value="positionRandom_varDynamic"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
+    <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPosition">
-    <parameter name="position" value="${positionRandom_varDynamic}"/>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+    <parameter name="position" value=":last-of-type"/>
+    <parameter name="value" value="${sizeRandom_01_varDynamic}"/>
   </module>
-  <module name="modules.pages.catalog.SCatalog_Refinement_storeSizeByPosition">
-    <parameter name="position" value="${positionRandom_varDynamic}"/>
-    <parameter name="size_varName" value="sizeRandom_varDynamic"/>
-  </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
-    <parameter name="title" value="${sizeRandom_varDynamic}"/>
-  </module>
-  <action name="DeleteRefinement"/>
+  <action name="RemoveSizeRefinementViaBreadcrumb"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickRemoveFilterByPosition">
     <parameter name="position" value="1"/>
     <parameter name="breadcrumbRefinementValueCount" value="0"/>
