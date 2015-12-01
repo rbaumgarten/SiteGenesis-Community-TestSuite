@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://xlt.xceptance.com/xlt-script-data">
-  <positionCategoryLevel1>2</positionCategoryLevel1>
-  <positionCategoryLevel2>4</positionCategoryLevel2>
-  <refinementPositionFirst>2</refinementPositionFirst>
-  <refinementPositionSecond>6</refinementPositionSecond>
-  <refinementPostionThird>3</refinementPostionThird>
-</data>
