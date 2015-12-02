@@ -2,17 +2,18 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Click size by random position.</description>
   <parameter name="size_varName" desc="selected size"/>
+  <parameter name="sizePosition_varName" desc="selected position"/>
   <codecomment>Store number of selectable sizes</codecomment>
   <command name="storeElementCount" target="css=#secondary.refinements .refinement.size ul.size li:not(.selected)" value="selectableSizes"/>
   <codecomment>Create random position between 1 and number of selectable sizes</codecomment>
   <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${selectableSizes}"/>
-    <parameter name="number_varName" value="randomSizePosition_varDynamic"/>
+    <parameter name="number_varName" value="@{sizePosition_varName}"/>
   </module>
   <codecomment>Select size by generated random position</codecomment>
-  <command name="click" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(${randomSizePosition_varDynamic}) a"/>
+  <command name="click" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(${@{sizePosition_varName}}) a"/>
   <codecomment>Wait for reduced number of selectable sizes</codecomment>
   <command name="waitForNotElementCount" target="css=#secondary.refinements .refinement.size ul.size li:not(.selected)" value="${selectableSizes}"/>
   <codecomment>Store size text</codecomment>
-  <command name="storeText" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(${randomSizePosition_varDynamic}) a" value="@{size_varName}"/>
+  <command name="storeText" target="css=#secondary.refinements .refinement.size ul.size li:nth-of-type(${@{sizePosition_varName}}) a" value="@{size_varName}"/>
 </scriptmodule>
