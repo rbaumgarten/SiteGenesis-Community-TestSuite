@@ -36,6 +36,7 @@
   <action name="RefineSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
     <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
+    <parameter name="sizePosition_varName" value="sizeRandomPosition_01_varDynamic"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
     <parameter name="position" value=":last-of-type"/>
@@ -56,6 +57,7 @@
   <action name="RefineSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
     <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
+    <parameter name="sizePosition_varName" value="sizeRandomPosition_01_varDynamic"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
     <parameter name="title" value="${sizeRandom_01_varDynamic}"/>
@@ -63,9 +65,23 @@
   <action name="RefineSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
     <parameter name="size_varName" value="sizeRandom_02_varDynamic"/>
+    <parameter name="sizePosition_varName" value="sizeRandomPosition_02_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByValue">
-    <parameter name="title" value="${sizeRandom_02_varDynamic}"/>
+  <codecomment>Detect breadcrumb size order depending on refinement order</codecomment>
+  <command name="storeEval" target="(${sizeRandomPosition_01_varDynamic} &lt; ${sizeRandomPosition_02_varDynamic}) ? &quot;${sizeRandom_01_varDynamic}&quot; : &quot;${sizeRandom_02_varDynamic}&quot;" value="breadcrumb_size_01_varDynamic">
+    <comment>Detect first size refinement in breadcrumb, expect the same order as it is shown in secondary navigation.</comment>
+  </command>
+  <command name="storeEval" target="(${sizeRandomPosition_02_varDynamic} &gt;= ${sizeRandomPosition_01_varDynamic}) ? &quot;${sizeRandom_02_varDynamic}&quot; : &quot;${sizeRandom_01_varDynamic}&quot;" value="breadcrumb_size_02_varDynamic">
+    <comment>Detect second size refinement in breadcrumb, expect the same order as it is shown in secondary navigation. Please note, that if the second selected size position is the same as the first position, the second value should be displayed behind the first value, because the position is based on selectable values. </comment>
+  </command>
+  <codecomment>Validate breadcrumb values by position</codecomment>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+    <parameter name="position" value=":nth-of-type(2)"/>
+    <parameter name="value" value="${breadcrumb_size_01_varDynamic}"/>
+  </module>
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+    <parameter name="position" value=":nth-of-type(3)"/>
+    <parameter name="value" value="${breadcrumb_size_02_varDynamic}"/>
   </module>
   <action name="OpenQuickView"/>
   <module name="modules.pages.catalog.MCatalog_clickQuickViewRandomly"/>
@@ -81,6 +97,7 @@
   <action name="RefineSize"/>
   <module name="modules.pages.catalog.MCatalog_Refinement_clickSizeByPositionRandom">
     <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
+    <parameter name="sizePosition_varName" value="sizeRandomPosition_01_varDynamic"/>
   </module>
   <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
     <parameter name="position" value=":last-of-type"/>
