@@ -91,7 +91,7 @@
     <parameter name="priceDigitGroupSeparators" value="${storefront_priceDigitGroupSeparators}"/>
   </module>
   <action name="ClearPriceRefinement"/>
-  <module name="modules.pages.catalog.MCatalog_Refinement_clearPriceRefinement"/>
+  <module name="modules.pages.catalog.MCatalog_Refinement_clickClearPriceRefinement"/>
   <codecomment>## Change page, refine price by random position, *Remove* price refinement via breadcrumb</codecomment>
   <action name="SelectPageRandomly"/>
   <module name="modules.pages.catalog.MCatalog_Option_selectItemsPerPageRandomly">
