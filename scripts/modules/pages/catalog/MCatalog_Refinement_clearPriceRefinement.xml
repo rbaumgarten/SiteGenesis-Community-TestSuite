@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Click clear price refinement via secondary navigation.</description>
-  <command name="click" target="css=#secondary.refinements div.refinement  .clear-refinement a"/>
-  <command name="waitForNotElementPresent" target="css=#secondary.refinements div.refinement div.clear-refinement"/>
-</scriptmodule>
