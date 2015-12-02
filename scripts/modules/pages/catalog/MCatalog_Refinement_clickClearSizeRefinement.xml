@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Clicks on the Clear button over the size refinements
-- deletes all selected size refinements
-- works only if at least one size refinement is selected</description>
+  <description>Click clear size refinement via secondary navigation.</description>
   <command name="click" target="css=#secondary.refinements .refinement.size .clear-refinement a"/>
   <command name="waitForNotElementPresent" target="css=#secondary .refinement.size ul.size li.selected"/>
 </scriptmodule>
