@@ -38,7 +38,7 @@
     <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
     <parameter name="sizePosition_varName" value="sizeRandomPosition_01_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="value" value="${sizeRandom_01_varDynamic}"/>
   </module>
@@ -75,11 +75,11 @@
     <comment>Detect second size refinement in breadcrumb, expect the same order as it is shown in secondary navigation. Please note, that if the second selected size position is the same as the first position, the second value should be displayed behind the first value, because the position is based on selectable values. </comment>
   </command>
   <codecomment>Validate breadcrumb values by position</codecomment>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByPosition">
     <parameter name="position" value=":nth-of-type(2)"/>
     <parameter name="value" value="${breadcrumb_size_01_varDynamic}"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByPosition">
     <parameter name="position" value=":nth-of-type(3)"/>
     <parameter name="value" value="${breadcrumb_size_02_varDynamic}"/>
   </module>
@@ -99,7 +99,7 @@
     <parameter name="size_varName" value="sizeRandom_01_varDynamic"/>
     <parameter name="sizePosition_varName" value="sizeRandomPosition_01_varDynamic"/>
   </module>
-  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbValue">
+  <module name="modules.pages.catalog.VCatalog_Refinement_validateBreadcrumbByPosition">
     <parameter name="position" value=":last-of-type"/>
     <parameter name="value" value="${sizeRandom_01_varDynamic}"/>
   </module>
