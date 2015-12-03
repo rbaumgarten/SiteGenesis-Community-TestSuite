@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate selectable product sizes by logical operator "OR" for one or two given values.</description>
+  <parameter name="size_01" desc="size 1"/>
+  <parameter name="size_02" desc="size 2"/>
+  <command name="assertElementPresent" target="css=#product-content .product-variations ul li.attribute .value ul.size li.selectable a[title='Select Size: @{size_01}'],a[title='Select Size: @{size_02}']"/>
+</scriptmodule>

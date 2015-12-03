@@ -5,5 +5,5 @@
   <parameter name="position" desc="positon of the product in catalog"/>
   <command name="mouseOver" target="css=#search-result-items li:nth-of-type(@{position}) a"/>
   <command name="click" target="id=quickviewbutton"/>
-  <command name="waitForElementPresent" target="id=pdpMain"/>
+  <command name="waitForVisible" target="css=#pdpMain"/>
 </scriptmodule>
