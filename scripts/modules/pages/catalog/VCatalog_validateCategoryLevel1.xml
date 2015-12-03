@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
-  <description>Verifies that the core elements of a category level 1 page are present</description>
+  <description>Validate main elements on category level 1 page.</description>
   <command name="assertElementPresent" target="css=#browser-check"/>
   <command name="assertElementPresent" target="css=#primary"/>
   <command name="assertElementPresent" target="css=#primary .category-slot"/>

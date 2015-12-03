@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
+  <description>Validate refinement value in breadcrumb by position.</description>
+  <parameter name="position"/>
+  <parameter name="value"/>
+  <command name="assertText" target="css=#main .breadcrumb .breadcrumb-refinement span@{position}" value="@{value} x"/>
+</scriptmodule>
