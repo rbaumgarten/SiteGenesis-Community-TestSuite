@@ -1,0 +1,56 @@
+var jsonData = {
+  "user": "TCatalogRefinements_Bookmarking",
+  "date": 1447411266065,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-GoToCategoryPage.png",
+      "name": "GoToCategoryPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-RefineColorByLabel.png",
+      "name": "RefineColorByLabel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SortBy.png",
+      "name": "SortBy",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-ItemsPerPage.png",
+      "name": "ItemsPerPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-Paging.png",
+      "name": "Paging",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-ReopenProductListingPage.png",
+      "name": "ReopenProductListingPage",
+      "requests": []
+    }
+  ]
+}

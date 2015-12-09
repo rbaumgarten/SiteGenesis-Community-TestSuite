@@ -6,5 +6,5 @@
   <parameter name="productPriceSales_varName" desc="product sales price as var name"/>
   <command name="storeText" target="css=#pdpMain .product-name" value="@{productName_varName}"/>
   <command name="storeText" target="css=.product-number span" value="@{productNumber_varName}"/>
-  <command name="storeText" target="css=#product-content .product-price span.price-sales" value="@{productPriceSales_varName}"/>
+  <command name="storeText" target="css=#pdpMain .price-sales" value="@{productPriceSales_varName}"/>
 </scriptmodule>

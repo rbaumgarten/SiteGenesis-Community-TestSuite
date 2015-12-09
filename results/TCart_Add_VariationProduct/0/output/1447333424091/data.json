@@ -1,0 +1,66 @@
+var jsonData = {
+  "user": "TCart_Add_VariationProduct",
+  "date": 1447333475246,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-SearchProducts.png",
+      "name": "SearchProducts",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-SortByName.png",
+      "name": "SortByName",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-GoToQuickView.png",
+      "name": "GoToQuickView",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-SelectSize.png",
+      "name": "SelectSize",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-AddToCart.png",
+      "name": "AddToCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-ViewCart.png",
+      "name": "ViewCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-RemoveProduct.png",
+      "name": "RemoveProduct",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-SearchProductBySKU.png",
+      "name": "SearchProductBySKU",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-AddToCart.png",
+      "name": "AddToCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-ViewCart.png",
+      "name": "ViewCart",
+      "requests": []
+    }
+  ]
+}

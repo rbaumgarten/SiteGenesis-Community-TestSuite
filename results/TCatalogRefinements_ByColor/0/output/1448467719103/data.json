@@ -1,0 +1,56 @@
+var jsonData = {
+  "user": "TCatalogRefinements_ByColor",
+  "date": 1448467780628,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-GoToCategoryPage.png",
+      "name": "GoToCategoryPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-RefineColorByLabel.png",
+      "name": "RefineColorByLabel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-RemoveColorByLabel.png",
+      "name": "RemoveColorByLabel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-RefineColorByPostion.png",
+      "name": "RefineColorByPostion",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-RefineColorByPostion.png",
+      "name": "RefineColorByPostion",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-RefineColorByPostion.png",
+      "name": "RefineColorByPostion",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-RemoveFilter.png",
+      "name": "RemoveFilter",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-ClearColors.png",
+      "name": "ClearColors",
+      "requests": []
+    }
+  ]
+}

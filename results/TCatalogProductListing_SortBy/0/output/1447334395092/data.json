@@ -1,0 +1,71 @@
+var jsonData = {
+  "user": "TCatalogProductListing_SortBy",
+  "date": 1447334463402,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-GoToCategoryPage.png",
+      "name": "GoToCategoryPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-SelectSortByViaPosition.png",
+      "name": "SelectSortByViaPosition",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SelectSortByViaRandom.png",
+      "name": "SelectSortByViaRandom",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-SelectSortByPriceLowToHigh.png",
+      "name": "SelectSortByPriceLowToHigh",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-SelectSortByPriceHighToLow.png",
+      "name": "SelectSortByPriceHighToLow",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-SelectSortByNameAToZ.png",
+      "name": "SelectSortByNameAToZ",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-SelectSortByNameZToA.png",
+      "name": "SelectSortByNameZToA",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-SelectSortByBrand.png",
+      "name": "SelectSortByBrand",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-SelectSortByMostPopular.png",
+      "name": "SelectSortByMostPopular",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-SelectSortByBrand.png",
+      "name": "SelectSortByBrand",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0012-SelectSortByBestMatches.png",
+      "name": "SelectSortByBestMatches",
+      "requests": []
+    }
+  ]
+}

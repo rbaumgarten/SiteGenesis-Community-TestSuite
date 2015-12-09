@@ -1,0 +1,81 @@
+var jsonData = {
+  "user": "TAccountWishList_AddRemoveProduct",
+  "date": 1447345574417,
+  "actions": [
+    {
+      "fileName": "pages/0000-OpenStartPage.png",
+      "name": "OpenStartPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-GoToRegister.png",
+      "name": "GoToRegister",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-Account_Login_clickGoToNewCustomer.png",
+      "name": "Account_Login_clickGoToNewCustomer",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-Register.png",
+      "name": "Register",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-Logout.png",
+      "name": "Logout",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-GoToHomepage.png",
+      "name": "GoToHomepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-Search.png",
+      "name": "Search",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-AddToWishList.png",
+      "name": "AddToWishList",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-Login.png",
+      "name": "Login",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-ViewWishList.png",
+      "name": "ViewWishList",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0012-RemoveProductFromWishList.png",
+      "name": "RemoveProductFromWishList",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0013-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0014-Logout.png",
+      "name": "Logout",
+      "requests": []
+    }
+  ]
+}

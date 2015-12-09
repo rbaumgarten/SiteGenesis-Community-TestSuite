@@ -1,0 +1,8 @@
+A,Homepage,1447166236853,3749,false
+A,HomepageAgain,1447166240695,1666,false
+A,SearchProductByName,1447166242477,1866,false
+A,ConfigureProduct,1447166244482,488,false
+A,AddToCart,1447166245087,1136,false
+A,ViewCart,1447166246316,3045,false
+A,VIewMiniCart,1447166249484,490,false
+A,RemoveLineItem,1447166250043,1391,true

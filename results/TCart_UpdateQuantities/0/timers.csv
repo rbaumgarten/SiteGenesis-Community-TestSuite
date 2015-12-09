@@ -1,0 +1,13 @@
+A,Homepage,1449593281470,3058,false
+A,HomepageAgain,1449593284681,2489,false
+A,SearchProductByName,1449593287259,3578,false
+A,ConfigureProduct,1449593290942,2302,false
+A,AddToCart,1449593293331,1966,false
+A,ViewCart,1449593295362,4951,false
+A,UpdateQuantity,1449593300398,5606,false
+A,SearchProductByName,1449593306102,3511,false
+A,ConfigureProduct,1449593309693,2508,false
+A,AddToCart,1449593312298,1757,false
+A,ViewCart,1449593314165,2932,false
+A,ViewCartAndCalculateTotals,1449593317218,6071,false
+A,UpdateQuantityViaEdit,1449593323352,10588,true

@@ -1,0 +1,16 @@
+var jsonData = {
+  "user": "TCheckoutOrder_AsGuest_DifferentBillingAddress",
+  "date": 1447323372945,
+  "actions": [
+    {
+      "fileName": "pages/0000-OpenStartPage.png",
+      "name": "OpenStartPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    }
+  ]
+}

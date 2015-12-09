@@ -1,0 +1,36 @@
+var jsonData = {
+  "user": "TCatalogProductListing_SortByPrice",
+  "date": 1447409418128,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-Search.png",
+      "name": "Search",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-SelectPageRandomly.png",
+      "name": "SelectPageRandomly",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SelectSortByPriceLowToHigh.png",
+      "name": "SelectSortByPriceLowToHigh",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-SelectSortByPriceHighToLow.png",
+      "name": "SelectSortByPriceHighToLow",
+      "requests": []
+    }
+  ]
+}

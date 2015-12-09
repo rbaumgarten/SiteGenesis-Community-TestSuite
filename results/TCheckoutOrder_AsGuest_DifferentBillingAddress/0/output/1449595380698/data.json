@@ -1,0 +1,91 @@
+var jsonData = {
+  "user": "TCheckoutOrder_AsGuest_DifferentBillingAddress",
+  "date": 1449595532697,
+  "actions": [
+    {
+      "fileName": "pages/0000-OpenStartPage.png",
+      "name": "OpenStartPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-SearchProductBySKU.png",
+      "name": "SearchProductBySKU",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-ConfigureProduct.png",
+      "name": "ConfigureProduct",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-AddToCart.png",
+      "name": "AddToCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-ViewCart.png",
+      "name": "ViewCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-Checkout.png",
+      "name": "Checkout",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-CheckoutAsGuest.png",
+      "name": "CheckoutAsGuest",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-CheckoutShipping.png",
+      "name": "CheckoutShipping",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-CheckoutBilling.png",
+      "name": "CheckoutBilling",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-CheckoutPlaceOrder.png",
+      "name": "CheckoutPlaceOrder",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0012-CreateAnAccountFromConfirmationPage.png",
+      "name": "CreateAnAccountFromConfirmationPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0013-AccountPersonalData.png",
+      "name": "AccountPersonalData",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0014-AccountOrders.png",
+      "name": "AccountOrders",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0015-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0016-Logout.png",
+      "name": "Logout",
+      "requests": []
+    }
+  ]
+}

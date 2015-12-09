@@ -1,0 +1,51 @@
+var jsonData = {
+  "user": "TProduct_Validate_StandardProductLayout",
+  "date": 1447340708193,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-CategoryLevel1.png",
+      "name": "CategoryLevel1",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-CategoryLevel2.png",
+      "name": "CategoryLevel2",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SortByName.png",
+      "name": "SortByName",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-ProductQuickView.png",
+      "name": "ProductQuickView",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-DisplayProductDetailPageFromQV.png",
+      "name": "DisplayProductDetailPageFromQV",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-BackToHomepage.png",
+      "name": "BackToHomepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-SearchByName.png",
+      "name": "SearchByName",
+      "requests": []
+    }
+  ]
+}

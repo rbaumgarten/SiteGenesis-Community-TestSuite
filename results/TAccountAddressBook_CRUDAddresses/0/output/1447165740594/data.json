@@ -1,0 +1,136 @@
+var jsonData = {
+  "user": "TAccountAddressBook_CRUDAddresses",
+  "date": 1447165817288,
+  "actions": [
+    {
+      "fileName": "pages/0000-OpenStartPage.png",
+      "name": "OpenStartPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-GoToRegister.png",
+      "name": "GoToRegister",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-Account_Login_clickGoToNewCustomer.png",
+      "name": "Account_Login_clickGoToNewCustomer",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-Register.png",
+      "name": "Register",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-Logout.png",
+      "name": "Logout",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-GoToHomepage.png",
+      "name": "GoToHomepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-Login.png",
+      "name": "Login",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-GotoMyAccountLogin.png",
+      "name": "GotoMyAccountLogin",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-GoToAddressBook.png",
+      "name": "GoToAddressBook",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0012-CreateNewAddress.png",
+      "name": "CreateNewAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0013-CreateAddressDialog.png",
+      "name": "CreateAddressDialog",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0014-CreateNewAddress.png",
+      "name": "CreateNewAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0015-CreateAddressDialog.png",
+      "name": "CreateAddressDialog",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0016-MakeDefaultAddress.png",
+      "name": "MakeDefaultAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0017-EditAddress.png",
+      "name": "EditAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0018-CancelAddressDialog.png",
+      "name": "CancelAddressDialog",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0019-EditAddress.png",
+      "name": "EditAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0020-ApplyAddressDialog.png",
+      "name": "ApplyAddressDialog",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0021-EditAddress.png",
+      "name": "EditAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0022-DeleteAddressDialog.png",
+      "name": "DeleteAddressDialog",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0023-DeleteAddress.png",
+      "name": "DeleteAddress",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0024-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0025-Logout.png",
+      "name": "Logout",
+      "requests": []
+    }
+  ]
+}

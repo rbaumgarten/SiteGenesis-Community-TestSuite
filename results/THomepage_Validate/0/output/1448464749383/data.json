@@ -1,0 +1,16 @@
+var jsonData = {
+  "user": "THomepage_Validate",
+  "date": 1448464767998,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    }
+  ]
+}

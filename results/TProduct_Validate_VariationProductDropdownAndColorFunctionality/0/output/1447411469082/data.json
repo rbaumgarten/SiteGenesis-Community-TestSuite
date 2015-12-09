@@ -1,0 +1,36 @@
+var jsonData = {
+  "user": "TProduct_Validate_VariationProductDropdownAndColorFunctionality",
+  "date": 1447411497552,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-Search.png",
+      "name": "Search",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-SelectVariantDropdown.png",
+      "name": "SelectVariantDropdown",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SelectColor.png",
+      "name": "SelectColor",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-SelectVariantDropdown.png",
+      "name": "SelectVariantDropdown",
+      "requests": []
+    }
+  ]
+}

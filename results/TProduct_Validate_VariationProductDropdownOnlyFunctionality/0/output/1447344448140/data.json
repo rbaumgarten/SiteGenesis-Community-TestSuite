@@ -1,0 +1,56 @@
+var jsonData = {
+  "user": "TProduct_Validate_VariationProductDropdownOnlyFunctionality",
+  "date": 1447344498452,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-Search.png",
+      "name": "Search",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-VariationProductQuickview.png",
+      "name": "VariationProductQuickview",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-SelectVariantDropdown.png",
+      "name": "SelectVariantDropdown",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-DeselectVariantDropdown.png",
+      "name": "DeselectVariantDropdown",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-SelectVariantDropdown.png",
+      "name": "SelectVariantDropdown",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-ProductDetailPageFromQV.png",
+      "name": "ProductDetailPageFromQV",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-SelectVariantDropdown.png",
+      "name": "SelectVariantDropdown",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-DeelectVariantDropdown.png",
+      "name": "DeelectVariantDropdown",
+      "requests": []
+    }
+  ]
+}

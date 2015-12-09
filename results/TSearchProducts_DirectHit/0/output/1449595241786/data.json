@@ -1,0 +1,21 @@
+var jsonData = {
+  "user": "TSearchProducts_DirectHit",
+  "date": 1449595252285,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-SearchProductBySKU.png",
+      "name": "SearchProductBySKU",
+      "requests": []
+    }
+  ]
+}

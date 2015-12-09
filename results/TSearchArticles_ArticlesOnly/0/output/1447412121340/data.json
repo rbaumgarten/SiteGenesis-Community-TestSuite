@@ -1,0 +1,26 @@
+var jsonData = {
+  "user": "TSearchArticles_ArticlesOnly",
+  "date": 1447412146139,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-SearchArticlesOnly.png",
+      "name": "SearchArticlesOnly",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-ViewArticles.png",
+      "name": "ViewArticles",
+      "requests": []
+    }
+  ]
+}

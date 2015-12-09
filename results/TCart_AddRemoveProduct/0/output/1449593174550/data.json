@@ -1,0 +1,41 @@
+var jsonData = {
+  "user": "TCart_AddRemoveProduct",
+  "date": 1449593197199,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-SearchProductByName.png",
+      "name": "SearchProductByName",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-ConfigureProduct.png",
+      "name": "ConfigureProduct",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-AddToCart.png",
+      "name": "AddToCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-ViewCart.png",
+      "name": "ViewCart",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-ViewCart.png",
+      "name": "ViewCart",
+      "requests": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+A,OpenStartPage,1447164826019,204,false
+A,Homepage,1447164826327,3217,false
+A,HomepageAgain,1447164829629,1570,false
+A,GoToRegister,1447164831254,542,false
+A,Account_Login_clickGoToNewCustomer,1447164831905,2864,false
+A,Register,1447164834904,3761,false
+A,Logout,1447164838789,2504,false
+A,GoToHomepage,1447164841422,1943,false
+A,GoToLoginAndValidatePage,1447164843446,410,false
+A,OpenUserPanel,1447164843978,577,false
+A,GotoMyAccountLogin,1447164844634,2293,false
+A,LoginCustomerEmptyPassword,1447164847070,1957,false

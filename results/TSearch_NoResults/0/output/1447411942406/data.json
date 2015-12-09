@@ -1,0 +1,21 @@
+var jsonData = {
+  "user": "TSearch_NoResults",
+  "date": 1447411965787,
+  "actions": [
+    {
+      "fileName": "pages/0000-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-SearchNoResult.png",
+      "name": "SearchNoResult",
+      "requests": []
+    }
+  ]
+}

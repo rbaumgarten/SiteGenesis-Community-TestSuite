@@ -1,0 +1,71 @@
+var jsonData = {
+  "user": "TAccount_CreateAccount",
+  "date": 1447166542859,
+  "actions": [
+    {
+      "fileName": "pages/0000-OpenStartPage.png",
+      "name": "OpenStartPage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0001-Homepage.png",
+      "name": "Homepage",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0002-HomepageAgain.png",
+      "name": "HomepageAgain",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0003-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0004-GotoCreateAccount.png",
+      "name": "GotoCreateAccount",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0005-Register.png",
+      "name": "Register",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0006-Logout.png",
+      "name": "Logout",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0007-Login.png",
+      "name": "Login",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0008-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0009-GotoMyAccountLogin.png",
+      "name": "GotoMyAccountLogin",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0010-GoToPersonalData.png",
+      "name": "GoToPersonalData",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0011-OpenUserPanel.png",
+      "name": "OpenUserPanel",
+      "requests": []
+    },
+    {
+      "fileName": "pages/0012-Logout.png",
+      "name": "Logout",
+      "requests": []
+    }
+  ]
+}

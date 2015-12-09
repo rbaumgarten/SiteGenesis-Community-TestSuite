@@ -6,16 +6,19 @@
   <command name="assertElementPresent" target="css=#main .confirmation .confirmation-message button.print-page"/>
   <command name="assertElementPresent" target="css=#main .confirmation .confirmation-message .content-asset"/>
   <codecomment>Valdiate primary table order summary</codecomment>
-  <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-information h1 label" value="Order Number*"/>
+  <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-information .order-number span" value="Order Number*"/>
   <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-payment-instruments .label" value="regexpi:Payment Method"/>
   <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-billing .label" value="regexpi:Billing Address"/>
   <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-payment-summary .label" value="regexpi:Payment Total"/>
   <codecomment>Validate primary table shipment</codecomment>
   <command name="assertText" target="css=.confirmation .order-confirmation-details .orderdetails .order-shipments h2" value="regexpi:Shipment No. 1"/>
-  <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(1)" value="regexpi:Shipping To"/>
-  <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(2)" value="regexpi:Item"/>
-  <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(3)" value="regexpi:Quantity"/>
-  <command name="assertText" target="css=#main #primary .order-confirmation-details table.order-shipment-table th.section-header:nth-of-type(4)" value="regexpi:Price"/>
+  <command name="assertText" target="css=.order-shipment-details .shipping-method .label" value="regexpi:Method:"/>
+  <command name="assertText" target="css=.order-shipment-details .shipping-status .label" value="regexpi:Shipping Status:"/>
+  <command name="assertText" target="css=.order-shipment-details .order-shipment-address div.label" value="regexpi:Shipping To"/>
+  <command name="assertText" target="css=.order-shipment-details .order-shipment-address div.label" value="regexpi:Shipping To"/>
+  <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-details .label" value="regexpi:Item"/>
+  <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-quantity .label" value="regexpi:Qty"/>
+  <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-price .label" value="regexpi:Price"/>
   <codecomment>Validate primary actions</codecomment>
-  <command name="assertText" target="css=#main.clearfix.primary-focus div.confirmation.create-account div.actions a.continue" value="Return to Shopping"/>
+  <command name="assertText" target="css=#main div.confirmation div.actions a.continue" value="Return to Shopping"/>
 </scriptmodule>
