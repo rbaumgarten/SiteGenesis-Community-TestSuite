@@ -17,7 +17,7 @@
   <command name="storeEval" target="&quot;@{firstname}&quot;.toUpperCase()" value="firstnameUpperCase"/>
   <command name="storeEval" target="&quot;@{lastname}&quot;.toUpperCase()" value="lastnameUpperCase"/>
   <command name="assertText" target="css=#dwfrm_wishlist_share.list-share h2.list-title" value="${firstnameUpperCase} ${lastnameUpperCase} 'S WISH LIST"/>
-  <command name="assertElementPresent" target="css=#dwfrm_wishlist_share.list-share button.print-page"/>
+  <command name="assertElementPresent" disabled="true" target="css=#dwfrm_wishlist_share.list-share button.print-page"/>
   <codecomment>....</codecomment>
   <codecomment>check no item list is visible</codecomment>
   <command name="assertNotVisible" target="css= .item-list tr"/>

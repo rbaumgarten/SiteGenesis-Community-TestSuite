@@ -4,5 +4,5 @@
   <parameter name="firstname" desc="firstname"/>
   <parameter name="lastname" desc="lastname"/>
   <parameter name="email" desc="email"/>
-  <command name="assertText" target="css=#primary p" value="No Wish List has been found for @{lastname} @{firstname} @{email}, please try again above."/>
+  <command name="assertText" target="css=#primary p" value="No wish list has been found for @{lastname} @{firstname} @{email}. Please try again."/>
 </scriptmodule>

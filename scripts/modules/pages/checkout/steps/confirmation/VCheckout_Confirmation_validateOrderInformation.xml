@@ -4,7 +4,7 @@
   <parameter name="orderDatePattern" desc="order date pattern"/>
   <parameter name="orderNumberPattern" desc="order number pattern"/>
   <codecomment>Validate column order information</codecomment>
-  <command name="store" target="css=#main #primary .order-confirmation-details .item-list .order-information " value="css_column_order_information"/>
+  <command name="store" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-information" value="css_column_order_information"/>
   <codecomment>Match order date to pattern</codecomment>
   <command name="assertElementPresent" target="${css_column_order_information} .order-date .label"/>
   <command name="assertText" target="${css_column_order_information} .order-date .value" value="regexp:@{orderDatePattern}"/>

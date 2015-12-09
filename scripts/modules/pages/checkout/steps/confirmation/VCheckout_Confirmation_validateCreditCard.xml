@@ -9,17 +9,17 @@
   <parameter name="year" desc="year"/>
   <parameter name="paymentAmount" desc="payment amount"/>
   <codecomment>Validate column payment method</codecomment>
-  <command name="store" target="css=#main #primary .order-confirmation-details .item-list .order-payment-instruments " value="css_column_payment_creditcard"/>
+  <command name="store" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-payment-instruments" value="css_column_payment_creditcard"/>
   <command name="assertText" target="${css_column_payment_creditcard} .payment-type" value="@{paymentName}"/>
-  <command name="assertText" target="${css_column_payment_creditcard}" value="*@{owner}*"/>
-  <command name="assertText" target="${css_column_payment_creditcard}" value="*@{typeShort}*"/>
+  <command name="assertText" target="${css_column_payment_creditcard} .cc-owner" value="*@{owner}*"/>
+  <command name="assertText" target="${css_column_payment_creditcard} .cc-type" value="*@{typeShort}*"/>
   <codecomment>Validate hidden creditcard number with only last four digits shown</codecomment>
-  <command name="assertNotText" target="${css_column_payment_creditcard}" value="*@{number}*"/>
+  <command name="assertNotText" target="${css_column_payment_creditcard} .cc-number" value="*@{number}*"/>
   <module name="modules.helper.MHelper_Number_sliceLastFourDigits">
     <parameter name="number" value="@{number}"/>
     <parameter name="numberLastFourDigits_varName" value="numberLastFourDigits"/>
   </module>
-  <command name="assertText" target="${css_column_payment_creditcard}" value="*${numberLastFourDigits}*"/>
+  <command name="assertText" target="${css_column_payment_creditcard} .cc-number" value="*${numberLastFourDigits}*"/>
   <codecomment>Validate creditcard date as number format</codecomment>
   <module name="modules.helper.MHelper_Date_convertIntoMonthNumberShort">
     <parameter name="monthName" value="@{month}"/>
