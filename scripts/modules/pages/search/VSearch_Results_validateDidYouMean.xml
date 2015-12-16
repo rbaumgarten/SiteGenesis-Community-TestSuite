@@ -2,7 +2,10 @@
 <scriptmodule xmlns="http://xlt.xceptance.com/xlt-script/2" version="6">
   <description>Check that a did you mean suggestion come up.</description>
   <parameter name="suggestedText" desc="The did you mean suggestion text."/>
-  <command name="assertText" target="css=#primary.primary-content div.section-header p:last-of-type" value="regexpi:DID YOU MEAN: /n @{suggestedText}/n?">
+  <command name="assertText" target="css=#primary.primary-content div.section-header p:last-of-type" value="glob:DID YOU MEAN:*">
+    <comment>Please pay attention to the uppercasing. The test will break when this is changed.</comment>
+  </command>
+  <command name="assertText" target="css=#primary.primary-content div.section-header p:last-of-type a" value="regexpi:@{suggestedText}">
     <comment>Please pay attention to the uppercasing. The test will break when this is changed.</comment>
   </command>
 </scriptmodule>
