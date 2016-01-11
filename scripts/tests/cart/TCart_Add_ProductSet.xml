@@ -83,7 +83,7 @@
     <parameter name="productName" value="${productName_02_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
-    <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
+    <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
   <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
     <parameter name="row" value="3"/>
