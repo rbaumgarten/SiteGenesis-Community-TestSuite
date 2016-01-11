@@ -4,6 +4,7 @@
 classes
 /.settings/
 /bin/
+/bin
 /results/
 /target/
 node_modules
