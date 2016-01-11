@@ -4,5 +4,5 @@
   <parameter name="productNumber"/>
   <parameter name="fixedProductNumber_varName"/>
   <command name="storeEval" target="&quot;@{productNumber}&quot;.indexOf(&quot;.&quot;)" value="position"/>
-  <command name="storeEval" target="&quot;@{productNumber}&quot;.substring(${position}+1)" value="@{fixedProductNumber_varName}"/>
+  <command name="storeEval" target="&quot;@{productNumber}&quot;.substring(${position}+1).trim()" value="@{fixedProductNumber_varName}"/>
 </scriptmodule>

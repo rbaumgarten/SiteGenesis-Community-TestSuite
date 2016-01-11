@@ -3,7 +3,7 @@
   <description>Validate order totals price pattern.</description>
   <parameter name="pricePattern"/>
   <command name="assertText" target="css=.cart-order-totals .order-subtotal td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
-  <command name="assertText" target="css=.cart-order-totals .order-shipping td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
-  <command name="assertText" target="css=.cart-order-totals .order-sales-tax td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+  <command name="assertText" disabled="true" target="css=.cart-order-totals .order-shipping td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
+  <command name="assertText" disabled="true" target="css=.cart-order-totals .order-sales-tax td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
   <command name="assertText" target="css=.cart-order-totals .order-total td:nth-of-type(2)" value="regexp:@{pricePattern}"/>
 </scriptmodule>

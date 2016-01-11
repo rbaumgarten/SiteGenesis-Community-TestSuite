@@ -71,40 +71,40 @@
   <module name="modules.global.minicart.MGlobal_MiniCart_clickGoToCartByHeaderLink"/>
   <module name="modules.pages.cart.VCart_validatePage"/>
   <codecomment>The following modules are disabled and replaced by a less restrict version as workaround. The basic product details are checked independently from the cart rows for now.</codecomment>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
     <parameter name="row" value="1"/>
     <parameter name="productName" value="${productName_01_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
     <parameter name="row" value="2"/>
     <parameter name="productName" value="${productName_02_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails">
+  <module name="modules.pages.cart.VCart_Row_validateProductBasicDetails" disabled="true">
     <parameter name="row" value="3"/>
     <parameter name="productName" value="${productName_03_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_03_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails" disabled="true">
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
     <parameter name="productName" value="${productName_01_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_01_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_01_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails" disabled="true">
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
     <parameter name="productName" value="${productName_02_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_02_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
     <parameter name="productPriceSales" value="${productPriceSales_02_varDynamic}"/>
   </module>
-  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails" disabled="true">
+  <module name="modules.pages.cart.VCart_AnyRow_validateProductBasicDetails">
     <parameter name="productName" value="${productName_03_varDynamic}"/>
     <parameter name="productNumber" value="${productNumber_03_varDynamic}"/>
     <parameter name="productQuantity" value="1"/>
