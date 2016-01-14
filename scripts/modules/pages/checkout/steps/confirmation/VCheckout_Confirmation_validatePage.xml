@@ -15,7 +15,6 @@
   <command name="assertText" target="css=.order-shipment-details .shipping-method .label" value="regexpi:Method:"/>
   <command name="assertText" target="css=.order-shipment-details .shipping-status .label" value="regexpi:Shipping Status:"/>
   <command name="assertText" target="css=.order-shipment-details .order-shipment-address div.label" value="regexpi:Shipping To"/>
-  <command name="assertText" target="css=.order-shipment-details .order-shipment-address div.label" value="regexpi:Shipping To"/>
   <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-details .label" value="regexpi:Item"/>
   <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-quantity .label" value="regexpi:Qty"/>
   <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-price .label" value="regexpi:Price"/>
