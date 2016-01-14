@@ -12,8 +12,8 @@
   <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-payment-summary .label" value="regexpi:Payment Total"/>
   <codecomment>Validate primary table shipment</codecomment>
   <command name="assertText" target="css=.confirmation .order-confirmation-details .orderdetails .order-shipments h2" value="regexpi:Shipment No. 1"/>
-  <command name="assertText" target="css=.order-shipment-details .shipping-method .label" value="regexpi:Method:"/>
   <command name="assertText" target="css=.order-shipment-details .shipping-status .label" value="regexpi:Shipping Status:"/>
+  <command name="assertText" target="css=.order-shipment-details .shipping-method .label" value="regexpi:Method:"/>
   <command name="assertText" target="css=.order-shipment-details .order-shipment-address div.label" value="regexpi:Shipping To"/>
   <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-details .label" value="regexpi:Item"/>
   <command name="assertText" target="css=.order-shipment-table .line-items .line-item .line-item-quantity .label" value="regexpi:Qty"/>
