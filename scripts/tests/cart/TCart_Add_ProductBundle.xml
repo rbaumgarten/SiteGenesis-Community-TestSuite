@@ -36,7 +36,7 @@ Caution: The product should have at least 5 elements</codecomment>
   <command name="storeText" target="css=.product-set form div:nth-of-type(3) div.product-set-details h1.product-name a.item-name" value="thirdProductName"/>
   <command name="storeText" target="css=.product-set form div:nth-of-type(4) div.product-set-details h1.product-name a.item-name" value="fourthProductName"/>
   <command name="storeText" target="css=.product-set form div:nth-of-type(5) div.product-set-details h1.product-name a.item-name" value="fifthProductName"/>
-  <codecomment>Store the basic datas of a product bundle</codecomment>
+  <codecomment>Store the basic data of a product bundle</codecomment>
   <command name="storeText" target="css=#pdpMain .product-name" value="productName"/>
   <command name="storeText" target="css=.product-number span" value="productNumber"/>
   <command name="storeText" target="css=.product-add-to-cart div.product-price span.price-sales" value="productPrice"/>
