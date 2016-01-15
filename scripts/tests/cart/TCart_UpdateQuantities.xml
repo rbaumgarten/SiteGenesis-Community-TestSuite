@@ -56,7 +56,7 @@
 - Validate cart page 
 - Validate product 01 row structure
 - Validate product 01 price total</codecomment>
-  <codecomment>Please keep in Mind - there is a sales promotion free shipping for orders over 300$</codecomment>
+  <codecomment>Please keep in mind - there is a sales promotion free shipping for orders over 300$</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateRow">
     <parameter name="row" value="1"/>
   </module>
