@@ -1,7 +1,7 @@
 .classpath
 .DS_Store
 .openscripts
-classes
+/classes/
 /.settings/
 /bin/
 /results/
