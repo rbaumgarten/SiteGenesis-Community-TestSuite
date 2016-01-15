@@ -10,7 +10,6 @@
     <parameter name="number_varName" value="priceRefinementPositionRandom"/>
   </module>
   <codecomment>Click created price refinement position</codecomment>
-  <command name="assertElementPresent" target="xpath=(id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by Price&quot;)])[1]"/>
   <command name="click" target="xpath=(id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by Price&quot;)])[${priceRefinementPositionRandom}]"/>
   <command name="waitForElementPresent" target="css=#secondary.refinements div.refinement ul li.selected a"/>
   <codecomment>Store selected price range</codecomment>
