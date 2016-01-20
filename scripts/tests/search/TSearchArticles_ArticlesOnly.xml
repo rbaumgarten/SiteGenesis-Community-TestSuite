@@ -28,7 +28,7 @@
     <parameter name="searchText" value="${searchText}"/>
   </module>
   <module name="modules.pages.search.VSearch_Results_validateSearchResultPage"/>
-  <module name="modules.pages.search.VSearch_Results_validateBreadcrumb">
+  <module name="modules.pages.search.VSearch_Results_validateBreadcrumb" disabled="true">
     <parameter name="searchText" value="${searchText}"/>
   </module>
   <module name="modules.pages.search.VSearch_Results_validateRefine"/>

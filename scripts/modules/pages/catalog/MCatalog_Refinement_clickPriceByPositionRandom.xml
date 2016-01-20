@@ -3,14 +3,14 @@
   <description>Click price by random position.</description>
   <parameter name="priceRange_varName" desc="price range as var name"/>
   <codecomment>Count number of price refinement elements</codecomment>
-  <command name="storeElementCount" target="xpath=id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by price&quot;)]" value="priceRefinementCount"/>
+  <command name="storeElementCount" target="xpath=id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by Price&quot;)]" value="priceRefinementCount"/>
   <codecomment>Create random number between 1 and counter of price refinement elements</codecomment>
   <module name="modules.helper.MHelper_Random_createNumber">
     <parameter name="numberMax" value="${priceRefinementCount}"/>
     <parameter name="number_varName" value="priceRefinementPositionRandom"/>
   </module>
   <codecomment>Click created price refinement position</codecomment>
-  <command name="click" target="xpath=(id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by price&quot;)])[${priceRefinementPositionRandom}]"/>
+  <command name="click" target="xpath=(id('secondary')/div[contains(@class,'refinement')] //a[contains(@class,'refinement-link') and starts-with(@title,&quot;Refine by Price&quot;)])[${priceRefinementPositionRandom}]"/>
   <command name="waitForElementPresent" target="css=#secondary.refinements div.refinement ul li.selected a"/>
   <codecomment>Store selected price range</codecomment>
   <command name="storeText" target="css=#secondary.refinements div.refinement ul li.selected a" value="@{priceRange_varName}"/>

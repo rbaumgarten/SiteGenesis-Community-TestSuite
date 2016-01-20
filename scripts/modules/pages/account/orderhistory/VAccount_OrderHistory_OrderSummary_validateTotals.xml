@@ -6,8 +6,8 @@
   <parameter name="totalsSalesTax" desc="totals sales tax"/>
   <parameter name="totalsTotal" desc="totals total"/>
   <codecomment>Validate column payment total</codecomment>
-  <command name="store" target="css=#main #primary .item-list .order-payment-summary .order-detail-summary .order-totals-table" value="css_column_order_totals"/>
-  <command name="waitForText" target="${css_column_order_totals} .order-subtotal td:nth-of-type(2)" value="@{totalsSubtotal}"/>
+  <command name="store" target="css=#primary .orderdetails .order-payment-summary .order-detail-summary .order-totals-table tbody" value="css_column_order_totals"/>
+  <command name="assertText" target="${css_column_order_totals} .order-subtotal td:nth-of-type(2)" value="@{totalsSubtotal}"/>
   <command name="assertText" target="${css_column_order_totals} .order-shipping td:nth-of-type(2)" value="@{totalsShipping}"/>
   <command name="assertText" target="${css_column_order_totals} .order-sales-tax td:nth-of-type(2)" value="@{totalsSalesTax}"/>
   <command name="assertText" target="${css_column_order_totals} .order-total td:nth-of-type(2)" value="@{totalsTotal}"/>

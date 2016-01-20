@@ -3,6 +3,6 @@
   <description>Store order data.</description>
   <parameter name="orderNumber_varName" desc="order number as var name"/>
   <parameter name="orderDate_varName" desc="order date as var name"/>
-  <command name="storeText" target="css=td.order-information div.order-number span.value" value="@{orderNumber_varName}"/>
-  <command name="storeText" target="css=td.order-information div.order-date span.value" value="@{orderDate_varName}"/>
+  <command name="storeText" target="css=.order-information .order-number .value" value="@{orderNumber_varName}"/>
+  <command name="storeText" target="css=.order-information .order-date .value" value="@{orderDate_varName}"/>
 </scriptmodule>

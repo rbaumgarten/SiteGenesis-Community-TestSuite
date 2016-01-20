@@ -12,29 +12,32 @@
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-image"/>
   <command name="assertElementPresent" target="css=#product-set-list div:first-of-type .product-set-details"/>
   <codecomment>First Product</codecomment>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) div.product-set-image"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .product-name"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .availability"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .product-variations"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .block-add-to-cart"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(1) .block-add-to-cart form .add-to-cart"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) div.product-set-image"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .price-sales"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .availability-web"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .product-variations"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .inventory"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(1) .add-to-cart"/>
   <codecomment>Second Product</codecomment>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) div.product-set-image"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-name"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .availability"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .product-variations"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .block-add-to-cart"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(2) .block-add-to-cart form .add-to-cart"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) div.product-set-image"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .price-sales"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .availability-web"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .product-variations"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .inventory"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(2) .add-to-cart"/>
   <codecomment>Third Product</codecomment>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) div.product-set-image"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-name"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-number"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .availability"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .product-variations"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .block-add-to-cart"/>
-  <command name="assertElementPresent" target="css=#product-set-list div:nth-of-type(3) .block-add-to-cart form .add-to-cart"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) div.product-set-image"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .product-name"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .product-number"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .price-sales"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .availability-web"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .product-variations"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .inventory"/>
+  <command name="assertElementPresent" target="css=#product-set-list .product-set-item:nth-of-type(3) .add-to-cart"/>
   <codecomment>Add All To Cart Button</codecomment>
   <command name="assertElementPresent" target="css=#add-all-to-cart:not(disabled)"/>
 </scriptmodule>

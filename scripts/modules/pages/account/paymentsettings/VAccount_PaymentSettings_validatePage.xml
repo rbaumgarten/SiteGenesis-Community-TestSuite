@@ -3,6 +3,6 @@
   <description>Validate payment settings page.</description>
   <codecomment>Validate payment settings page</codecomment>
   <command name="assertText" target="css=#primary h1" value="Credit Card Information"/>
-  <command name="assertText" target="css=#primary .section-header" value="CREDIT CARD INFORMATION*"/>
-  <command name="assertText" target="css=#primary .section-header a.add-card" value="Add a Credit Card"/>
+  <command name="assertElementPresent" target="css=#primary .paymentslist a.section-header-note.add-card.button"/>
+  <command name="assertText" disabled="true" target="css=#primary .section-header a.add-card" value="Add a Credit Card"/>
 </scriptmodule>

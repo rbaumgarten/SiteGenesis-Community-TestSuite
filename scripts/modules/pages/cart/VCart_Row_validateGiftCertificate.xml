@@ -11,7 +11,7 @@
   <command name="assertElementPresent" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-image"/>
   <codecomment>---</codecomment>
   <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details div.name" value="Gift Certificate"/>
-  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details p.gift-cert-delivery" value="- Gift certificate will be delivered by e-mail"/>
+  <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details p.gift-cert-delivery" value="- Gift certificate will be delivered by email"/>
   <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row})  td.item-details div.giftcertamount span.label" value="glob:Price:"/>
   <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-details div.giftcertamount span.value" value="*@{giftCertificateValue}"/>
   <command name="assertText" target="css=#cart-table tbody tr:nth-of-type(@{row}) td.item-details div:nth-of-type(3) span.value" value="@{firstNameRecipient} @{lastNameRecipient}, @{emailRecipient}"/>

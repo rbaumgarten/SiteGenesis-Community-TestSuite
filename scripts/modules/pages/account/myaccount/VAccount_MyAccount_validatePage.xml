@@ -4,12 +4,12 @@
   <codecomment>Account primary menu</codecomment>
   <command name="assertElementPresent" target="css= #primary h1"/>
   <command name="store" target="css= #primary.primary-content div.content-asset ul.account-options li:nth-of-type" value="css_account_menu"/>
-  <command name="assertText" target="${css_account_menu}(1) a" value="Personal Data">
+  <command name="assertText" target="${css_account_menu}(1) a h2" value="regexpi:Personal Data">
     <comment>check first label</comment>
   </command>
-  <command name="assertText" target="${css_account_menu}(2) a" value="Orders"/>
-  <command name="assertText" target="${css_account_menu}(3) a" value="Addresses"/>
-  <command name="assertText" target="${css_account_menu}(4) a" value="Wish List"/>
-  <command name="assertText" target="${css_account_menu}(5) a" value="Payment Settings"/>
-  <command name="assertText" target="${css_account_menu}(6) a" value="Gift Registries"/>
+  <command name="assertText" target="${css_account_menu}(2) a h2" value="regexpi:Orders"/>
+  <command name="assertText" target="${css_account_menu}(3) a h2" value="regexpi:Addresses"/>
+  <command name="assertText" target="${css_account_menu}(4) a h2" value="regexpi:Wish List"/>
+  <command name="assertText" target="${css_account_menu}(5) a h2" value="regexpi:Payment Settings"/>
+  <command name="assertText" target="${css_account_menu}(6) a h2" value="regexpi:Gift Registries"/>
 </scriptmodule>

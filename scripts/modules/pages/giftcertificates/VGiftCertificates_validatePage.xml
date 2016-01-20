@@ -6,7 +6,7 @@
   <command name="assertText" target="css=#primary.primary-content .gift-certificate-purchase div.content-asset h2" value="PURCHASE AN ONLINE GIFT CERTIFICATE"/>
   <command name="assertElementPresent" target="css=#primary.primary-content div.gift-certificate-purchase.clearfix div.content-asset"/>
   <codecomment>---</codecomment>
-  <command name="assertText" target="css=#GiftCertificateForm fieldset div.dialog-required .required-indicator em" value="required"/>
+  <command name="assertText" target="css=#GiftCertificateForm fieldset div.dialog-required .required-indicator em" value="regexpi:required"/>
   <codecomment>---</codecomment>
   <command name="assertText" target="css=#GiftCertificateForm fieldset div:nth-of-type(3) label span:last-of-type" value="Your Name"/>
   <command name="assertElementPresent" target="id=dwfrm_giftcert_purchase_from"/>

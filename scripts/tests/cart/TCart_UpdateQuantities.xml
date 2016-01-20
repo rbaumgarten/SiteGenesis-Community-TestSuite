@@ -47,6 +47,7 @@
     <parameter name="productPriceSales_varName" value="productPriceSales_01_varDynamic"/>
     <parameter name="productPriceTotal_varName" value="unused"/>
   </module>
+  <module name="modules.pages.cart.VCart_validatePage"/>
   <codecomment>------------------------------------------------------------</codecomment>
   <codecomment>Product 01 - Change quantity via update cart</codecomment>
   <codecomment>------------------------------------------------------------</codecomment>
@@ -55,7 +56,7 @@
 - Validate cart page 
 - Validate product 01 row structure
 - Validate product 01 price total</codecomment>
-  <module name="modules.pages.cart.VCart_validatePage"/>
+  <codecomment>Please keep in mind - there is a sales promotion free shipping for orders over 300$</codecomment>
   <module name="modules.pages.cart.VCart_Row_validateRow">
     <parameter name="row" value="1"/>
   </module>
