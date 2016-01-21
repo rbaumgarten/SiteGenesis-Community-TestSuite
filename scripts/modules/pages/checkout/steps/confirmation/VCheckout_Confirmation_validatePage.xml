@@ -3,7 +3,7 @@
   <description>Validate page.</description>
   <codecomment>Validate page title</codecomment>
   <command name="assertElementPresent" target="css=#main .confirmation .confirmation-message h1"/>
-  <command name="assertElementPresent" target="css=#main .confirmation .confirmation-message button.print-page"/>
+  <command name="assertElementPresent" disabled="true" target="css=#main .confirmation .confirmation-message button.print-page"/>
   <command name="assertElementPresent" target="css=#main .confirmation .confirmation-message .content-asset"/>
   <codecomment>Valdiate primary table order summary</codecomment>
   <command name="assertText" target="css=#main .confirmation .order-confirmation-details .orderdetails .order-information .order-number span" value="Order Number*"/>
