@@ -224,7 +224,7 @@
                 // setup tasks
                 for ( i = 0; i < files.length; i++ ) {
                     var list = files[i];
-                    var scriplists = scripts[i];
+                    var scriptlist = scripts[i];
 
                     junit = project.createTask("macro.junit.run");
                     junit.setDynamicAttribute("files", list);
